@@ -105,40 +105,42 @@
 </table>
 </aside>
 -->
-	<tr>
-		<td class="mainSubTitle">HOT 설문</td>
-		<td class="mainSubTitle">마감임박!!</td>
-		<td class="mainSubTitle">최근 제의</td>
-	</tr>
-	<tr>
-		<td class="mainSubValue">
-			<!-- 디비에서 불러올 값  : HOT설문-->
-		</td>
-		<td class="mainSubValue">
-			<!-- 디비에서 불러올 값 : 마감임박!! -->
-		</td>
-		<td class="mainSubValue">
-			<!-- 디비에서 불러올 값 : 최근 제의 -->
-		</td>
-	</tr>
-	<tr>
-		<td class="mainSubTitle">예비1</td>
-		<td class="mainSubTitle">예비2</td>
-		<td class="mainSubTitle">예비3</td>
-	</tr>
-	<tr>
-		<td class="mainSubValue">
-			<!-- 디비에서 불러올 값 : 예비 1 -->
-		</td>
-		<td class="mainSubValue">
-			<!-- 디비에서 불러올 값 : 예비 2 -->
-		</td>
-		<td class="mainSubValue">
-			<!-- 디비에서 불러올 값 : 예비3-->
-		</td>
-	</tr>
-	</table>
-
+	<div align="center">
+		<table>
+			<tr>
+				<td class="mainSubTitle">HOT 설문</td>
+				<td class="mainSubTitle">마감임박!!</td>
+				<td class="mainSubTitle">최근 제의</td>
+			</tr>
+			<tr>
+				<td class="mainSubValue">
+					<!-- 디비에서 불러올 값  : HOT설문-->
+				</td>
+				<td class="mainSubValue">
+					<!-- 디비에서 불러올 값 : 마감임박!! -->
+				</td>
+				<td class="mainSubValue">
+					<!-- 디비에서 불러올 값 : 최근 제의 -->
+				</td>
+			</tr>
+			<tr>
+				<td class="mainSubTitle">예비1</td>
+				<td class="mainSubTitle">예비2</td>
+				<td class="mainSubTitle">예비3</td>
+			</tr>
+			<tr>
+				<td class="mainSubValue">
+					<!-- 디비에서 불러올 값 : 예비 1 -->
+				</td>
+				<td class="mainSubValue">
+					<!-- 디비에서 불러올 값 : 예비 2 -->
+				</td>
+				<td class="mainSubValue">
+					<!-- 디비에서 불러올 값 : 예비3-->
+				</td>
+			</tr>
+		</table>
+	</div>
 
 
 
