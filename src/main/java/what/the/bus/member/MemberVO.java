@@ -7,6 +7,8 @@ public class MemberVO {
 	private String mgender;
 	private String mtel;
 	private String memail;
+	
+	
 
 	public String getMid() {
 		return mid;
