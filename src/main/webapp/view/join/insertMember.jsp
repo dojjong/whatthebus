@@ -6,13 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 화면</title>
+
 <link type="text/css" rel="stylesheet" href="../css/mainStyle.css">
 <link type="text/css" rel="stylesheet" href="../css/JoinStyle.css">
 </head>
 <body>
 	<!-- 화면 센터 -->
 	<div align="center">
-		<form method="post" action="insertMember.do">
+		<form name="form" method="post" action="insertMember.do">
 			<input type="hidden" name="check" value="" />
 			<table>
 				<tr>
@@ -32,7 +33,7 @@
 				</tr>
 				<tr>
 					<td align="right">비밀번호 확인 :&nbsp;</td>
-					<td align="left"><input type="password" name="reUserPW"
+					<td align="left"><input type="password" name="mpasswordcheck"
 						value="" /> <br /> <font color="red"></font></td>
 				</tr>
 				<tr>
@@ -42,24 +43,24 @@
 				</tr>
 				<tr>
 					<td align="right">성별 : &nbsp;</td>
-					<td align="left"><input type="radio" name="mgender" value="m">남성
-						<input type="radio" name="mgender" value="f">여성</td>
+					<td align="left"><input type="radio" name="mgender" value="M">남성
+						<input type="radio" name="mgender" value="F">여성</td>
 				</tr>
 
 
 				<tr>
 					<td align="right">전화번호 :&nbsp;</td>
-					<td align="left"><select name="mtel">
-							<option value="02">02</option>
+					<td align="left"><input type="hidden" name="mtel" value="">
+						<select name="mtel1">
 							<option value="010">010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="018">018</option>
 							<option value="019">019</option>
-					</select>- <input type="text" name="phone2" size="5" value="" /> - <input
-						type="text" name="phone3" size="5" value="" /> <br /> <font
-						color="red"></font></td>
+					</select>- <input type="text" name="mtel2" size="4" value="" /> - <input
+						type="text" name="mtel3" size="4" value="" /> <br /> <font
+						color="red"> </font></td>
 				</tr>
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
@@ -75,15 +76,17 @@
 				<tr>
 					<td colspan="2" align="right"><input type="reset"
 						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"
-						class="insertbt" value="회원가입" /> <input type="button"
-						class="insertbt" value="취소" onclick="" /></td>
+						class="insertbt" value="회원가입" onclick="tel()" /> <input
+						type="button" class="insertbt" value="취소" onclick="" /></td>
 				</tr>
 			</table>
 		</form>
 	</div>
 
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
-
+	<script type="text/javascript" src="../js/joinScript.js">
+		
+	</script>
 
 </body>
 </html>
