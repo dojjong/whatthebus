@@ -1,20 +1,19 @@
-package what.the.bus.member.impl;
+package what.the.bus.board.impl;
 
 import org.apache.ibatis.session.SqlSession;
 
-import what.the.bus.member.MemberVO;
+import what.the.bus.board.BoardVO;
 import what.the.bus.util.SqlSessionFactoryBean;
 
-public class MemberDAO {
+public class BoardDAO {
 	private SqlSession mybatis;
 
-	public MemberDAO() {
+	public BoardDAO() {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 
-	public void insertMember(MemberVO vo) {
-		mybatis.insert("MemberDAO.insertMember", vo);
+	public void insertBoard(BoardVO vo) {
+		mybatis.insert("BoardDAO.insertBoard", vo);
 		mybatis.commit();
 	}
-
 }

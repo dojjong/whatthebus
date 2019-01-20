@@ -9,8 +9,8 @@ import what.the.bus.member.impl.MemberDAO;
 @Controller
 public class MemberController {
 	@RequestMapping("/view/join/insertMember.do")
-	public String insertBoard(MemberVO vo, MemberDAO memberDAO) {
-		memberDAO.insertBoard(vo);
+	public String insertMember(MemberVO vo, MemberDAO memberDAO) {
+		memberDAO.insertMember(vo);
 		return "redirect:../main/main.jsp";
 	}
 }
