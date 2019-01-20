@@ -12,7 +12,7 @@ public class MemberDAO {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 
-	public void insertBoard(MemberVO vo) {
+	public void insertMember(MemberVO vo) {
 		mybatis.insert("MemberDAO.insertMember", vo);
 		mybatis.commit();
 	}
