@@ -16,5 +16,15 @@ public class MemberDAO {
 		mybatis.insert("MemberDAO.insertMember", vo);
 		mybatis.commit();
 	}
+	
+	public void updateBoard(MemberVO vo) {
+		mybatis.insert("MemberDAO.updateMember", vo);
+		mybatis.commit();
+	}
+	
+	public void deleteBoard(MemberVO vo) {
+		mybatis.insert("MemberDAO.deleteMember", vo);
+		mybatis.commit();
+	}
 
 }

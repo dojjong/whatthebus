@@ -13,4 +13,15 @@ public class MemberController {
 		memberDAO.insertBoard(vo);
 		return "redirect:../main/main.jsp";
 	}
+	
+	public String updateBoard(MemberVO vo, MemberDAO memberDAO) {
+		memberDAO.updateBoard(vo);
+		return "redirect:../main/main.jsp";
+	}
+	
+	public String deleteBoard(MemberVO vo, MemberDAO memberDAO) {
+		memberDAO.deleteBoard(vo);
+		return "redirect:../main/main.jsp";
+	}
+	
 }
