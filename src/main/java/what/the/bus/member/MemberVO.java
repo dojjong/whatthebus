@@ -1,67 +1,74 @@
 package what.the.bus.member;
 
 public class MemberVO {
-	private String mid;
-	private String mpassword;
-	private String mname;
-	private String mgender;
-	private String mtel;
-	private String memail;
-	
-	
+	private String id;
+	private String password;
+	private String name;
+	private String gender;
+	private String tel;
+	private String email;
+	private String license;
 
-	public String getMid() {
-		return mid;
+	public String getId() {
+		return id;
 	}
 
-	public void setMid(String mid) {
-		this.mid = mid;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getMpassword() {
-		return mpassword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setMpassword(String mpassword) {
-		this.mpassword = mpassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getMname() {
-		return mname;
+	public String getName() {
+		return name;
 	}
 
-	public void setMname(String mname) {
-		this.mname = mname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getMgender() {
-		return mgender;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setMgender(String mgender) {
-		this.mgender = mgender;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public String getMtel() {
-		return mtel;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setMtel(String mtel) {
-		this.mtel = mtel;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
-	public String getMemail() {
-		return memail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMemail(String memail) {
-		this.memail = memail;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLicense() {
+		return license;
+	}
+
+	public void setLicense(String license) {
+		this.license = license;
 	}
 
 	@Override
 	public String toString() {
-		return "MemberVO [mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mgender=" + mgender
-				+ ", mtel=" + mtel + ", memail=" + memail + "]";
+		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", gender=" + gender + ", tel="
+				+ tel + ", email=" + email + ", license=" + license + "]";
 	}
 
 }

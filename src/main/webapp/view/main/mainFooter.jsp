@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 아래</title>
+<link type="text/css" rel="stylesheet" href="../css/mainStyle.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script

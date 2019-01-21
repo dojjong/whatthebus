@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 위</title>
+<link type="text/css" rel="stylesheet" href="../css/mainStyle.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script
@@ -18,9 +19,9 @@
 	<div id="page">
 		<header id="header">
 			<div align="right">
-				<a href="../ryon/login.html" target="iframe"> <input
-					type="button" value="로그인" class="mainbt">
-				</a> <a href="choice.html" target="iframe"> <input type="button"
+				<a href="../login/login.jsp"> <input type="button" value="로그인"
+					class="mainbt">
+				</a> <a href="../join/insertMember.jsp"> <input type="button"
 					value="회원가입" class="mainbt">
 				</a>
 			</div>

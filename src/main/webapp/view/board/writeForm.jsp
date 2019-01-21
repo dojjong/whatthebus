@@ -25,14 +25,14 @@
 
 			<tr>
 				<td width="100" align="center">작성자</td>
-				<td width="400">
+				<td width="700">
 					<!-- 디비에서 받아온 이름 -->
 				</td>
 			</tr>
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="400"><input type="text" size="50" maxlength="50"
+				<td width="700"><input type="text" size="50" maxlength="50"
 					name="title" /></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
@@ -42,8 +42,8 @@
 			</tr>
 			<tr>
 				<td width="100" align="center">내용</td>
-				<td width="600" height="200"><textarea name="content" id="content"
-						rows="15" cols="600"></textarea></td>
+				<td><textarea name="content" id="ir1"
+						rows="15" cols="600"  style="width:680px; height:200px;"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit"
@@ -60,7 +60,7 @@
 
 			oAppRef : oEditors,
 
-			elPlaceHolder : "content",
+			elPlaceHolder : "ir1",
 
 			sSkinURI : "./se2/SmartEditor2Skin.html",
 

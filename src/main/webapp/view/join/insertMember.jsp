@@ -22,35 +22,35 @@
 				</tr>
 				<tr>
 					<td align="right">아이디 :&nbsp;</td>
-					<td align="left"><input type="text" name="mid" value="" /> <input
+					<td align="left"><input type="text" name="id" value="" /> <input
 						type="button" id="insertcheckbt" value="중복확인" onclick="" /> <%-- <c:if test="">--%>
 						<br /> <font color="red"></font> <font color="red"></font> <%--</c:if>--%></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
-					<td align="left"><input type="password" name="mpassword"
+					<td align="left"><input type="password" name="password"
 						value="" /> <br /> <font color="red"></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 확인 :&nbsp;</td>
-					<td align="left"><input type="password" name="mpasswordcheck"
+					<td align="left"><input type="password" name="passwordcheck"
 						value="" /> <br /> <font color="red"></font></td>
 				</tr>
 				<tr>
 					<td align="right">이름 :&nbsp;</td>
-					<td align="left"><input type="text" name="mname" value="" />
-						<br /> <font color="red"></font></td>
+					<td align="left"><input type="text" name="name" value="" /> <br />
+						<font color="red"></font></td>
 				</tr>
 				<tr>
 					<td align="right">성별 : &nbsp;</td>
-					<td align="left"><input type="radio" name="mgender" value="M">남성
-						<input type="radio" name="mgender" value="F">여성</td>
+					<td align="left"><input type="radio" name="gender" value="M">남성
+						<input type="radio" name="gender" value="F">여성</td>
 				</tr>
 
 
 				<tr>
 					<td align="right">전화번호 :&nbsp;</td>
-					<td align="left"><input type="hidden" name="mtel" value="">
+					<td align="left"><input type="hidden" name="tel" value="">
 						<select name="mtel1">
 							<option value="010">010</option>
 							<option value="011">011</option>
@@ -64,7 +64,7 @@
 				</tr>
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
-					<td align="left"><input type="text" name="memail" value="" />
+					<td align="left"><input type="text" name="email" value="" />
 						<font color="red"></font> <input type="button" id="emailcheckbt"
 						value="인증번호 발송" onclick="" /></td>
 

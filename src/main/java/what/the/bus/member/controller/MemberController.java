@@ -8,20 +8,32 @@ import what.the.bus.member.impl.MemberDAO;
 
 @Controller
 public class MemberController {
+	// 회원가입
 	@RequestMapping("/view/join/insertMember.do")
 	public String insertMember(MemberVO vo, MemberDAO memberDAO) {
 		memberDAO.insertMember(vo);
 		return "redirect:../main/main.jsp";
 	}
-	
-	public String updateBoard(MemberVO vo, MemberDAO memberDAO) {
-		memberDAO.updateBoard(vo);
+
+	// 회원정보 수정
+	public String updateMember(MemberVO vo, MemberDAO memberDAO) {
+		memberDAO.updateMember(vo);
 		return "redirect:../main/main.jsp";
 	}
-	
-	public String deleteBoard(MemberVO vo, MemberDAO memberDAO) {
-		memberDAO.deleteBoard(vo);
+
+	// 회원탈퇴
+	public String deleteMember(MemberVO vo, MemberDAO memberDAO) {
+		memberDAO.deleteMember(vo);
 		return "redirect:../main/main.jsp";
 	}
-	
+
+	// 로그인처리
+	@RequestMapping("/view/login/loginMember.do")
+	public String loginMember(MemberVO vo, MemberDAO memberDAO) {
+		if (vo.getPassword().equals(memberDAO.loginMember(vo).getPassword())) {
+			return "redirect:../main/main.jsp";
+		} else {
+			return "redirect:../login/loginError.jsp";
+		}
+	}
 }

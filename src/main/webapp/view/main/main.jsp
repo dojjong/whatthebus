@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:include page="../main/mainHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,60 +19,6 @@
 </head>
 
 <body>
-	<div id="page">
-		<header id="header">
-			<div align="right">
-				<a href="../ryon/login.html" target="iframe"> <input
-					type="button" value="로그인" class="mainbt">
-				</a> <a href="choice.html" target="iframe"> <input type="button"
-					value="회원가입" class="mainbt">
-				</a>
-			</div>
-			<a><img src="../images/main_logo.jpg" id="gogo"></a>
-
-			<div class="menubar">
-				<ul>
-					<li><a href="#">소개</a>
-						<ul>
-							<li><a href="idSearch.html" target="iframe">사이트소개(임시:id찾기
-									화면)</a></li>
-							<li><a href="idCheck.html" target="iframe">이용가이드(임시:id찾기
-									완료창)</a></li>
-						</ul></li>
-					<li><a href="#">커뮤니티</a>
-						<ul>
-							<li><a href="../join/insertDriver.html" target="iframe">기사님
-									회원가입 화면</a></li>
-							<li><a href="../join/insertMember.html" target="iframe">손님
-									회원가입 화면</a></li>
-							<li><a href="../join/insertMemberCheck.html" target="iframe">회원가입
-									완료화면</a></li>
-						</ul></li>
-					<li><a href="#">제안</a>
-						<ul>
-							<li><a href="../pay/payForm.html" target="iframe">정기권제안(임시:결제화면)</a></li>
-							<li><a href="#">단기권제안()</a></li>
-						</ul></li>
-					<li><a href="#">예약</a>
-						<ul>
-							<li><a href="../border/list.html" target="iframe">자유게시판(임시:게시판글)</a></li>
-							<li><a href="../border/writeForm.html" target="iframe">수요조사(임시:글쓰기화면)</a></li>
-							<li><a href="../border/content.html" target="iframe">후기(임시:게시글보기화면)</a></li>
-						</ul></li>
-					<li><a href="#">고객센터</a>
-						<ul>
-							<li><a href="#">Q&A</a></li>
-							<li><a href="#">분실물서비스</a></li>
-							<li><a href="#">ContactUs</a></li>
-						</ul></li>
-					<li><a href="#">공지사항</a>
-						<ul>
-							<li><a href="#">공지사항</a></li>
-							<li><a href="#">이벤트</a></li>
-						</ul></li>
-				</ul>
-		</header>
-	</div>
 
 
 	<!-- 여기까지 메뉴 -->
@@ -144,30 +91,6 @@
 
 
 
-	<!-- page -->
-	<footer>
-		<table id="footertable" align="center">
-			<tr>
-				<td width="30px"></td>
-				<td align="left"><br />주식회사 <strong>&nbsp;WhatTheBus</strong><br />
-					<br /> <strong>대표</strong>&nbsp; 류종학<br /> <strong>정보보호
-						담당자</strong>&nbsp;김지혜<br /> <strong>주소</strong>&nbsp;서울시 성동구 무학로2길 54 신방빌딩
-					4,5층<br /> <strong>사업자등록번호</strong>&nbsp;123-45-67890<br />
-					Copyright ⓒ 2019 WhatTheBus All rights reserved.<br />
-					<button type="button" class="btn btn-link" id="termsbt">이용약관·개인정보취급방침</button>
-					<br /></td> &nbsp;&nbsp;
-				<td align="left">문의<br /> <br /> &nbsp;&nbsp;<strong>전화</strong>
-					010-8239-7823<br />
-					<form action="mailto:jeje_k@naver.com" method="post"
-						enctype="text/plain">
-						<button id="mail">
-							<strong>이메일</strong>&nbsp;jeje_k@naver.com
-						</button>
-					</form> <br /> <a href="#"><img src="images/kakao.png" width="35"
-						height="35"></a> <a href="#"><img src="images/facebook.png"
-						width="35" height="35"></a> <a href="#"><img
-						src="images/insta.png" width="35" height="35"></a>
-		</table>
-	</footer>
+	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

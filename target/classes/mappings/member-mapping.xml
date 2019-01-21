@@ -5,7 +5,10 @@
 <mapper namespace="MemberDAO">
 	<insert id="insertMember">
 		insert into
-		member(mid,mpassword,mname,mgender,mtel,memail)
-		values(#{mid},#{mpassword},#{mname},#{mgender},#{mtel},#{memail})
+		member(id,password,name,gender,tel,email)
+		values(#{id},#{password},#{name},#{gender},#{tel},#{email})
 	</insert>
+	<select id="loginMember" resultType="member">
+		select * from member where id=#{id}
+	</select>
 </mapper>
