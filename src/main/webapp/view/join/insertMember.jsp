@@ -82,11 +82,11 @@
 			</table>
 		</form>
 	</div>
-
+	<script type="text/javascript" src="../js/joinScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
-	<script type="text/javascript" src="../js/joinScript.js">
-		
-	</script>
+
+
+
 
 </body>
 </html>

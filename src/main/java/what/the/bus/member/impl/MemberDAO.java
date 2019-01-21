@@ -20,7 +20,6 @@ public class MemberDAO {
 
 	public void insertMember(MemberVO vo) {
 		mybatis.insert("MemberDAO.insertMember", vo);
-		mybatis.commit();
 	}
 
 	public void updateMember(MemberVO vo) {
