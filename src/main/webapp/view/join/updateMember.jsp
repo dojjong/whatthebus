@@ -21,8 +21,8 @@
 					<td id="welcome" colspan="2" align="center">회원정보수정</td>
 				</tr>
 				<tr>
-					<td align="right">아이디 : DB 에서 가져와야함 &nbsp;</td>
-					<td align="left"></td>
+					<td align="right">아이디 :&nbsp;</td>
+					<td align="left">${member.id }</td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 					<td align="right">이름 :&nbsp;</td>
-					<td align="left">
+					<td align="left">${member.name }
 						<br /> <font color="red"></font></td>
 				</tr>
 				<tr>

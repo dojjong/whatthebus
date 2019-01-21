@@ -26,5 +26,8 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 			return false;
 		}
 	}
-
+	@Override
+	public MemberVO getMember(MemberVO vo) {
+		return memberDAO.loginMember(vo);
+	}
 }
