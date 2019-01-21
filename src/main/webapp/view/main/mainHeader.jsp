@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +20,31 @@
 <body>
 	<div id="page">
 		<header id="header">
-			<div align="right">
-				<a href="../login/login.jsp"> <input type="button" value="로그인"
-					class="mainbt">
-				</a> <a href="../join/insertMember.jsp"> <input type="button"
-					value="회원가입" class="mainbt">
-				</a>
-			</div>
+			<c:choose>
+				<c:when test="${member ne null }">
+					<div align="right">
+						<table>
+							<tr>
+								<td>${member.name }님환영합니다.&nbsp;</td>
+								<td><a href="../join/updateMember.jsp"> <input
+										type="button" value="회원정보 수정" class="mainbt">
+								</a></td>
+								<td><form method="post" action="logoutMember.do">
+										<input type="submit" value="로그아웃" class="mainbt">
+									</form></td>
+						</table>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div align="right">
+						<a href="../login/login.jsp"> <input type="button" value="로그인"
+							class="mainbt">
+						</a> <a href="../join/insertMember.jsp"> <input type="button"
+							value="회원가입" class="mainbt">
+						</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
 			<a><img src="../images/main_logo.jpg" id="gogo"></a>
 
 			<div class="menubar">
@@ -68,6 +88,7 @@
 							<li><a href="#">이벤트</a></li>
 						</ul></li>
 				</ul>
+			</div>
 		</header>
 	</div>
 

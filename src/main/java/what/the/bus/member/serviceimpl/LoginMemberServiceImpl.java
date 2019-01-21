@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.impl.MemberDAO;
@@ -18,7 +20,6 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 
 	@Override
 	public boolean loginMember(MemberVO vo) {
-		memberDAO.loginMember(vo);
 		if (vo.getPassword().equals(memberDAO.loginMember(vo).getPassword())) {
 			return true;
 		} else {
