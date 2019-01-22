@@ -23,16 +23,17 @@
 					<td align="right">아이디 :&nbsp;</td>
 					<td align="left">${member.id }</td>
 				</tr>
+				<!-- 비밀번호 변경창으로 옮길것 
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
-					<td align="left"><input type="password" name="password" value="${member.password }" />
+					<td align="left"><input type="password" name="password" value="" />
 					 <br /> <font color="red"></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 확인 :&nbsp;</td>
 					<td align="left"><input type="password" name="reUserPW"
 						value="" /> <br /> <font color="red"></font></td>
-				</tr>
+				</tr>-->
 				<tr>
 					<td align="right">이름 :&nbsp;</td>
 					<td align="left">${member.name }<br /> <font color="red"></font></td>

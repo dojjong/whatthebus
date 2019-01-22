@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.service.UpdateMemberService;
+
 @Controller
 @SessionAttributes("member")
 public class UpdateMemberController {
@@ -16,8 +17,18 @@ public class UpdateMemberController {
 
 	// 회원정보 수정
 	@RequestMapping("/view/**/updateMember.do")
-	public String updateMember(@ModelAttribute("member")MemberVO vo) {
+	public String updateMember(@ModelAttribute("member") MemberVO vo) {
 		memberService.updateMember(vo);
 		return "redirect:../main/main.jsp";
+	}
+
+	@RequestMapping("/view/**/pwCheckMember.do")
+	public String pwCheckMember(@ModelAttribute("member")MemberVO vo) {
+		// 비번 일치 검증 후
+		if (memberService.pwCheckMember(vo) == true) {
+			return "redirect:../join/pwUpdateMember.jsp";
+		} else {
+			return "redirect:../join/errorPW.jsp";
+		}
 	}
 }

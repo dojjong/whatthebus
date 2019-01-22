@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.MemberDAO;
+import what.the.bus.util.BCrypt;
+import what.the.bus.util.SHA256;
 import what.the.bus.util.SqlSessionFactoryBean;
 
 @Repository

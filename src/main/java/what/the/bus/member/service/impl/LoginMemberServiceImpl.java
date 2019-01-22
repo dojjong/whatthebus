@@ -1,31 +1,36 @@
 package what.the.bus.member.service.impl;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.impl.MemberDAOImpl;
 import what.the.bus.member.service.LoginMemberService;
+import what.the.bus.util.BCrypt;
+import what.the.bus.util.SHA256;
 
 @Service
 public class LoginMemberServiceImpl implements LoginMemberService {
 
 	@Autowired
 	private MemberDAOImpl memberDAO;
+	private SHA256 sha = SHA256.getInsatnce();
 
 	@Override
 	public boolean loginMember(MemberVO vo) {
-		if (vo.getPassword().equals(memberDAO.loginMember(vo).getPassword())) {
-			return true;
-		} else {
-			return false;
+		try {
+			String shaPass = sha.getSha256(vo.getPassword().getBytes());
+			if (BCrypt.checkpw(shaPass, getMember(vo).getPassword())) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		return false;
 	}
+
 	@Override
 	public MemberVO getMember(MemberVO vo) {
 		return memberDAO.loginMember(vo);

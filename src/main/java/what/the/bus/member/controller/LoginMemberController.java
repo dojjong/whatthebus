@@ -17,7 +17,7 @@ public class LoginMemberController {
 	@Autowired
 	private LoginMemberService memberService;
 
-	@RequestMapping("/view/login/loginMember.do")
+	@RequestMapping("/view/**/loginMember.do")
 	public String loginMember(MemberVO vo, Model model) {
 
 		if (memberService.loginMember(vo) == true) {

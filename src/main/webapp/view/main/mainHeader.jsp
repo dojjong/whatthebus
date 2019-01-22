@@ -26,9 +26,14 @@
 						<table>
 							<tr>
 								<td>${member.name }님환영합니다.&nbsp;</td>
+								<td><a href="../join/pwCheckMember.jsp">
+								<input
+										type="button" value="비밀번호 변경" class="mainbt">
+								</a></td>
 								<td><a href="../join/updateMember.jsp"> <input
 										type="button" value="회원정보 수정" class="mainbt">
 								</a></td>
+								
 								<td><form method="post" action="logoutMember.do">
 										<input type="submit" value="로그아웃" class="mainbt">
 									</form></td>

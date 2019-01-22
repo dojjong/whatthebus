@@ -14,7 +14,7 @@
 	</select>
 	<update id="updateMember">
 		update member set
-		password=#{password},tel=#{tel1}||#{tel2}||#{tel3},tel1=#{tel1},tel2=#{tel2},tel3=#{tel3},email=#{email}
+		tel=#{tel1}||#{tel2}||#{tel3},tel1=#{tel1},tel2=#{tel2},tel3=#{tel3},email=#{email}
 		where id=#{id}
 	</update>
 </mapper>
