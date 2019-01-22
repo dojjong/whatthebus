@@ -25,7 +25,7 @@
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
-					<td align="left"><input type="password" name="password" value="${password }" />
+					<td align="left"><input type="password" name="password" value="${member.password }" />
 					 <br /> <font color="red"></font></td>
 				</tr>
 				<tr>

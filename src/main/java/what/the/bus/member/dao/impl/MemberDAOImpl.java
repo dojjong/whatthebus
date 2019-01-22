@@ -23,7 +23,6 @@ public class MemberDAOImpl implements MemberDAO {
 
 	public void updateMember(MemberVO vo) {
 		mybatis.update("MemberDAO.updateMember", vo);
-		mybatis.commit();
 	}
 
 	public void deleteMember(MemberVO vo) {
