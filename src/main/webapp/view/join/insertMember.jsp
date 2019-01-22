@@ -14,7 +14,6 @@
 	<!-- 화면 센터 -->
 	<div align="center">
 		<form name="form" method="post" action="insertMember.do">
-			<input type="hidden" name="check" value="" />
 			<table>
 				<tr>
 					<td id="welcome" colspan="2" align="center">What The Bus에 오신것을
@@ -22,8 +21,7 @@
 				</tr>
 				<tr>
 					<td align="right">아이디 :&nbsp;</td>
-					<td align="left"><input type="text" name="id" value="" /> <input
-						type="button" id="insertcheckbt" value="중복확인" onclick="" /> <%-- <c:if test="">--%>
+					<td align="left"><input type="text" name="id" value="" /> <%-- <c:if test="">--%>
 						<br /> <font color="red"></font> <font color="red"></font> <%--</c:if>--%></td>
 				</tr>
 				<tr>
@@ -50,16 +48,15 @@
 
 				<tr>
 					<td align="right">전화번호 :&nbsp;</td>
-					<td align="left"><input type="hidden" name="tel" value="">
-						<select name="mtel1">
+					<td align="left"><select name="tel1">
 							<option value="010">010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="018">018</option>
 							<option value="019">019</option>
-					</select>- <input type="text" name="mtel2" size="4" value="" /> - <input
-						type="text" name="mtel3" size="4" value="" /> <br /> <font
+					</select>- <input type="text" name="tel2" size="4" value="" /> - <input
+						type="text" name="tel3" size="4" value="" /> <br /> <font
 						color="red"> </font></td>
 				</tr>
 				<tr>

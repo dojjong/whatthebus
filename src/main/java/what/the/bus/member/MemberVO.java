@@ -6,8 +6,35 @@ public class MemberVO {
 	private String name;
 	private String gender;
 	private String tel;
+	private String tel1;
+	private String tel2;
+	private String tel3;
 	private String email;
 	private String license;
+
+	public String getTel1() {
+		return tel1;
+	}
+
+	public void setTel1(String tel1) {
+		this.tel1 = tel1;
+	}
+
+	public String getTel2() {
+		return tel2;
+	}
+
+	public void setTel2(String tel2) {
+		this.tel2 = tel2;
+	}
+
+	public String getTel3() {
+		return tel3;
+	}
+
+	public void setTel3(String tel3) {
+		this.tel3 = tel3;
+	}
 
 	public String getId() {
 		return id;
@@ -68,7 +95,8 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", gender=" + gender + ", tel="
-				+ tel + ", email=" + email + ", license=" + license + "]";
+				+ tel + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", email=" + email + ", license="
+				+ license + "]";
 	}
 
 }

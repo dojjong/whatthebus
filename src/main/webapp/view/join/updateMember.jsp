@@ -1,7 +1,6 @@
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
@@ -26,8 +25,8 @@
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
-					<td align="left"><input type="password" name="mpassword"
-						value="" /> <br /> <font color="red"></font></td>
+					<td align="left"><input type="password" name="password" value="${password }" />
+					 <br /> <font color="red"></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 확인 :&nbsp;</td>
@@ -36,34 +35,38 @@
 				</tr>
 				<tr>
 					<td align="right">이름 :&nbsp;</td>
-					<td align="left">${member.name }
-						<br /> <font color="red"></font></td>
+					<td align="left">${member.name }<br /> <font color="red"></font></td>
 				</tr>
 				<tr>
 					<td align="right">성별 : &nbsp;</td>
-					<td align="left"><input type="radio" name="mgender" value="m">남성
-						<input type="radio" name="mgender" value="f">여성</td>
+					<td align="left"><c:choose>
+							<c:when test="${member.gender ne 'F'}">
+					남자
+					</c:when>
+							<c:otherwise>
+					여자
+					</c:otherwise>
+						</c:choose></td>
 				</tr>
 
 
 				<tr>
 					<td align="right">전화번호 :&nbsp;</td>
-					<td align="left"><select name="mtel">
-							<option value="02">02</option>
+					<td align="left"><select name="tel1">
 							<option value="010">010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="018">018</option>
 							<option value="019">019</option>
-					</select>- <input type="text" name="phone2" size="5" value="" /> - <input
-						type="text" name="phone3" size="5" value="" /> <br /> <font
+					</select>- <input type="text" name="tel2" size="5" value="${member.tel2 }" /> - <input
+						type="text" name="tel3" size="5" value="${member.tel3 }" /> <br /> <font
 						color="red"></font></td>
 				</tr>
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
-					<td align="left"><input type="text" name="memail" value="" />
-						<font color="red"></font> 
+					<td align="left"><input type="text" name="email"
+						value="${member.email}" /> <font color="red"></font>
 				<tr>
 					<td colspan="2" align="right"><input type="reset"
 						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"

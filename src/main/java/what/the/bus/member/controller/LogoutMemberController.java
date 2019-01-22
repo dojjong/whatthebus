@@ -13,7 +13,7 @@ public class LogoutMemberController {
 	@Autowired
 	private LogoutMemberService memberService;
 
-	@RequestMapping("/view/main/logoutMember.do")
+	@RequestMapping("/view/**/logoutMember.do")
 	public String logoutMember(HttpSession session) {
 		memberService.logoutMember(session);
 		return "redirect:../main/main.jsp";

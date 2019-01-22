@@ -1,4 +1,4 @@
-package what.the.bus.member.serviceimpl;
+package what.the.bus.member.service.impl;
 
 import javax.servlet.http.HttpSession;
 
