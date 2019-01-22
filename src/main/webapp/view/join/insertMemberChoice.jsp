@@ -20,9 +20,9 @@
 					회원가입</td>
 			</tr>
 			<tr>
-				<td align="right"><a href="../join/insertMember.jsp"
-					target="iframe"> <input type="submit" value="다음"
-						id="idsearchnextbt"></a></td>
+				<td align="right"><a href="../join/insertMember.jsp">
+						<input type="submit" value="다음" id="idsearchnextbt">
+				</a></td>
 			</tr>
 		</table>
 	</div>

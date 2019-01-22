@@ -11,4 +11,5 @@ public interface MemberDAO {
 
 	MemberVO loginMember(MemberVO vo);
 
+	void pwUpdateMember(MemberVO vo);
 }

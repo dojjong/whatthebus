@@ -17,7 +17,7 @@ public class InsertMemberServiceImpl implements InsertMemberService {
 
 	@Override
 	public void insertMember(MemberVO vo) {
-		/* 암호화 코드 */
+		// 암호화 변경 코드
 		try {
 			String shaPass = sha.getSha256(vo.getPassword().getBytes());
 			String bcPass = BCrypt.hashpw(shaPass, BCrypt.gensalt());

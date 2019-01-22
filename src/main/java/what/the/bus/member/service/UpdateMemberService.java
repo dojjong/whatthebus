@@ -6,4 +6,5 @@ public interface UpdateMemberService {
 	void updateMember(MemberVO vo);
 	MemberVO getMember(MemberVO vo);
 	boolean pwCheckMember(MemberVO vo);
+	void pwUpdateMember(MemberVO vo);
 }

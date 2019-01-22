@@ -22,6 +22,7 @@ public class UpdateMemberServiceImpl implements UpdateMemberService {
 
 	@Override
 	public boolean pwCheckMember(MemberVO vo) {
+		// 암호화 비교
 		try {
 			String shaPass = sha.getSha256(vo.getPassword().getBytes());
 			if (BCrypt.checkpw(shaPass, getMember(vo).getPassword())) {
@@ -40,4 +41,16 @@ public class UpdateMemberServiceImpl implements UpdateMemberService {
 		return memberDAO.loginMember(vo);
 	}
 
+	@Override
+	public void pwUpdateMember(MemberVO vo) {
+		// 다시 암호화해서 비번변경
+		try {
+			String shaPass = sha.getSha256(vo.getPassword().getBytes());
+			String bcPass = BCrypt.hashpw(shaPass, BCrypt.gensalt());
+			vo.setPassword(bcPass);
+			memberDAO.pwUpdateMember(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

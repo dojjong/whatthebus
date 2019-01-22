@@ -35,4 +35,8 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberVO loginMember(MemberVO vo) {
 		return mybatis.selectOne("MemberDAO.loginMember", vo);
 	}
+
+	public void pwUpdateMember(MemberVO vo) {
+		mybatis.update("MemberDAO.pwUpdateMember", vo);
+	}
 }
