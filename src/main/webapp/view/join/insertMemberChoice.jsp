@@ -20,7 +20,7 @@
 						value="driver">기사님으로 회원가입</td>
 				</tr>
 					<td align="right">
-					<a href="../join/insertMember.html" target="iframe">
+					<a href="../join/insertMember.jsp" target="iframe">
 					<input type="submit" value="다음"
 						id="idsearchnextbt"></a></td>
 				</tr>
