@@ -13,11 +13,11 @@
 			<table id="choice">
 				<tr>
 					<td><input type="radio" name="check"
-						value="phone">일반 손님 회원가입</td>
+						value="member">일반 손님 회원가입</td>
 				</tr>
 				<tr>
 					<td><input type="radio"  name="check"
-						value="email">기사님으로 회원가입</td>
+						value="driver">기사님으로 회원가입</td>
 				</tr>
 					<td align="right">
 					<a href="../join/insertMember.html" target="iframe">
