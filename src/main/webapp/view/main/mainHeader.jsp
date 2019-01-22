@@ -39,7 +39,7 @@
 					<div align="right">
 						<a href="../login/login.jsp"> <input type="button" value="로그인"
 							class="mainbt">
-						</a> <a href="../join/insertMember.jsp"> <input type="button"
+						</a> <a href="../join/insertMemberChoice.jsp"> <input type="button"
 							value="회원가입" class="mainbt">
 						</a>
 					</div>
