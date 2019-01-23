@@ -54,8 +54,8 @@
 							<option value="017">017</option>
 							<option value="018">018</option>
 							<option value="019">019</option>
-					</select>- <input type="text" name="tel2" size="4" value="" /> - <input
-						type="text" name="tel3" size="4" value="" /> <br /> <font
+					</select>- <input type="text" name="tel2" size="3" value="" /> - <input
+						type="text" name="tel3" size="3" value="" /> <br /> <font
 						color="red"> </font></td>
 				</tr>
 				<tr>
@@ -70,9 +70,14 @@
 					<td align="left"><input type="text" name="emailcheck" value="" />
 						<br />
 				<tr>
+				<tr><td align="right">면허 등록 : &nbsp;</td>
+					<td align="left"><input type="text" name="license"></td>
+				</tr>
+				
+				<tr>
 					<td colspan="2" align="right"><input type="reset"
 						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"
-						class="insertbt" value="회원가입" /> <input
+						class="insertbt" value="가입신청" />&nbsp;&nbsp; <input
 						type="button" class="insertbt" value="취소" onclick="" /></td>
 				</tr>
 			</table>

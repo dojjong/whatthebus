@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align="center">
-		<form method="post" action="../member/updateCheckDriver.jsp">
+		<form method="post" action="../driver/updateCheckDriver.jsp">
 			<table>
 				<tr>
 					<td align="center">비밀번호가 틀렸습니다.</td>

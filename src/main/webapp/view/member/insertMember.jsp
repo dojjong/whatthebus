@@ -20,28 +20,31 @@
 				</tr>
 				<tr>
 					<td align="right">아이디 :&nbsp;</td>
-					<td align="left"><input type="text" name="id" value="" /> <%-- <c:if test="">--%>
-						<br /> <font color="red"></font> <font color="red"></font> <%--</c:if>--%></td>
+					<td align="left"><input type="text" id="id" name="id" value="">
+						<font color="red"><span id="idMessage"></span></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
 					<td align="left"><input type="password" name="password"
-						value="" /> <br /> <font color="red"></font></td>
+						value="" />&nbsp; <font color="red"><span
+							id="passwordMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 확인 :&nbsp;</td>
 					<td align="left"><input type="password" name="passwordcheck"
-						value="" /> <br /> <font color="red"></font></td>
+						value="" />&nbsp; <font color="red"><span
+							id="passwordCheckMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">이름 :&nbsp;</td>
-					<td align="left"><input type="text" name="name" value="" /> <br />
-						<font color="red"></font></td>
+					<td align="left"><input type="text" name="name" value="" />
+						&nbsp; <font color="red"> <span id="nameMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">성별 : &nbsp;</td>
 					<td align="left"><input type="radio" name="gender" value="M">남성
-						<input type="radio" name="gender" value="F">여성</td>
+						<input type="radio" name="gender" value="F">여성&nbsp;&nbsp;
+						<font color="red"> <span id="genderMessage"> </span></font></td>
 				</tr>
 
 
@@ -54,25 +57,24 @@
 							<option value="017">017</option>
 							<option value="018">018</option>
 							<option value="019">019</option>
-					</select>- <input type="text" name="tel2" size="4" value="" /> - <input
-						type="text" name="tel3" size="4" value="" /> <br /> <font
-						color="red"> </font></td>
+					</select>- <input type="text" name="tel2" size="2" value="" /> - <input
+						type="text" name="tel3" size="2" value="" /> &nbsp; <font
+						color="red"><span id="telMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
-					<td align="left"><input type="text" name="email" value="" />
-						<font color="red"></font> <input type="button" id="emailcheckbt"
-						value="인증번호 발송" onclick="" /></td>
-
+					<td align="left"><input type="text" name="email" value="" />&nbsp;
+						<input type="button" id="emailcheckbt" value="인증번호 발송" onclick="" /><br /></td>
 				</tr>
 				<tr>
 					<td align="right">인증번호 입력 : &nbsp;</td>
-					<td align="left"><input type="text" name="emailcheck" value="" />
-						<br />
+					<td align="left"><input type="text" name="emailcheck" value="">
+						<font color="red"><span id="emailCheckMessage"> </span></font></td>
+				</tr>
 				<tr>
 					<td colspan="2" align="right"><input type="reset"
 						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"
-						class="insertbt" value="회원가입" onclick="tel()" /> <input
+						class="insertbt" value="회원가입" onclick="" />&nbsp;&nbsp; <input
 						type="button" class="insertbt" value="취소" onclick="" /></td>
 				</tr>
 			</table>

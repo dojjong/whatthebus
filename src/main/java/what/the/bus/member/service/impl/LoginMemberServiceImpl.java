@@ -18,7 +18,7 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 
 	@Override
 	public boolean loginMember(MemberVO vo) {
-		//암호화된 비번 디비랑 비교하는 코드
+		// 암호화된 비번 디비랑 비교하는 코드
 		try {
 			String shaPass = sha.getSha256(vo.getPassword().getBytes());
 			if (BCrypt.checkpw(shaPass, getMember(vo).getPassword())) {

@@ -9,7 +9,6 @@ import what.the.bus.driver.service.LoginDriverService;
 import what.the.bus.util.BCrypt;
 import what.the.bus.util.SHA256;
 
-
 @Service
 public class LoginDriverServiceImpl implements LoginDriverService {
 

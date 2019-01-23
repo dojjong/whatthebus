@@ -8,16 +8,15 @@
 	<insert id="insertDriver">
 	<![CDATA[
 		INSERT INTO
-		DRIVER(ID,PASSWORD,NAME,GENDER,TEL,TEL1,TEL2,TEL3,EMAIL)
-		VALUES(#{id},#{password},#{name},#{gender},#{tel1}||#{tel2}||#{tel3},#{tel1},#{tel2},#{tel3},#{email})
+		DRIVER(ID,PASSWORD,NAME,GENDER,TEL,TEL1,TEL2,TEL3,EMAIL,LICENSE)
+		VALUES(#{id},#{password},#{name},#{gender},#{tel1}||#{tel2}||#{tel3},#{tel1},#{tel2},#{tel3},#{email},#{license})
 		]]>
 	</insert>
 
 	<!-- 로그인 -->
 	<select id="loginDriver" resultType="driver">
 	<![CDATA[
-		SELECT * FROM DRIVER WHERE
-		ID=#{id}
+		SELECT * FROM DRIVER WHERE ID=#{id}
 		]]>
 	</select>
 
