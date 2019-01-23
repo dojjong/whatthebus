@@ -78,7 +78,7 @@
 			</table>
 		</form>
 	</div>
-	<script type="text/javascript" src="../js/joinScript.js"></script>
+	<script type="text/javascript" src="../js/memberScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 
 

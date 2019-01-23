@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align="center">
-		<form method="post" action="updateCheckMember.do">
+		<form method="post" action="updateCheckDriver.do">
 			<table>
 				<tr>
 					<td align="center">비밀번호 확인</td>

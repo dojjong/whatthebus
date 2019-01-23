@@ -52,7 +52,7 @@ public class UpdateDriverController {
 	}
 
 	// 변경 후 메인페이지로 이동
-	@RequestMapping("/view/**/updateCheck.do")
+	@RequestMapping("/view/driver/updateCheck.do")
 	public String updateCheck() {
 		return "redirect:../main/main.jsp";
 	}

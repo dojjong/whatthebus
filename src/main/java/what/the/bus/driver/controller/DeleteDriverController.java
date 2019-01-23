@@ -13,7 +13,7 @@ public class DeleteDriverController {
 	private DeleteDriverService driverService;
 
 	// 회원탈퇴
-	@RequestMapping("/view/**/insertDriver.do")
+	@RequestMapping("/view/**/deleteDriver.do")
 	public String deleteDriver(DriverVO vo) {
 		driverService.deleteDriver(vo);
 		return "redirect:../main/main.jsp";

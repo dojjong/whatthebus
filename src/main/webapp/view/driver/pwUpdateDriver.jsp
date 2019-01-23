@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align="center">
-		<form method="post" action="pwUpdateMember.do">
+		<form method="post" action="pwUpdateDriver.do">
 			<table>
 				<tr>
 					<td align="center">변경할 비밀번호 입력</td>

@@ -6,34 +6,34 @@
 
 	<!-- 회원가입 -->
 	<insert id="insertDriver">
-	<![CDATA[[
+	<![CDATA[
 		INSERT INTO
 		DRIVER(ID,PASSWORD,NAME,GENDER,TEL,TEL1,TEL2,TEL3,EMAIL)
-		VALUES(#{ID},#{PASSWORD},#{NAME},#{GENDER},#{TEL1}||#{TEL2}||#{TEL3},#{TEL1},#{TEL2},#{TEL3},#{EAMIL})
+		VALUES(#{id},#{password},#{name},#{gender},#{tel1}||#{tel2}||#{tel3},#{tel1},#{tel2},#{tel3},#{email})
 		]]>
 	</insert>
 
 	<!-- 로그인 -->
 	<select id="loginDriver" resultType="driver">
-	<![CDATA[[
+	<![CDATA[
 		SELECT * FROM DRIVER WHERE
-		ID=#{ID}
+		ID=#{id}
 		]]>
 	</select>
 
 	<!-- 회원정보 수정 -->
 	<update id="updateDriver">
-	<![CDATA[[
+	<![CDATA[
 		UPDATE DRIVER SET
-		TEL=#{TEL1}||#{TEL2}||#{TEL3},TEL1=#{TEL1},TEL2=#{TEL2},TEL3=#{TEL3},EMAIL=#{EAMIL}
-		WHERE ID=#{ID}
+		TEL=#{tel1}||#{tel2}||#{tel3},TEL1=#{tel1},TEL2=#{tel2},TEL3=#{tel3},EMAIL=#{email}
+		WHERE ID=#{id}
 		]]>
 	</update>
 
 	<!-- 비밀번호 수정 -->
 	<update id="pwUpdateDriver">
-	<![CDATA[[
-		UPDATE DRIVER SET PASSWORD=#{PASSWORD} WHERE ID=#{ID}
+	<![CDATA[
+		UPDATE DRIVER SET PASSWORD=#{password} WHERE ID=#{id}
 		]]>
 	</update>
 </mapper>

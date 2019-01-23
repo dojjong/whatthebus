@@ -8,12 +8,11 @@
 <title>회원가입 화면</title>
 
 <link type="text/css" rel="stylesheet" href="../css/mainStyle.css">
-<link type="text/css" rel="stylesheet" href="../css/memberStyle.css">
 </head>
 <body>
 	<!-- 화면 센터 -->
 	<div align="center">
-		<form name="form" method="post" action="insertMember.do">
+		<form name="form" method="post" action="insertDriver.do">
 			<table>
 				<tr>
 					<td id="welcome" colspan="2" align="center">What The Bus에 오신것을
@@ -73,13 +72,13 @@
 				<tr>
 					<td colspan="2" align="right"><input type="reset"
 						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"
-						class="insertbt" value="회원가입" onclick="tel()" /> <input
+						class="insertbt" value="회원가입" /> <input
 						type="button" class="insertbt" value="취소" onclick="" /></td>
 				</tr>
 			</table>
 		</form>
 	</div>
-	<script type="text/javascript" src="../js/joinScript.js"></script>
+	<script type="text/javascript" src="../js/driverScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 
 
