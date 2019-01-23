@@ -26,11 +26,11 @@
 						<table>
 							<tr>
 								<td>${member.name }님환영합니다.&nbsp;</td>
-								<td><form method="post" action="../join/pwCheckMember.jsp">
+								<td><form method="post" action="../member/pwCheckMember.jsp">
 										<input type="submit" value="비밀번호 변경" class="mainbt">
 									</form></td>
 								<td><form method="post"
-										action="../join/updateCheckMember.jsp">
+										action="../member/updateCheckMember.jsp">
 										<input type="submit" value="회원정보 수정" class="mainbt">
 									</form></td>
 								<td><form method="post" action="logoutMember.do">
@@ -43,7 +43,7 @@
 					<div align="right">
 						<a href="../login/login.jsp"> <input type="button" value="로그인"
 							class="mainbt">
-						</a> <a href="../join/insertMemberChoice.jsp"> <input
+						</a> <a href="../member/insertMemberChoice.jsp"> <input
 							type="button" value="회원가입" class="mainbt">
 						</a>
 					</div>

@@ -8,7 +8,7 @@
 <title>회원가입 화면</title>
 
 <link type="text/css" rel="stylesheet" href="../css/mainStyle.css">
-<link type="text/css" rel="stylesheet" href="../css/JoinStyle.css">
+<link type="text/css" rel="stylesheet" href="../css/memberStyle.css">
 </head>
 <body>
 	<!-- 화면 센터 -->

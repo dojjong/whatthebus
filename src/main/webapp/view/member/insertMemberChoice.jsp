@@ -20,7 +20,7 @@
 					회원가입</td>
 			</tr>
 			<tr>
-				<td align="right"><a href="../join/insertMember.jsp">
+				<td align="right"><a href="../member/insertMember.jsp">
 						<input type="submit" value="다음" id="idsearchnextbt">
 				</a></td>
 			</tr>

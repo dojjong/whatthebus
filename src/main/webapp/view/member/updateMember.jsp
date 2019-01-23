@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>회원정보수정</title>
 <link type="text/css" rel="stylesheet" href="../css/mainStyle.css">
-<link type="text/css" rel="stylesheet" href="../css/JoinStyle.css">
+<link type="text/css" rel="stylesheet" href="../css/memberStyle.css">
 </head>
 <body>
 	<!-- 화면 센터 -->
