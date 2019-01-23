@@ -1,5 +1,3 @@
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
@@ -13,7 +11,7 @@
 <body>
 	<!-- 화면 센터 -->
 	<div align="center">
-		<form method="post" action="updateMember.do">
+		<form method="post" action="updateDriver.do">
 			<input type="hidden" name="check" value="" />
 			<table>
 				<tr>

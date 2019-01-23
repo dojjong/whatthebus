@@ -7,6 +7,8 @@
 	<typeAliases>
 		<typeAlias type="what.the.bus.member.MemberVO"
 			alias="member"></typeAlias>
+		<typeAlias type="what.the.bus.driver.DriverVO"
+			alias="driver"></typeAlias>
 		<typeAlias type="what.the.bus.board.BoardVO" alias="board"></typeAlias>
 	</typeAliases>
 	<environments default="development">
@@ -23,6 +25,7 @@
 	<!-- Sql Mapper 설정 -->
 	<mappers>
 		<mapper resource="mappings/member-mapping.xml" />
+		<mapper resource="mappings/driver-mapping.xml" />
 		<mapper resource="mappings/board-mapping.xml" />
 	</mappers>
 </configuration>
