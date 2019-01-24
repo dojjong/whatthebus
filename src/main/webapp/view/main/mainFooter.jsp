@@ -25,7 +25,7 @@
 						담당자</strong>&nbsp;김지혜<br /> <strong>주소</strong>&nbsp;서울시 성동구 무학로2길 54 신방빌딩
 					4,5층<br /> <strong>사업자등록번호</strong>&nbsp;123-45-67890<br />
 					Copyright ⓒ 2019 WhatTheBus All rights reserved.<br />
-					<button type="button" class="btn btn-link" id="termsbt">이용약관·개인정보취급방침</button>
+					<a href="../main/TermsAndConditions.jsp"><input type="button" class="btn btn-link" id="termsbt" value="이용약관·개인정보취급방침"></a>
 					<br /></td> &nbsp;&nbsp;
 				<td align="left">문의<br /> <br /> &nbsp;&nbsp;<strong>전화</strong>
 					010-8239-7823<br />
