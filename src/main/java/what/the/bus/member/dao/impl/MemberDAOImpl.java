@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.MemberDAO;
-import what.the.bus.util.BCrypt;
-import what.the.bus.util.SHA256;
 import what.the.bus.util.SqlSessionFactoryBean;
 
 @Repository
@@ -39,4 +37,9 @@ public class MemberDAOImpl implements MemberDAO {
 	public void pwUpdateMember(MemberVO vo) {
 		mybatis.update("MemberDAO.pwUpdateMember", vo);
 	}
+	
+	public MemberVO checkMember(MemberVO vo) {
+		return mybatis.selectOne("MemberDAO.checkMember",vo);
+	}
+	
 }

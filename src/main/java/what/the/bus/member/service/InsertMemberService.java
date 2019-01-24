@@ -4,4 +4,6 @@ import what.the.bus.member.MemberVO;
 
 public interface InsertMemberService {
 	void insertMember(MemberVO vo);
+
+	boolean checkMember(MemberVO vo);
 }

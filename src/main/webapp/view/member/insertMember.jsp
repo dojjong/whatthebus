@@ -1,17 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입 화면</title>
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <link type="text/css" rel="stylesheet" href="../css/mainStyle.css">
 </head>
 <body>
 	<!-- 화면 센터 -->
 	<div align="center">
+
+		<input type="hidden" id="checkMember" name="checkMember" value="${checkMember }">
+
 		<form name="form" method="post" action="insertMember.do">
 			<table>
 				<tr>

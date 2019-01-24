@@ -1,5 +1,7 @@
 package what.the.bus.member.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,23 @@ public class InsertMemberController {
 		} else {
 			return "redirect:../member/insertMember.jsp";
 		}
-
 	}
+
+	// 가입된 아이디가 있는지
+	@RequestMapping("/view/**/checkMember.do")
+	public void checkMember(MemberVO vo, HttpSession session) {
+		String checkMember;
+		if (memberService.checkMember(vo) == true) {
+			checkMember = "1";
+		} else {
+			checkMember = "2";
+		}
+		session.setAttribute("checkMember", checkMember);
+	}
+	
+	@RequestMapping("/view/**/resetCheck.do")
+	public void resetCheck(HttpSession session) {
+		session.invalidate();
+	}
+	
 }
