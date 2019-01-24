@@ -1,11 +1,15 @@
 package what.the.bus.member.controller;
 
-import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.service.InsertMemberService;
@@ -33,20 +37,14 @@ public class InsertMemberController {
 	}
 
 	// 가입된 아이디가 있는지
-	@RequestMapping("/view/**/checkMember.do")
-	public void checkMember(MemberVO vo, HttpSession session) {
-		String checkMember;
-		if (memberService.checkMember(vo) == true) {
-			checkMember = "1";
-		} else {
-			checkMember = "2";
-		}
-		session.setAttribute("checkMember", checkMember);
+	@RequestMapping(value="/view/**/checkMember.do", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<Object, Object> checkMember(@RequestBody String checkmember) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		int count = 0;
+		count = memberService.checkMember(checkmember);
+		map.put("check", count);
+		return map;
 	}
-	
-	@RequestMapping("/view/**/resetCheck.do")
-	public void resetCheck(HttpSession session) {
-		session.invalidate();
-	}
-	
+
 }

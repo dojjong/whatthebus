@@ -193,7 +193,7 @@ svg {
     transform-style: preserve-3d;
 }
 
-input {
+input.ryantext{
     font-size: 16px;
     border: 0;
     border-radius: 5px;
@@ -306,7 +306,7 @@ aside#center {
 
 
 
-#id{
+.ryantext#id{
 	 font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;

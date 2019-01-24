@@ -21,9 +21,9 @@
 	</select>
 	
 	<!-- ID중복확인용 --> 
-	<select id="checkMember" resultType="member">
+	<select id="checkMember" parameterType="String" resultType="Integer">
 	<![CDATA[
-	SELECT * FROM (SELECT * FROM MEMBER WHERE ID=#{id} UNION 
+	SELECT COUNT(*) FROM (SELECT * FROM MEMBER WHERE ID=#{id} UNION 
 		SELECT * FROM DRIVER WHERE ID=#{id})
 	]]>
 	</select>

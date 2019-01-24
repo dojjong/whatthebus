@@ -103,8 +103,10 @@
 												onclick="idCheck(this.form.id.value)" /></td>
 										</tr>
 										<tr>
-											<td><input type="button" class="btn btn-link" value="&nbsp&nbsp&nbsp&nbsp&nbsp아이디찾기&nbsp">
-											<input type="button" class="btn btn-link" value="&nbsp&nbsp&nbsp비밀번호 찾기&nbsp&nbsp"></td>
+											<td><input type="button" class="btn btn-link"
+												value="&nbsp&nbsp&nbsp&nbsp&nbsp아이디찾기&nbsp"> <input
+												type="button" class="btn btn-link"
+												value="&nbsp&nbsp&nbsp비밀번호 찾기&nbsp&nbsp"></td>
 										</tr>
 										<!-- 카카오 로그인버튼 추가 -->
 										<tr>
@@ -113,10 +115,10 @@
 													src="../images/kakaologin.png" width="240" height="50"
 													id="kakaologinbt" />
 											</a></td>
-										</tr>	
-											<!-- 카카오 로그인버튼 추가 끝 -->
-											<!-- 네이버 아이디로 로그인 추가버튼 -->
-										<tr>	
+										</tr>
+										<!-- 카카오 로그인버튼 추가 끝 -->
+										<!-- 네이버 아이디로 로그인 추가버튼 -->
+										<tr>
 											<td>
 												<div id="naverIdLogin" class="naverLogin" align="center"></div>
 											</td>
@@ -196,6 +198,8 @@
 					<div align="right" id="login_member">
 						<button type="button" class="btn btn-link" data-toggle="modal"
 							data-target="#myModal">로그인/회원가입</button>
+						<a href="../member/insertMemberChoice.jsp"><input
+							type="button" value="회원가입" class="mainbt"></a>
 					</div>
 					<!-- 로그인/회원가입 부분 -->
 				</c:otherwise>
@@ -247,7 +251,7 @@
 		</header>
 	</div>
 	<!-- container -->
-	
+
 	<!-- 카카오로 로그인 초기화 스크립트 -->
 	<script type='text/javascript'>
 		//<![CDATA[
@@ -288,8 +292,8 @@
 	</script>
 	<!-- // 네이버아이디로로그인 초기화 Script -->
 
-	
-	
+
+
 
 </body>
 </html>

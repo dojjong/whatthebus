@@ -38,8 +38,8 @@ public class MemberDAOImpl implements MemberDAO {
 		mybatis.update("MemberDAO.pwUpdateMember", vo);
 	}
 	
-	public MemberVO checkMember(MemberVO vo) {
-		return mybatis.selectOne("MemberDAO.checkMember",vo);
+	public int checkMember(String checkMember) {
+		return mybatis.selectOne("MemberDAO.checkMember",checkMember);
 	}
 	
 }

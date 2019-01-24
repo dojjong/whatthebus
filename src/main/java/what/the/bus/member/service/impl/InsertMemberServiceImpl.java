@@ -27,13 +27,10 @@ public class InsertMemberServiceImpl implements InsertMemberService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
-	public boolean checkMember(MemberVO vo) {
-		if(memberDAO.checkMember(vo)!=null) {
-			return true;	
-		}else {
-			return false;
-		}
+	public int checkMember(String checkMember) {
+		int check = memberDAO.checkMember(checkMember);
+		return check;
 	}
 }

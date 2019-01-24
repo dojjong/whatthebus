@@ -7,17 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 화면</title>
-<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-
-<link type="text/css" rel="stylesheet" href="../css/mainStyle.css">
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../js/memberScript.js"></script>
 </head>
 <body>
 	<!-- 화면 센터 -->
 	<div align="center">
 
-		<input type="hidden" id="checkMember" name="checkMember" value="${checkMember }">
+
 
 		<form name="form" method="post" action="insertMember.do">
+			<input type="hidden" id="checkMember" name="checkMember"
+				value="${checkMember }">
 			<table>
 				<tr>
 					<td id="welcome" colspan="2" align="center">What The Bus에 오신것을
@@ -25,8 +26,8 @@
 				</tr>
 				<tr>
 					<td align="right">아이디 :&nbsp;</td>
-					<td align="left"><input type="text" id="id" name="id" value="">
-						<font color="red"><span id="idMessage"></span></font></td>
+					<td align="left"><input type="text" id="insertId"
+						name="id" /> <font color="red"><span id="idMessage"></span></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
@@ -85,9 +86,9 @@
 			</table>
 		</form>
 	</div>
-	<script type="text/javascript" src="../js/memberScript.js"></script>
-	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 
+
+	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 
 
 
