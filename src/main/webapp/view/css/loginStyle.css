@@ -174,14 +174,14 @@
 
 /*여기서부터 라이언 코드*/
 form#ryanform{
-    width: 520px;
+    width: 400px;
     padding: 60px 25px 80px;
     margin:  auto;
     background: #f8d348;
     display: flex;
     flex-direction: column;
     font-size:15pt;
-    margin-left:350px;
+    margin-left:-50px;
 }
 
 svg {
@@ -273,6 +273,8 @@ input {
     animation-name: lookaway-down;
 }
 /*여기까지 라이언*/
+
+
 /*여기부터 푸터*/
 #footertable{
 	width:1024px;
@@ -289,10 +291,13 @@ input {
     margin-top: 15px;
 }
 /*여기까지 푸터*/
+
+
+
 /* 여기부터 로그인 */
 aside#center {
 	
-	width: 800px;
+	width: auto;
 	margin-left:100px;
 	margin-top: 20px;
 	margin-bottom:20px;
@@ -305,7 +310,7 @@ aside#center {
 	 font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;
-	width: 470px;
+	width: 300px;
 	height: 40px;
 }
 
@@ -313,7 +318,7 @@ aside#center {
 	 font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;
-	width: 470px;
+	width: 300px;
 	height: 40px;
 	margin-top: 10px ;
 }
@@ -322,8 +327,8 @@ aside#center {
   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;
-  width:470px;
-  height:50px;
+  width:300px;
+  height:40px;
   background-color: #3465b0;
   border: none;
   color: white;
@@ -361,7 +366,7 @@ font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;
-  width:230px;
+  width:100px;
   height:40px;
   background-color: #3465b0;
   border: none;
@@ -379,7 +384,7 @@ font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;
-  width:230px;
+  width:100px;
   height:40px;
   background-color: #3465b0;
   border: none;
@@ -399,9 +404,7 @@ font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 	width:230px;
 }
 .naverLogin{
-	margin-top:15px;
-	margin-left: -230px;
-	width:230px;
+
 }
 #loginErrorbt{
 	border-radius: 10px;
@@ -409,5 +412,10 @@ font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 	color: white;
 	height : 40px;
 	border: none;
+}
+
+#ryonLogin{
+	align: center;
+	
 }
 /* 여기까지 로그인 */

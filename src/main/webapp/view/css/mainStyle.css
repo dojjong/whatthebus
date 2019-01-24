@@ -278,11 +278,14 @@ margin-bottom:20px;
 }
 
 /*여기까지 아이디찾기*/
+
+
 /*여기부터 푸터*/
 #footertable{
 	width:1024px;
 	background-color:rgb(49, 100, 176);
 	text-align:center;
+	color: white;
 }
 .mainbt{
 	margin-bottom:20px;	
