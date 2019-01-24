@@ -193,7 +193,7 @@
 				</c:when>
 				<c:otherwise>
 					<!-- 로그인/회원가입 부분 -->
-					<div align="right">
+					<div align="right" id="login_member">
 						<button type="button" class="btn btn-link" data-toggle="modal"
 							data-target="#myModal">로그인/회원가입</button>
 					</div>

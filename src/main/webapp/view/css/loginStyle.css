@@ -418,4 +418,10 @@ font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 	align: center;
 	
 }
+
+#login_member{
+	margin-top: 10px;
+	margin-right: 95px;	
+}
+
 /* 여기까지 로그인 */
