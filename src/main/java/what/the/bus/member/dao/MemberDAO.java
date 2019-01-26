@@ -14,4 +14,6 @@ public interface MemberDAO {
 	void pwUpdateMember(MemberVO vo);
 
 	int checkMember(String checkMember);
+	
+	String checkEmail(String checkEmail);
 }

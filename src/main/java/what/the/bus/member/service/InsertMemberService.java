@@ -6,4 +6,6 @@ public interface InsertMemberService {
 	void insertMember(MemberVO vo);
 
 	int checkMember(String checkMember);
+
+	String checkEmail(String checkEmail);
 }

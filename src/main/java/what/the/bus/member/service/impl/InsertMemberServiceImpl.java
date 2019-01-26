@@ -33,4 +33,10 @@ public class InsertMemberServiceImpl implements InsertMemberService {
 		int check = memberDAO.checkMember(checkMember);
 		return check;
 	}
+
+	@Override
+	public String checkEmail(String checkEmail) {
+		String check = memberDAO.checkEmail(checkEmail);
+		return check;
+	}
 }

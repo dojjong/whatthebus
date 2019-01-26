@@ -17,8 +17,6 @@
 
 
 		<form name="form" method="post" action="insertMember.do">
-			<input type="hidden" id="checkMember" name="checkMember"
-				value="${checkMember }">
 			<table>
 				<tr>
 					<td id="welcome" colspan="2" align="center">What The Bus에 오신것을
@@ -49,8 +47,9 @@
 				</tr>
 				<tr>
 					<td align="right">성별 : &nbsp;</td>
-					<td align="left"><input type="radio" id="insertGender1" name="gender" value="M" >남성
-						<input type="radio" id="insertGender2" name="gender" value="F">여성&nbsp;&nbsp;
+					<td align="left"><input type="radio" id="insertGender1"
+						name="gender" value="M">남성 <input type="radio"
+						id="insertGender2" name="gender" value="F">여성&nbsp;&nbsp;
 						<font color="red"> <span id="genderMessage"> </span></font></td>
 				</tr>
 
@@ -71,14 +70,15 @@
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
 					<td align="left"><input type="text" id="insertEmail"
-						name="email" value="" />&nbsp; <input type="button"
-						id="emailCheckbt" value="인증번호 발송" onclick="" /><br /></td>
+						name="email" value="" />&nbsp; <input type="button" id="emailbt"
+						value="인증번호 발송" /><br /></td>
 				</tr>
 				<tr>
 					<td align="right">인증번호 입력 : &nbsp;</td>
 					<td align="left"><input type="text" id="insertEmailCheck"
-						name="EmailCheck" value=""> <font color="red"><span
-							id="emailCheckMessage"> </span></font></td>
+						name="EmailCheck" value="">&nbsp;<input type="button"
+						id="emailCheckbt" value="인증번호 확인"><font
+						color="red"><span id="emailCheckMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="right"><input type="reset"
@@ -88,6 +88,7 @@
 				</tr>
 			</table>
 		</form>
+
 	</div>
 	<script type="text/javascript" src="../js/memberScript.js"></script>
 

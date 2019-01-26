@@ -3,6 +3,8 @@
  */
 $(function() {
 	var check = 0;
+	var join = 0;
+	var mailNumber;
 	$("#insertId").blur(function() {
 		var checkmember = $("#insertId").val();
 		$.ajax({
@@ -106,13 +108,80 @@ $(function() {
 					return;
 				}
 
-				/* 이메일 인증코드 들어갈것 */
+				if (join == 0) {
+					alert("인증번호가 일치하지 않습니다.");
+					return;
+				}
 				if ($("#insertEmailCheck").val() == "") {
 					alert("이메일 인증코드를 입력해주세요.");
 					$("#insertEmailCheck").focus();
 					return;
 				}
+
 				document.form.submit();
 			});
-
+	$("#emailbt").click(
+			function() {
+				var email = $("#insertEmail").val();
+				if (email == "") {
+					alert("메일을 입력해 주세요.");
+					return false;
+				}
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (xhttp.readyState == 4) {
+						var data = JSON.parse(xhttp.responseText);
+						if (data != null) {
+							alert("이미 가입한 메일입니다.");
+						} else {
+							sendMail(email);
+						}
+					}
+				};
+				xhttp.open("POST", 'checkEmail.do', true);
+				xhttp.setRequestHeader("Content-Type",
+						"application/x-www-form-urlencoded;charset=UTF-8");
+				xhttp.send('email=' + email);
+				return false;
+			});
+	function sendMail(email) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4) {
+				if (xhttp.status == 200) {
+					alert("메일이 발송되었습니다.");
+				} else
+					alert("올바른 메일 형식이 아닙니다.");
+			}
+		};
+		xhttp.open("POST", 'sendEmail.do', true);
+		xhttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded;charset=UTF-8");
+		xhttp.send('email=' + email);
+		return false;
+	}
+	$("#emailCheckbt").click(function() {
+		var joinCode = $("#insertEmailCheck").val();
+		$.ajax({
+			async : true,
+			type : 'POST',
+			url : "getJoin.do",
+			data : joinCode,
+			dataType : "json",
+			contentType : "application/json; charset=UTF-8",
+			success : function(data) {
+				if (data.getJoin > 0) {
+					alert("메일 인증에 성공했습니다.");
+					join = 1;
+				} else {
+					alert("메일 인증에 실패했습니다.");
+					join = 0;
+				}
+			},
+			error : function(error) {
+				$("#emailCheckMessage").html("인증번호를 입력해주세요.");
+				join = -1;
+			}
+		});
+	});
 });

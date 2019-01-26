@@ -37,9 +37,14 @@ public class MemberDAOImpl implements MemberDAO {
 	public void pwUpdateMember(MemberVO vo) {
 		mybatis.update("MemberDAO.pwUpdateMember", vo);
 	}
-	
+
 	public int checkMember(String checkMember) {
-		return mybatis.selectOne("MemberDAO.checkMember",checkMember);
+		return mybatis.selectOne("MemberDAO.checkMember", checkMember);
 	}
-	
+
+	@Override
+	public String checkEmail(String checkEmail) {
+		return mybatis.selectOne("MemberDAO.checkEmail", checkEmail);
+	}
+
 }

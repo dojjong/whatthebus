@@ -71,7 +71,7 @@
 						<br />
 				<tr>
 				<tr><td align="right">면허 등록 : &nbsp;</td>
-					<td align="left"><input type="text" name="license"></td>
+					<td align="left"><input type="file" name="license"></td>
 				</tr>
 				
 				<tr>

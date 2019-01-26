@@ -19,8 +19,8 @@
 
 
 	<context:component-scan
-		base-package="what.the.bus"></context:component-scan> 
-	
+		base-package="what.the.bus"></context:component-scan>
+
 	<aop:aspectj-autoproxy />
 
 	<!-- 프로퍼티 파일을 활용한 DataSource 설정 -->
@@ -61,6 +61,24 @@
 			<tx:method name="*" />
 		</tx:attributes>
 	</tx:advice>
+
+	<!-- 메일 보내기 -->
+	<bean id="javaMailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="WhatTheBus1@gmail.com" />
+		<property name="password" value="2rkddmltlf" />
+		<!-- email 요청시는 SMTP -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+
 	<!-- Spring JDBC 설정 <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
 		<property name="dataSource" ref="dataSource" /> </bean> -->
 </beans>
