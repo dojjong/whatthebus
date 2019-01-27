@@ -310,7 +310,7 @@ aside#center {
 	 font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;
-	width: 300px;
+	width: 350px;
 	height: 40px;
 }
 
@@ -318,7 +318,7 @@ aside#center {
 	 font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;
-	width: 300px;
+	width: 350px;
 	height: 40px;
 	margin-top: 10px ;
 }
@@ -327,7 +327,7 @@ aside#center {
   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
 		sans-serif;
-  width:300px;
+  width:350px;
   height:40px;
   background-color: #3465b0;
   border: none;
@@ -404,7 +404,7 @@ font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 	width:230px;
 }
 .naverLogin{
-
+margin-top:10px;
 }
 #loginErrorbt{
 	border-radius: 10px;

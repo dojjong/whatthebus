@@ -103,18 +103,18 @@
 												onclick="idCheck(this.form.id.value)" /></td>
 										</tr>
 										<tr>
-											<td><input type="button" class="btn btn-link"
-												value="&nbsp&nbsp&nbsp&nbsp&nbsp아이디찾기&nbsp"> <input
+											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-link"
+												value="아이디찾기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
 												type="button" class="btn btn-link"
-												value="&nbsp&nbsp&nbsp비밀번호 찾기&nbsp&nbsp"></td>
+												value="비밀번호 찾기"></td>
 										</tr>
 										<!-- 카카오 로그인버튼 추가 -->
 										<tr>
-											<td><a id="custom-login-btn"
+											<td><div align="center"><a id="custom-login-btn"
 												href="javascript:loginWithKakao()"> <img
 													src="../images/kakaologin.png" width="240" height="50"
 													id="kakaologinbt" />
-											</a></td>
+											</a></div></td>
 										</tr>
 										<!-- 카카오 로그인버튼 추가 끝 -->
 										<!-- 네이버 아이디로 로그인 추가버튼 -->

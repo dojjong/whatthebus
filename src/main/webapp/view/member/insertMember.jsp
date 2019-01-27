@@ -13,19 +13,16 @@
 <body>
 	<!-- 화면 센터 -->
 	<div align="center">
-
-
-
 		<form name="form" method="post" action="insertMember.do">
 			<table>
 				<tr>
-					<td id="welcome" colspan="2" align="center">What The Bus에 오신것을
+					<td id="welcome" colspan="3" align="center">What The Bus에 오신것을
 						환영합니다 !</td>
 				</tr>
 				<tr>
-					<td align="right">아이디 :&nbsp;</td>
-					<td align="left"><input type="text" id="insertId" name="id" />
-						<font color="red"><span id="idMessage"></span></font></td>
+					<td align="right"width="200">아이디 :&nbsp;</td>
+					<td align="left" width="500"><input type="text" id="insertId" name="id" />&nbsp;
+					<font color="red"><span id="idMessage"></span></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
@@ -70,7 +67,7 @@
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
 					<td align="left"><input type="text" id="insertEmail"
-						name="email" value="" />&nbsp; <input type="button" id="emailbt"
+						name="email" value="" />&nbsp;<input type="button" id="emailbt"
 						value="인증번호 발송" /><br /></td>
 				</tr>
 				<tr>

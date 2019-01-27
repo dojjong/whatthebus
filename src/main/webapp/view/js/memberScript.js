@@ -33,7 +33,9 @@ $(function() {
 	$("#insertPasswordCheck").blur(function() {
 		if ($("#insertPasswordCheck").val() != $("#insertPassword").val()) {
 			$("#passwordCheckMessage").html("비밀번호가 일치하지 않습니다.");
-		} else {
+		} else if($("#insertPasswordCheck").val()==""||$("#insertPassword").val()==""){
+			$("#passwordCheckMessage").html("비밀번호를 입력해주세요.");
+		}else{
 			$("#passwordCheckMessage").html("비밀번호가 일치합니다.");
 		}
 	});
