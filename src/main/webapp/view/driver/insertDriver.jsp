@@ -6,83 +6,92 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 화면</title>
-
-<link type="text/css" rel="stylesheet" href="../css/mainStyle.css">
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<!-- 화면 센터 -->
 	<div align="center">
-		<form name="form" method="post" action="insertDriver.do">
+		<form name="form" method="post" action="insertDriver.do" enctype="multipart/form-data">
 			<table>
 				<tr>
-					<td id="welcome" colspan="2" align="center">What The Bus에 오신것을
+					<td id="welcome" colspan="3" align="center">What The Bus에 오신것을
 						환영합니다 !</td>
 				</tr>
 				<tr>
-					<td align="right">아이디 :&nbsp;</td>
-					<td align="left"><input type="text" name="id" value="" /> <%-- <c:if test="">--%>
-						<br /> <font color="red"></font> <font color="red"></font> <%--</c:if>--%></td>
+					<td align="right" width="200">아이디 :&nbsp;</td>
+					<td align="left" width="500"><input type="text" id="insertId"
+						name="id" />&nbsp; <font color="red"><span id="idMessage"></span></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
-					<td align="left"><input type="password" name="password"
-						value="" /> <br /> <font color="red"></font></td>
+					<td align="left"><input type="password" id="insertPassword"
+						name="password" value="" />&nbsp; <font color="red"><span
+							id="passwordMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 확인 :&nbsp;</td>
-					<td align="left"><input type="password" name="passwordcheck"
-						value="" /> <br /> <font color="red"></font></td>
+					<td align="left"><input type="password"
+						id="insertPasswordCheck" name="passwordcheck" value="" />&nbsp; <font
+						color="red"><span id="passwordCheckMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">이름 :&nbsp;</td>
-					<td align="left"><input type="text" name="name" value="" /> <br />
-						<font color="red"></font></td>
+					<td align="left"><input type="text" id="insertName"
+						name="name" value="" /> &nbsp; <font color="red"> <span
+							id="nameMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">성별 : &nbsp;</td>
-					<td align="left"><input type="radio" name="gender" value="M">남성
-						<input type="radio" name="gender" value="F">여성</td>
+					<td align="left"><input type="radio" id="insertGender1"
+						name="gender" value="M">남성 <input type="radio"
+						id="insertGender2" name="gender" value="F">여성&nbsp;&nbsp;
+						<font color="red"> <span id="genderMessage"> </span></font></td>
 				</tr>
 
 
 				<tr>
 					<td align="right">전화번호 :&nbsp;</td>
-					<td align="left"><select name="tel1">
-							<option value="010">010</option>
+					<td align="left"><select id="insertTel1" name="tel1">
+							<option value="010" selected>010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="018">018</option>
 							<option value="019">019</option>
-					</select>- <input type="text" name="tel2" size="3" value="" /> - <input
-						type="text" name="tel3" size="3" value="" /> <br /> <font
-						color="red"> </font></td>
+					</select>- <input type="text" id="insertTel2" name="tel2" size="2" value="" />
+						- <input type="text" id="insertTel3" name="tel3" size="2" value="" />
+						&nbsp; <font color="red"><span id="telMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
-					<td align="left"><input type="text" name="email" value="" />
-						<font color="red"></font> <input type="button" id="emailcheckbt"
-						value="인증번호 발송" onclick="" /></td>
-
+					<td align="left"><input type="text" id="insertEmail"
+						name="email" value="" />&nbsp;<input type="button" id="emailbt"
+						value="인증번호 발송" /><br /></td>
 				</tr>
 				<tr>
 					<td align="right">인증번호 입력 : &nbsp;</td>
-					<td align="left"><input type="text" name="emailcheck" value="" />
-						<br />
-				<tr>
-				<tr><td align="right">면허 등록 : &nbsp;</td>
-					<td align="left"><input type="file" name="license"></td>
+					<td align="left"><input type="text" id="insertEmailCheck"
+						name="EmailCheck" value="">&nbsp;<input type="button"
+						id="emailCheckbt" value="인증번호 확인"><font color="red"><span
+							id="emailCheckMessage"> </span></font></td>
 				</tr>
-				
+				<tr>
+					<td align="right">면허 등록 : &nbsp;</td>
+					<td align="left"><input type="file" id="insertFile" name="uploadFile"></td>
+				</tr>
 				<tr>
 					<td colspan="2" align="right"><input type="reset"
-						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"
-						class="insertbt" value="가입신청" />&nbsp;&nbsp; <input
+						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="button"
+						id="insertCheckbt" class="insertbt" value="가입신청" />&nbsp;&nbsp; <input
 						type="button" class="insertbt" value="취소" onclick="" /></td>
 				</tr>
 			</table>
 		</form>
+
 	</div>
+
+
+
 	<script type="text/javascript" src="../js/driverScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 

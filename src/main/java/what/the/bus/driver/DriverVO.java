@@ -1,5 +1,7 @@
 package what.the.bus.driver;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class DriverVO {
 	private String id;
 	private String password;
@@ -11,6 +13,23 @@ public class DriverVO {
 	private String tel3;
 	private String email;
 	private String license;
+	private MultipartFile uploadFile;
+	
+	public String getLicense() {
+		return license;
+	}
+
+	public void setLicense(String license) {
+		this.license = license;
+	}
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 
 	@Override
 	public String toString() {
@@ -91,11 +110,4 @@ public class DriverVO {
 		this.email = email;
 	}
 
-	public String getLicense() {
-		return license;
-	}
-
-	public void setLicense(String license) {
-		this.license = license;
-	}
 }

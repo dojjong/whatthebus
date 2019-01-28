@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입 화면</title>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-
 </head>
 <body>
 	<!-- 화면 센터 -->

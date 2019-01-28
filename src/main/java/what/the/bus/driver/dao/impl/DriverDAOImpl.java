@@ -38,4 +38,5 @@ public class DriverDAOImpl implements DriverDAO {
 	public void pwUpdateDriver(DriverVO vo) {
 		mybatis.update("DriverDAO.pwUpdateDriver", vo);
 	}
+	
 }

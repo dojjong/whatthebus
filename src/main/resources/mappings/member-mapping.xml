@@ -28,7 +28,7 @@
 	]]>
 	</select>
 	
-	<!-- ID중복확인용 --> 
+	<!-- email중복확인용 --> 
 	<select id="checkEmail" parameterType="String" resultType="String">
 	<![CDATA[
 	SELECT EMAIL FROM (SELECT * FROM MEMBER WHERE EMAIL=#{email} UNION 
