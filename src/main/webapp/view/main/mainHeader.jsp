@@ -210,15 +210,12 @@
 				<ul>
 					<li><a href="#">소개</a>
 						<ul>
-							<li><a href="idSearch.html" target="iframe">사이트소개(임시:id찾기
-									화면)</a></li>
-							<li><a href="idCheck.html" target="iframe">이용가이드(임시:id찾기
-									완료창)</a></li>
+							<li><a href="idSearch.html" target="iframe">사이트소개</a></li>
+							<li><a href="idCheck.html" target="iframe">이용가이드</a></li>
 						</ul></li>
 					<li><a href="#">커뮤니티</a>
 						<ul>
-							<li><a href="../join/insertDriver.html" target="iframe">기사님
-									회원가입 화면</a></li>
+							<li><a href="../board/list.jsp">자유게시판</a></li>
 							<li><a href="../join/insertMember.html" target="iframe">손님
 									회원가입 화면</a></li>
 							<li><a href="../join/insertMemberCheck.html" target="iframe">회원가입

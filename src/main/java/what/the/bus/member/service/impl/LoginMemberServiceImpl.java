@@ -27,7 +27,7 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 				return false;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		return false;
 	}

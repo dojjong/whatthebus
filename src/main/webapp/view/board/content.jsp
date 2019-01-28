@@ -7,7 +7,6 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../css/boardStyle.css" />
-<link type="text/css" rel="stylesheet" href="../css/mainStyle.css" />
 </head>
 <body>
 	<form>
@@ -25,7 +24,7 @@
 			<tr>
 				<td class="contenttd">글쓴이</td>
 				<td>
-					<!-- 디비에서 받아올 글쓴이 -->
+					
 				</td>
 				<td class="contenttd">작성일</td>
 				<td>

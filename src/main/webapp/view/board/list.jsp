@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../css/boardStyle.css" />
-<link type="text/css" rel="stylesheet" href="../css/mainStyle.css" />
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
@@ -47,7 +47,13 @@
 		</table>
 		<table width="700">
 			<tr>
-				<td align="right"><a href="writeForm.jsp"><img id="writebt"></a></td>
+				<td align="right">
+					<form name="form" action="writeBoard.do" method="POST">
+						<input type="hidden" id="member" value="${member }"> <input
+							type="button" id="writebt">
+					</form>
+
+				</td>
 			</tr>
 		</table>
 		<table>
@@ -68,6 +74,8 @@
 		</table>
 
 	</div>
+
+	<script type="text/javascript" src="../js/boardScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

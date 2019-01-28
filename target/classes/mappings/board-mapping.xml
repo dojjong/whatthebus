@@ -4,7 +4,9 @@
 
 <mapper namespace="BoardDAO">
 	<insert id="insertBoard">
-		insert into board(seq,title,content) values((select
-		nvl(max(seq),0)+1 from board),#{title},#{content})
+	<![CDATA[
+		INSERT INTO BOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES((SELECT
+		NVL(MAX(SEQ),0)+1 FROM BOARD),#{id},#{name},#{title},#{content})
+		]]>
 	</insert>
 </mapper>

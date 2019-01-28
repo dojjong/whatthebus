@@ -3,14 +3,15 @@ package what.the.bus.board;
 import java.sql.Date;
 
 public class BoardVO {
-	private int seq;// 글번호
-	private String mid;// 글쓴사람 id(pk)
-	private String mname;// 글쓴이 이름
-	private String title;// 제목
-	private String content;// 내용
-	private int best;// 추천수
-	private Date regDate;// 등록일
-	private int cnt;// 조회수
+
+	private int seq;
+	private String id;
+	private String name;
+	private String title;
+	private String content;
+	private int best;
+	private Date regDate;
+	private int cnt;
 
 	public int getSeq() {
 		return seq;
@@ -20,20 +21,20 @@ public class BoardVO {
 		this.seq = seq;
 	}
 
-	public String getMid() {
-		return mid;
+	public String getId() {
+		return id;
 	}
 
-	public void setMid(String mid) {
-		this.mid = mid;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getMname() {
-		return mname;
+	public String getName() {
+		return name;
 	}
 
-	public void setMname(String mname) {
-		this.mname = mname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getTitle() {
@@ -78,7 +79,7 @@ public class BoardVO {
 
 	@Override
 	public String toString() {
-		return "BoardVO [seq=" + seq + ", mid=" + mid + ", mname=" + mname + ", title=" + title + ", content=" + content
+		return "BoardVO [seq=" + seq + ", id=" + id + ", name=" + name + ", title=" + title + ", content=" + content
 				+ ", best=" + best + ", regDate=" + regDate + ", cnt=" + cnt + "]";
 	}
 
