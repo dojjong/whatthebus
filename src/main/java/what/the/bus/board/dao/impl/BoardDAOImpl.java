@@ -1,5 +1,7 @@
 package what.the.bus.board.dao.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,5 +21,15 @@ public class BoardDAOImpl implements BoardDAO {
 
 	public void insertBoard(BoardVO vo) {
 		mybatis.insert("BoardDAO.insertBoard", vo);
+	}
+
+	@Override
+	public List<BoardVO> getBoardList() {
+		return mybatis.selectList("BoardDAO.getBoardList");
+	}
+
+	@Override
+	public int getListCount() {
+		return mybatis.selectOne("BoardDAO.getListCount");
 	}
 }

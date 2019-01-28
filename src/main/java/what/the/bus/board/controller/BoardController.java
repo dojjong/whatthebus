@@ -15,12 +15,12 @@ public class BoardController {
 	@RequestMapping("/view/**/writeBoard.do")
 	public String writeBoard() {
 		
-		return "redirect:writeForm.jsp";
+		return "redirect:../board/writeForm.jsp";
 	}
 	
 	@RequestMapping("/view/**/insertBoard.do")
 	public String insertBoard(BoardVO vo) {
 		boardService.insertBoard(vo);
-		return "redirect:list.jsp";
+		return "redirect:../board/getBoardList.do";
 	}
 }
