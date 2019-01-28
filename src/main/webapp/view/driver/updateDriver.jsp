@@ -65,8 +65,9 @@
 				</tr>
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
-					<td align="left"><input type="text" name="email"
-						value="${member.email}" /> <font color="red"></font>
+	
+					<td align="left">${member.email}<font color="red"></font>
+					
 				<tr>
 					<td colspan="2" align="right"><input type="reset"
 						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"

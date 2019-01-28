@@ -3,15 +3,14 @@ package what.the.bus.board;
 import java.sql.Date;
 
 public class BoardVO {
-
-	private int seq;
-	private String id;
-	private String name;
-	private String title;
-	private String content;
-	private int best;
-	private Date regDate;
-	private int cnt;
+	private int seq;// �۹�ȣ
+	private String mid;// �۾���� id(pk)
+	private String mname;// �۾��� �̸�
+	private String title;// ����
+	private String content;// ����
+	private int best;// ��õ��
+	private Date regDate;// �����
+	private int cnt;// ��ȸ��
 
 	public int getSeq() {
 		return seq;
@@ -21,20 +20,20 @@ public class BoardVO {
 		this.seq = seq;
 	}
 
-	public String getId() {
-		return id;
+	public String getMid() {
+		return mid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
 
-	public String getName() {
-		return name;
+	public String getMname() {
+		return mname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setMname(String mname) {
+		this.mname = mname;
 	}
 
 	public String getTitle() {
@@ -79,7 +78,7 @@ public class BoardVO {
 
 	@Override
 	public String toString() {
-		return "BoardVO [seq=" + seq + ", id=" + id + ", name=" + name + ", title=" + title + ", content=" + content
+		return "BoardVO [seq=" + seq + ", mid=" + mid + ", mname=" + mname + ", title=" + title + ", content=" + content
 				+ ", best=" + best + ", regDate=" + regDate + ", cnt=" + cnt + "]";
 	}
 

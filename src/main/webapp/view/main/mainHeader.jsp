@@ -28,7 +28,7 @@
 
 </head>
 <body>
-	<div class="container">
+	<div class="container" align="center">
 		<header id="header">
 			<!-- 로그인 modal -->
 			<div class="modal fade" id="myModal">
@@ -103,10 +103,14 @@
 												onclick="idCheck(this.form.id.value)" /></td>
 										</tr>
 										<tr>
-											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-link"
-												value="아이디찾기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+											<td><input type="button" class="btn btn-link"
+												value="아이디찾기">
+												<input
 												type="button" class="btn btn-link"
-												value="비밀번호 찾기"></td>
+												value="비밀번호 찾기"><a href="../member/insertMemberChoice.jsp"><input type="button" class="btn btn-link"
+												value="회원가입"></a></td>
+									
+										
 										</tr>
 										<!-- 카카오 로그인버튼 추가 -->
 										<tr>
@@ -124,6 +128,8 @@
 											</td>
 										</tr>
 										<!-- 네이버 아이디로 로그인 추가버튼 끝-->
+										
+										
 									</table>
 								</form>
 								<script src="../js/loginScript.js"></script>
@@ -198,8 +204,6 @@
 					<div align="right" id="login_member">
 						<button type="button" class="btn btn-link" data-toggle="modal"
 							data-target="#myModal">로그인/회원가입</button>
-						<a href="../member/insertMemberChoice.jsp"><input
-							type="button" value="회원가입" class="mainbt"></a>
 					</div>
 					<!-- 로그인/회원가입 부분 -->
 				</c:otherwise>
@@ -224,7 +228,7 @@
 					<li><a href="#">제안</a>
 						<ul>
 							<li><a href="../pay/payForm.html" target="iframe">정기권제안(임시:결제화면)</a></li>
-							<li><a href="#">단기권제안</a></li>
+							<li><a href="#">단기권제안()</a></li>
 						</ul></li>
 					<li><a href="#">예약</a>
 						<ul>

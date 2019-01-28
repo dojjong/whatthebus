@@ -35,4 +35,13 @@
 		UPDATE DRIVER SET PASSWORD=#{password} WHERE ID=#{id}
 		]]>
 	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteDriver">
+	<![CDATA[
+		DELETE FROM DRIVER WHERE ID=#{id}
+	]]>
+	
+	</delete>
+	
 </mapper>
