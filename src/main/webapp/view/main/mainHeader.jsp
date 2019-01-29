@@ -25,11 +25,23 @@
 	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
 	charset="utf-8"></script>
 
-
 </head>
 <body>
+
+
+
+
 	<div class="container" align="center">
 		<header id="header">
+		
+		
+		<table>
+			<tr>
+			<td width="700px">
+			<a><img src="../images/whatthebuslogo.png" id="gogo"></a>
+			</td>
+			
+			<td>
 			<!-- 로그인 modal -->
 			<div class="modal fade" id="myModal">
 				<div class="modal-dialog modal-dialog-centered">
@@ -103,12 +115,9 @@
 												onclick="idCheck(this.form.id.value)" /></td>
 										</tr>
 										<tr>
-											<td><input type="button" class="btn btn-link"
-												value="아이디찾기">
-												<input
-												type="button" class="btn btn-link"
-												value="비밀번호 찾기"><a href="../member/insertMemberChoice.jsp"><input type="button" class="btn btn-link"
-												value="회원가입"></a></td>
+											<td><a href="../login/findId.jsp"><input type="button" class="btn btn-link" value="아이디찾기"></a>
+												<a href="../login/findPassword.jsp"><input type="button" class="btn btn-link"value="비밀번호 찾기"></a>
+												<a href="../member/insertMemberChoice.jsp"><input type="button" class="btn btn-link" value="회원가입"></a></td>
 									
 										
 										</tr>
@@ -151,9 +160,10 @@
 			</div>
 
 			<!-- 로그인 modal -->
-
-
-			<%-- 세션에 저장된 값이 있으면 보여지는 화면 --%>
+			
+			
+			
+					<%-- 세션에 저장된 값이 있으면 보여지는 화면 --%>
 			<%-- 라이센스가 null이냐 아니냐로 보여지는 화면 구분 --%>
 			<c:choose>
 				<c:when test="${member ne null }">
@@ -164,6 +174,7 @@
 							<table>
 								<tr>
 									<td>${member.name }회원님환영합니다.&nbsp;</td>
+									<!-- 
 									<td><form method="post"
 											action="../member/pwCheckMember.jsp">
 											<input type="submit" value="비밀번호 변경" class="mainbt">
@@ -175,6 +186,7 @@
 									<td><form method="post" action="logoutMember.do">
 											<input type="submit" value="로그아웃" class="mainbt">
 										</form></td>
+										 -->
 							</table>
 						</div>
 					</c:if>
@@ -183,7 +195,11 @@
 						<div align="right">
 							<table>
 								<tr>
-									<td>${member.name }기사님환영합니다.&nbsp;</td>
+									<td width="90px" align="center"><a href="../driver/driverMypage.jsp">마이페이지</a></td>
+									<td width="150px" align="center">${member.name }기사님<br>환영합니다.</td>
+									<td><form method="post" action="logoutDriver.do"><input type="submit" value="로그아웃" class="btn btn-link"></form></td>
+									
+									<!-- 
 									<td><form method="post"
 											action="../driver/pwCheckDriver.jsp">
 											<input type="submit" value="비밀번호 변경" class="mainbt">
@@ -195,12 +211,14 @@
 									<td><form method="post" action="logoutDriver.do">
 											<input type="submit" value="로그아웃" class="mainbt">
 										</form></td>
+									 -->	
 							</table>
 						</div>
 					</c:if>
 				</c:when>
 				<c:otherwise>
-					<!-- 로그인/회원가입 부분 -->
+				
+					<!-- 메인 헤더 상단의 로그인/회원가입 부분 -->
 					<div align="right" id="login_member">
 						<button type="button" class="btn btn-link" data-toggle="modal"
 							data-target="#myModal">로그인/회원가입</button>
@@ -208,7 +226,17 @@
 					<!-- 로그인/회원가입 부분 -->
 				</c:otherwise>
 			</c:choose>
-			<a><img src="../images/main_logo.jpg" id="gogo"></a>
+			
+			
+			</td>
+			
+			</tr>
+			
+</table>
+			
+
+	
+
 
 			<div class="menubar">
 				<ul>
