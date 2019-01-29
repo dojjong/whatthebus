@@ -77,6 +77,7 @@
 		</table>
 
 	</div>
+	
 
 	<script type="text/javascript" src="../js/boardScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>

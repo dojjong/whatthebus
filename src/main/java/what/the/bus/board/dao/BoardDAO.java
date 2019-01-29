@@ -12,4 +12,6 @@ public interface BoardDAO {
 	int getListCount();
 
 	BoardVO getBoard(int seq);
+	
+	void updateBoard(BoardVO vo);
 }
