@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../css/boardStyle.css" />
 </head>
@@ -42,7 +42,7 @@
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
-							<a href="deleteBoard.do"> <input type="button"
+							<a href="deleteBoard.do?seq=${vo.seq }"> <input type="button"
 								class="contentbt" value="삭제"></a>
 						</c:when>
 					</c:choose> <a href="getBoardList.do"> <input type="button"

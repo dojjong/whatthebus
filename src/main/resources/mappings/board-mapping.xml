@@ -37,4 +37,9 @@
 	]]>
 	</update>
 
+	<delete id="deleteBoard">
+	<![CDATA[
+	DELETE BOARD WHERE SEQ=#{seq}
+	]]>
+	</delete>
 </mapper>

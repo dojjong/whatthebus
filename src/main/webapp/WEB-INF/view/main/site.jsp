@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +27,10 @@ td{
 <td><img src="../images/main_comments.png" style="width:100px;height:100px;"></td>
 </tr>
 <tr>
-<td><h3><strong>ºü¸¥ °ßÀû</strong></h3>°ßÀû¿äÃ»ÈÄ ±â´Ù¸®½Ç <br/>ÇÊ¿ä°¡ ¾ø½À´Ï´Ù.</td>
-<td><h3><strong>ÇÕ¸®ÀûÀÎ °¡°Ý</strong></h3>°ßÀû °¡°ÝÀ» ºñ±³ÇÏ°í,<br/> ÇÕ¸®ÀûÀ¸·Î ¿¹¾àÇÏ¼¼¿ä.</td>
-<td><h3><strong>½ÇÁ¦ ¹ö½º»çÁø</strong></h3>Å¾½ÂÇÒ ¹ö½º»çÁøÀ» º¸°í <br/>¿¹¾àÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.</td>
-<td><h3><strong>ÀÌ¿ëÈÄ±â</strong></h3>½ÇÁ¦ ÀÌ¿ë°´µéÀÇ ÈÄ±â¸¦<br/> È®ÀÎÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.</td>
+<td><h3><strong>ë¹ ë¥¸ ê²¬ì </strong></h3>ê²¬ì ìš”ì²­í›„ ê¸°ë‹¤ë¦¬ì‹¤ <br/>í•„ìš”ê°€ ì—†ìŠµë‹ˆë‹¤.</td>
+<td><h3><strong>í•©ë¦¬ì ì¸ ê°€ê²©</strong></h3>ê²¬ì  ê°€ê²©ì„ ë¹„êµí•˜ê³ ,<br/> í•©ë¦¬ì ìœ¼ë¡œ ì˜ˆì•½í•˜ì„¸ìš”.</td>
+<td><h3><strong>ì‹¤ì œ ë²„ìŠ¤ì‚¬ì§„</strong></h3>íƒ‘ìŠ¹í•  ë²„ìŠ¤ì‚¬ì§„ì„ ë³´ê³  <br/>ì˜ˆì•½í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</td>
+<td><h3><strong>ì´ìš©í›„ê¸°</strong></h3>ì‹¤ì œ ì´ìš©ê°ë“¤ì˜ í›„ê¸°ë¥¼<br/> í™•ì¸í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</td>
 </tr>
 
 <tr>
@@ -41,10 +41,10 @@ td{
 </tr>
 
 <tr>
-<td><h3><strong>ÀÎÁõµÈ ±â»ç´Ô</strong></h3>±â»ç´ÔÀÇ ½Ç¸í°ú ¼Ò¼ÓÈ¸»ç±îÁö È®ÀÎÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.</td>
-<td><h3><strong>º¸Çè È®ÀÎ</strong></h3>±â»ç´ÔÀÇ º¸ÇèÁõ¼­¿Í À¯È¿±â°£À» È®ÀÎÇÏ°í ÀÖ½À´Ï´Ù.</td>
-<td><h3><strong>ÇãÀ§°ßÀû ±ÙÀý</strong></h3>°ßÀû¿ÜÀÇ Ãß°¡±ÝÀ» ¿ä±¸ÇÏÁö ¾Êµµ·Ï ±ÔÁ¤ÇÏ°í ÀÖ½À´Ï´Ù.</td>
-<td><h3><strong>100% ¹èÂ÷</strong></h3>¿îÇà´çÀÏ±îÁö ²Ä²ÄÈ÷ ½Å°æ½á¼­ ¹ö½º¸¦ ¿¬°áÇØ µå¸³´Ï´Ù.</td>
+<td><h3><strong>ì¸ì¦ëœ ê¸°ì‚¬ë‹˜</strong></h3>ê¸°ì‚¬ë‹˜ì˜ ì‹¤ëª…ê³¼ ì†Œì†íšŒì‚¬ê¹Œì§€ í™•ì¸í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</td>
+<td><h3><strong>ë³´í—˜ í™•ì¸</strong></h3>ê¸°ì‚¬ë‹˜ì˜ ë³´í—˜ì¦ì„œì™€ ìœ íš¨ê¸°ê°„ì„ í™•ì¸í•˜ê³  ìžˆìŠµë‹ˆë‹¤.</td>
+<td><h3><strong>í—ˆìœ„ê²¬ì  ê·¼ì ˆ</strong></h3>ê²¬ì ì™¸ì˜ ì¶”ê°€ê¸ˆì„ ìš”êµ¬í•˜ì§€ ì•Šë„ë¡ ê·œì •í•˜ê³  ìžˆìŠµë‹ˆë‹¤.</td>
+<td><h3><strong>100% ë°°ì°¨</strong></h3>ìš´í–‰ë‹¹ì¼ê¹Œì§€ ê¼¼ê¼¼ížˆ ì‹ ê²½ì¨ì„œ ë²„ìŠ¤ë¥¼ ì—°ê²°í•´ ë“œë¦½ë‹ˆë‹¤.</td>
 </tr>
 
 
@@ -53,8 +53,8 @@ td{
 </tr>
 
 <tr>
-<td colspan="4"><h2><strong>»óÈ²¿¡ ¸Â´Â ´Ù¾çÇÑ ¹ö½º ·°¼Å¸®ÇÑ ÇÁ¸®¹Ì¾ö¹ö½ººÎÅÍ 11ÀÎ½Â ¹ê±îÁö<br/>
- »óÈ²¿¡ ¸Â°Ô ¾î¶² ¹ö½º¶óµµ ´ëÀý°¡´ÉÇÕ´Ï´Ù.</strong></h2>
+<td colspan="4"><h2><strong>ìƒí™©ì— ë§žëŠ” ë‹¤ì–‘í•œ ë²„ìŠ¤ ëŸ­ì…”ë¦¬í•œ í”„ë¦¬ë¯¸ì—„ë²„ìŠ¤ë¶€í„° 11ì¸ìŠ¹ ë°´ê¹Œì§€<br/>
+ ìƒí™©ì— ë§žê²Œ ì–´ë–¤ ë²„ìŠ¤ë¼ë„ ëŒ€ì ˆê°€ëŠ¥í•©ë‹ˆë‹¤.</strong></h2>
 </td>
 </tr>
 
@@ -74,7 +74,7 @@ td{
 </tr>
 
 <tr>
-<td colspan="4"><h2><strong>°áÈ¥½Ä, MT, ¼öÇÐ¿©Çà, °ßÇÐ, ¿öÅ©¼¥, »ê¾ÇÈ¸ µî<br/> °¢Á¾Çà»ç¿¡ ÇÊ¿äÇÑ ¹ö½º¸¦ °£ÆíÇÏ°Ô ¿¹¾àÇØº¸¼¼¿ä.</strong></h2>
+<td colspan="4"><h2><strong>ê²°í˜¼ì‹, MT, ìˆ˜í•™ì—¬í–‰, ê²¬í•™, ì›Œí¬ìƒµ, ì‚°ì•…íšŒ ë“±<br/> ê°ì¢…í–‰ì‚¬ì— í•„ìš”í•œ ë²„ìŠ¤ë¥¼ ê°„íŽ¸í•˜ê²Œ ì˜ˆì•½í•´ë³´ì„¸ìš”.</strong></h2>
 </td>
 </tr>
 

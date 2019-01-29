@@ -5,21 +5,20 @@ import org.springframework.stereotype.Service;
 
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.dao.impl.BoardDAOImpl;
-import what.the.bus.board.service.UpdateBoardService;
-
+import what.the.bus.board.service.DeleteBoardService;
 @Service
-public class UpdateBoardServiceImpl implements UpdateBoardService {
+public class DeleteBoardServiceImpl implements DeleteBoardService {
 	@Autowired
 	private BoardDAOImpl boardDAO;
 
 	@Override
-	public void updateBoard(BoardVO vo) {
-		boardDAO.updateBoard(vo);
+	public void deleteBoard(BoardVO vo) {
+		boardDAO.deleteBoard(vo);
 	}
+
 	@Override
 	public BoardVO getBoard(int seq) {
 		return boardDAO.getBoard(seq);
 	}
-
 
 }

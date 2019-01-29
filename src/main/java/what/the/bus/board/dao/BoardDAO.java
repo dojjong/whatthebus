@@ -14,4 +14,6 @@ public interface BoardDAO {
 	BoardVO getBoard(int seq);
 	
 	void updateBoard(BoardVO vo);
+	
+	void deleteBoard(BoardVO vo);
 }
