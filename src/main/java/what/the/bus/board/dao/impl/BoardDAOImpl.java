@@ -32,4 +32,9 @@ public class BoardDAOImpl implements BoardDAO {
 	public int getListCount() {
 		return mybatis.selectOne("BoardDAO.getListCount");
 	}
+
+	@Override
+	public BoardVO getBoard(int seq) {
+		return mybatis.selectOne("BoardDAO.getBoard",seq);
+	}
 }

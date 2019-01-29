@@ -20,7 +20,13 @@
 	<!-- 전체 글수 가져오기 -->
 	<select id="getListCount" resultType="Integer">
 	<![CDATA[
-	SELECT COUNT(*) FROM SEQ	
+	SELECT COUNT(*) FROM BOARD	
 	]]>
+	</select>
+	<select id="getBoard" resultType="board">
+	<![CDATA[
+	SELECT * FROM BOARD WHERE SEQ = #{seq}
+	]]>
+	
 	</select>
 </mapper>

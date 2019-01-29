@@ -39,7 +39,7 @@
 			<c:forEach var="vo" items="${list }">
 				<tr height="30">
 					<td align="center" width="50">${vo.seq }</td>
-					<td width="250">${vo.title }</td>
+					<td width="250"><a href="getBoard.do?seq=${vo.seq}">${vo.title }</a></td>
 					<td align="center" width="100">${vo.name }</td>
 					<td align="center" width="150">${vo.regDate }</td>
 					<td align="center" width="50">${vo.cnt }</td>

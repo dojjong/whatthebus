@@ -31,7 +31,7 @@
 				<td width="500" height="70" colspan="4">글내용</td>
 			</tr>
 			<tr>
-				<td>${vo.content }</td>
+				<td width="500" height="200" colspan="4">${vo.content }</td>
 			</tr>
 		</table>
 		<table width="500" align="center">
