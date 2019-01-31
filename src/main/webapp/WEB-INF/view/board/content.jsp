@@ -10,8 +10,11 @@
 <link type="text/css" rel="stylesheet" href="../css/boardStyle.css" />
 </head>
 <body>
-	<form action="updateForm.do?seq=${vo.seq }" method="post">
+	<form id="form" action="updateForm.do?seq=${vo.seq }" method="post">
+		<input type="hidden" id="seq" value="${vo.seq }" /> <input
+			type="hidden" id="id" value="${member.id }" />
 		<table id="content" border="1" align="center">
+
 			<tr>
 				<td class="contenttd">글번호</td>
 				<td>${vo.seq}</td>
@@ -37,8 +40,11 @@
 		</table>
 		<table width="500" align="center">
 			<tr>
-				<td align="center"><input type="button" id="likebutton"
-					value="1"> <!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 --> <c:choose>
+				<td align="center"><a href='javascript:void(0);'
+					onclick="best_click();"><img src='../images/bestbt.png'
+						id="bestButton"><span
+							id="best_cnt">${vo.best } </span></a> <!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
+					<c:choose>
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
@@ -52,9 +58,45 @@
 		</table>
 
 	</form>
+	<script>
+		function best_click() {
+			var frm_read = $('#form');
+			var seq = $('#seq', form).val();
+			var id = $('#id', form).val();
+			var allData ={"seq":seq,"id":id}
+			$.ajax({
+				url : "bestClick.do",
+				type : "GET",
+				cache : false,
+				dataType : "json",
+				data : allData,
+				success : function(data) {
+					
+					var msg = '';
+					var best_img = '';
+					msg += data.msg;
+					alert(msg);
 
+					if (data.best_check == 0) {
+						best_img = "../images/bestbt.png";
+					} else {
+						best_img = "../images/onbestbt.png";
+					}
+					
+					$('#bestButton', frm_read).attr('src', best_img);
+					$('#best_cnt').html(data.best_cnt);
+					$('#best_check').html(data.best_check);
+					
+				},
+				error : function(request, status, error) {
+					alert("code:" + request.status + "\n" + "meesage:"
+							+ request.responseText + "\n" + "error:" + error);
+				}
+			});
+		}
+	</script>
 
-
+	<script type="text/javascript" src="../js/boardScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

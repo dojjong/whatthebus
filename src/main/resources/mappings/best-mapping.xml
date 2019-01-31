@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BestDAO">
+
+	<select id="getBest" resultType="best" parameterType="HashMap">
+	<![CDATA[
+	SELECT * FROM BEST WHERE ID=#{id} AND SEQ=#{seq} 
+	]]>
+	</select>
+
+	<select id="getBoardBest" resultType="Integer" parameterType="HashMap">
+	<![CDATA[
+	SELECT BEST FROM BOARD WHERE SEQ=#{seq}
+	]]>
+	</select>
+
+	<update id="boardOnBestUpdate" parameterType="HashMap">
+	<![CDATA[
+	UPDATE BOARD SET BEST = BEST+1 WHERE SEQ=#{seq}
+	]]>
+	</update>
+
+	<update id="boardOffBestUpdate" parameterType="HashMap">
+	<![CDATA[
+	UPDATE BOARD SET BEST = BEST-1 WHERE SEQ=#{seq}
+	]]>
+	</update>
+
+
+	<update id="best_check" parameterType="HashMap">
+	<![CDATA[
+	UPDATE BEST SET BESTCHECK = BESTCHECK+1 WHERE ID=#{id} AND SEQ=#{seq}
+	]]>
+	</update>
+	<update id="best_cancel" parameterType="HashMap">
+	<![CDATA[
+	UPDATE BEST SET BESTCHECK = 0 WHERE ID=#{id} AND SEQ=#{seq}
+	]]>
+	</update>
+
+</mapper>

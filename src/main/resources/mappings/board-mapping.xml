@@ -16,7 +16,7 @@
 	<!-- 글목록 가져오기 -->
 	<select id="getBoardList" resultType="board">
 	<![CDATA[
-	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM BOARD ORDER BY SEQ DESC,REGDATE DESC
+	SELECT * FROM BOARD ORDER BY SEQ DESC,REGDATE DESC
 	]]>
 	</select>
 	<!-- 전체 글수 가져오기 -->
@@ -35,6 +35,13 @@
 	<![CDATA[
 	UPDATE BOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
 	]]>
+	</update>
+
+	<update id="updateCnt">
+	<![CDATA[
+	UPDATE BOARD SET CNT=CNT+1 WHERE SEQ=#{seq}
+	]]>
+	
 	</update>
 
 	<delete id="deleteBoard">

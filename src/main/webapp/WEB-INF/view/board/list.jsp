@@ -26,8 +26,8 @@
 				<td align="center" width="250">제목</td>
 				<td align="center" width="100">작성자</td>
 				<td align="center" width="150">작성일</td>
-				<td align="center" width="100">조회</td>
-				<td align="center" width="50">추천</td>
+				<td align="center" width="100">조회수</td>
+				<td align="center" width="70">추천수</td>
 			</tr>
 			<%---- 글이 없을 경우 -->
 			<c:if test="${count==0 }">

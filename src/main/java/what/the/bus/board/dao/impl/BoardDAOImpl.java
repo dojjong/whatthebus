@@ -35,6 +35,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public BoardVO getBoard(int seq) {
+		mybatis.update("BoardDAO.updateCnt",seq);
 		return mybatis.selectOne("BoardDAO.getBoard", seq);
 	}
 
@@ -48,4 +49,5 @@ public class BoardDAOImpl implements BoardDAO {
 		mybatis.delete("BoardDAO.deleteBoard", vo);
 	}
 
+	
 }
