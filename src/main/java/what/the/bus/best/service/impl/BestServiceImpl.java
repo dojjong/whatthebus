@@ -1,5 +1,7 @@
 package what.the.bus.best.service.impl;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,16 @@ public class BestServiceImpl implements BestService {
 	@Override
 	public int getBoardBest(int seq) {
 		return bestDAO.getBoardBest(seq);
+	}
+
+	@Override
+	public int getCheckBest(BestVO vo) {
+		return bestDAO.getCheckBest(vo);
+	}
+
+	@Override
+	public void insertBest(BestVO vo) {
+		bestDAO.insertBest(vo);
 	}
 
 }

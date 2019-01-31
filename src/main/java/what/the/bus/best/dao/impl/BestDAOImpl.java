@@ -31,7 +31,7 @@ public class BestDAOImpl implements BestDAO {
 	@Override
 	public BestVO getBest(BestVO vo) {
 		return mybatis.selectOne("BestDAO.getBest", vo);
-	} 
+	}
 
 	@Override
 	public void boardOnBestUpdate(BestVO vo) {
@@ -45,7 +45,17 @@ public class BestDAOImpl implements BestDAO {
 
 	@Override
 	public int getBoardBest(int seq) {
-		return mybatis.selectOne("BestDAO.getBoardBest",seq);
+		return mybatis.selectOne("BestDAO.getBoardBest", seq);
+	}
+
+	@Override
+	public int getCheckBest(BestVO vo) {
+		return mybatis.selectOne("BestDAO.getCheckBest", vo);
+	}
+
+	@Override
+	public void insertBest(BestVO vo) {
+		mybatis.insert("BestDAO.insertBest", vo);
 	}
 
 }

@@ -1,5 +1,7 @@
 package what.the.bus.best.service;
 
+import java.util.HashMap;
+
 import what.the.bus.best.BestVO;
 
 public interface BestService {
@@ -12,6 +14,10 @@ public interface BestService {
 	void boardOnBestUpdate(BestVO vo);
 
 	void boardOffBestUpdate(BestVO vo);
-	
+
 	int getBoardBest(int seq);
+
+	int getCheckBest(BestVO vo);
+
+	void insertBest(BestVO vo);
 }

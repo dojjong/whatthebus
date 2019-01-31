@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.best.BestVO;
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.dao.BoardDAO;
 import what.the.bus.util.SqlSessionFactoryBean;
@@ -35,7 +36,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public BoardVO getBoard(int seq) {
-		mybatis.update("BoardDAO.updateCnt",seq);
+		mybatis.update("BoardDAO.updateCnt", seq);
 		return mybatis.selectOne("BoardDAO.getBoard", seq);
 	}
 
@@ -49,5 +50,9 @@ public class BoardDAOImpl implements BoardDAO {
 		mybatis.delete("BoardDAO.deleteBoard", vo);
 	}
 
-	
+	@Override
+	public int getCheckBest(BestVO vo) {
+		return mybatis.selectOne("BestDAO.getCheckBest", vo);
+	}
+
 }

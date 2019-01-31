@@ -3,10 +3,14 @@ package what.the.bus.best.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import what.the.bus.best.BestVO;
@@ -19,7 +23,7 @@ public class BestController {
 	private BestService bestService;
 
 	@ResponseBody
-	@RequestMapping(value = "/view/**/bestClick.do", produces = "text/plain;charset=UTF-8")
+	@RequestMapping(value = "/view/**/bestClick.do", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	public String best(int seq, String id, BoardVO boardVO, BestVO bestVO) {
 
 		JSONObject obj = new JSONObject();
@@ -27,10 +31,15 @@ public class BestController {
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("seq", seq);
 		hashMap.put("id", id);
+
 		bestVO.setId(id);
 		bestVO.setSeq(seq);
+		if (bestService.getCheckBest(bestVO) == 0) {
+			bestService.insertBest(bestVO);
+		}
+
 		bestVO = bestService.getBest(bestVO);
-		
+
 		int best_cnt = bestService.getBoardBest(seq);
 		int best_check = 0;
 		best_check = bestVO.getBestCheck();
@@ -52,7 +61,5 @@ public class BestController {
 		obj.put("best_cnt", best_cnt);
 		obj.put("msg", msgs);
 		return obj.toString();
-
 	}
-
 }

@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import what.the.bus.best.BestVO;
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.service.GetBoardService;
 
@@ -16,9 +16,15 @@ public class GetBoardController {
 	private GetBoardService boardService;
 
 	@RequestMapping("/view/**/getBoard.do")
-	public String getBoard(Integer seq, Model model) {
-		BoardVO vo = boardService.getBoard(seq);
-		model.addAttribute("vo", vo);
+	public String getBoard(Integer seq, String id, BestVO bestVO, Model model) {
+		BoardVO boardVO = boardService.getBoard(seq);
+
+		int check = 0;
+		bestVO.setId(id);
+		bestVO.setSeq(seq);
+		check = boardService.getCheckBest(bestVO);
+		model.addAttribute("best", check);
+		model.addAttribute("vo", boardVO);
 		return "board/content";
 	}
 

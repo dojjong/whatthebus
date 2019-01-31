@@ -4,15 +4,29 @@
 
 <mapper namespace="BestDAO">
 
+	<insert id="insertBest">
+		<![CDATA[
+		INSERT INTO BEST(BESTNO,SEQ,ID,BESTCHECK) VALUES ((SELECT NVL(MAX(BESTNO),0)+1 AS BESTNO FROM BEST),#{seq},#{id},0)
+		]]>
+	</insert>
+
 	<select id="getBest" resultType="best" parameterType="HashMap">
 	<![CDATA[
 	SELECT * FROM BEST WHERE ID=#{id} AND SEQ=#{seq} 
 	]]>
 	</select>
 
-	<select id="getBoardBest" resultType="Integer" parameterType="HashMap">
+	<select id="getBoardBest" resultType="Integer"
+		parameterType="HashMap">
 	<![CDATA[
 	SELECT BEST FROM BOARD WHERE SEQ=#{seq}
+	]]>
+	</select>
+
+	<select id="getCheckBest" resultType="Integer"
+		parameterType="HashMap">
+	<![CDATA[
+	SELECT COUNT(BESTNO) AS BESTCHECK FROM BEST WHERE SEQ=#{seq} AND ID=#{id}
 	]]>
 	</select>
 

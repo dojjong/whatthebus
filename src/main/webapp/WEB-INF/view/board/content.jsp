@@ -41,9 +41,14 @@
 		<table width="500" align="center">
 			<tr>
 				<td align="center"><a href='javascript:void(0);'
-					onclick="best_click();"><img src='../images/bestbt.png'
-						id="bestButton"><span
-							id="best_cnt">${vo.best } </span></a> <!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
+					onclick="best_click();"> <c:choose>
+							<c:when test="${best==0 }">
+								<img src='../images/bestbt.png' id="bestButton">
+							</c:when>
+							<c:otherwise>
+								<img src='../images/onbestbt.png' id="bestButton">
+							</c:otherwise>
+						</c:choose> <span id="best_cnt">${vo.best } </span></a> <!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
 					<c:choose>
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
@@ -66,7 +71,7 @@
 			var allData ={"seq":seq,"id":id}
 			$.ajax({
 				url : "bestClick.do",
-				type : "GET",
+				type : "POST",
 				cache : false,
 				dataType : "json",
 				data : allData,
@@ -89,8 +94,7 @@
 					
 				},
 				error : function(request, status, error) {
-					alert("code:" + request.status + "\n" + "meesage:"
-							+ request.responseText + "\n" + "error:" + error);
+					alert("로그인 후 이용해주세요.");
 				}
 			});
 		}
