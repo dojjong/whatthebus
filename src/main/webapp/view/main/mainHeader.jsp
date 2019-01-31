@@ -115,8 +115,8 @@
 												onclick="idCheck(this.form.id.value)" /></td>
 										</tr>
 										<tr>
-											<td><a href="../login/findId.jsp"><input type="button" class="btn btn-link" value="아이디찾기"></a>
-												<a href="../login/findPassword.jsp"><input type="button" class="btn btn-link"value="비밀번호 찾기"></a>
+											<td><a href="../login/findIdAndPassword.jsp"><input type="button" class="btn btn-link" value="아이디찾기"></a>
+												<a href="../login/findIdAndPassword.jsp"><input type="button" class="btn btn-link"value="비밀번호 찾기"></a>
 												<a href="../member/insertMemberChoice.jsp"><input type="button" class="btn btn-link" value="회원가입"></a></td>
 									
 										

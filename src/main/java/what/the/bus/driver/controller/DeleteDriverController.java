@@ -21,8 +21,9 @@ public class DeleteDriverController {
 	@RequestMapping("/view/**/deleteDriver.do")
 	public String deleteDriver(@ModelAttribute("member") DriverVO vo, HttpSession session) {
 		if (driverService.pwCheckDriver(vo) == true) {
-			session.invalidate();
+			
 			driverService.deleteDriver(vo);
+			session.invalidate();
 			return "redirect:../main/main.jsp";
 		} else {
 			return "redirect:../driver/errorPW.jsp";

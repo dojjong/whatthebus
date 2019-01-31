@@ -74,9 +74,16 @@ td {
 	margin: 20px auto;
 }
 
+<<<<<<< HEAD
 #gogo {
 	width: 15%;
 	margin-top: 10px;
+=======
+#gogo{
+	width: 15%;
+	margin-top: 10px;
+
+>>>>>>> branch 'master' of https://github.com/dojjong/whatthebus.git
 }
 
 #gogo:hover {

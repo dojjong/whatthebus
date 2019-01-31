@@ -27,7 +27,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	public void deleteMember(MemberVO vo) {
 		mybatis.delete("MemberDAO.deleteMember", vo);
-		mybatis.commit();
+	
 	}
 
 	public MemberVO loginMember(MemberVO vo) {
@@ -46,5 +46,13 @@ public class MemberDAOImpl implements MemberDAO {
 	public String checkEmail(String checkEmail) {
 		return mybatis.selectOne("MemberDAO.checkEmail", checkEmail);
 	}
+	
+	//01.31 추가 
+	public String checkName(String checkName) {
+		return mybatis.selectOne("MemberDAO.checkNam", checkName);
+	}
+	
+	
 
+	
 }
