@@ -74,6 +74,12 @@ td {
 	margin: 20px auto;
 }
 
+#gogo{
+	width: 15%;
+	margin-top: 10px;
+
+}
+
 #gogo:hover {
 	animation:;
 	animation-iteration-count: infinite;

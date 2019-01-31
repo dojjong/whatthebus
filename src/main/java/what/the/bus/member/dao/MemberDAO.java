@@ -16,4 +16,9 @@ public interface MemberDAO {
 	int checkMember(String checkMember);
 	
 	String checkEmail(String checkEmail);
+	
+	String checkName(String checkName); //01.31
+	
+	
+
 }

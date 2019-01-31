@@ -51,4 +51,19 @@
 		UPDATE MEMBER SET PASSWORD=#{password} WHERE ID=#{id}
 		]]>
 	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMember">
+	<![CDATA[
+		DELETE FROM MEMBER WHERE ID=#{id}
+	]]>
+	
+	</delete>
+	
+	<!-- 아이디찾기 -->
+	
+	
+	
+	<!-- 비밀번호찾기 -->
+	
 </mapper>
