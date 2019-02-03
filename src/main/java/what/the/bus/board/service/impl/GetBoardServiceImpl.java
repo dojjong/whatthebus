@@ -24,4 +24,9 @@ public class GetBoardServiceImpl implements GetBoardService {
 		return boardDAO.getCheckBest(vo);
 	}
 
+	@Override
+	public int getCheckBestCheck(BestVO vo) {
+		return boardDAO.getCheckBestCheck(vo);
+	}
+
 }

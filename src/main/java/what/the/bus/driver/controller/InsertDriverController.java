@@ -41,7 +41,7 @@ public class InsertDriverController {
 			e.printStackTrace();
 		}
 		driverService.insertDriver(vo);
-		return "redirect:../main/main.jsp";
+		return "main/main";
 	}
 
 }

@@ -1,7 +1,5 @@
 package what.the.bus.best.dao;
 
-import java.util.HashMap;
-
 import what.the.bus.best.BestVO;
 
 public interface BestDAO {
@@ -14,11 +12,13 @@ public interface BestDAO {
 	void boardOnBestUpdate(BestVO vo);
 
 	void boardOffBestUpdate(BestVO vo);
-	
+
 	int getBoardBest(int seq);
-	
+
 	int getCheckBest(BestVO vo);
-	
+
 	void insertBest(BestVO vo);
+
+
 
 }

@@ -58,4 +58,6 @@ public class BestDAOImpl implements BestDAO {
 		mybatis.insert("BestDAO.insertBest", vo);
 	}
 
+	
+
 }

@@ -23,9 +23,9 @@ public class DeleteMemberController {
 		if(memberService.pwCheckMember(vo) == true) {
 			session.invalidate();	
 			memberService.deleteMember(vo);
-			return "redirect:../main/main.jsp";
+			return "main/main";
 	} else {
-			return "redirect:../member/errorPW.jsp";
+			return "member/errorPW";
 	}
 }
 }

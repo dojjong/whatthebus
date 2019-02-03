@@ -8,7 +8,7 @@ import what.the.bus.board.BoardVO;
 public interface BoardDAO {
 	void insertBoard(BoardVO vo);
 
-	List<BoardVO> getBoardList();
+	List<BoardVO> getBoardList(BoardVO vo);
 
 	int getListCount();
 
@@ -19,5 +19,7 @@ public interface BoardDAO {
 	void deleteBoard(BoardVO vo);
 	
 	int getCheckBest(BestVO vo);
+	
+	int getCheckBestCheck(BestVO vo);
 
 }

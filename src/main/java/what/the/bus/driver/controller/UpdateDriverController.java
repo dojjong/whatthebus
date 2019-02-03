@@ -19,16 +19,16 @@ public class UpdateDriverController {
 	@RequestMapping("/view/**/updateDriver.do")
 	public String updateDriver(@ModelAttribute("member") DriverVO vo) {
 		driverService.updateDriver(vo);
-		return "redirect:../driver/updateCheck.jsp";
+		return "driver/updateCheck";
 	}
 
 	// 정보수정전 DB와 비밀번호 일치여부 체크 후 정보 수정창으로.
 	@RequestMapping("/view/**/updateCheckDriver.do")
 	public String updateCheckDriver(@ModelAttribute("member") DriverVO vo) {
 		if (driverService.pwCheckDriver(vo) == true) {
-			return "redirect:../driver/updateDriver.jsp";
+			return "driver/updateDriver";
 		} else {
-			return "redirect:../driver/errorUpdatePW.jsp";
+			return "driver/errorUpdatePW";
 		}
 
 	}
@@ -38,9 +38,9 @@ public class UpdateDriverController {
 	public String pwCheckDriver(@ModelAttribute("member") DriverVO vo) {
 		// 비번 일치 검증 후
 		if (driverService.pwCheckDriver(vo) == true) {
-			return "redirect:../driver/pwUpdateDriver.jsp";
+			return "driver/pwUpdateDriver";
 		} else {
-			return "redirect:../driver/errorPW.jsp";
+			return "driver/errorPW";
 		}
 	}
 
@@ -48,12 +48,31 @@ public class UpdateDriverController {
 	@RequestMapping("/view/**/pwUpdateDriver.do")
 	public String pwUpdateDriver(@ModelAttribute("member") DriverVO vo) {
 		driverService.pwUpdateDriver(vo);
-		return "redirect:../driver/updateCheck.jsp";
+		return "driver/updateCheck";
 	}
 
 	// 변경 후 메인페이지로 이동
-	@RequestMapping("/view/driver/updateCheck.do")
+	@RequestMapping("/view/**/updateCheck.do")
 	public String updateCheck() {
-		return "redirect:../main/main.jsp";
+		return "main/main";
 	}
+
+	// 마이페이지로 이동
+	@RequestMapping("/view/**/driverMypage.do")
+	public String driverMypage() {
+		return "driver/driverMypage";
+	}
+
+	// 수정비번확인 창으로 이동
+	@RequestMapping("view/**/moveUpdateCheckDriver.do")
+	public String moveUpdateCheckDriver() {
+		return "driver/updateCheckDriver";
+	}
+
+	// 비번변경비번확인 창으로 이동
+	@RequestMapping("view/**/movePwCheckDriver.do")
+	public String movePwCheckDriver() {
+		return "driver/pwCheckDriver";
+	}
+
 }

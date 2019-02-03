@@ -11,6 +11,8 @@
 			alias="driver"></typeAlias>
 		<typeAlias type="what.the.bus.board.BoardVO" alias="board"></typeAlias>
 		<typeAlias type="what.the.bus.best.BestVO" alias="best"></typeAlias>
+		<typeAlias type="what.the.bus.comment.CommentVO"
+			alias="comment"></typeAlias>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -29,5 +31,6 @@
 		<mapper resource="mappings/driver-mapping.xml" />
 		<mapper resource="mappings/board-mapping.xml" />
 		<mapper resource="mappings/best-mapping.xml" />
+		<mapper resource="mappings/comment-mapping.xml" />
 	</mappers>
 </configuration>

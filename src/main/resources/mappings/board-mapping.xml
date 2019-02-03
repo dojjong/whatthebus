@@ -8,15 +8,14 @@
 	<!-- 글쓰기 -->
 	<insert id="insertBoard">
 	<![CDATA[
-		INSERT INTO BOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES((SELECT
-		NVL(MAX(SEQ),0)+1 FROM BOARD),#{id},#{name},#{title},#{content})
+		INSERT INTO BOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES(board_seq.nextval,#{id},#{name},#{title},#{content})
 		]]>
 	</insert>
 
 	<!-- 글목록 가져오기 -->
 	<select id="getBoardList" resultType="board">
 	<![CDATA[
-	SELECT * FROM BOARD ORDER BY SEQ DESC,REGDATE DESC
+	SELECT * FROM (SELECT ROWNUM RNUM,SEQ,TITLE,NAME,REGDATE,BEST,CNT FROM (SELECT * FROM BOARD ORDER BY SEQ DESC)) WHERE RNUM>=#{startIndex} AND RNUM<=#{cntPerPage}
 	]]>
 	</select>
 	<!-- 전체 글수 가져오기 -->
@@ -41,7 +40,7 @@
 	<![CDATA[
 	UPDATE BOARD SET CNT=CNT+1 WHERE SEQ=#{seq}
 	]]>
-	
+
 	</update>
 
 	<delete id="deleteBoard">

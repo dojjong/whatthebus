@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="../css/boardStyle.css" />
+<link type="text/css" rel="stylesheet"
+	href="../resources/css/boardStyle.css" />
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -18,7 +19,7 @@
 
 	<!-- 화면 센터 -->
 	<div align="center">
-		<b>글목록(전체 글 : )</b>
+		<b>글목록(전체 글 : ${pagination.listCnt } )</b>
 		<table border="1" width="700" cellpadding="0" cellspacing="0"
 			align="center">
 			<tr height="30" id="boardhead">
@@ -39,7 +40,8 @@
 			<c:forEach var="vo" items="${list }">
 				<tr height="30">
 					<td align="center" width="50">${vo.seq }</td>
-					<td width="250"><a href="getBoard.do?seq=${vo.seq}&&id=${member.id}">${vo.title }</a></td>
+					<td width="250"><a
+						href="getBoard.do?seq=${vo.seq}&&id=${member.id}">${vo.title }</a></td>
 					<td align="center" width="100">${vo.name }</td>
 					<td align="center" width="150">${vo.regDate }</td>
 					<td align="center" width="50">${vo.cnt }</td>
@@ -55,7 +57,36 @@
 						<input type="hidden" id="member" value="${member }"> <input
 							type="button" id="writebt">
 					</form>
+					<div align="center">
+						<c:if test="${pagination.curRange ne 1 }">
+							<a href="#" onClick="fn_paging(1)">[처음]</a>
+						</c:if>
+						<c:if test="${pagination.curPage ne 1}">
+							<a href="#" onClick="fn_paging('${pagination.prevPage }')">[이전]</a>
+						</c:if>
+						<c:forEach var="pageNum" begin="${pagination.startPage }"
+							end="${pagination.endPage }">
+							<c:choose>
+								<c:when test="${pageNum eq  pagination.curPage}">
+									<span style="font-weight: bold;"><a href="#"
+										onClick="fn_paging('${pageNum }')">${pageNum }</a></span>
+								</c:when>
+								<c:otherwise>
+									<a href="#" onClick="fn_paging('${pageNum }')">${pageNum }</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if
+							test="${pagination.curPage ne pagination.pageCnt && pagination.pageCnt > 0}">
+							<a href="#" onClick="fn_paging('${pagination.nextPage }')">[다음]</a>
+						</c:if>
+						<c:if
+							test="${pagination.curRange ne pagination.rangeCnt && pagination.rangeCnt > 0}">
+							<a href="#" onClick="fn_paging('${pagination.pageCnt }')">[끝]</a>
+						</c:if>
+					</div>
 
+					
 				</td>
 			</tr>
 		</table>
@@ -77,9 +108,13 @@
 		</table>
 
 	</div>
-	
+	<script>
+		function fn_paging(curPage) {
+			location.href = "getBoardList.do?curPage=" + curPage;
+		}
+	</script>
 
-	<script type="text/javascript" src="../js/boardScript.js"></script>
+	<script type="text/javascript" src="../resources/js/boardScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

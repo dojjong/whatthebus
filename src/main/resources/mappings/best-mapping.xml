@@ -6,7 +6,7 @@
 
 	<insert id="insertBest">
 		<![CDATA[
-		INSERT INTO BEST(BESTNO,SEQ,ID,BESTCHECK) VALUES ((SELECT NVL(MAX(BESTNO),0)+1 AS BESTNO FROM BEST),#{seq},#{id},0)
+		INSERT INTO BEST(BESTNO,SEQ,ID,BESTCHECK) VALUES (best_seq.nextval,#{seq},#{id},0)
 		]]>
 	</insert>
 
@@ -27,6 +27,13 @@
 		parameterType="HashMap">
 	<![CDATA[
 	SELECT COUNT(BESTNO) AS BESTCHECK FROM BEST WHERE SEQ=#{seq} AND ID=#{id}
+	]]>
+	</select>
+
+	<select id="getCheckBestCheck" resultType="Integer"
+		parameterType="HashMap">
+	<![CDATA[
+	SELECT BESTCHECK FROM BEST WHERE SEQ =#{seq} AND ID =#{id}
 	]]>
 	</select>
 

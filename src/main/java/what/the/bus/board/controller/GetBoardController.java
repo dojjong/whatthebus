@@ -14,18 +14,24 @@ public class GetBoardController {
 
 	@Autowired
 	private GetBoardService boardService;
-
+	
 	@RequestMapping("/view/**/getBoard.do")
 	public String getBoard(Integer seq, String id, BestVO bestVO, Model model) {
 		BoardVO boardVO = boardService.getBoard(seq);
 
 		int check = 0;
+		
 		bestVO.setId(id);
 		bestVO.setSeq(seq);
 		check = boardService.getCheckBest(bestVO);
+		if(check==1) {
+			check = boardService.getCheckBestCheck(bestVO);
+		}
 		model.addAttribute("best", check);
 		model.addAttribute("vo", boardVO);
 		return "board/content";
 	}
+	
+
 
 }

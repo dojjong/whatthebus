@@ -16,7 +16,7 @@ public class LogoutMemberController {
 	@RequestMapping("/view/**/logoutMember.do")
 	public String logoutMember(HttpSession session) {
 		memberService.logoutMember(session);
-		return "redirect:../main/main.jsp";
+		return "main/main";
 	}
 
 }

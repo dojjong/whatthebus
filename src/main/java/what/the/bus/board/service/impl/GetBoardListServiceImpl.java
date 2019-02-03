@@ -19,8 +19,8 @@ public class GetBoardListServiceImpl implements GetBoardListService {
 	}
 
 	@Override
-	public List<BoardVO> getBoardList() {
-		return boardDAO.getBoardList();
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		return boardDAO.getBoardList(vo);
 	}
 
 	@Override

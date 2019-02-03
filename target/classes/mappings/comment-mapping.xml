@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommentDAO">
+	<insert id="insertComment">
+	<![CDATA[
+		INSERT INTO COMMENTS(CNO,SEQ,CONTENT,ID,NAME,REGDATE) 
+		VALUES (comment_seq.nextval,#{seq},#{content},#{id},#{name},sysdate)
+		]]>
+	</insert>
+	<select id="getCommentList" resultType="comment">
+	<![CDATA[
+	SELECT * FROM COMMENTS WHERE SEQ=#{seq} ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	</select>
+
+</mapper>

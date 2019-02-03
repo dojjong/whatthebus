@@ -21,13 +21,17 @@ public class DeleteDriverController {
 	@RequestMapping("/view/**/deleteDriver.do")
 	public String deleteDriver(@ModelAttribute("member") DriverVO vo, HttpSession session) {
 		if (driverService.pwCheckDriver(vo) == true) {
-			
+
 			driverService.deleteDriver(vo);
 			session.invalidate();
-			return "redirect:../main/main.jsp";
+			return "main/main";
 		} else {
-			return "redirect:../driver/errorPW.jsp";
+			return "driver/errorPW";
 		}
-	
+	}
+
+	@RequestMapping("/view/**/moveDeleteDriver.do")
+	public String moveDeleteDriver() {
+		return "driver/deleteDriver";
 	}
 }

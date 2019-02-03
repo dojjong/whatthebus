@@ -11,6 +11,24 @@ public class BoardVO {
 	private int best;
 	private Date regDate;
 	private int cnt;
+	private int cntPerPage;
+	private int startIndex;
+
+	public int getCntPerPage() {
+		return cntPerPage;
+	}
+
+	public void setCntPerPage(int cntPerPage) {
+		this.cntPerPage = cntPerPage;
+	}
+
+	public int getStartIndex() {
+		return startIndex;
+	}
+
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
 
 	public int getSeq() {
 		return seq;

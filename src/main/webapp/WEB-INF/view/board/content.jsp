@@ -7,12 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="../css/boardStyle.css" />
+<link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
 </head>
 <body>
 	<form id="form" action="updateForm.do?seq=${vo.seq }" method="post">
 		<input type="hidden" id="seq" value="${vo.seq }" /> <input
 			type="hidden" id="id" value="${member.id }" />
+			<input type="hidden" id="best_check">
 		<table id="content" border="1" align="center">
 
 			<tr>
@@ -43,13 +44,14 @@
 				<td align="center"><a href='javascript:void(0);'
 					onclick="best_click();"> <c:choose>
 							<c:when test="${best==0 }">
-								<img src='../images/bestbt.png' id="bestButton">
+								<img src='../resources/images/bestbt.png' id="bestButton">
 							</c:when>
 							<c:otherwise>
-								<img src='../images/onbestbt.png' id="bestButton">
+								<img src='../resources/images/onbestbt.png' id="bestButton">
 							</c:otherwise>
-						</c:choose> <span id="best_cnt">${vo.best } </span></a> <!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
-					<c:choose>
+						</c:choose> <span id="best_cnt">${vo.best } </span></a></td>
+				<!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
+				<td align="right" width="200"><c:choose>
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
@@ -61,14 +63,20 @@
 				</a></td>
 			</tr>
 		</table>
-
 	</form>
+
+	<%@include file="../board/comment.jsp"%>
+
+
 	<script>
 		function best_click() {
 			var frm_read = $('#form');
 			var seq = $('#seq', form).val();
 			var id = $('#id', form).val();
-			var allData ={"seq":seq,"id":id}
+			var allData = {
+				"seq" : seq,
+				"id" : id
+			}
 			$.ajax({
 				url : "bestClick.do",
 				type : "POST",
@@ -76,22 +84,22 @@
 				dataType : "json",
 				data : allData,
 				success : function(data) {
-					
+
 					var msg = '';
 					var best_img = '';
 					msg += data.msg;
 					alert(msg);
 
 					if (data.best_check == 0) {
-						best_img = "../images/bestbt.png";
+						best_img = "../resources/images/bestbt.png";
 					} else {
-						best_img = "../images/onbestbt.png";
+						best_img = "../resources/images/onbestbt.png";
 					}
-					
+
 					$('#bestButton', frm_read).attr('src', best_img);
 					$('#best_cnt').html(data.best_cnt);
 					$('#best_check').html(data.best_check);
-					
+
 				},
 				error : function(request, status, error) {
 					alert("로그인 후 이용해주세요.");
@@ -100,7 +108,7 @@
 		}
 	</script>
 
-	<script type="text/javascript" src="../js/boardScript.js"></script>
+	<script type="text/javascript" src="../resources/js/boardScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

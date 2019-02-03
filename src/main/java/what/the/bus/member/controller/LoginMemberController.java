@@ -24,12 +24,12 @@ public class LoginMemberController {
 	public String loginMember(MemberVO mvo,DriverVO dvo,Model model) {
 		if (memberService.loginMember(mvo) == true) {
 			model.addAttribute("member", memberService.getMember(mvo));
-			return "redirect:../main/main.jsp";
+			return "main/main";
 		} else if (driverService.loginDriver(dvo) == true) {
 			model.addAttribute("member", driverService.getDriver(dvo));
-			return "redirect:../main/main.jsp";
+			return "main/main";
 		} else {
-			return "redirect:../login/loginError.jsp";
+			return "login/loginError";
 		}
 	}
 }

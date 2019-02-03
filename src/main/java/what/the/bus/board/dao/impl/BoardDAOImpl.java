@@ -20,13 +20,14 @@ public class BoardDAOImpl implements BoardDAO {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 
+	@Override
 	public void insertBoard(BoardVO vo) {
 		mybatis.insert("BoardDAO.insertBoard", vo);
 	}
 
 	@Override
-	public List<BoardVO> getBoardList() {
-		return mybatis.selectList("BoardDAO.getBoardList");
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		return mybatis.selectList("BoardDAO.getBoardList", vo);
 	}
 
 	@Override
@@ -53,6 +54,11 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int getCheckBest(BestVO vo) {
 		return mybatis.selectOne("BestDAO.getCheckBest", vo);
+	}
+
+	@Override
+	public int getCheckBestCheck(BestVO vo) {
+		return mybatis.selectOne("BestDAO.getCheckBestCheck", vo);
 	}
 
 }

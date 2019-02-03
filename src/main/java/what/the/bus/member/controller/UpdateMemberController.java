@@ -19,16 +19,16 @@ public class UpdateMemberController {
 	@RequestMapping("/view/**/updateMember.do")
 	public String updateMember(@ModelAttribute("member") MemberVO vo) {
 		memberService.updateMember(vo);
-		return "redirect:../member/updateCheck.jsp";
+		return "member/updateCheck";
 	}
 
 	// 정보수정전 DB와 비밀번호 일치여부 체크 후 정보 수정창으로.
 	@RequestMapping("/view/**/updateCheckMember.do")
 	public String updateCheckMember(@ModelAttribute("member") MemberVO vo) {
 		if (memberService.pwCheckMember(vo) == true) {
-			return "redirect:../member/updateMember.jsp";
+			return "member/updateMember";
 		} else {
-			return "redirect:../member/errorUpdatePW.jsp";
+			return "member/errorUpdatePW";
 		}
 
 	}
@@ -38,9 +38,9 @@ public class UpdateMemberController {
 	public String pwCheckMember(@ModelAttribute("member") MemberVO vo) {
 		// 비번 일치 검증 후
 		if (memberService.pwCheckMember(vo) == true) {
-			return "redirect:../member/pwUpdateMember.jsp";
+			return "member/pwUpdateMember";
 		} else {
-			return "redirect:../member/errorPW.jsp";
+			return "member/errorPW";
 		}
 	}
 
@@ -48,12 +48,12 @@ public class UpdateMemberController {
 	@RequestMapping("/view/**/pwUpdateMember.do")
 	public String pwUpdateMember(@ModelAttribute("member") MemberVO vo) {
 		memberService.pwUpdateMember(vo);
-		return "redirect:../member/updateCheck.jsp";
+		return "member/updateCheck";
 	}
 
 	// 변경 후 메인페이지로 이동
 	@RequestMapping("/view/member/updateCheck.do")
 	public String updateCheck() {
-		return "redirect:../main/main.jsp";
+		return "main/main";
 	}
 }

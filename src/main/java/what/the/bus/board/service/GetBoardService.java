@@ -7,4 +7,6 @@ public interface GetBoardService {
 	BoardVO getBoard(int seq);
 
 	int getCheckBest(BestVO vo);
+	
+	int getCheckBestCheck(BestVO vo);
 }

@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>메인화면</title>
-<link href="../css/mainStyle.css" rel="stylesheet" type="text/css">
+<link href="../resources/css/mainStyle.css" rel="stylesheet"
+	type="text/css">
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -16,6 +17,9 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="../resources/css/loginStyle.css">
+
 </head>
 
 <body>

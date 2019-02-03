@@ -34,16 +34,21 @@ public class InsertMemberController {
 	@RequestMapping("/view/**/insertMember.do")
 	public String insertMember(MemberVO vo) {
 		memberService.insertMember(vo);
-		return "redirect:../main/main.jsp";
+		return "main/main";
 	}
 
+	@RequestMapping("/view/**/insertMemberChoice.do")
+	public String insertMemberChoice() {
+		return "member/insertMemberChoice";
+	}
+	
 	// 기사님으로 가입인지 고객으로 가입인지
 	@RequestMapping("/view/**/memberChoice.do")
 	public String pageMember(@RequestParam(value = "check", defaultValue = "member", required = false) String check) {
 		if (check.equals("driver")) {
-			return "redirect:../driver/insertDriver.jsp";
+			return "driver/insertDriver";
 		} else {
-			return "redirect:../member/insertMember.jsp";
+			return "member/insertMember";
 		}
 	}
 

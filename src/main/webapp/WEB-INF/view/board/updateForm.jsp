@@ -7,7 +7,7 @@
 <meta charset="charset-UTF-8">
 <title>Insert title here</title>
 
-<link type="text/css" rel="stylesheet" href="../css/boardStyle.css" />
+<link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
 
 </head>
 <body>
@@ -63,7 +63,7 @@
 
 			elPlaceHolder : "ir1",
 			
-			sSkinURI : "./se2/SmartEditor2Skin.html",
+			sSkinURI : "../resources/se2/SmartEditor2Skin.html",
 
 			htParams : {
 				bUseToolbar : true, // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
@@ -89,7 +89,7 @@
 		});
 	});
 </script>
-	<script type="text/javascript" src="./se2/js/HuskyEZCreator.js"
+	<script type="text/javascript" src="../resources/se2/js/HuskyEZCreator.js"
 		charset="utf-8"></script>
 
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>

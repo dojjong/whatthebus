@@ -20,4 +20,6 @@ public interface BestService {
 	int getCheckBest(BestVO vo);
 
 	void insertBest(BestVO vo);
+	
+
 }

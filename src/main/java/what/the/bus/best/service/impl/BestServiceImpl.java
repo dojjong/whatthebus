@@ -56,4 +56,6 @@ public class BestServiceImpl implements BestService {
 		bestDAO.insertBest(vo);
 	}
 
+	
+
 }
