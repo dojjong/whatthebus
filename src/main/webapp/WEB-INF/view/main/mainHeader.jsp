@@ -6,38 +6,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What The Bus !?</title>
-<link type="text/css" rel="stylesheet"
-	href="../resources/css/mainStyle.css" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="../resources/css/mainStyle.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 <!-- 로그인관련 js -->
-<link type="text/css" rel="stylesheet"
-	href="../resources/css/loginStyle.css">
-
+<link type="text/css" rel="stylesheet" href="../resources/css/loginStyle.css">
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
-	charset="utf-8"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+
 
 </head>
 <body>
 
 
+<header id="header">
 
+	<div align="center">
 
-	<div class="container" align="center">
-		<header id="header">
-
-
-			<table>
+			<table id="headertable">
 				<tr>
 					<td width="700px"><a href="main.do"><img
 							src="../resources/images/whatthebuslogo.png" id="gogo"></a></td>
@@ -111,15 +103,15 @@
 														<td><input type="password" name="password"
 															placeholder="비밀번호" class="ryantext" id="pw"></td>
 													</tr>
+													<!-- 로그인버튼 비번 입력 잘못했을 때 alert뜨도록 수정해야함  -->
 													<tr>
 														<td><input type="submit" value="로그인" id="login_bt"
 															onclick="idCheck(this.form.id.value)" /></td>
 													</tr>
 													<tr>
-														<td><a href="../login/findIdAndPassword.jsp"><input
-																type="button" class="btn btn-link" value="아이디찾기"></a>
-															<a href="../login/findIdAndPassword.jsp"><input
-																type="button" class="btn btn-link" value="비밀번호 찾기"></a>
+														<td align="center"><a href="findidandpass.do" onClick="window.open(this.href, '','width=500, height=220'); return false;"><input
+																type="button" class="btn btn-link" value="아이디/비밀번호 찾기"></a>
+
 															<a href="insertMemberChoice.do"><input
 																type="button" class="btn btn-link" value="회원가입"></a></td>
 
@@ -280,8 +272,13 @@
 						</ul></li>
 				</ul>
 			</div>
-		</header>
+
 	</div>
+	
+			</header>
+			
+			
+	
 	<!-- container -->
 
 	<!-- 카카오로 로그인 초기화 스크립트 -->
@@ -323,7 +320,6 @@
 		naverLogin.init();
 	</script>
 	<!-- // 네이버아이디로로그인 초기화 Script -->
-
 
 
 

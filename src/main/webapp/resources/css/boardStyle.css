@@ -5,16 +5,21 @@ body {
 	font-family:'맑은 고딕';
 }
 
-table {
+#listtab {
   border-collapse: collapse;
+  border: 1px;
+  width: 700px;
+  cellpadding: 0;
+  cellspacing: 0;
+  align: center;
 }
 
-th, td {
+#listtab td {
   text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+#listtab tr:nth-child(even) {background-color: #f2f2f2;}
 
 
 
@@ -43,6 +48,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 }
 
 #boardhead {
+	height: 30px; 
 	background-color: rgb(49, 100, 176);
 }
 

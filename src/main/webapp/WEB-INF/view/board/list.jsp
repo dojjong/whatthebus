@@ -7,22 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet"
-	href="../resources/css/boardStyle.css" />
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 	<!-- 화면 센터 -->
 	<div align="center">
 		<b>글목록(전체 글 : ${pagination.listCnt } )</b>
-		<table border="1" width="700" cellpadding="0" cellspacing="0"
-			align="center">
-			<tr height="30" id="boardhead">
+		<table id="listtab">
+			<tr id="boardhead">
 				<td align="center" width="55">번호</td>
 				<td align="center" width="250">제목</td>
 				<td align="center" width="100">작성자</td>

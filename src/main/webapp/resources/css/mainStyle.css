@@ -1,11 +1,43 @@
 @charset "UTF-8";
 
+/* 구간 확인용 삭제 할겁니다!*/
+div{
+	border: 1px solid red;
+}
+
+table{
+	
+	border: 1px solid red;
+}
+
+tr{
+	border: 1px solid red;
+}
+
+td{
+	border: 1px solid red;
+}
+/* 구간 확인용 삭제 할겁니다!*/
+
+
 body {
 	border-collapse: collapse;
 }
 
 td {
 	height: 40px;
+}
+
+
+/*
+메인헤더테이블
+*/
+#headertable{
+	width: 1024px;
+	align: center;
+}
+	
+	
 }
 
 /*
@@ -27,6 +59,8 @@ td {
 /*
 여기까지 메인의 서브메뉴
 */
+
+
 #welcome {
 	color: #abdcf1250145145;
 	font-size: 20pt;
@@ -79,340 +113,41 @@ td {
 	margin-top: 10px;
 }
 
-#gogo:hover {
-	animation:;
-	animation-iteration-count: infinite;
-	position: relative;
-	-webkit-animation: mymove 7s; /* Safari 4.0 - 8.0 */
-	animation: shake 0.5s, mymove 7s;
-}
-
-@
-keyframes shake { 0% {
-	transform: translate(1px, 1px) rotate(0deg);
-}
-
-10%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(-1
-px
-,
--2
-px
-
-
-)
-rotate
-
-
-(-1
-deg
-);
-
- 
+#gogo:hover{
+  animation: ;
+  animation-iteration-count: infinite;
+  position: relative;
+  -webkit-animation: mymove 4s ; /* Safari 4.0 - 8.0 */
+  animation: shake 0.5s, mymove 4s ;
 
 }
-20%
-{
-transform
 
-
-:
-
- 
-
-translate
-
-
-(-3
-px
-,
-0
-px
-
-
-)
-rotate
-
-
-(1
-deg
-);
-
- 
-
-}
-30%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(3
-px
-,
-2
-px
-
-
-)
-rotate
-
-
-(0
-deg
-);
-
- 
-
-}
-40%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(1
-px
-,
--1
-px
-
-
-)
-rotate
-
-
-(1
-deg
-);
-
- 
-
-}
-50%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(-1
-px
-,
-2
-px
-
-
-)
-rotate
-
-
-(-1
-deg
-);
-
- 
-
-}
-60%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(-3
-px
-,
-1
-px
-
-
-)
-rotate
-
-
-(0
-deg
-);
-
- 
-
-}
-70%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(3
-px
-,
-1
-px
-
-
-)
-rotate
-
-
-(-1
-deg
-);
-
- 
-
-}
-80%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(-1
-px
-,
--1
-px
-
-
-)
-rotate
-
-
-(1
-deg
-);
-
- 
-
-}
-90%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(1
-px
-,
-2
-px
-
-
-)
-rotate
-
-
-(0
-deg
-);
-
- 
-
-}
-100%
-{
-transform
-
-
-:
-
- 
-
-translate
-
-
-(1
-px
-,
--2
-px
-
-
-)
-rotate
-
-
-(-1
-deg
-);
-
- 
-
-}
-}
-@
--webkit-keyframes mymove {
-	from {left: 0px;
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-to {
-	left: 750px;
+
+@-webkit-keyframes mymove {
+  from {left: 0px;}
+  to {left: 550px;}
 }
 
-}
-@
-keyframes mymove {
-	from {left: 0px;
-}
-
-to {
-	left: 750px;
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 550px;}
 }
 
-}
+
 .menubar {
 	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
@@ -508,6 +243,9 @@ to {
 
 /* 여기까지 메뉴 */
 
+
+
+
 /* 메인섹션 */
 #main {
 	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
@@ -530,6 +268,9 @@ to {
 }
 
 /* 메인섹션여기까지 */
+
+
+
 aside#right {
 	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
@@ -547,6 +288,8 @@ aside#right {
 	border-color: white;
 	background-color: #3465b0;
 }
+
+
 
 /*여기서부터 아이디찾기*/
 #idsearch {
@@ -577,6 +320,8 @@ aside#right {
 }
 
 /*여기까지 아이디찾기*/
+
+
 
 /*여기부터 푸터*/
 #footertable {

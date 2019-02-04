@@ -10,5 +10,28 @@ public class MainController {
 	public String mainStart() {
 		return "main/main";
 	}
+	
+	
+	//02.04 테스트용 
+	@RequestMapping("/view/**/mainfooter.do")
+	public String mainFooter() {
+		return "main/mainFooter";
+	}
+	
+	@RequestMapping("/view/**/mainheader.do")
+	public String mainHeader() {
+		return "main/mainHeader";
+	}
+	
+	@RequestMapping("/view/**/adminmain.do")
+	public String adminMain() {
+		return "admin/admin_main";
+	}
+	
+	@RequestMapping("/view/**/findidandpass.do")
+	public String findIdAndPass() {
+		return "login/findIdAndPassword";
+	}
+	
 
 }
