@@ -11,8 +11,13 @@
 	</insert>
 	<select id="getCommentList" resultType="comment">
 	<![CDATA[
-	SELECT * FROM COMMENTS WHERE SEQ=#{seq} ORDER BY SEQ DESC,REGDATE DESC
+	SELECT CNO,SEQ,ID,NAME,CONTENT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM COMMENTS WHERE SEQ=#{seq} ORDER BY SEQ DESC,REGDATE DESC
 	]]>
 	</select>
+	<delete id ="deleteComment">
+	<![CDATA[
+		DELETE FROM COMMENTS WHERE CNO =#{cno} 
+	]]>
+	</delete>
 
 </mapper>

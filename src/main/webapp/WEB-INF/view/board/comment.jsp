@@ -35,30 +35,31 @@
 	</div>
 	<div align="center">
 		<form id="commentListForm" name="commentListForm" method="post">
-			<div id="commentList"></div>
+			<c:set var="check" value="" />
+
+			<div id="commentList" align="center"></div>
 		</form>
 	</div>
 
 	<script>
 		//댓글 등록하기(ajax)
-		$("#insertCommentbt").click(
-				function() {
-					$.ajax({
-						type : "POST",
-						url : "<c:url value='insertComment.do'/>",
-						data : $("#commentForm").serialize(),
-						success : function(data) {
-							if (data == "success") {
-								getCommentList();
-								document.commentForm.content.value="";
-							}
-						},
-						error : function(request, status, error) {
-							alert("로그인 후 이용해주세요.");
-						}
+		$("#insertCommentbt").click(function() {
+			$.ajax({
+				type : "POST",
+				url : "<c:url value='insertComment.do'/>",
+				data : $("#commentForm").serialize(),
+				success : function(data) {
+					if (data == "success") {
+						getCommentList();
+						document.commentForm.content.value = "";
+					}
+				},
+				error : function(request, status, error) {
+					alert("로그인 후 이용해주세요.");
+				}
 
-					});
-				});
+			});
+		});
 
 		//초기 페이지 로딩시 댓글 불러오기
 		$(function() {
@@ -67,7 +68,8 @@
 
 		//댓글 불러오기(ajax)
 		function getCommentList() {
-			$.ajax({
+			$
+					.ajax({
 						type : "POST",
 						url : "<c:url value='commentList.do'/>",
 						dataType : "json",
@@ -76,16 +78,29 @@
 						success : function(data) {
 							var html = "";
 							var cCnt = data.length;
+							var sid = document.commentForm.id.value;
 
 							if (data.length > 0) {
 								for (i = 0; i < data.length; i++) {
-									html += "<div>";
-									html += "<div><table class='table'><h6><strong>"
-											+ data[i].name + "</strong></h6>";
-									html += data[i].content
-											+ "<tr><td></td></tr>";
-									html += "</table></div>";
-									html += "</div>";
+
+									html += "<table width='500'><tr><td align='left'><h6><strong>"
+											+ data[i].name
+											+ "</strong></td><td align='right'>"
+											+ data[i].regdate;
+									if (sid == data[i].cid) {
+										html += "</h6></td><td>"
+												+ "<a href='#' onclick='updateComment("
+												+ data[i].cno
+												+ ")'>수정</a>&nbsp;"
+												+ "<a href='#' onclick='deleteComment("
+												+ data[i].cno + ")'>삭제</a>"
+												+ "</td></tr>";
+									}
+
+									html += "<tr><td colspan='4'>";
+									html += data[i].content + "</td></tr>";
+									html += "</table>";
+
 								}
 							} else {
 								html += "<div>";
@@ -95,12 +110,34 @@
 							}
 							$("#commentCount").html(cCnt);
 							$("#commentList").html(html);
-	
+
 						},
 						error : function(request, status, error) {
 
 						}
 					});
+		}
+
+		function updateComment(cno) {
+
+		}
+		function deleteComment(cno) {
+			$.ajax({
+				type : "POST",
+				url : "deleteComment.do",
+				data : {
+					"cno" : cno
+				},
+				success : function(data) {
+					if (data == "success") {
+						getCommentList();
+					}
+				},
+				error : function(request, status, error) {
+					alert("비정상적인 요청입니다.");
+				}
+
+			});
 		}
 	</script>
 
