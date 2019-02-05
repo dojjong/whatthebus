@@ -1,5 +1,6 @@
 package what.the.bus.comment.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,9 +49,12 @@ public class InsertCommentController {
 		if (commentVO.size() > 0) {
 			for (int i = 0; i < commentVO.size(); i++) {
 				HashMap hm = new HashMap();
+				hm.put("cid", commentVO.get(i).getId());
 				hm.put("cno", commentVO.get(i).getCno());
 				hm.put("content", commentVO.get(i).getContent());
 				hm.put("name", commentVO.get(i).getName());
+				hm.put("regdate", commentVO.get(i).getRealregdate());
+			
 				hmlist.add(hm);
 			}
 		}

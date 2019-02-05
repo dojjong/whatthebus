@@ -9,6 +9,15 @@ public class CommentVO {
 	private String name;
 	private String content;
 	private Date regdate;
+	private String realregdate;
+	
+	public String getRealregdate() {
+		return realregdate;
+	}
+
+	public void setRealregdate(String realregdate) {
+		this.realregdate = realregdate;
+	}
 
 	public int getCno() {
 		return cno;
@@ -60,7 +69,7 @@ public class CommentVO {
 
 	@Override
 	public String toString() {
-		return "CommentVO [con=" + cno + ", seq=" + seq + ", id=" + id + ", name=" + name + ", content=" + content
+		return "CommentVO [cno=" + cno + ", seq=" + seq + ", id=" + id + ", name=" + name + ", content=" + content
 				+ ", regdate=" + regdate + "]";
 	}
 
