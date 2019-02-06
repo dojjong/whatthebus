@@ -42,6 +42,9 @@
 	</div>
 
 	<script>
+		var updateCheck = 0;
+		var updateCheckCno = 0;
+		var getComment = "";
 		//댓글 등록하기(ajax)
 		$("#insertCommentbt").click(function() {
 			$.ajax({
@@ -83,25 +86,38 @@
 							if (data.length > 0) {
 								for (i = 0; i < data.length; i++) {
 
-									html += "<table width='500'><tr><td align='left'><h6><strong>"
+									html += "<table width='500'><tr><td align='left'colspan='2'><h6><strong>"
 											+ data[i].name
-											+ "</strong></td><td align='right'>"
+											+ "</strong></td><td align='left'>"
 											+ data[i].regdate;
 									if (sid == data[i].cid) {
-										html += "</h6></td><td>"
+										html += "</h6></td><td align='right'>"
 												+ "<a href='#' onclick='updateComment("
 												+ data[i].cno
 												+ ")'>수정</a>&nbsp;"
 												+ "<a href='#' onclick='deleteComment("
 												+ data[i].cno + ")'>삭제</a>"
 												+ "</td></tr>";
+									} else {
+										html += "<td></td>";
 									}
-
-									html += "<tr><td colspan='4'>";
-									html += data[i].content + "</td></tr>";
-									html += "</table>";
-
+									if (data[i].cno == updateCheckCno
+											&& updateCheck == 1) {
+										html += "<tr><td colspan='3'>";
+										html += "<textarea rows='2' cols='50' id='updateContent' name='content'>"
+												+ getComment
+												+ "</textarea></td><td align='right'><input type='button' value = '확인'  class='contentbt' onclick='updateCommentCheck("
+												+ data[i].cno
+												+ ")'/>"
+												+ "</td></tr>";
+										html += "</table>";
+									} else {
+										html += "<tr><td colspan='4'>";
+										html += data[i].content + "</td></tr>";
+										html += "</table>";
+									}
 								}
+
 							} else {
 								html += "<div>";
 								html += "<div><table><h6><strong>등록된 댓글이 없습니다.</strong></h6>";
@@ -119,8 +135,41 @@
 		}
 
 		function updateComment(cno) {
-
+			$
+					.ajax({
+						type : "POST",
+						url : "getComment.do",
+						dataType : "json",
+						data : {
+							"cno" : cno
+						},
+						contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+						success : function(data) {
+							updateCheck = 1;
+							updateCheckCno = cno;
+							getComment = data.content;
+							getCommentList();
+						}
+					});
 		}
+		function updateCommentCheck(cno) {
+			$.ajax({
+				type : "POST",
+				url : "updateCommentCheck.do",
+				data : {
+					"cno" : cno,
+					"content" : $("#updateContent").val()
+				},
+				success : function(data) {
+					if (data == "success") {
+						updateCheck = 0;
+						getCommentList();
+					}
+
+				}
+			});
+		}
+
 		function deleteComment(cno) {
 			$.ajax({
 				type : "POST",

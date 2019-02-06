@@ -34,4 +34,14 @@ public class CommentDAOImpl implements CommentDAO {
 		mybatis.delete("CommentDAO.deleteComment", cno);
 	}
 
+	@Override
+	public CommentVO getComment(int cno) {
+		return mybatis.selectOne("CommentDAO.getComment", cno);
+	}
+
+	@Override
+	public void updateComment(CommentVO vo) {
+		mybatis.update("CommentDAO.updateComment", vo);
+	}
+
 }
