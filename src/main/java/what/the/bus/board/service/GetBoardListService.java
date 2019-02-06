@@ -7,5 +7,5 @@ import what.the.bus.board.BoardVO;
 public interface GetBoardListService {
 	List<BoardVO> getBoardList(BoardVO vo);
 
-	Integer getListCount();
+	Integer getListCount(BoardVO vo);
 }

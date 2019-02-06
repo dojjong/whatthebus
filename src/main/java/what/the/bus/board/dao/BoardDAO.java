@@ -10,7 +10,7 @@ public interface BoardDAO {
 
 	List<BoardVO> getBoardList(BoardVO vo);
 
-	int getListCount();
+	int getListCount(BoardVO vo);
 
 	BoardVO getBoard(int seq);
 	

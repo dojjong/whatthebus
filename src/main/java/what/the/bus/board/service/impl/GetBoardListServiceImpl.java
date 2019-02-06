@@ -24,7 +24,7 @@ public class GetBoardListServiceImpl implements GetBoardListService {
 	}
 
 	@Override
-	public Integer getListCount() {
-		return boardDAO.getListCount();
+	public Integer getListCount(BoardVO vo) {
+		return boardDAO.getListCount(vo);
 	}
 }

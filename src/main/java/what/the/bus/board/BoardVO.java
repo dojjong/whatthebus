@@ -13,6 +13,24 @@ public class BoardVO {
 	private int cnt;
 	private int cntPerPage;
 	private int startIndex;
+	private String searchOption;
+	private String keyword;
+
+	public String getSearchOption() {
+		return searchOption;
+	}
+
+	public void setSearchOption(String searchOption) {
+		this.searchOption = searchOption;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 
 	public int getCntPerPage() {
 		return cntPerPage;
