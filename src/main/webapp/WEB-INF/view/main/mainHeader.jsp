@@ -31,8 +31,7 @@
 
 			<table id="headertable">
 				<tr>
-					<td width="700px"><a href="main.do"><img
-							src="../resources/images/whatthebuslogo.png" id="gogo"></a></td>
+					<td width="700px"><a href="main.do"><img src="../resources/images/whatthebuslogo.png" id="gogo"></a></td>
 
 					<td>
 						<!-- 로그인 modal -->
@@ -250,12 +249,12 @@
 						</ul></li>
 					<li><a href="#">제안</a>
 						<ul>
-							<li><a href="../pay/payForm.html" target="iframe">정기권제안(임시:결제화면)</a></li>
+							<li><a href="getSuggestBoardList.do" target="iframe">정기권제안</a></li>
 							<li><a href="#">단기권제안()</a></li>
 						</ul></li>
 					<li><a href="#">예약</a>
 						<ul>
-							<li><a href="../border/list.html" target="iframe">자유게시판(임시:게시판글)</a></li>
+							<li><a href="getBookBoardList.do" target="iframe">상품</a></li>
 							<li><a href="../border/writeForm.html" target="iframe">수요조사(임시:글쓰기화면)</a></li>
 							<li><a href="../border/content.html" target="iframe">후기(임시:게시글보기화면)</a></li>
 						</ul></li>

@@ -13,6 +13,10 @@
 		<typeAlias type="what.the.bus.best.BestVO" alias="best"></typeAlias>
 		<typeAlias type="what.the.bus.comment.CommentVO"
 			alias="comment"></typeAlias>
+		<typeAlias type="what.the.bus.suggestBoard.SuggestBoardVO"
+			alias="suggestBoard"></typeAlias>
+		<typeAlias type="what.the.bus.bookBoard.BookBoardVO"
+			alias="bookBoard"></typeAlias>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -32,5 +36,7 @@
 		<mapper resource="mappings/board-mapping.xml" />
 		<mapper resource="mappings/best-mapping.xml" />
 		<mapper resource="mappings/comment-mapping.xml" />
+		<mapper resource="mappings/bookBoard-mapping.xml" />
+		<mapper resource="mappings/suggestBoard-mapping.xml" />
 	</mappers>
 </configuration>

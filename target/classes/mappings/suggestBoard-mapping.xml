@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SuggestBoardDAO">
+
+	<!-- 글쓰기 -->
+	<insert id="insertSuggestBoard">
+	<![CDATA[
+		INSERT INTO SUGGESTBOARD(SEQ,ID,NAME,TITLE,CONTENT,START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM SUGGESTBOARD),#{id},#{name},#{title},#{content},#{start_wido},#{start_kyungdo},#{end_wido},#{end_kyungdo})
+		]]>
+	</insert>
+
+	<!-- 글목록 가져오기 -->
+	<select id="getSuggestBoardList" resultType="suggestBoard">
+	<![CDATA[
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT,START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO FROM SUGGESTBOARD ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	</select>
+	<!-- 전체 글수 가져오기 -->
+	<select id="getSuggestBoardListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM SUGGESTBOARD	
+	]]>
+	</select>
+	
+	<select id="getSuggestBoard" resultType="suggestBoard">
+	<![CDATA[
+	SELECT * FROM SUGGESTBOARD WHERE SEQ = #{seq}
+	]]>
+	</select>
+
+	<update id="updateSuggestBoard">
+	<![CDATA[
+	UPDATE SUGGESTBOARD SET TITLE=#{title}, CONTENT=#{content}, START_WIDO=#{start_wido}, START_KYUNGDO=#{start_kyungdo}, END_WIDO=#{end_wido}, END_KYUNGDO=#{end_kyungdo} WHERE SEQ =#{seq}
+	]]>
+	</update>
+
+</mapper>

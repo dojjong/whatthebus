@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BookBoardDAO">
+
+	<!-- 글쓰기 -->
+	<insert id="insertBookBoard">
+	<![CDATA[
+		INSERT INTO BOOKBOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES((SELECT
+		NVL(MAX(SEQ),0)+1 FROM BOOKBOARD),#{id},#{name},#{title},#{content})
+		]]>
+	</insert>
+
+	<!-- 글목록 가져오기 -->
+	<select id="getBookBoardList" resultType="bookBoard">
+	<![CDATA[
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM BOOKBOARD ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	</select>
+	<!-- 전체 글수 가져오기 -->
+	<select id="getBookBoardListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM BOOKBOARD	
+	]]>
+	</select>
+	<select id="getBookBoard" resultType="bookBoard">
+	<![CDATA[
+	SELECT * FROM BOOKBOARD WHERE SEQ = #{seq}
+	]]>
+	</select>
+
+	<update id="updateBookBoard">
+	<![CDATA[
+	UPDATE BOOKBOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
+	]]>
+	</update>
+
+</mapper>
