@@ -22,7 +22,7 @@
 	SELECT COUNT(*) FROM SUGGESTBOARD	
 	]]>
 	</select>
-	
+
 	<select id="getSuggestBoard" resultType="suggestBoard">
 	<![CDATA[
 	SELECT * FROM SUGGESTBOARD WHERE SEQ = #{seq}
@@ -34,5 +34,10 @@
 	UPDATE SUGGESTBOARD SET TITLE=#{title}, CONTENT=#{content}, START_WIDO=#{start_wido}, START_KYUNGDO=#{start_kyungdo}, END_WIDO=#{end_wido}, END_KYUNGDO=#{end_kyungdo} WHERE SEQ =#{seq}
 	]]>
 	</update>
-
+	
+	<delete id="deleteSuggestBoard">
+	<![CDATA[
+	DELETE SUGGESTBOARD WHERE SEQ=#{seq}
+	]]>
+	</delete>
 </mapper>

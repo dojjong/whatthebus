@@ -6,33 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
-
+<link type="text/css" rel="stylesheet"
+	href="../resources/css/boardStyle.css" />
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 </head>
 <body>
 	<div align="center">
-		<b>글쓰기</b>
+		<b>글수정</b>
 	</div>
 	<br />
-	<form method="post" id="writeForm" name="writeForm"
-		action="insertBookBoard.do">
-		<input type="hidden" name="id" value="${member.id }"> <input
-			type="hidden" name="name" value="${member.name }" />
+	<form method="post" id="updateSuggestForm" name="updateSuggestForm"
+		action="updateSuggestBoard.do?seq=${vo.seq }">
+
+			<input type="hidden" name="id" value="${member.id }"> 
+			<input type="hidden" name="name" value="${member.name }" /> 			
+			<input type="hidden" id="start_wido" name="start_wido" value="${vo.start_wido }" />
+			<input type="hidden" id="start_kyungdo" name="start_kyungdo" value="${vo.start_kyungdo }" />
+			<input type="hidden" id="end_wido" name="end_wido" value="${vo.end_wido }" />
+			<input type="hidden" id="end_kyungdo" name="end_kyungdo" value="${vo.end_kyungdo }" />
 		<table border="1" align="center">
 
 			<tr>
 				<td width="100" align="center">작성자</td>
 				<td width="700">${member.name }</td>
-
-
 			</tr>
 
 			<tr>
 				<td width="100" align="center">제목</td>
 				<td width="700"><input type="text" size="50" maxlength="50"
-					name="title" /></td>
+					name="title" value="${vo.title}" /></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
@@ -42,32 +45,33 @@
 			<tr>
 				<td width="100" align="center">내용</td>
 				<td><textarea name="content" id="ir1" rows="15" cols="600"
-						style="width: 680px; height: 200px;"></textarea></td>
+						style="width: 680px; height: 200px;">${vo.content }</textarea></td>
 			</tr>
-			<tr><td colSpan="2">
-				<table>
-					<tr>
-						<td><div id="map" style="width:750px;height:300px;"></div></td>
-					</tr>
-					<tr>
-						<td>1) 사용할 위치를 선택만 선택한 후 "정리하기" 버튼 클릭&nbsp;<input type="button" value="정리하기" onClick="#"/>&nbsp;<input type="button" value="취소" onClick="#"/></td>
-					</tr>
-					<tr>
-						<td>2) 출발지 마커를 선택하신 후 확정 버튼을 눌러주세요&nbsp;<input type="button" value="확정" onClick="#"/>&nbsp;<input type="button" value="취소" onClick="#"/></td>
-					</tr>
-					<tr>
-						<td>3) 도착지 마커를 선택하신 후 확정 버튼을 눌러주세요&nbsp;<input type="button" value="확정" onClick="#"/>&nbsp;<input type="button" value="취소" onClick="#"/></td>
-					</tr>
-					<tr>
-						<td><div id="js2html"></div></td>
-					</tr>
-				</table>
-			</td></tr>
+
+			<tr>
+				<td colSpan="2">
+					<table>
+						<tr>
+							<td colSpan="2"><div id="map"
+									style="width: 800px; height: 300px;"></div></td>
+						</tr>
+						<tr>
+							<td colSpan="2">확정 출발지 : <span id="spanStartJuso"></span></td>
+						</tr>
+						<tr>
+							<td colSpan="2">확정 도착지 : <span id="spanEndJuso"></span></td>
+						</tr>
+
+					</table>
+				</td>
+			</tr>
+
 			<tr>
 				<td colspan="2" align="center"><input type="submit"
 					id="insertBoardbt" class="writebt" value="글쓰기" /> <input
-					type="reset" class="writebt" value="다시작성" /> <input type="button"
-					class="writebt" value="목록" ></td>
+					type="reset" class="writebt" value="다시작성" /> <a
+					href="getSuggestBoardList.do"> <input type="button" class="contentbt"
+						value="목록"></a>
 			</tr>
 		</table>
 	</form>
@@ -106,8 +110,7 @@
 	</script>
 	<script type="text/javascript"
 		src="../resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-	<script type="text/javascript" src="../resources/js/boardScript.js"></script>
-	<script type="text/javascript" src="../resources/js/driverRegistMapScript.js"></script>
+	<script type="text/javascript" src="../resources/js/userViewMapScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

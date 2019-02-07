@@ -12,7 +12,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 </head>
 <body>
-	<form action="updateForm.do?seq=${vo.seq }" method="post" id="contentForm">
+	<form action="updateSuggestForm.do?seq=${vo.seq }" method="post" id="contentForm">
 			<input type="hidden" name="id" value="${member.id }"> 
 			<input type="hidden" name="name" value="${member.name }" /> 
 			
@@ -63,7 +63,7 @@
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
-							<a href="deleteSuggestBoard.do"> <input type="button"
+							<a href="deleteSuggestBoard.do?seq=${vo.seq }"> <input type="button"
 								class="contentbt" value="삭제"></a>
 						</c:when>
 					</c:choose> <a href="getSuggestBoardList.do"> <input type="button"

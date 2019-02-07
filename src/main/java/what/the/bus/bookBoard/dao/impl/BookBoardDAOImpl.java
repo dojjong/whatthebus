@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import what.the.bus.board.BoardVO;
 import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.dao.BookBoardDAO;
 import what.the.bus.util.SqlSessionFactoryBean;
@@ -42,6 +41,11 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 	@Override
 	public void updateBookBoard(BookBoardVO vo) {
 		mybatis.update("BookBoardDAO.updateBookBoard",vo);
+	}
+
+	@Override
+	public void deleteBookBoard(BookBoardVO vo) {
+		mybatis.delete("BookBoardDAO.deleteBookBoard", vo);
 	}
 
 }

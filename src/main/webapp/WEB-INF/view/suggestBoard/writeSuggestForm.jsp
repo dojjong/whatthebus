@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<jsp:include page="../main/mainHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,7 +95,7 @@
 				<td colspan="2" align="center"><input type="submit"
 					id="insertBoardbt" class="writebt" value="글쓰기" /> <input
 					type="reset" class="writebt" value="다시작성" /> <input type="button"
-					class="writebt" value="목록"></td>
+					class="writebt" value="목록" onClick="getSuggestBoardList.do"></td>
 			</tr>
 		</table>
 	</form>
@@ -109,7 +109,7 @@
 
 				elPlaceHolder : "ir1",
 
-				sSkinURI : "./se2/SmartEditor2Skin.html",
+				sSkinURI : "../resources/se2/SmartEditor2Skin.html",
 
 				htParams : {
 					bUseToolbar : true, // 툴바 사용 여부 (true:사용/ false:사용하지 않음)

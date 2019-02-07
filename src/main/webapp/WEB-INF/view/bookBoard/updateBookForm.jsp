@@ -6,18 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
+<link type="text/css" rel="stylesheet"
+	href="../resources/css/boardStyle.css" />
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 
 </head>
 <body>
 	<div align="center">
-		<b>글쓰기</b>
+		<b>글수정</b>
 	</div>
 	<br />
-	<form method="post" id="writeForm" name="writeForm"
-		action="insertBookBoard.do">
+	<form method="post" id="updateBookForm" name="updateBookForm"
+		action="updateBookBoard.do?seq=${vo.seq}">
 		<input type="hidden" name="id" value="${member.id }"> <input
 			type="hidden" name="name" value="${member.name }" />
 		<table border="1" align="center">
@@ -32,7 +32,7 @@
 			<tr>
 				<td width="100" align="center">제목</td>
 				<td width="700"><input type="text" size="50" maxlength="50"
-					name="title" /></td>
+					name="title" value="${vo.title}"/></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
@@ -42,7 +42,7 @@
 			<tr>
 				<td width="100" align="center">내용</td>
 				<td><textarea name="content" id="ir1" rows="15" cols="600"
-						style="width: 680px; height: 200px;"></textarea></td>
+						style="width: 680px; height: 200px;">${vo.content }</textarea></td>
 			</tr>
 			<tr><td colSpan="2">
 				<table>
@@ -66,8 +66,9 @@
 			<tr>
 				<td colspan="2" align="center"><input type="submit"
 					id="insertBoardbt" class="writebt" value="글쓰기" /> <input
-					type="reset" class="writebt" value="다시작성" /> <input type="button"
-					class="writebt" value="목록" ></td>
+					type="reset" class="writebt" value="다시작성" /> <a
+					href="getBookBoardList.do"> <input type="button" class="contentbt"
+						value="목록"></a>
 			</tr>
 		</table>
 	</form>

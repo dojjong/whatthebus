@@ -8,7 +8,7 @@ import what.the.bus.suggestBoard.SuggestBoardVO;
 import what.the.bus.suggestBoard.service.InsertSuggestBoardService;
 
 @Controller
-public class SuggestBoardController {
+public class InsertSuggestBoardController {
 	@Autowired
 	private InsertSuggestBoardService suggestBoardService;
 	//�Խ��� �۾���

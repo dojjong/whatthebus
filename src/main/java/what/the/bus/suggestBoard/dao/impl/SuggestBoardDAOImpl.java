@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.board.BoardVO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 import what.the.bus.suggestBoard.dao.SuggestBoardDAO;
 import what.the.bus.util.SqlSessionFactoryBean;
@@ -42,5 +43,12 @@ public class SuggestBoardDAOImpl implements SuggestBoardDAO {
 	public void updateSuggestBoard(SuggestBoardVO vo) {
 		mybatis.update("SuggestBoardDAO.updateSuggestBoard",vo);
 	}
+	
+	@Override
+	public void deleteSuggestBoard(SuggestBoardVO vo) {
+		mybatis.delete("SuggestBoardDAO.deleteSuggestBoard", vo);
+	}
+
+	
 
 }

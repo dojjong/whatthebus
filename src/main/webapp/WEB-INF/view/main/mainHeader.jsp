@@ -16,7 +16,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 <!-- 로그인관련 js -->
-<link type="text/css" rel="stylesheet" href="../resources/css/loginStyle.css">
+ <link type="text/css" rel="stylesheet" href="../resources/css/loginStyle.css"> 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 

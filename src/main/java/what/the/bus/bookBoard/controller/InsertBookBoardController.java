@@ -8,7 +8,7 @@ import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.service.InsertBookBoardService;
 
 @Controller
-public class BookBoardController {
+public class InsertBookBoardController {
 	@Autowired
 	private InsertBookBoardService bookBoardService;
 	//게시판 글쓰기
@@ -21,6 +21,6 @@ public class BookBoardController {
 	@RequestMapping("/view/**/insertBookBoard.do")
 	public String insertBookBoard(BookBoardVO vo) {
 		bookBoardService.insertBookBoard(vo);
-		return "redirect:../bookBoard/getBookBoardList.do";
+		return "redirect:getBookBoardList.do";
 	}
 }
