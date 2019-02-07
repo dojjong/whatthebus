@@ -17,6 +17,7 @@
 			alias="suggestBoard"></typeAlias>
 		<typeAlias type="what.the.bus.bookBoard.BookBoardVO"
 			alias="bookBoard"></typeAlias>
+			
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -38,5 +39,6 @@
 		<mapper resource="mappings/comment-mapping.xml" />
 		<mapper resource="mappings/bookBoard-mapping.xml" />
 		<mapper resource="mappings/suggestBoard-mapping.xml" />
+		<mapper resource="mappings/admin-mapping.xml" />
 	</mappers>
 </configuration>

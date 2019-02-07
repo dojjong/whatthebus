@@ -19,23 +19,25 @@
 		SELECT * FROM MEMBER WHERE ID=#{id}
 		]]>
 	</select>
-	
-	<!-- ID중복확인용 --> 
-	<select id="checkMember" parameterType="String" resultType="Integer">
+
+	<!-- ID중복확인용 -->
+	<select id="checkMember" parameterType="String"
+		resultType="Integer">
 	<![CDATA[
 	SELECT COUNT(*) FROM (SELECT * FROM MEMBER WHERE ID=#{id} UNION 
 		SELECT * FROM DRIVER WHERE ID=#{id})
 	]]>
 	</select>
-	
-	<!-- email중복확인용 --> 
-	<select id="checkEmail" parameterType="String" resultType="String">
+
+	<!-- email중복확인용 -->
+	<select id="checkEmail" parameterType="String"
+		resultType="String">
 	<![CDATA[
 	SELECT EMAIL FROM (SELECT * FROM MEMBER WHERE EMAIL=#{email} UNION 
 		SELECT * FROM DRIVER WHERE EMAIL=#{email})
 	]]>
 	</select>
-	
+
 	<!-- 회원정보 수정 -->
 	<update id="updateMember">
 	<![CDATA[
@@ -51,19 +53,24 @@
 		UPDATE MEMBER SET PASSWORD=#{password} WHERE ID=#{id}
 		]]>
 	</update>
-	
+
 	<!-- 회원 탈퇴 -->
 	<delete id="deleteMember">
 	<![CDATA[
 		DELETE FROM MEMBER WHERE ID=#{id}
 	]]>
-	
+
 	</delete>
-	
-	<!-- 아이디찾기 -->
-	
-	
-	
+
+	<!-- 아이디찾기 02.06 -->
+	<select id="findId" resultType="member">
+	<![CDATA[
+	SELECT ID FROM(SELECT * FROM MEMBER WHERE NAME=#{name} AND EMAIL=#{email} UNION 
+	SELECT * FROM DRIVER WHERE NAME=#{name} AND EMAIL=#{email})
+	]]>
+	</select>
+
+
 	<!-- 비밀번호찾기 -->
-	
+
 </mapper>

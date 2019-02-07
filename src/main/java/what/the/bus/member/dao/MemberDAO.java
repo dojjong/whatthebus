@@ -19,6 +19,7 @@ public interface MemberDAO {
 	
 	String checkName(String checkName); //01.31
 	
+	String findId(MemberVO vo); //02.06
 	
 
 }

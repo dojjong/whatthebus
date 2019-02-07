@@ -1,5 +1,7 @@
 package what.the.bus.member;
 
+import java.sql.Date;
+
 public class MemberVO {
 	private String id;
 	private String password;
@@ -8,10 +10,22 @@ public class MemberVO {
 	private String tel;
 	private String tel1;
 	private String tel2;
+
+
 	private String tel3;
 	private String email;
+	private Date regdate;
 	private String license;
+	
+	
+	public Date getRegdate() {
+		return regdate;
+	}
 
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+	
 	public String getTel1() {
 		return tel1;
 	}
@@ -95,8 +109,9 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", gender=" + gender + ", tel="
-				+ tel + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", email=" + email + ", license="
-				+ license + "]";
+				+ tel + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", email=" + email + ", regdate="
+				+ regdate + ", license=" + license + "]";
 	}
+
 
 }

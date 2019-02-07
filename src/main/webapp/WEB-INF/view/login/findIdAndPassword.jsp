@@ -44,6 +44,7 @@ body {font-family: Arial;}
   border-top: none;
 }
 </style>
+
 </head>
 <body>
 
@@ -55,6 +56,7 @@ body {font-family: Arial;}
 </div>
 
 <div id="id" class="tabcontent">
+<form action="../member/findId.do" method="post">
 	<h3>아이디찾기</h3>
 	<table>
 			
@@ -73,9 +75,10 @@ body {font-family: Arial;}
 				<td colspan="2" align="center">가입하신 이메일로 아이디를 전송해드리겠습니다.</td>
 				</tr>
 			<tr><td colspan="2" align="center">
-			<input type="button" value="확인" /></td></tr>
+			<button type="submit" id=findBtn value="확인"></button></td></tr>
 		
 			</table>
+			</form>
 </div>
 
 
@@ -110,6 +113,9 @@ body {font-family: Arial;}
 		
 		</table>
 </div>
+
+
+
 
 
 <script>

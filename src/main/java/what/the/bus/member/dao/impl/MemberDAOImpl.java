@@ -49,9 +49,14 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	//01.31 추가 
 	public String checkName(String checkName) {
-		return mybatis.selectOne("MemberDAO.checkNam", checkName);
+		return mybatis.selectOne("MemberDAO.checkName", checkName);
 	}
-	
+
+	@Override //02.06
+	public String findId(MemberVO vo) {
+		return mybatis.selectOne("MemberDAO.findId", vo);
+	}
+
 	
 
 	
