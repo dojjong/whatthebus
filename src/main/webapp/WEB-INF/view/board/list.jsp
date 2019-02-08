@@ -18,7 +18,7 @@
 
 	<!-- 화면 센터 -->
 	<div align="center">
-		<b>글목록(전체 글 : ${pagination.listCnt } )</b>
+		<b>글목록(전체 글 : ${map.count } )</b>
 		<table id="listtab">
 			<tr id="boardhead">
 				<td align="center" width="55">번호</td>
@@ -35,7 +35,7 @@
 				</tr>
 			</c:if> --%>
 
-			<c:forEach var="vo" items="${list }">
+			<c:forEach var="vo" items="${map.list }">
 				<tr height="30">
 					<td align="center" width="50">${vo.seq }</td>
 					<td width="250"><a
@@ -56,31 +56,34 @@
 							type="button" id="writebt">
 					</form>
 					<div align="center">
-						<c:if test="${pagination.curRange ne 1 }">
-							<a href="#" onClick="fn_paging(1)">[처음]</a>
+						<c:if test="${map.pagination.curBlock > 1 }">
+							<a href="#"
+								onClick="fn_paging(1,'${searchOption }','${keyword }')">[처음]</a>
 						</c:if>
-						<c:if test="${pagination.curPage ne 1}">
-							<a href="#" onClick="fn_paging('${pagination.prevPage }')">[이전]</a>
+						<c:if test="${map.pagination.curBlock > 1}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.prevPage }','${searchOption }','${keyword }')">[이전]</a>
 						</c:if>
-						<c:forEach var="pageNum" begin="${pagination.startPage }"
-							end="${pagination.endPage }">
+						<c:forEach var="pageNum" begin="${map.pagination.blockBegin }"
+							end="${map.pagination.blockEnd }">
 							<c:choose>
-								<c:when test="${pageNum eq  pagination.curPage}">
+								<c:when test="${pageNum ==  map.pagination.curPage}">
 									<span style="font-weight: bold;"><a href="#"
-										onClick="fn_paging('${pageNum }')">${pageNum }</a></span>
+										onClick="fn_paging('${pageNum }','${searchOption }','${keyword }')">${pageNum }</a></span>
 								</c:when>
 								<c:otherwise>
-									<a href="#" onClick="fn_paging('${pageNum }')">${pageNum }</a>
+									<a href="#"
+										onClick="fn_paging('${pageNum }','${searchOption }','${keyword }')">${pageNum }</a>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-						<c:if
-							test="${pagination.curPage ne pagination.pageCnt && pagination.pageCnt > 0}">
-							<a href="#" onClick="fn_paging('${pagination.nextPage }')">[다음]</a>
+						<c:if test="${map.pagination.curBlock <= map.pagination.totBlock}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.nextPage }','${searchOption }','${keyword }')">[다음]</a>
 						</c:if>
-						<c:if
-							test="${pagination.curRange ne pagination.rangeCnt && pagination.rangeCnt > 0}">
-							<a href="#" onClick="fn_paging('${pagination.pageCnt }')">[끝]</a>
+						<c:if test="${map.pagination.curPage <= map.pagination.totPage}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.totPage }','${searchOption }','${keyword }')">[끝]</a>
 						</c:if>
 					</div>
 
@@ -116,8 +119,9 @@
 		</form>
 	</div>
 	<script>
-		function fn_paging(curPage) {
-			location.href = "getBoardList.do?curPage=" + curPage;
+		function fn_paging(curPage, searchOption, keyword) {
+			location.href = "getBoardList.do?curPage=" + curPage
+					+ "&searchOption=${map.searchOption}"+ "&keyword=${map.keyword}";
 		}
 	</script>
 

@@ -1,46 +1,57 @@
 package what.the.bus.pagination;
 
 public class Pagination {
-	// 한페이지당 게시글 수
-	private int pageSize = 10;
-	// 한 블럭당 페이지 수
-	private int rangeSize = 5;
-	// 현재 페이지
-	private int curPage = 1;
-	// 현재 블럭
-	private int curRange = 1;
-	// 총 게시글 수
-	private int listCnt;
-	// 총 페이지 수
-	private int pageCnt;
-	// 총 블럭 수
-	private int rangeCnt;
-	// 시작 페이지
-	private int startPage = 1;
-	// 끝 페이지
-	private int endPage = 1;
-	// 시작 index
-	private int startIndex = 0;
-	// 이전페이지
-	private int prevPage;
-	// 다음페이지
-	private int nextPage;
-
-	public int getPageSize() {
-		return pageSize;
+	//페이지당 게시물 수
+	public static final int PAGE_SCALE = 10;
+	//화면당 페이지 수 
+	public static final int BLOCK_SCALE = 5;
+	private int curPage;//현재 페이지 수
+	private int prevPage;//이전 페이지
+	private int nextPage;//다음 페이지
+	private int totPage;//전체 페이지 갯수
+	private int totBlock;//전체 페이지 블록 갯수
+	private int curBlock;//현재 페이지 블록
+	private int prevBlock;//이전페이지 블록
+	private int nextBlock;//다음페이지 블록
+	private int pageBegin;//스타트
+	private int pageEnd;//엔드
+	private int blockBegin;//현재페이지 블록의 시작번호
+	private int blockEnd;//현재 페이지 블록의 끝번호
+	
+	//생성자
+	public Pagination(int count,int curPage) {
+		curBlock = 1; //현재 페이지 블록번호
+		this.curPage = curPage; //현재 페이지 설정
+		setTotPage(count);//전체  페이지 갯수 계산
+		setPageRange(); 
+		setTotBlock(); //전체 페이지 블록 갯수 계산
+		setBlockRange(); //페이지 블록의 시작,끝 번호 계산
 	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
+	
+	public void setBlockRange() {
+		//현재 페이지가 몇번째 페이지 블록에 속하는지 계산
+		curBlock =(int)Math.ceil((curPage-1)/BLOCK_SCALE)+1;
+		//현재 페이지 블록의 시작, 끝 번호 계산
+		blockBegin = (curBlock-1)*BLOCK_SCALE+1;
+		//페이지 블록의 끝번호
+		blockEnd =blockBegin +BLOCK_SCALE-1;
+		//마지막 블록이 범위를 초과하지 않도록 계산
+		if(blockEnd>totPage)blockEnd = totPage;
+		//이전을 눌렀을 때 이동할 페이지 번호
+		prevPage = (curPage ==1 )?1:(curBlock-1)*BLOCK_SCALE;
+		//다음을 눌렀을 때 이동할 페이지 번호
+		nextPage = curBlock > totBlock ? (curBlock*BLOCK_SCALE) : (curBlock*BLOCK_SCALE)+1;
+		//마지막 페이지가 범위를 초과하지 않도록 처리
+		if(nextPage >= totPage) nextPage = totPage;
 	}
-
-	public int getRangeSize() {
-		return rangeSize;
+	public void setPageRange() {
+		//시작번호  = (현재페이지-1)*페이지당 게시물수 + 1
+		pageBegin = (curPage-1)*PAGE_SCALE+1;
+		//끝번호 = 시작번호 + 페이지당 게시물수 -1
+		pageEnd = pageBegin+PAGE_SCALE-1;
 	}
-
-	public void setRangeSize(int rangeSize) {
-		this.rangeSize = rangeSize;
-	}
+	
+	
 
 	public int getCurPage() {
 		return curPage;
@@ -48,46 +59,6 @@ public class Pagination {
 
 	public void setCurPage(int curPage) {
 		this.curPage = curPage;
-	}
-
-	public int getCurRange() {
-		return curRange;
-	}
-
-	public int getListCnt() {
-		return listCnt;
-	}
-
-	public void setListCnt(int listCnt) {
-		this.listCnt = listCnt;
-	}
-
-	public int getPageCnt() {
-		return pageCnt;
-	}
-
-	public int getRangeCnt() {
-		return rangeCnt;
-	}
-
-	public int getStartPage() {
-		return startPage;
-	}
-
-	public void setStartPage(int startPage) {
-		this.startPage = startPage;
-	}
-
-	public int getEndPage() {
-		return endPage;
-	}
-
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
-	}
-
-	public int getStartIndex() {
-		return startIndex;
 	}
 
 	public int getPrevPage() {
@@ -106,65 +77,85 @@ public class Pagination {
 		this.nextPage = nextPage;
 	}
 
-	@Override
-	public String toString() {
-		return "Pagination [pageSize=" + pageSize + ", rangeSize=" + rangeSize + ", curPage=" + curPage + ", curRange="
-				+ curRange + ", listCnt=" + listCnt + ", pageCnt=" + pageCnt + ", rangeCnt=" + rangeCnt + ", startPage="
-				+ startPage + ", endPage=" + endPage + ", startIndex=" + startIndex + ", prevPage=" + prevPage
-				+ ", nextPage=" + nextPage + "]";
+	public int getTotPage() {
+		return totPage;
 	}
 
-	public Pagination(int listCnt, int curPage) {
-
-		/**
-		 * 페이징 처리 순서 1. 총 페이지수 2. 총 블럭(range)수 3. range setting
-		 */
-
-		// 총 게시물 수와 현재 페이지를 Controller로 부터 받아온다.
-		/** 현재페이지 **/
-		setCurPage(curPage);
-		/** 총 게시물 수 **/
-		setListCnt(listCnt);
-
-		/** 1. 총 페이지 수 **/
-		setPageCnt(listCnt);
-		/** 2. 총 블럭(range)수 **/
-		setRangeCnt(pageCnt);
-		/** 3. 블럭(range) setting **/
-		rangeSetting(curPage);
-
-		/** DB 질의를 위한 startIndex 설정 **/
-		setStartIndex(curPage);
+	public void setTotPage(int count) {
+//실수 올림 처리
+		totPage = (int)Math.ceil(count*1.0/PAGE_SCALE);
 	}
 
-	public void setPageCnt(int listCnt) {
-		this.pageCnt = (int) Math.ceil(listCnt * 1.0 / pageSize);
+	public int getTotBlock() {
+		return totBlock;
 	}
 
-	public void setRangeCnt(int pageCnt) {
-		this.rangeCnt = (int) Math.ceil(pageCnt * 1.0 / rangeSize);
+	public void setTotBlock() {
+		totBlock = (int)Math.ceil(totPage/BLOCK_SCALE);
 	}
 
-	public void rangeSetting(int curPage) {
-
-		setCurRange(curPage);
-		this.startPage = (curRange - 1) * rangeSize + 1;
-		this.endPage = startPage + rangeSize - 1;
-
-		if (endPage > pageCnt) {
-			this.endPage = pageCnt;
-		}
-
-		this.prevPage = curPage - 1;
-		this.nextPage = curPage + 1;
+	public int getCurBlock() {
+		return curBlock;
 	}
 
-	public void setCurRange(int curPage) {
-		this.curRange = (int) ((curPage - 1) / rangeSize) + 1;
+	public void setCurBlock(int curBlock) {
+		this.curBlock = curBlock;
 	}
 
-	public void setStartIndex(int curPage) {
-		this.startIndex = (curPage - 1) * pageSize;
+	public int getPrevBlock() {
+		return prevBlock;
 	}
 
+	public void setPrevBlock(int prevBlock) {
+		this.prevBlock = prevBlock;
+	}
+
+	public int getNextBlock() {
+		return nextBlock;
+	}
+
+	public void setNextBlock(int nextBlock) {
+		this.nextBlock = nextBlock;
+	}
+
+	public int getPageBegin() {
+		return pageBegin;
+	}
+
+	public void setPageBegin(int pageBegin) {
+		this.pageBegin = pageBegin;
+	}
+
+	public int getPageEnd() {
+		return pageEnd;
+	}
+
+	public void setPageEnd(int pageEnd) {
+		this.pageEnd = pageEnd;
+	}
+
+	public int getBlockBegin() {
+		return blockBegin;
+	}
+
+	public void setBlockBegin(int blockBegin) {
+		this.blockBegin = blockBegin;
+	}
+
+	public int getBlockEnd() {
+		return blockEnd;
+	}
+
+	public void setBlockEnd(int blockEnd) {
+		this.blockEnd = blockEnd;
+	}
+
+	public static int getPageScale() {
+		return PAGE_SCALE;
+	}
+
+	public static int getBlockScale() {
+		return BLOCK_SCALE;
+	}
+	
 }

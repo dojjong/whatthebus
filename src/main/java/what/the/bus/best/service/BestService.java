@@ -1,7 +1,5 @@
 package what.the.bus.best.service;
 
-import java.util.HashMap;
-
 import what.the.bus.best.BestVO;
 
 public interface BestService {

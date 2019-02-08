@@ -1,6 +1,8 @@
 package what.the.bus.board.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import what.the.bus.best.BestVO;
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.dao.BoardDAO;
+import what.the.bus.comment.CommentVO;
 import what.the.bus.util.SqlSessionFactoryBean;
 
 @Repository
@@ -26,8 +29,13 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> getBoardList(BoardVO vo) {
-		return mybatis.selectList("BoardDAO.getBoardList", vo);
+	public List<BoardVO> getBoardList(int start, int end, String searchOption, String keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("start", start);
+		map.put("end", end);
+		return mybatis.selectList("BoardDAO.getBoardList", map);
 	}
 
 	@Override
@@ -59,6 +67,36 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int getCheckBestCheck(BestVO vo) {
 		return mybatis.selectOne("BestDAO.getCheckBestCheck", vo);
+	}
+
+	@Override
+	public List<BoardVO> getBoardCommentList(int start, int end, String searchOption, String keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("start", start);
+		map.put("end", end);
+		return mybatis.selectList("BoardDAO.getBoardCommentList", map);
+	}
+
+	@Override
+	public List<BoardVO> getBoardCNameList(int start, int end, String searchOption, String keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("start", start);
+		map.put("end", end);
+		return mybatis.selectList("BoardDAO.getBoardCNameList", map);
+	}
+
+	@Override
+	public int getBoardCommentContentListCount(CommentVO vo) {
+		return mybatis.selectOne("BoardDAO.getBoardCommentContentListCount", vo);
+	}
+
+	@Override
+	public int getBoardCommentNameListCount(CommentVO vo) {
+		return mybatis.selectOne("BoardDAO.getBoardCommentNameListCount", vo);
 	}
 
 }

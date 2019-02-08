@@ -115,7 +115,9 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [seq=" + seq + ", id=" + id + ", name=" + name + ", title=" + title + ", content=" + content
-				+ ", best=" + best + ", regDate=" + regDate + ", cnt=" + cnt + "]";
+				+ ", best=" + best + ", regDate=" + regDate + ", cnt=" + cnt + ", cntPerPage=" + cntPerPage
+				+ ", startIndex=" + startIndex + ", searchOption=" + searchOption + ", keyword=" + keyword + "]";
 	}
+
 
 }

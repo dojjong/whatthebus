@@ -10,7 +10,25 @@ public class CommentVO {
 	private String content;
 	private Date regdate;
 	private String realregdate;
-	
+	private String searchOption;
+	private String keyword;
+
+	public String getSearchOption() {
+		return searchOption;
+	}
+
+	public void setSearchOption(String searchOption) {
+		this.searchOption = searchOption;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
 	public String getRealregdate() {
 		return realregdate;
 	}
