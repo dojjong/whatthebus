@@ -19,17 +19,15 @@ public interface BoardDAO {
 
 	void deleteBoard(BoardVO vo);
 
+	void deleteComment(BoardVO vo);
+	
 	int getCheckBest(BestVO vo);
 
 	int getCheckBestCheck(BestVO vo);
-
-	List<BoardVO> getBoardCommentList(int start,int end, String searchOption,String keyword);
-
-	List<BoardVO> getBoardCNameList(int start,int end, String searchOption,String keyword);
 
 	int getBoardCommentContentListCount(CommentVO vo);
 
 	int getBoardCommentNameListCount(CommentVO vo);
 
-
+	int getCommentCount(int seq);
 }

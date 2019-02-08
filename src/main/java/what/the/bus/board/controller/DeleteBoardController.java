@@ -17,6 +17,7 @@ public class DeleteBoardController {
 	public String updateBoard(@ModelAttribute BoardVO vo, int seq) {
 		vo.setSeq(seq);
 		boardService.deleteBoard(vo);
+		boardService.deleteComment(vo);
 		return "redirect:getBoardList.do";
 	}
 

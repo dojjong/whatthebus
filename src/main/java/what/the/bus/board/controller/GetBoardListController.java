@@ -1,5 +1,6 @@
 package what.the.bus.board.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,10 +43,16 @@ public class GetBoardListController {
 
 		int start = pagination.getPageBegin();
 		int end = pagination.getPageEnd();
-
+		
 		List<BoardVO> list = boardService.getBoardList(start, end, searchOption, keyword);
-
+		List<Integer> commentCountList = new ArrayList<Integer>();
+		for(int i=0;i<list.size();i++) {
+			int seq = list.get(i).getSeq();
+			int	commentCount = boardService.getCommentCount(seq);
+			commentCountList.add(i,commentCount);
+		}
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("commentCount", commentCountList);
 		map.put("list", list);
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);

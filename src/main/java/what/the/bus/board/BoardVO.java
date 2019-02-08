@@ -15,6 +15,24 @@ public class BoardVO {
 	private int startIndex;
 	private String searchOption;
 	private String keyword;
+	private int count;
+	private String realregdate;
+
+	public String getRealregdate() {
+		return realregdate;
+	}
+
+	public void setRealregdate(String realregdate) {
+		this.realregdate = realregdate;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 	public String getSearchOption() {
 		return searchOption;
@@ -118,6 +136,5 @@ public class BoardVO {
 				+ ", best=" + best + ", regDate=" + regDate + ", cnt=" + cnt + ", cntPerPage=" + cntPerPage
 				+ ", startIndex=" + startIndex + ", searchOption=" + searchOption + ", keyword=" + keyword + "]";
 	}
-
 
 }

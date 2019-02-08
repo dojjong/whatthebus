@@ -100,13 +100,19 @@
 
 	<select id="getBoard" resultType="board">
 	<![CDATA[
-	SELECT * FROM BOARD WHERE SEQ = #{seq}
+	SELECT SEQ,ID,NAME,TITLE,CONTENT,BEST,CNT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM BOARD WHERE SEQ = #{seq}
+	]]>
+	</select>
+
+	<select id="getCommentCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*)"count" FROM COMMENTS WHERE SEQ=#{seq}
 	]]>
 	</select>
 
 	<update id="updateBoard">
 	<![CDATA[
-	UPDATE BOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
+	UPDATE BOARD SET TITLE=#{title},REGDATE=SYSDATE, CONTENT=#{content} WHERE SEQ =#{seq}
 	]]>
 	</update>
 
@@ -123,4 +129,9 @@
 	]]>
 	</delete>
 
+	<delete id="deleteComment">
+	<![CDATA[
+	DELETE COMMENTS WHERE SEQ=#{seq}
+	]]>
+	</delete>
 </mapper>

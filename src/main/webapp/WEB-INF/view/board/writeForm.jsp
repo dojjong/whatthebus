@@ -32,7 +32,7 @@
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" size="50" maxlength="50"
+				<td width="700"><input type="text" id="title" size="50" maxlength="50"
 					name="title" /></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
@@ -79,7 +79,14 @@
 			$("#insertBoardbt").click(function() {
 				//id가 ir1인 textarea에 에디터에서 대입
 				oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-
+				if($("#title").val()==""){
+					alert("제목을 입력해주세요.");
+					return;
+				}
+				if($("#ir1").val()=="<p>&nbsp;</p>"){
+					alert("내용을 입력해주세요.");
+					return;
+				}
 				// 이부분에 에디터 validation 검증
 
 				//폼 submit

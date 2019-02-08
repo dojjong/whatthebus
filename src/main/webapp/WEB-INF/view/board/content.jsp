@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
+<link type="text/css" rel="stylesheet"
+	href="../resources/css/boardStyle.css" />
 </head>
 <body>
 	<form id="form" action="updateForm.do?seq=${vo.seq }" method="post">
 		<input type="hidden" id="seq" value="${vo.seq }" /> <input
-			type="hidden" id="id" value="${member.id }" />
-			<input type="hidden" id="best_check">
+			type="hidden" id="id" value="${member.id }" /> <input type="hidden"
+			id="best_check">
 		<table id="content" border="1" align="center">
 
 			<tr>
@@ -26,7 +28,7 @@
 				<td class="contenttd">글쓴이</td>
 				<td>${vo.name }</td>
 				<td class="contenttd">작성일</td>
-				<td>${vo.regDate }</td>
+				<td>${vo.realregdate }</td>
 			</tr>
 			<tr>
 				<td class="contenttd" width="60">글 제목</td>
@@ -55,11 +57,12 @@
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
-							<a href="deleteBoard.do?seq=${vo.seq }"> <input type="button"
-								class="contentbt" value="삭제"></a>
+							<input type="button" id="deleteButton" class="contentbt"
+								value="삭제">
 						</c:when>
-					</c:choose> <a href="getBoardList.do"> <input type="button"
-						class="contentbt" value="목록">
+					</c:choose> <a
+					href="getBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
+						<input type="button" class="contentbt" value="목록">
 				</a></td>
 			</tr>
 		</table>
@@ -69,6 +72,12 @@
 
 
 	<script>
+		$("#deleteButton").click(function() {
+			if (confirm("정말 삭제하시겠습니까 ? ")) {
+				location.href = "deleteBoard.do?seq=${vo.seq }";
+			}
+		})
+
 		function best_click() {
 			var frm_read = $('#form');
 			var seq = $('#seq', form).val();

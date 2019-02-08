@@ -60,6 +60,11 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
+	public void deleteComment(BoardVO vo) {
+		mybatis.delete("BoardDAO.deleteComment", vo);
+	}
+
+	@Override
 	public int getCheckBest(BestVO vo) {
 		return mybatis.selectOne("BestDAO.getCheckBest", vo);
 	}
@@ -70,26 +75,6 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> getBoardCommentList(int start, int end, String searchOption, String keyword) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("searchOption", searchOption);
-		map.put("keyword", keyword);
-		map.put("start", start);
-		map.put("end", end);
-		return mybatis.selectList("BoardDAO.getBoardCommentList", map);
-	}
-
-	@Override
-	public List<BoardVO> getBoardCNameList(int start, int end, String searchOption, String keyword) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("searchOption", searchOption);
-		map.put("keyword", keyword);
-		map.put("start", start);
-		map.put("end", end);
-		return mybatis.selectList("BoardDAO.getBoardCNameList", map);
-	}
-
-	@Override
 	public int getBoardCommentContentListCount(CommentVO vo) {
 		return mybatis.selectOne("BoardDAO.getBoardCommentContentListCount", vo);
 	}
@@ -97,6 +82,11 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int getBoardCommentNameListCount(CommentVO vo) {
 		return mybatis.selectOne("BoardDAO.getBoardCommentNameListCount", vo);
+	}
+
+	@Override
+	public int getCommentCount(int seq) {
+		return mybatis.selectOne("BoardDAO.getCommentCount", seq);
 	}
 
 }

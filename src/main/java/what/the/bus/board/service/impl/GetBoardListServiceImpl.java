@@ -21,22 +21,12 @@ public class GetBoardListServiceImpl implements GetBoardListService {
 
 	@Override
 	public List<BoardVO> getBoardList(int start, int end, String searchOption, String keyword) {
-		return boardDAO.getBoardList(start,end,searchOption,keyword);
+		return boardDAO.getBoardList(start, end, searchOption, keyword);
 	}
 
 	@Override
 	public Integer getListCount(BoardVO vo) {
 		return boardDAO.getListCount(vo);
-	}
-
-	@Override
-	public List<BoardVO> getBoardCommentList(int start, int end, String searchOption, String keyword) {
-		return boardDAO.getBoardCommentList(start,end,searchOption,keyword);
-	}
-
-	@Override
-	public List<BoardVO> getBoardCNameList(int start, int end, String searchOption, String keyword) {
-		return boardDAO.getBoardCNameList(start,end,searchOption,keyword);
 	}
 
 	@Override
@@ -49,5 +39,9 @@ public class GetBoardListServiceImpl implements GetBoardListService {
 		return boardDAO.getBoardCommentNameListCount(vo);
 	}
 
+	@Override
+	public Integer getCommentCount(int seq) {
+		return boardDAO.getCommentCount(seq);
+	}
 
 }

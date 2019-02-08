@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.dao.impl.BoardDAOImpl;
 import what.the.bus.board.service.DeleteBoardService;
+
 @Service
 public class DeleteBoardServiceImpl implements DeleteBoardService {
 	@Autowired
@@ -14,6 +15,11 @@ public class DeleteBoardServiceImpl implements DeleteBoardService {
 	@Override
 	public void deleteBoard(BoardVO vo) {
 		boardDAO.deleteBoard(vo);
+	}
+
+	@Override
+	public void deleteComment(BoardVO vo) {
+		boardDAO.deleteComment(vo);
 	}
 
 	@Override

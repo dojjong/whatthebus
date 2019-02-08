@@ -47,12 +47,17 @@
 		var getComment = "";
 		//댓글 등록하기(ajax)
 		$("#insertCommentbt").click(function() {
+			if (document.commentForm.content.value == "") {
+				alert("댓글을 입력해주세요.");
+				return;
+			}
 			$.ajax({
 				type : "POST",
 				url : "<c:url value='insertComment.do'/>",
 				data : $("#commentForm").serialize(),
 				success : function(data) {
 					if (data == "success") {
+
 						getCommentList();
 						document.commentForm.content.value = "";
 					}
@@ -153,6 +158,10 @@
 					});
 		}
 		function updateCommentCheck(cno) {
+			if (document.commentListForm.updateContent.value == "") {
+				alert("댓글을 입력해주세요.");
+				return;
+			}
 			$.ajax({
 				type : "POST",
 				url : "updateCommentCheck.do",
@@ -171,22 +180,24 @@
 		}
 
 		function deleteComment(cno) {
-			$.ajax({
-				type : "POST",
-				url : "deleteComment.do",
-				data : {
-					"cno" : cno
-				},
-				success : function(data) {
-					if (data == "success") {
-						getCommentList();
+			if (confirm("정말 삭제하시겠습니까 ? ")) {
+				$.ajax({
+					type : "POST",
+					url : "deleteComment.do",
+					data : {
+						"cno" : cno
+					},
+					success : function(data) {
+						if (data == "success") {
+							getCommentList();
+						}
+					},
+					error : function(request, status, error) {
+						alert("비정상적인 요청입니다.");
 					}
-				},
-				error : function(request, status, error) {
-					alert("비정상적인 요청입니다.");
-				}
 
-			});
+				});
+			}
 		}
 	</script>
 

@@ -13,7 +13,7 @@
 
 	<select id="getCommentList" resultType="comment">
 	<![CDATA[
-	SELECT CNO,SEQ,ID,NAME,CONTENT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM COMMENTS WHERE SEQ=#{seq} ORDER BY SEQ DESC,REGDATE DESC
+	SELECT CNO,SEQ,ID,NAME,CONTENT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM COMMENTS WHERE SEQ=#{seq} ORDER BY CNO DESC
 	]]>
 	</select>
 

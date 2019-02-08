@@ -35,11 +35,15 @@
 				</tr>
 			</c:if> --%>
 
-			<c:forEach var="vo" items="${map.list }">
+			<c:forEach var="vo" items="${map.list }" varStatus="status">
 				<tr height="30">
 					<td align="center" width="50">${vo.seq }</td>
 					<td width="250"><a
-						href="getBoard.do?seq=${vo.seq}&&id=${member.id}">${vo.title }</a></td>
+						href="getBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
+							${vo.title }</a>&nbsp; <c:if
+							test="${map.commentCount[status.index]!=0}">
+								[${map.commentCount[status.index]}]
+								</c:if></td>
 					<td align="center" width="100">${vo.name }</td>
 					<td align="center" width="150">${vo.regDate }</td>
 					<td align="center" width="50">${vo.cnt }</td>
@@ -119,9 +123,10 @@
 		</form>
 	</div>
 	<script>
-		function fn_paging(curPage, searchOption, keyword) {
+		function fn_paging(curPage) {
 			location.href = "getBoardList.do?curPage=" + curPage
-					+ "&searchOption=${map.searchOption}"+ "&keyword=${map.keyword}";
+					+ "&searchOption=${map.searchOption}"
+					+ "&keyword=${map.keyword}";
 		}
 	</script>
 

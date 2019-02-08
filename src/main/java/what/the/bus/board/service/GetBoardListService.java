@@ -10,12 +10,9 @@ public interface GetBoardListService {
 
 	Integer getListCount(BoardVO vo);
 
-	List<BoardVO> getBoardCommentList(int start, int end, String searchOption, String keyword);
-
-	List<BoardVO> getBoardCNameList(int start, int end, String searchOption, String keyword);
-
 	Integer getBoardCommentContentListCount(CommentVO vo);
 
 	Integer getBoardCommentNameListCount(CommentVO vo);
-
+	
+	Integer getCommentCount(int seq);
 }
