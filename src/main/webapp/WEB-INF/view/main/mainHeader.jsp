@@ -260,7 +260,7 @@
 						</ul></li>
 					<li><a href="#">고객센터</a>
 						<ul>
-							<li><a href="#">Q&A</a></li>
+							<li><a href="getQaBoardList.do">Q&A</a></li>
 							<li><a href="#">분실물서비스</a></li>
 							<li><a href="#">ContactUs</a></li>
 						</ul></li>

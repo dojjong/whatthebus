@@ -17,6 +17,8 @@
 			alias="suggestBoard"></typeAlias>
 		<typeAlias type="what.the.bus.bookBoard.BookBoardVO"
 			alias="bookBoard"></typeAlias>
+		<typeAlias type="what.the.bus.qaBoard.QaBoardVO" alias="qaBoard"></typeAlias>	
+			
 			
 	</typeAliases>
 	<environments default="development">
@@ -40,5 +42,7 @@
 		<mapper resource="mappings/bookBoard-mapping.xml" />
 		<mapper resource="mappings/suggestBoard-mapping.xml" />
 		<mapper resource="mappings/admin-mapping.xml" />
+		<mapper resource="mappings/qaBoard-mapping.xml"/>
+		
 	</mappers>
 </configuration>

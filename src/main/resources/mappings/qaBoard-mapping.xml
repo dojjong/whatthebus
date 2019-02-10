@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="QaBoardDAO">
+  
+  <!-- 글쓰기 -->
+	<insert id="insertQaBoard">
+	<![CDATA[
+		INSERT INTO QA_BOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES(qa_board_seq.nextval,#{id},#{name},#{title},#{content})
+		]]>	
+	</insert>
+
+	<!-- 글목록 가져오기 -->
+	<select id="getQaBoardList" resultType="qaBoard">
+	<![CDATA[
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM QA_BOARD ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	
+	
+	</select>
+	
+	<!-- 전체 글수 가져오기 -->
+	<select id="getQaBoardListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM QA_BOARD	
+	]]>
+	</select>
+	
+	<select id="getQaBoard" resultType="qaBoard">
+	<![CDATA[
+	SELECT * FROM QA_BOARD WHERE SEQ = #{seq}
+	]]>
+	</select>
+	
+	
+	<update id="updateQaBoard">
+	<![CDATA[
+	UPDATE QA_BOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
+	]]>
+	</update>
+	
+	<delete id="deleteQaBoard">
+	<![CDATA[
+	DELETE QA_BOARD WHERE SEQ=#{seq}
+	]]>
+	</delete>
+	
+	
+
+  </mapper>

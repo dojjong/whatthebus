@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +50,7 @@ body {font-family: Arial;}
 <body>
 
 
+
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'id')">아이디찾기</button>
   <button class="tablinks" onclick="openCity(event, 'password')">비밀번호재설정</button>
@@ -56,29 +58,47 @@ body {font-family: Arial;}
 </div>
 
 <div id="id" class="tabcontent">
-<form action="../member/findId.do" method="post">
+
 	<h3>아이디찾기</h3>
 	<table>
 			
+<form:form id="signupform" role="form" modelAttribute="memberVO" 
+action="../member/findId.do" method="post">
+		
 		
 				<tr>
 					<td align="right"width="200">이름 :&nbsp;</td>
-					<td align="left" width="500"><input type="text"></td>
+					<td align="left" width="500"><input type="text" name="Name" value="${memberVO.name}" placeholder="이름을 작성해주세요."></td>
 				</tr>
 				
 				<tr>
+				<td><div style="color:red ; margin-top:2px" >
+                     <form:errors path="name"/>
+                     <form:errors/></div>
+                     </td>
+				</tr>
+				
+				
+				
+				<tr>
 					<td align="right">이메일 :&nbsp;</td>
-					<td align="left"><input type="email"></td>
+					<td align="left"><input type="text" name="Email" value="${memberVO.email}" placeholder="이메일을 작성해주세요"></td>
+				</tr>
+				<tr>
+				<td><div style="color:red ; margin-top:2px" >
+                     <form:errors path="email"/>
+                     <form:errors/></div>
+                     </td>
 				</tr>
 	
 				<tr>
 				<td colspan="2" align="center">가입하신 이메일로 아이디를 전송해드리겠습니다.</td>
 				</tr>
 			<tr><td colspan="2" align="center">
-			<button type="submit" id=findBtn value="확인"></button></td></tr>
-		
+			<button type="submit">확인</button></td></tr>
+		</form:form>
 			</table>
-			</form>
+
 </div>
 
 
