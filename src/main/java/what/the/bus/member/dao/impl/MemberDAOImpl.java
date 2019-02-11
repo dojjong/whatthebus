@@ -52,10 +52,6 @@ public class MemberDAOImpl implements MemberDAO {
 		return mybatis.selectOne("MemberDAO.checkName", checkName);
 	}
 
-	@Override //02.06
-	public String findId(MemberVO vo) {
-		return mybatis.selectOne("MemberDAO.findId", vo);
-	}
 
 	
 
