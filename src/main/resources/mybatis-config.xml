@@ -43,6 +43,6 @@
 		<mapper resource="mappings/suggestBoard-mapping.xml" />
 		<mapper resource="mappings/admin-mapping.xml" />
 		<mapper resource="mappings/qaBoard-mapping.xml"/>
-		
+		<mapper resource="mappings/main-mapping.xml"/>
 	</mappers>
 </configuration>
