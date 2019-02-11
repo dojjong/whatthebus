@@ -8,6 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
 </head>
@@ -15,7 +17,14 @@
 	<form id="form" action="updateForm.do?seq=${vo.seq }" method="post">
 		<input type="hidden" id="seq" value="${vo.seq }" /> <input
 			type="hidden" id="id" value="${member.id }" /> <input type="hidden"
-			id="best_check">
+			id="best_check"> <input type="hidden" name="id"
+			value="${member.id }"> <input type="hidden" name="name"
+			value="${member.name }" /> <input type="hidden" id="start_wido"
+			name="start_wido" value="${vo.start_wido }" /> <input type="hidden"
+			id="start_kyungdo" name="start_kyungdo" value="${vo.start_kyungdo }" />
+		<input type="hidden" id="end_wido" name="end_wido"
+			value="${vo.end_wido }" /> <input type="hidden" id="end_kyungdo"
+			name="end_kyungdo" value="${vo.end_kyungdo }" />
 		<table id="content" border="1" align="center">
 
 			<tr>
@@ -40,6 +49,17 @@
 			<tr>
 				<td width="500" height="200" colspan="4">${vo.content }</td>
 			</tr>
+			<tr>
+				<td colSpan="4"><div id="map"
+						style="width: 800px; height: 300px;"></div></td>
+			</tr>
+			<tr>
+				<td colSpan="4">확정 출발지 : <span id="spanStartJuso"></span></td>
+			</tr>
+			<tr>
+				<td colSpan="4">확정 도착지 : <span id="spanEndJuso"></span></td>
+			</tr>
+
 		</table>
 		<table width="500" align="center">
 			<tr>
@@ -118,6 +138,8 @@
 	</script>
 
 	<script type="text/javascript" src="../resources/js/boardScript.js"></script>
+	<script type="text/javascript"
+		src="../resources/js/userViewMapScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

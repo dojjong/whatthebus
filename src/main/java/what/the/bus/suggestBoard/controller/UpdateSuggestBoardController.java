@@ -16,7 +16,8 @@ public class UpdateSuggestBoardController {
 	private UpdateSuggestBoardService suggestBoardService;
 
 	@RequestMapping("/view/**/updateSuggestForm.do")
-	public String updateSuggestForm(int seq,SuggestBoardVO vo,Model model) {
+	public String updateSuggestForm(int seq,BoardVO vo,Model model) {
+		
 		vo = suggestBoardService.getSuggestBoard(seq);
 		model.addAttribute("vo", vo);
 		return "suggestBoard/updateSuggestForm";

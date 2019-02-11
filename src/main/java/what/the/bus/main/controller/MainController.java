@@ -32,6 +32,14 @@ public class MainController {
 	public String findIdAndPass() {
 		return "login/findIdAndPassword";
 	}
+	@RequestMapping("/view/**/site.do")
+	public String site() {
+		return "main/site";
+	}
+	@RequestMapping("/view/**/termsAndConditions.do")
+	public String termsAndConditions() {
+		return "main/termsAndConditions";
+	}
 	
 	
 

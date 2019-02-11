@@ -63,7 +63,7 @@
 	<!-- 글쓰기 -->
 	<insert id="insertBoard">
 	<![CDATA[
-		INSERT INTO BOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES(board_seq.nextval,#{id},#{name},#{title},#{content})
+		INSERT INTO BOARD(SEQ,ID,NAME,TITLE,CONTENT,START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO) VALUES(board_seq.nextval,#{id},#{name},#{title},#{content},#{start_wido},#{start_kyungdo},#{end_wido},#{end_kyungdo})
 		]]>
 	</insert>
 
@@ -100,7 +100,7 @@
 
 	<select id="getBoard" resultType="board">
 	<![CDATA[
-	SELECT SEQ,ID,NAME,TITLE,CONTENT,BEST,CNT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM BOARD WHERE SEQ = #{seq}
+	SELECT SEQ,ID,NAME,TITLE,CONTENT,BEST,CNT,START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM BOARD WHERE SEQ = #{seq}
 	]]>
 	</select>
 

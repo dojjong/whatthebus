@@ -20,7 +20,7 @@ public class SuggestBoardDAOImpl implements SuggestBoardDAO {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 
-	public void insertSuggestBoard(SuggestBoardVO vo) {
+	public void insertSuggestBoard(BoardVO vo) {
 		mybatis.insert("SuggestBoardDAO.insertSuggestBoard", vo);
 	}
 
@@ -35,7 +35,7 @@ public class SuggestBoardDAOImpl implements SuggestBoardDAO {
 	}
 
 	@Override
-	public SuggestBoardVO getSuggestBoard(int seq) {
+	public BoardVO getSuggestBoard(int seq) {
 		return mybatis.selectOne("SuggestBoardDAO.getSuggestBoard",seq);
 	}
 

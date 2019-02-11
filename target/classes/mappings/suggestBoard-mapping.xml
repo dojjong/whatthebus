@@ -23,9 +23,9 @@
 	]]>
 	</select>
 
-	<select id="getSuggestBoard" resultType="suggestBoard">
+	<select id="getSuggestBoard" resultType="board">
 	<![CDATA[
-	SELECT * FROM SUGGESTBOARD WHERE SEQ = #{seq}
+	SELECT * FROM BOARD WHERE SEQ = #{seq}
 	]]>
 	</select>
 

@@ -1,7 +1,7 @@
 package what.the.bus.suggestBoard.service;
 
-import what.the.bus.suggestBoard.SuggestBoardVO;
+import what.the.bus.board.BoardVO;
 
 public interface GetSuggestBoardService {
-	SuggestBoardVO getSuggestBoard(int seq);
+	BoardVO getSuggestBoard(int seq);
 }

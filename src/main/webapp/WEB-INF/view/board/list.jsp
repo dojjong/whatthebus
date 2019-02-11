@@ -22,7 +22,7 @@
 		<table id="listtab">
 			<tr id="boardhead">
 				<td align="center" width="55">번호</td>
-				<td align="center" width="250">제목</td>
+				<td align="center" width="650">제목</td>
 				<td align="center" width="100">작성자</td>
 				<td align="center" width="150">작성일</td>
 				<td align="center" width="100">조회수</td>
@@ -36,19 +36,36 @@
 			</c:if> --%>
 
 			<c:forEach var="vo" items="${map.list }" varStatus="status">
-				<tr height="30">
-					<td align="center" width="50">${vo.seq }</td>
-					<td width="250"><a
-						href="getBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
-							${vo.title }</a>&nbsp; <c:if
-							test="${map.commentCount[status.index]!=0}">
+				<c:choose>
+					<c:when test="${vo.best==1 }">
+						<tr height="30">
+							<td align="center" width="50">${vo.seq }</td>
+							<td width="550">배차대기 게시판으로 이동된 게시글입니다.&nbsp; <c:if
+									test="${map.commentCount[status.index]!=0}">
 								[${map.commentCount[status.index]}]
 								</c:if></td>
-					<td align="center" width="100">${vo.name }</td>
-					<td align="center" width="150">${vo.regDate }</td>
-					<td align="center" width="50">${vo.cnt }</td>
-					<td align="center" width="50">${vo.best }</td>
-				</tr>
+							<td align="center" width="100">${vo.name }</td>
+							<td align="center" width="150">${vo.regDate }</td>
+							<td align="center" width="50">${vo.cnt }</td>
+							<td align="center" width="50">${vo.best }</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<tr height="30">
+							<td align="center" width="50">${vo.seq }</td>
+							<td width="650"><a
+								href="getBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
+									${vo.title }</a>&nbsp; <c:if
+									test="${map.commentCount[status.index]!=0}">
+								[${map.commentCount[status.index]}]
+								</c:if></td>
+							<td align="center" width="100">${vo.name }</td>
+							<td align="center" width="150">${vo.regDate }</td>
+							<td align="center" width="50">${vo.cnt }</td>
+							<td align="center" width="50">${vo.best }</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
 
 		</table>

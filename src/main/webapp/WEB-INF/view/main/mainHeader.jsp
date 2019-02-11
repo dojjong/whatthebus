@@ -9,29 +9,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What The Bus !?</title>
 
-<link type="text/css" rel="stylesheet" href="../resources/css/mainStyle.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="../resources/css/mainStyle.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 <!-- 로그인관련 js -->
- <link type="text/css" rel="stylesheet" href="../resources/css/loginStyle.css"> 
+<link type="text/css" rel="stylesheet"
+	href="../resources/css/loginStyle.css">
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
+	charset="utf-8"></script>
 
 
 </head>
 <body>
 
 
-<header id="header">
+	<header id="header">
 
-	<div align="center">
+		<div align="center">
 
 			<table id="headertable">
 				<tr>
-					<td width="700px"><a href="main.do"><img src="../resources/images/whatthebuslogo.png" id="gogo"></a></td>
+					<td width="700px"><a href="main.do"><img
+							src="../resources/images/whatthebuslogo.png" id="gogo"></a></td>
 
 					<td>
 						<!-- 로그인 modal -->
@@ -108,11 +117,12 @@
 															onclick="idCheck(this.form.id.value)" /></td>
 													</tr>
 													<tr>
-														<td align="center"><a href="findidandpass.do" onClick="window.open(this.href, '','width=500, height=220'); return false;"><input
+														<td align="center"><a href="findidandpass.do"
+															onClick="window.open(this.href, '','width=500, height=220'); return false;"><input
 																type="button" class="btn btn-link" value="아이디/비밀번호 찾기"></a>
 
-															<a href="insertMemberChoice.do"><input
-																type="button" class="btn btn-link" value="회원가입"></a></td>
+															<a href="insertMemberChoice.do"><input type="button"
+																class="btn btn-link" value="회원가입"></a></td>
 
 
 													</tr>
@@ -121,8 +131,8 @@
 														<td><div align="center">
 																<a id="custom-login-btn"
 																	href="javascript:loginWithKakao()"> <img
-																	src="../resources/images/kakaologin.png" width="240" height="50"
-																	id="kakaologinbt" />
+																	src="../resources/images/kakaologin.png" width="240"
+																	height="50" id="kakaologinbt" />
 																</a>
 															</div></td>
 													</tr>
@@ -173,10 +183,9 @@
 											action="../member/updateCheckMember.jsp">
 											<input type="submit" value="회원정보 수정" class="mainbt">
 										</form></td> -->
-									<td><form method="post" action="logoutMember.do">
-											<input type="submit" value="로그아웃" class="mainbt">
-										</form></td>
-										
+												<td><form method="post" action="logoutMember.do">
+														<input type="submit" value="로그아웃" class="mainbt">
+													</form></td>
 										</table>
 									</div>
 								</c:if>
@@ -234,29 +243,23 @@
 
 			<div class="menubar">
 				<ul>
-					<li><a href="#">소개</a>
+					<li><a href="site.do">소개</a>
 						<ul>
-							<li><a href="idSearch.html" target="iframe">사이트소개</a></li>
-							<li><a href="idCheck.html" target="iframe">이용가이드</a></li>
+							<li><a href="site.do">사이트소개</a></li>
+							<li><a href="idCheck.html">이용가이드</a></li>
 						</ul></li>
-					<li><a href="#">커뮤니티</a>
+					<li><a href="getBoardList.do">제안/대절신청</a>
 						<ul>
-							<li><a href="getBoardList.do">자유게시판</a></li>
-							<li><a href="../join/insertMember.html" target="iframe">손님
-									회원가입 화면</a></li>
-							<li><a href="../join/insertMemberCheck.html" target="iframe">회원가입
-									완료화면</a></li>
+							<li><a href="getBoardList.do">제안(개인)</a></li>
+							<li><a href="getAfterBoardList.do">대절신청(단체)</a></li>
 						</ul></li>
-					<li><a href="#">제안</a>
+					<li><a href="getSuggestBoardList.do">조회</a>
 						<ul>
-							<li><a href="getSuggestBoardList.do" target="iframe">정기권제안</a></li>
-							<li><a href="#">단기권제안()</a></li>
+							<li><a href="getSuggestBoardList.do">배차대기</a></li>
 						</ul></li>
-					<li><a href="#">예약</a>
+					<li><a href="getBookBoardList.do">예약</a>
 						<ul>
-							<li><a href="getBookBoardList.do" target="iframe">상품</a></li>
-							<li><a href="../border/writeForm.html" target="iframe">수요조사(임시:글쓰기화면)</a></li>
-							<li><a href="../border/content.html" target="iframe">후기(임시:게시글보기화면)</a></li>
+							<li><a href="getBookBoardList.do">배차조회</a></li>
 						</ul></li>
 					<li><a href="#">고객센터</a>
 						<ul>
@@ -272,12 +275,12 @@
 				</ul>
 			</div>
 
-	</div>
-	
-			</header>
-			
-			
-	
+		</div>
+
+	</header>
+
+
+
 	<!-- container -->
 
 	<!-- 카카오로 로그인 초기화 스크립트 -->

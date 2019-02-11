@@ -17,7 +17,7 @@
 	</div>
 	<br />
 	<form method="post" id="updateSuggestForm" name="updateSuggestForm"
-		action="updateSuggestBoard.do?seq=${vo.seq }">
+		action="insertSuggestBoard.do">
 
 			<input type="hidden" name="id" value="${member.id }"> 
 			<input type="hidden" name="name" value="${member.name }" /> 			

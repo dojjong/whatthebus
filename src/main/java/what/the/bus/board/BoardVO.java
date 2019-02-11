@@ -17,6 +17,43 @@ public class BoardVO {
 	private String keyword;
 	private int count;
 	private String realregdate;
+	private String start_wido;
+	private String start_kyungdo;
+	private String end_wido;
+	private String end_kyungdo;
+	
+
+	public String getStart_wido() {
+		return start_wido;
+	}
+
+	public void setStart_wido(String start_wido) {
+		this.start_wido = start_wido;
+	}
+
+	public String getStart_kyungdo() {
+		return start_kyungdo;
+	}
+
+	public void setStart_kyungdo(String start_kyungdo) {
+		this.start_kyungdo = start_kyungdo;
+	}
+
+	public String getEnd_wido() {
+		return end_wido;
+	}
+
+	public void setEnd_wido(String end_wido) {
+		this.end_wido = end_wido;
+	}
+
+	public String getEnd_kyungdo() {
+		return end_kyungdo;
+	}
+
+	public void setEnd_kyungdo(String end_kyungdo) {
+		this.end_kyungdo = end_kyungdo;
+	}
 
 	public String getRealregdate() {
 		return realregdate;
@@ -134,7 +171,11 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [seq=" + seq + ", id=" + id + ", name=" + name + ", title=" + title + ", content=" + content
 				+ ", best=" + best + ", regDate=" + regDate + ", cnt=" + cnt + ", cntPerPage=" + cntPerPage
-				+ ", startIndex=" + startIndex + ", searchOption=" + searchOption + ", keyword=" + keyword + "]";
+				+ ", startIndex=" + startIndex + ", searchOption=" + searchOption + ", keyword=" + keyword + ", count="
+				+ count + ", realregdate=" + realregdate + ", start_wido=" + start_wido + ", start_kyungdo="
+				+ start_kyungdo + ", end_wido=" + end_wido + ", end_kyungdo=" + end_kyungdo + "]";
 	}
+
+	
 
 }
