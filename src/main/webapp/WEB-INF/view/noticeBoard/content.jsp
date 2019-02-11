@@ -7,10 +7,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet"
-	href="../resources/css/boardStyle.css" />
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
+<link type="text/css" rel="stylesheet" href="../resources/css/testBoardStyle.css" />
 </head>
 <body>
 	<form action="updateNoticeForm.do?seq=${vo.seq}" method="post">

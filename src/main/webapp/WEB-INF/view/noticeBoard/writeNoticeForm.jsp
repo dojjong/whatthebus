@@ -6,9 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
-
+<link type="text/css" rel="stylesheet" href="../resources/css/testBoardStyle.css" />
 </head>
 <body>
 

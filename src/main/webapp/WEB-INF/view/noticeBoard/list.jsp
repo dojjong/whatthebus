@@ -7,15 +7,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
+<link type="text/css" rel="stylesheet" href="../resources/css/testBoardStyle.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- 글쓰기 버튼  -->
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
 </head>
 <body>
-
+	<br>
+	<br>
 	<!-- 화면 센터 -->
 	<div align="center">
-		<b>글목록(전체 글 : ${map.count } )</b>
+		
+	<!-- <b>글목록(전체 글 : ${map.count } )</b> -->
+	
 		<table id="listtab">
 			<tr id="boardhead">
 				<td align="center" width="55">번호</td>
@@ -46,7 +53,8 @@
 			<tr>
 				<td align="right">
 					<form name="form" action="writeNoticeBoard.do" method="POST">
-						<input type="hidden" id="member" value="${member }"> <input type="button" id="writebt">
+						<input type="hidden" id="member" value="${member }">
+						<button style='font-size:14px'><i class='far fa-edit'></i><strong>글쓰기</strong></button>
 					</form>
 				</td>
 			</tr>
@@ -63,10 +71,8 @@
 					</select></td>
 					<td align="left"><input name="keyword"></td>
 					<td align="right"><a href="#">
-
-							<button type="submit" class="btn btn-default">
-								<span class="glyphicon glyphicon-search"></span> Search
-							</button>
+							<button style='font-size:14px' type="submit"><i class='fas fa-search'>Search</i></button>
+							
 					</a></td>
 			</table>
 	
