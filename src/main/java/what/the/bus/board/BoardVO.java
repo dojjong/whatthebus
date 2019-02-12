@@ -21,7 +21,25 @@ public class BoardVO {
 	private String start_kyungdo;
 	private String end_wido;
 	private String end_kyungdo;
+	private String mid_wido;
+	private String mid_kyungdo;
 	
+
+	public String getMid_wido() {
+		return mid_wido;
+	}
+
+	public void setMid_wido(String mid_wido) {
+		this.mid_wido = mid_wido;
+	}
+
+	public String getMid_kyungdo() {
+		return mid_kyungdo;
+	}
+
+	public void setMid_kyungdo(String mid_kyungdo) {
+		this.mid_kyungdo = mid_kyungdo;
+	}
 
 	public String getStart_wido() {
 		return start_wido;

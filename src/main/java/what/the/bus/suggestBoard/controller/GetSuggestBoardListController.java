@@ -10,19 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.comment.CommentVO;
 import what.the.bus.pagination.Pagination;
-import what.the.bus.suggestBoard.SuggestBoardVO;
-import what.the.bus.suggestBoard.service.GetSuggestBoardListService;
 
 @Controller
 public class GetSuggestBoardListController {
-	@Autowired
-	private GetSuggestBoardListService suggestBoardService;
+
 	@Autowired
 	private GetBoardListService boardService;
 
@@ -64,8 +60,8 @@ public class GetSuggestBoardListController {
 		model.addAttribute("map", map);
 		return "suggestBoard/list";
 	}
-
-	@RequestMapping("/view/**/dataTransform.do")
+	/*
+	@RequestMapping("/view/dataTransform.do")
 	@ResponseBody
 	public List<SuggestBoardVO> data(SuggestBoardVO vo) {
 		// boardService.getListCount();
@@ -73,10 +69,11 @@ public class GetSuggestBoardListController {
 		return list;
 	}
 
-	@RequestMapping("/view/**/cluster.do")
+	@RequestMapping("/view/cluster.do")
 	public String data(Model model) {
 		List<SuggestBoardVO> list = suggestBoardService.getSuggestBoardList();
 		model.addAttribute("list", list);
 		return "suggestBoard/cluster";
 	}
+	*/
 }

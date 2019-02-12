@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AfterBoardDAO">
+
+	<!-- 글쓰기 -->
+	<insert id="insertAfterBoard">
+	<![CDATA[
+		INSERT INTO AFTERBOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES((SELECT
+		NVL(MAX(SEQ),0)+1 FROM AFTERBOARD),#{id},#{name},#{title},#{content})
+		]]>
+	</insert>
+
+
+	<!-- 글목록 가져오기 -->
+	<select id="getAfterBoardList" resultType="afterBoard">
+		<include refid="pagingHeader"></include> 
+		<![CDATA[ SELECT ROWNUM, SEQ, TITLE, CONTENT, NAME, REGDATE, CNT FROM AFTERBOARD ORDER BY SEQ DESC, REGDATE DESC]]>
+		<include refid="pagingFooter"></include>
+
+	</select>
+	<!-- SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM AFTERBOARD ORDER BY 
+		SEQ DESC,REGDATE DESC -->
+		
+	<!-- 글목록 갯수 -->
+	<select id="countAfterBoardList" resultType="java.lang.Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM AFTERBOARD
+	]]>
+	</select>		
+
+	<!-- 글목록 가져오기(제목만) -->
+	<select id="getAfterBoardList_title" resultType="afterBoard"
+		parameterType="java.lang.String">
+	<![CDATA[
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM AFTERBOARD WHERE TITLE LIKE '%'||#{keyword}||'%' ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	</select>
+
+	<!-- 글목록 갯수(제목만) -->
+	<select id="countAfterBoardList_title"
+		resultType="java.lang.Integer" parameterType="java.lang.String">
+	<![CDATA[
+	SELECT COUNT(*) FROM AFTERBOARD WHERE TITLE LIKE '%'||#{keyword}||'%'
+	]]>
+	</select>
+
+	<!-- 글목록 가져오기(글작성자) -->
+	<select id="getAfterBoardList_writer" resultType="afterBoard"
+		parameterType="java.lang.String">
+	<![CDATA[
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM AFTERBOARD WHERE NAME LIKE '%'||#{keyword}||'%' ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	</select>
+
+	<!-- 글목록 가져오기(제목+내용) -->
+	<select id="getAfterBoardList_title_content"
+		resultType="afterBoard" parameterType="java.lang.String">
+	<![CDATA[
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM AFTERBOARD WHERE TITLE LIKE '%'||#{keyword}||'%' OR CONTENT LIKE '%'||#{keyword}||'%' ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	</select>
+
+	<!-- 게시글 조회수 증가처리 -->
+	<update id="increaseViewCnt">
+	<![CDATA[
+	UPDATE AFTERBOARD SET CNT=CNT+1 WHERE SEQ=#{SEQ}
+	]]>
+	</update>
+
+	<!-- 글 가져오기 -->
+	<select id="getAfterBoard" resultType="afterBoard">
+	<![CDATA[
+	SELECT SEQ,ID,NAME,TITLE,CONTENT,BEST,CNT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss') "REALREGDATE" FROM AFTERBOARD WHERE SEQ = #{seq}
+	]]>
+	</select>
+
+	<update id="updateAfterBoard">
+	<![CDATA[
+	UPDATE AFTERBOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
+	]]>
+	</update>
+
+	<delete id="deleteAfterBoard">
+	<![CDATA[
+	DELETE FROM AFTERBOARD WHERE SEQ=#{seq}
+	]]>
+	</delete>
+
+	<!-- 페이징 처리 -->
+	<sql id="pagingHeader">
+		SELECT * FROM (SELECT ROWNUM AS RN, A.* FROM (
+	</sql>
+
+	<sql id="pagingFooter">
+		)A) WHERE RN BETWEEN #{start} AND #{end}
+	</sql>
+</mapper>

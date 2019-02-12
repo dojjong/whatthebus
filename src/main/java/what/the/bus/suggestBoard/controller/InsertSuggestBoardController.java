@@ -22,6 +22,7 @@ public class InsertSuggestBoardController {
 	
 	@RequestMapping("/view/**/insertSuggestBoard.do")
 	public String insertSuggestBoard(BoardVO vo) {
+		
 		suggestBoardService.insertSuggestBoard(vo);
 		return "redirect:getSuggestBoardList.do";
 	}

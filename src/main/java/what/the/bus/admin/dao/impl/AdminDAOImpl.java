@@ -17,9 +17,7 @@ public class AdminDAOImpl implements AdminDAO{
 	private SqlSession mybatis;
 	
 	
-	public AdminDAOImpl() {
-		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
-	}
+	
 	
 	//02.07
 	public List<MemberVO> getMemberList() {
