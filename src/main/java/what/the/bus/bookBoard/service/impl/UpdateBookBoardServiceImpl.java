@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.dao.impl.BookBoardDAOImpl;
 import what.the.bus.bookBoard.service.UpdateBookBoardService;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 @Service
 public class UpdateBookBoardServiceImpl implements UpdateBookBoardService {
@@ -17,7 +18,7 @@ public class UpdateBookBoardServiceImpl implements UpdateBookBoardService {
 		bookBoardDAO.updateBookBoard(vo);
 	}
 	@Override
-	public BookBoardVO getBookBoard(int seq) {
+	public SuggestBoardVO getBookBoard(int seq) {
 		return bookBoardDAO.getBookBoard(seq);
 		
 	}

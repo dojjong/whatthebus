@@ -26,8 +26,6 @@
 				<td align="center" width="250">제목</td>
 				<td align="center" width="100">작성자</td>
 				<td align="center" width="150">작성일</td>
-				<td align="center" width="100">조회</td>
-				<td align="center" width="50">추천</td>
 			</tr>
 			<%---- 글이 없을 경우 -->
 			<c:if test="${count==0 }">
@@ -42,8 +40,6 @@
 					<td width="250"><a href="getBookBoard.do?seq=${vo.seq}">${vo.title }</a></td>
 					<td align="center" width="100">${vo.name }</td>
 					<td align="center" width="150">${vo.regDate }</td>
-					<td align="center" width="50">${vo.cnt }</td>
-					<td align="center" width="50">${vo.best }</td>
 				</tr>
 			</c:forEach>
 

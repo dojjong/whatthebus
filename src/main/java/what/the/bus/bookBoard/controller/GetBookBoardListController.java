@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.service.GetBookBoardListService;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 @Controller
 public class GetBookBoardListController {
@@ -18,7 +18,7 @@ public class GetBookBoardListController {
 	@RequestMapping("/view/**/getBookBoardList.do")
 	public String getBookBoardList(Model model) {
 		// boardService.getListCount();
-		List<BookBoardVO> list = bookBoardService.getBookBoardList();
+		List<SuggestBoardVO> list = bookBoardService.getBookBoardList();
 		model.addAttribute("list", list);
 		return "bookBoard/list";
 	}

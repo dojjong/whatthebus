@@ -6,7 +6,7 @@
 	<!-- 글쓰기 -->
 	<insert id="insertSuggestBoard">
 	<![CDATA[
-		INSERT INTO SUGGESTBOARD(SEQ,ID,NAME,TITLE,CONTENT,START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM SUGGESTBOARD),#{id},#{name},#{title},#{content},#{start_wido},#{start_kyungdo},#{end_wido},#{end_kyungdo})
+		INSERT INTO SUGGESTBOARD(SEQ,ID,NAME,TITLE,CONTENT,START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO,MID_WIDO,MID_KYUNGDO) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM SUGGESTBOARD),#{id},#{name},#{title},#{content},#{start_wido},#{start_kyungdo},#{end_wido},#{end_kyungdo},#{mid_wido},#{mid_kyungdo})
 		]]>
 	</insert>
 
@@ -34,7 +34,7 @@
 	UPDATE SUGGESTBOARD SET TITLE=#{title}, CONTENT=#{content}, START_WIDO=#{start_wido}, START_KYUNGDO=#{start_kyungdo}, END_WIDO=#{end_wido}, END_KYUNGDO=#{end_kyungdo} WHERE SEQ =#{seq}
 	]]>
 	</update>
-	
+
 	<delete id="deleteSuggestBoard">
 	<![CDATA[
 	DELETE SUGGESTBOARD WHERE SEQ=#{seq}

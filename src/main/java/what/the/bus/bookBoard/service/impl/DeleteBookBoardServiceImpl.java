@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.dao.impl.BookBoardDAOImpl;
 import what.the.bus.bookBoard.service.DeleteBookBoardService;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 @Service
 public class DeleteBookBoardServiceImpl implements DeleteBookBoardService {
@@ -18,7 +19,7 @@ public class DeleteBookBoardServiceImpl implements DeleteBookBoardService {
 	}
 
 	@Override
-	public BookBoardVO getBookBoard(int seq) {
+	public SuggestBoardVO getBookBoard(int seq) {
 		return bookBoardDAO.getBookBoard(seq);
 	}
 

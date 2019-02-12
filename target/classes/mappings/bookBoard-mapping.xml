@@ -12,20 +12,20 @@
 	</insert>
 
 	<!-- 글목록 가져오기 -->
-	<select id="getBookBoardList" resultType="bookBoard">
+	<select id="getBookBoardList" resultType="suggestBoard">
 	<![CDATA[
-	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM BOOKBOARD ORDER BY SEQ DESC,REGDATE DESC
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM SUGGESTBOARD ORDER BY SEQ DESC,REGDATE DESC
 	]]>
 	</select>
 	<!-- 전체 글수 가져오기 -->
 	<select id="getBookBoardListCount" resultType="Integer">
 	<![CDATA[
-	SELECT COUNT(*) FROM BOOKBOARD	
+	SELECT COUNT(*) FROM SUGGESTBOARD	
 	]]>
 	</select>
-	<select id="getBookBoard" resultType="bookBoard">
+	<select id="getBookBoard" resultType="suggestBoard">
 	<![CDATA[
-	SELECT * FROM BOOKBOARD WHERE SEQ = #{seq}
+	SELECT * FROM SUGGESTBOARD WHERE SEQ = #{seq}
 	]]>
 	</select>
 

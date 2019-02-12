@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.dao.BookBoardDAO;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 import what.the.bus.util.SqlSessionFactoryBean;
 
 @Repository
@@ -24,7 +25,7 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 	}
 
 	@Override
-	public List<BookBoardVO> getBookBoardList() {
+	public List<SuggestBoardVO> getBookBoardList() {
 		return mybatis.selectList("BookBoardDAO.getBookBoardList");
 	}
 
@@ -34,7 +35,7 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 	}
 
 	@Override
-	public BookBoardVO getBookBoard(int seq) {
+	public SuggestBoardVO getBookBoard(int seq) {
 		return mybatis.selectOne("BookBoardDAO.getBookBoard",seq);
 	}
 

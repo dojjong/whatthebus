@@ -20,8 +20,6 @@
 			<tr>
 				<td class="contenttd">글번호</td>
 				<td>${vo.seq}</td>
-				<td class="contenttd">조회수</td>
-				<td>${vo.cnt }</td>
 			</tr>
 			<tr>
 				<td class="contenttd">글쓴이</td>
@@ -43,23 +41,17 @@
 				<td colSpan="2" width="500">
 					<table>
 						<tr>
-							<td><div id="map" style="width: 450px; height: 300px;"></div></td>
-						</tr>
-						<tr>
-							<td>1) 사용할 위치를 선택만 선택한 후 "정리하기" 버튼 클릭&nbsp;<input
-								type="button" value="정리하기" onClick="#" />&nbsp;<input
-								type="button" value="취소" onClick="#" /></td>
-						</tr>
-						<tr>
-							<td>2) 출발지 마커를 선택하신 후 확정 버튼을 눌러주세요&nbsp;<input type="button"
-								value="확정" onClick="#" />&nbsp;<input type="button" value="취소"
-								onClick="#" /></td>
-						</tr>
-						<tr>
-							<td>3) 도착지 마커를 선택하신 후 확정 버튼을 눌러주세요&nbsp;<input type="button"
-								value="확정" onClick="#" />&nbsp;<input type="button" value="취소"
-								onClick="#" /></td>
-						</tr>
+				<td colSpan="4"><div id="map"
+						style="width: 800px; height: 300px;"></div></td>
+			</tr>
+			<tr>
+				<td colSpan="4">출발지 : <span id="spanStartJuso"></span></td>
+			</tr>
+			<tr>
+				<td colSpan="4">도착지 : <span id="spanEndJuso"></span></td>
+			</tr>
+
+		</table>
 					</table>
 				</td>
 			</tr>
