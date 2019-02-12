@@ -57,7 +57,7 @@
 						<tr>
 							<td>1) 원하는 위치를 입력해주세요 → <input type="text"
 								id="usertRegistMap_input" />&nbsp;<input type="button"
-								value="검색" onClick="search()" /></td>
+								value="검색" onclick="search()" /></td>
 						</tr>
 						<tr>
 							<td><div id="map" style="width: 800px; height: 300px;"></div></td>
@@ -92,10 +92,10 @@
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center"><input type="submit"
-					id="insertBoardbt" class="writebt" value="글쓰기" /> <input
-					type="reset" class="writebt" value="다시작성" /> <input type="button"
-					class="writebt" value="목록" onClick="getSuggestBoardList.do"></td>
+				<td colspan="2" align="center">
+				  <input type="submit"	id="insertBoardbt" class="writebt" value="글쓰기" /> 
+				  <input type="reset" class="writebt" value="다시작성" /> 
+				  <input type="button" class="writebt" value="목록" onclick="getSuggestBoardList.do"/></td>
 			</tr>
 		</table>
 	</form>
@@ -120,6 +120,17 @@
 				fCreator : "createSEditor2"
 
 			});
+			
+			//검증
+			if($("#title").val()==""){
+				alert("제목을 입력해주세요.");
+				return;
+			}
+			if($("#ir1").val()=="<p>&nbsp;</p>"){
+				alert("내용을 입력해주세요.");
+				return;
+			}
+			
 			//전송버튼 클릭이벤트
 			$("#insertBoardbt").click(function() {
 				//id가 ir1인 textarea에 에디터에서 대입

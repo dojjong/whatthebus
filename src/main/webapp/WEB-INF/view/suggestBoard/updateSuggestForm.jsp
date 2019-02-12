@@ -17,16 +17,6 @@
 		count++;
 		var newItem = document.createElement("div");
 		newItem.setAttribute("id", "item_" + count);
-		
-		/*
-		var html = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="경유지 확정" onclick="midSet('
-				+ count
-				+ ')"/>&nbsp;<input type="button" value="삭제" onclick="removeItem('
-				+ count
-				+ ')"/>&nbsp;&nbsp;&nbsp;&nbsp;확정 경유지['
-				+ count
-				+ '] : <span name="spanMidJuso" id="spanMidJuso_'+count+'"></span>';
-		*/
 			
 		var html = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="경유지 확정" onclick="midSet('
 			+ count
@@ -66,8 +56,8 @@
 		resultspanMidKyungdo.innerHTML = '';
 		resultspanMidKyungdo.innerHTML = imsi2;
 		
-		document.updateSuggestForm.mid_wido.value = imsi1;
-		document.updateSuggestForm.mid_kyungdo.value = imsi2;
+		//document.updateSuggestForm.mid_wido.value = imsi1;
+		//document.updateSuggestForm.mid_kyungdo.value = imsi2;
 		document.updateSuggestForm.midJuso.value = imsi3;
 		
 	}
@@ -79,24 +69,28 @@
 			var getValueWido = document.getElementsByName('spanMidWido');
 			var getValueKyungdo = document.getElementsByName('spanMidKyungdo');
 			
-			var i=1;
+			var i=0;
 			var temp1;
 			var temp2;
-			while(i<=getValueWido.length){
+			
+			document.updateSuggestForm.mid_wido.value="";
+			document.updateSuggestForm.mid_kyungdo.value="";
+			while(i<getValueWido.length){
 				
 				temp1=getValueWido[i].innerHTML;
-				temp1=getValueKyungdo[i].innerHTML;
+				
+				temp2=getValueKyungdo[i].innerHTML;
+				//alert('i='+i+'temp1='+temp1+'temp2='+temp2);
 			
+				document.updateSuggestForm.mid_wido.value=document.updateSuggestForm.mid_wido.value+"/"+temp1;
+				document.updateSuggestForm.mid_kyungdo.value=document.updateSuggestForm.mid_kyungdo.value+"/"+temp2;
 				
-				document.updateSuggestForm.mid_wido.value=document.updateSuggestForm.mid_wido.value+"/"+temp;
-				document.updateSuggestForm.mid_kyungdo.value=document.updateSuggestForm.mid_kyungdo.value+"/"+temp;
-				
-				i++;
-	
+				i=i+1;
 			}
 			
 			document.updateSuggestForm.action = "insertSuggestBoard.do";
 			document.updateSuggestForm.submit();
+			return;
 		});
 	});
 </script>
@@ -225,9 +219,18 @@
 				oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
 
 				// 이부분에 에디터 validation 검증
-
+				if ($("#title").val() == "") {
+					alert("제목을 입력해주세요.");
+					return;
+				}
+				if ($("#ir1").val() == "<p>&nbsp;</p>") {
+					alert("내용을 입력해주세요.");
+					return;
+				}
 				//폼 submit
-				document.writeForm.submit();
+				
+				document.updateSuggestForm.submit();
+				return;
 			});
 		});
 	</script>
