@@ -22,4 +22,29 @@ public class MainDAOImpl implements MainDAO {
 		return mybatis.selectOne("MainDAO.getIdCheck", vo);
 	}
 
+	@Override
+	public int getPWCheck(MemberVO vo) {
+		return mybatis.selectOne("MainDAO.getPWCheck", vo);
+	}
+
+	@Override
+	public int idCheckMember(MemberVO vo) {
+		return mybatis.selectOne("MainDAO.idCheckMember", vo);
+	}
+
+	@Override
+	public int idCheckDriver(MemberVO vo) {
+		return mybatis.selectOne("MainDAO.idCheckDriver", vo);
+	}
+
+	@Override
+	public void updatePWMember(MemberVO vo) {
+		mybatis.update("MainDAO.updatePWMember", vo);
+	}
+
+	@Override
+	public void updatePWDriver(MemberVO vo) {
+		mybatis.update("MainDAO.updatePWDriver", vo);
+	}
+
 }

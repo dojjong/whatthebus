@@ -112,35 +112,38 @@ body {
 
 
 	<div id="password" class="tabcontent">
-		<h3>비밀번호 재설정</h3>
-		<table>
+		<form id="signupform" role="form" action="sendFindPass.do"
+			method="post">
+			<h3>비밀번호 재설정</h3>
+			<table>
 
-			<tr>
-				<td align="right" width="200">이름 :&nbsp;</td>
-				<td align="left" width="500"><input type="text" name="name">&nbsp;</td>
-			</tr>
+				<tr>
+					<td align="right" width="200">이름 :&nbsp;</td>
+					<td align="left" width="500"><input type="text" name="name" autocomplete="off">&nbsp;</td>
+				</tr>
 
-			<tr>
-				<td align="right" width="200">아이디 :&nbsp;</td>
-				<td align="left" width="500"><input type="text" name="id">&nbsp;</td>
-			</tr>
+				<tr>
+					<td align="right" width="200">아이디 :&nbsp;</td>
+					<td align="left" width="500"><input type="text" name="id" autocomplete="off">&nbsp;</td>
+				</tr>
 
-			<tr>
-				<td align="right">이메일 :&nbsp;</td>
+				<tr>
+					<td align="right">이메일 :&nbsp;</td>
 
-				<td align="left"><input type="text" name="email"><br /></td>
-			</tr>
+					<td align="left"><input type="text" name="email" autocomplete="off"><br /></td>
+				</tr>
 
-			<tr>
-				<td colspan="2" align="center">확인버튼을 누르면 인증번호 입력 화면으로 넘어갑니다.</td>
-			</tr>
+				<tr>
+					<td colspan="2" align="center">확인버튼을 누르면 인증번호 입력 화면으로 넘어갑니다.</td>
+				</tr>
 
-			<tr>
-				<td colspan="2" align="center"><input type="button" value="확인" /></td>
-			</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="확인" /></td>
+				</tr>
 
 
-		</table>
+			</table>
+		</form>
 	</div>
 
 
@@ -162,6 +165,8 @@ body {
 			document.getElementById(cityName).style.display = "block";
 			evt.currentTarget.className += " active";
 		}
+		
+		
 	</script>
 
 </body>

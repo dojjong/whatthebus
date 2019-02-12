@@ -96,7 +96,7 @@
 			if (confirm("정말 삭제하시겠습니까 ? ")) {
 				location.href = "deleteBoard.do?seq=${vo.seq }";
 			}
-		})
+		});
 
 		function best_click() {
 			var frm_read = $('#form');
