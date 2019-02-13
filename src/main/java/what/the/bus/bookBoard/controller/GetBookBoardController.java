@@ -18,6 +18,7 @@ public class GetBookBoardController {
 	public String getBookBoard(Integer seq, Model model) {
 		SuggestBoardVO vo = bookBoardService.getBookBoard(seq);
 		model.addAttribute("vo", vo);
+		System.out.println("mid_wido="+vo.getMid_wido());
 		return "bookBoard/content";
 	}
 

@@ -24,7 +24,7 @@ public class GetAfterBoardListController {
 	public String getAfterBoardList(@RequestParam(defaultValue="1") int curPage, Model model) throws Exception {
 		// 레코드의 갯수 계산
 		int count = afterBoardService.countAfterBoardList();//페이징 처리 없이 list 갯수 파악 count용
-		System.out.println("count="+count);
+		
 		
 		//페이지 나누기 관련 처리
 		BoardPager boardPager = new BoardPager(count, curPage);
@@ -43,12 +43,24 @@ public class GetAfterBoardListController {
 	}
 	
 	@RequestMapping("/view/**/getAfterBoardList_title.do")
-	public String getAfterBoardList_title(@RequestParam String keyword2, Model model) throws Exception {
-		System.out.println("keyword2="+keyword2);
-		List<AfterBoardVO> list = afterBoardService.getAfterBoardList_title(keyword2);
-		model.addAttribute("count", list.size());
-		model.addAttribute("list", list);
-		return "afterBoard/list";
+	public String getAfterBoardList_title(@RequestParam String keyword2, @RequestParam(defaultValue="1") int curPage, Model model) throws Exception {
+		// 레코드의 갯수 계산
+				int count = afterBoardService.countAfterBoardList_title(keyword2);//페이징 처리 없이 list 갯수 파악 count용
+
+				//페이지 나누기 관련 처리
+				BoardPager boardPager = new BoardPager(count, curPage);
+				int start = boardPager.getPageBegin();
+				int end = boardPager.getPageEnd();
+				
+				//List<AfterBoardVO> list = afterBoardService.getAfterBoardList_title(start,end);
+				
+				//데이터를 맵에 저장
+				Map<String, Object> map = new HashMap<String,Object>();
+				//map.put("list", list);
+				map.put("count", count);
+				map.put("boardPager", boardPager);
+				model.addAttribute("map", map);
+				return "afterBoard/list";
 	}
 	
 	@RequestMapping("/view/**/getAfterBoardList_writer.do")

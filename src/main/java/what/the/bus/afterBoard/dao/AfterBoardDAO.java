@@ -17,6 +17,9 @@ public interface AfterBoardDAO {
 	public List<AfterBoardVO> getAfterBoardList_title_content(String keyword) throws Exception;
 	
 	public Integer countAfterBoardList() throws Exception;
+	public Integer countAfterBoardList_title(String keyword) throws Exception;
+	public Integer countAfterBoardList_writer(String keyword) throws Exception;
+	public Integer countAfterBoardList_title_content(String keyword) throws Exception;
 
 	public void increaseViewCnt(int seq) throws Exception;
 	

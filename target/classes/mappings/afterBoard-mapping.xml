@@ -11,7 +11,6 @@
 		]]>
 	</insert>
 
-
 	<!-- 글목록 가져오기 -->
 	<select id="getAfterBoardList" resultType="afterBoard">
 		<include refid="pagingHeader"></include> 
@@ -52,12 +51,28 @@
 	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM AFTERBOARD WHERE NAME LIKE '%'||#{keyword}||'%' ORDER BY SEQ DESC,REGDATE DESC
 	]]>
 	</select>
+	
+	<!-- 글목록 갯수(글작성자) -->
+	<select id="countAfterBoardList_writer"
+		resultType="java.lang.Integer" parameterType="java.lang.String">
+	<![CDATA[
+	SELECT COUNT(*) FROM AFTERBOARD WHERE NAME LIKE '%'||#{keyword}||'%'
+	]]>
+	</select>
 
 	<!-- 글목록 가져오기(제목+내용) -->
 	<select id="getAfterBoardList_title_content"
 		resultType="afterBoard" parameterType="java.lang.String">
 	<![CDATA[
 	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM AFTERBOARD WHERE TITLE LIKE '%'||#{keyword}||'%' OR CONTENT LIKE '%'||#{keyword}||'%' ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	</select>
+	
+	<!-- 글목록 갯수(제목+내용) -->
+	<select id="countAfterBoardList_title_content"
+		resultType="java.lang.Integer" parameterType="java.lang.String">
+	<![CDATA[
+	SELECT COUNT(*) FROM AFTERBOARD WHERE TITLE LIKE '%'||#{keyword}||'%' OR CONTENT LIKE '%'||#{keyword}||'%'
 	]]>
 	</select>
 
@@ -75,12 +90,14 @@
 	]]>
 	</select>
 
+	<!-- 글 수정하기 -->
 	<update id="updateAfterBoard">
 	<![CDATA[
 	UPDATE AFTERBOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
 	]]>
 	</update>
-
+	
+    <!-- 글 삭제하기 -->
 	<delete id="deleteAfterBoard">
 	<![CDATA[
 	DELETE FROM AFTERBOARD WHERE SEQ=#{seq}

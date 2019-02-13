@@ -74,5 +74,20 @@ public class AfterBoardDAOImpl implements AfterBoardDAO{
 		return mybatis.selectOne("AfterBoardDAO.countAfterBoardList");
 	}
 
+	@Override
+	public Integer countAfterBoardList_title(String keyword) throws Exception {
+		return mybatis.selectOne("AfterBoardDAO.countAfterBoardList_title", keyword);
+	}
+
+	@Override
+	public Integer countAfterBoardList_writer(String keyword) throws Exception {
+		return mybatis.selectOne("AfterBoardDAO.countAfterBoardList_writer", keyword);
+	}
+
+	@Override
+	public Integer countAfterBoardList_title_content(String keyword) throws Exception {
+		return mybatis.selectOne("AfterBoardDAO.countAfterBoardList_title_content", keyword);
+	}
+
 	
 }
