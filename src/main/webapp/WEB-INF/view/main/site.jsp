@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:include page="../main/mainHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +10,11 @@ td {
 	text-align: center;
 }
 </style>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<div align="center">
 
 
 		<table>
@@ -74,15 +75,15 @@ td {
 
 
 			<tr>
-				<td colspan="4"><br />
-				<img src="../resources/images/situation_bus.png"
+				<td colspan="4"><br /> <img
+					src="../resources/images/situation_bus.png"
 					style="width: 600px; height: 100px;"></td>
 			</tr>
 
 			<tr>
 				<td colspan="4"><h2>
-						<strong>상황에 맞는 다양한 버스 럭셔리한 프리미엄버스부터 11인승 밴까지<br /> 상황에 맞게
-							어떤 버스라도 대절가능합니다.
+						<strong>상황에 맞는 다양한 버스 럭셔리한 프리미엄버스부터 11인승 밴까지<br /> 상황에
+							맞게 어떤 버스라도 대절가능합니다.
 						</strong>
 					</h2></td>
 			</tr>
@@ -102,15 +103,15 @@ td {
 			</tr>
 
 			<tr>
-				<td colspan="4"><br />
-				<img src="../resources/images/bus_text3.png"
+				<td colspan="4"><br /> <img
+					src="../resources/images/bus_text3.png"
 					style="width: 550px; height: 90px;"></td>
 			</tr>
 
 			<tr>
 				<td colspan="4"><h2>
-						<strong>결혼식, MT, 수학여행, 견학, 워크샵, 산악회 등<br /> 각종행사에 필요한 버스를
-							간편하게 예약해보세요.
+						<strong>결혼식, MT, 수학여행, 견학, 워크샵, 산악회 등<br /> 각종행사에 필요한
+							버스를 간편하게 예약해보세요.
 						</strong>
 					</h2></td>
 			</tr>
@@ -130,12 +131,9 @@ td {
 					src="../resources/images/event.png"
 					style="width: 80px; height: 80px;"></td>
 			</tr>
-
-
-
-
 		</table>
 
 	</div>
+	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

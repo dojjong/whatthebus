@@ -1,7 +1,7 @@
 package what.the.bus.bookBoard.service;
 
-import what.the.bus.bookBoard.BookBoardVO;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 public interface InsertBookBoardService {
-	void insertBookBoard(BookBoardVO vo);
+	void insertBookBoard(SuggestBoardVO vo);
 }

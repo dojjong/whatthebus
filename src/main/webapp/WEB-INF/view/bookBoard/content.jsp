@@ -32,15 +32,14 @@
 
 			<tr>
 				<td class="contenttd">글번호</td>
-				<td>${vo.seq}</td>
-				<td class="contenttd">조회수</td>
-				<td>${vo.cnt }</td>
+				<td colspan="3">${vo.seq}</td>
+
 			</tr>
 			<tr>
 				<td class="contenttd">글쓴이</td>
 				<td>${vo.name }</td>
 				<td class="contenttd">작성일</td>
-				<td>${vo.realregdate }</td>
+				<td>${vo.regDate }</td>
 			</tr>
 			<tr>
 				<td class="contenttd" width="60">글 제목</td>
@@ -55,11 +54,10 @@
 			<tr>
 				<td colSpan="4">
 					<div id="map" style="width: 800px; height: 300px;"></div>
-				</td>	
+				</td>
 			</tr>
-			<tr>		
-				<td colSpan="4">
-					확정 출발지 : <span id="spanStartJuso"></span>
+			<tr>
+				<td colSpan="4">출발지 : <span id="spanStartJuso"></span>
 				</td>
 			</tr>
 			<tr>
@@ -68,82 +66,102 @@
 				</td>
 			</tr>
 			<tr>
-				<td colSpan="4">	
-					확정 도착지 : <span id="spanEndJuso"></span>
+				<td colSpan="4">도착지 : <span id="spanEndJuso"></span>
 				</td>
 			</tr>
-			<table width="500" align="center">
-				<tr>
-					<td align="center"><a href='javascript:void(0);'
-						onclick="best_click();"> <c:choose>
-								<c:when test="${best==0 }">
-									<img src='../resources/images/bestbt.png' id="bestButton">
-								</c:when>
-								<c:otherwise>
-									<img src='../resources/images/onbestbt.png' id="bestButton">
-								</c:otherwise>
-							</c:choose> <span id="best_cnt">${vo.best } </span></a></td>
-					<!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
-					<td align="right" width="200"><a
-						href="getSuggestBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
-							<input type="button" class="contentbt" value="목록">
-					</a></td>
-				</tr>
-			</table>
-			</form>
+			<tr>
+				<td colSpan="4">
+					<h4>차종</h4> <c:if test="${vo.bus == 45}">
+								45인승 대형버스</c:if> <c:if test="${vo.bus == 28}">
+								28인승 리무진 대형버스</c:if> <c:if test="${vo.bus == 25}">
+								25인승 중형버스</c:if>
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					<h4>출발일시</h4> ${vo.startdate }
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					<div id="midTimeDiv">경유 : ${vo.middate }</div>
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					<h4>총 예상 소요시간</h4> ${vo.finishtime }분
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					<h4>승차금액</h4>${vo.pay }원
+				</td>
+			</tr>
 
-			<%@include file="../board/comment.jsp"%>
+		</table>
+		<table width="500" align="center">
+			<tr>
+				<td align="right" width="200"><a href="bookingTicket.do"><input
+						type="button" class="contentbt" value="예약"></a>&nbsp;<a
+					href="getSuggestBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
+						<input type="button" class="contentbt" value="목록">
+				</a></td>
+			</tr>
+		</table>
+	</form>
+
+	<%@include file="../board/comment.jsp"%>
 
 
-			<script>
-				$("#deleteButton").click(function() {
-					if (confirm("정말 삭제하시겠습니까 ? ")) {
-						location.href = "deleteBoard.do?seq=${vo.seq }";
+	<script>
+		$("#deleteButton").click(function() {
+			if (confirm("정말 삭제하시겠습니까 ? ")) {
+				location.href = "deleteBoard.do?seq=${vo.seq }";
+			}
+		})
+
+		function best_click() {
+			var frm_read = $('#form');
+			var seq = $('#seq', form).val();
+			var id = $('#id', form).val();
+			var allData = {
+				"seq" : seq,
+				"id" : id
+			}
+			$.ajax({
+				url : "bestClick.do",
+				type : "POST",
+				cache : false,
+				dataType : "json",
+				data : allData,
+				success : function(data) {
+
+					var msg = '';
+					var best_img = '';
+					msg += data.msg;
+					alert(msg);
+
+					if (data.best_check == 0) {
+						best_img = "../resources/images/bestbt.png";
+					} else {
+						best_img = "../resources/images/onbestbt.png";
 					}
-				})
 
-				function best_click() {
-					var frm_read = $('#form');
-					var seq = $('#seq', form).val();
-					var id = $('#id', form).val();
-					var allData = {
-						"seq" : seq,
-						"id" : id
-					}
-					$.ajax({
-						url : "bestClick.do",
-						type : "POST",
-						cache : false,
-						dataType : "json",
-						data : allData,
-						success : function(data) {
+					$('#bestButton', frm_read).attr('src', best_img);
+					$('#best_cnt').html(data.best_cnt);
+					$('#best_check').html(data.best_check);
 
-							var msg = '';
-							var best_img = '';
-							msg += data.msg;
-							alert(msg);
-
-							if (data.best_check == 0) {
-								best_img = "../resources/images/bestbt.png";
-							} else {
-								best_img = "../resources/images/onbestbt.png";
-							}
-
-							$('#bestButton', frm_read).attr('src', best_img);
-							$('#best_cnt').html(data.best_cnt);
-							$('#best_check').html(data.best_check);
-
-						},
-						error : function(request, status, error) {
-							alert("로그인 후 이용해주세요.");
-						}
-					});
+				},
+				error : function(request, status, error) {
+					alert("로그인 후 이용해주세요.");
 				}
-			</script>
+			});
+		}
+	</script>
 
-			<script type="text/javascript" src="../resources/js/boardScript.js"></script>
-			<script type="text/javascript"
-				src="../resources/js/userContentMapScript.js"></script>
-			<jsp:include page="../main/mainFooter.jsp"></jsp:include>
+	<script type="text/javascript" src="../resources/js/boardScript.js"></script>
+	<script type="text/javascript"
+		src="../resources/js/userContentMapScript.js"></script>
+	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>

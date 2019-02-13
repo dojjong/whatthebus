@@ -15,24 +15,43 @@
 	var count = 0;
 	function appendItem() {
 		count++;
+
 		var newItem = document.createElement("div");
 		newItem.setAttribute("id", "item_" + count);
-			
+
+		var midTimeItem = document.createElement("div");
+		midTimeItem.setAttribute("id", "midTimeItem_" + count);
+
+		var midtime = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[' + count
+				+ ']경유지 출발시간<input type="time" name="middate">';
+
 		var html = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="경유지 확정" onclick="midSet('
-			+ count
-			+ ')"/>&nbsp;<input type="button" value="삭제" onclick="removeItem('
-			+ count
-			+ ')"/>&nbsp;&nbsp;&nbsp;&nbsp;확정 경유지['
-			+ count
-			+ '] : <span name="spanMidJuso" id="spanMidJuso_'+count+'"></span><br><span name="spanMidWido" id="spanMidWido_'+count+'"></span><br><span name="spanMidKyungdo" id="spanMidKyungdo_'+count+'"></span>';	
+				+ count
+				+ ')"/>&nbsp;<input type="button" value="삭제" onclick="removeItem('
+				+ count
+				+ ')"/>&nbsp;&nbsp;&nbsp;&nbsp;확정 경유지['
+				+ count
+				+ '] : <span name="spanMidJuso" id="spanMidJuso_'+count+'"></span><span style="display:none;" name="spanMidWido" id="spanMidWido_'+count+'"></span><span style="display:none;" name="spanMidKyungdo" id="spanMidKyungdo_'+count+'"></span>';
+
+		midTimeItem.innerHTML = midtime;
+		var midTimeList = document.getElementById('midTimeDiv');
+		midTimeList.appendChild(midTimeItem);
+
 		newItem.innerHTML = html;
 		var itemListNode = document.getElementById('itemList');
 		itemListNode.appendChild(newItem);
+		
 	}
+
 	function removeItem(idCount) {
+		
 		var item = document.getElementById("item_" + idCount);
+		var timeItem = document.getElementById("midTimeItem_" + idCount);
+
 		if (item != null) {
 			item.parentNode.removeChild(item);
+			timeItem.parentNode.removeChild(timeItem);
+
 		}
 	}
 
@@ -55,49 +74,59 @@
 		resultspanMidWido.innerHTML = imsi1;
 		resultspanMidKyungdo.innerHTML = '';
 		resultspanMidKyungdo.innerHTML = imsi2;
-		
+
 		//document.updateSuggestForm.mid_wido.value = imsi1;
 		//document.updateSuggestForm.mid_kyungdo.value = imsi2;
 		document.updateSuggestForm.midJuso.value = imsi3;
-		
+
 	}
-	
-	$(document).ready(function(){
-		$("#insertBoardbt").click(function() {
-			
-			var getValueJuso = document.getElementsByName('spanMidJuso');
-			var getValueWido = document.getElementsByName('spanMidWido');
-			var getValueKyungdo = document.getElementsByName('spanMidKyungdo');
-			
-			var i=0;
-			var temp1;
-			var temp2;
-			
-			document.updateSuggestForm.mid_wido.value="";
-			document.updateSuggestForm.mid_kyungdo.value="";
-			while(i<getValueWido.length){
-				
-				temp1=getValueWido[i].innerHTML;
-				
-				temp2=getValueKyungdo[i].innerHTML;
-				//alert('i='+i+'temp1='+temp1+'temp2='+temp2);
-			
-				document.updateSuggestForm.mid_wido.value=document.updateSuggestForm.mid_wido.value+"/"+temp1;
-				document.updateSuggestForm.mid_kyungdo.value=document.updateSuggestForm.mid_kyungdo.value+"/"+temp2;
-				
-				i=i+1;
-			}
-			
-			document.updateSuggestForm.action = "insertSuggestBoard.do";
-			document.updateSuggestForm.submit();
-			return;
-		});
-	});
+
+	$(document)
+			.ready(
+					function() {
+						$("#insertBoardbt")
+								.click(
+										function() {
+
+											var getValueJuso = document
+													.getElementsByName('spanMidJuso');
+											var getValueWido = document
+													.getElementsByName('spanMidWido');
+											var getValueKyungdo = document
+													.getElementsByName('spanMidKyungdo');
+
+											var i = 0;
+											var temp1;
+											var temp2;
+
+											document.updateSuggestForm.mid_wido.value = "";
+											document.updateSuggestForm.mid_kyungdo.value = "";
+											while (i < getValueWido.length) {
+
+												temp1 = getValueWido[i].innerHTML;
+
+												temp2 = getValueKyungdo[i].innerHTML;
+												//alert('i='+i+'temp1='+temp1+'temp2='+temp2);
+
+												document.updateSuggestForm.mid_wido.value = document.updateSuggestForm.mid_wido.value
+														+ "/" + temp1;
+												document.updateSuggestForm.mid_kyungdo.value = document.updateSuggestForm.mid_kyungdo.value
+														+ "/" + temp2;
+
+												i = i + 1;
+											}
+
+											
+											document.updateSuggestForm.action = "insertSuggestBoard.do";
+											document.updateSuggestForm.submit();
+											return;
+										});
+					});
 </script>
 </head>
 <body>
 	<div align="center">
-		<b>글수정</b>
+		<h3>배차신청</h3>
 	</div>
 	<br />
 	<form method="post" id="updateSuggestForm" name="updateSuggestForm">
@@ -135,7 +164,6 @@
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
 				</td>-->
-
 			</tr>
 			<tr>
 				<td width="100" align="center">내용</td>
@@ -146,7 +174,8 @@
 				<td colSpan="2">
 					<table>
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp; 경유지가 있는 경우 필요하신 만큼 버튼을
+							<td>
+								<h4>경로 선택</h4> &nbsp;&nbsp;&nbsp;&nbsp; 경유지가 있는 경우 필요하신 만큼 버튼을
 								클릭해주세요&nbsp; <input type="button" value="경유지 추가+"
 								onclick="appendItem()" />
 							</td>
@@ -165,9 +194,6 @@
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;2) 검색 후, 정확한 위치를 마우스로 클릭해주세요<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주소
 								: <span id="spanImsiJuso"></span></td>
 						</tr>
-
-
-
 						<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;3) 확정하기<br>
 								&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="startSetBt"
@@ -177,7 +203,34 @@
 								type="button" id="endSetBt" onClick="endSet()" value="도착지 확정" />&nbsp;확정
 								도착지 : <span id="spanEndJuso"></span></td>
 						</tr>
-
+						<tr>
+							<td>
+								<h4>차종 선택</h4> <input type="radio" name="bus" value="45">45인승
+								대형 <input type="radio" name="bus" value="28">28인승 리무진 대형
+								<input type="radio" name="bus" value="25">25인승 중형
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h4>출발일시 선택</h4> <input type="datetime-local" name="startdate">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div id="midTimeDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h4>총 예상 소요시간</h4> <input type="text" name="finishtime"
+								width="50">분
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h4>승차금액</h4> <input type="text" name="pay" width="50">원
+							</td>
+						</tr>
 
 					</table>
 				</td>
@@ -228,7 +281,7 @@
 					return;
 				}
 				//폼 submit
-				
+
 				document.updateSuggestForm.submit();
 				return;
 			});

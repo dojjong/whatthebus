@@ -1,6 +1,7 @@
 package what.the.bus.suggestBoard;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class SuggestBoardVO {
 	private int seq;
@@ -23,9 +24,12 @@ public class SuggestBoardVO {
 	private String end_kyungdo;
 	private String mid_wido;
 	private String mid_kyungdo;
-	
-	
-	
+	private String startdate;
+	private String middate;
+	private int bus;
+	private int pay;
+	private String finishtime;
+
 	@Override
 	public String toString() {
 		return "SuggestBoardVO [seq=" + seq + ", id=" + id + ", name=" + name + ", title=" + title + ", content="
@@ -33,7 +37,48 @@ public class SuggestBoardVO {
 				+ ", startIndex=" + startIndex + ", searchOption=" + searchOption + ", keyword=" + keyword + ", count="
 				+ count + ", realregdate=" + realregdate + ", start_wido=" + start_wido + ", start_kyungdo="
 				+ start_kyungdo + ", end_wido=" + end_wido + ", end_kyungdo=" + end_kyungdo + ", mid_wido=" + mid_wido
-				+ ", mid_kyungdo=" + mid_kyungdo + "]";
+				+ ", mid_kyungdo=" + mid_kyungdo + ", startdate=" + startdate + ", middate=" + middate + ", bus=" + bus
+				+ ", pay=" + pay + ", finishtime=" + finishtime + "]";
+	}
+
+	public String getFinishtime() {
+		return finishtime;
+	}
+
+	public void setFinishtime(String finishtime) {
+		this.finishtime = finishtime;
+	}
+
+	public String getStartdate() {
+		return startdate;
+	}
+
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
+
+	public String getMiddate() {
+		return middate;
+	}
+
+	public void setMiddate(String middate) {
+		this.middate = middate;
+	}
+
+	public int getBus() {
+		return bus;
+	}
+
+	public void setBus(int bus) {
+		this.bus = bus;
+	}
+
+	public int getPay() {
+		return pay;
+	}
+
+	public void setPay(int pay) {
+		this.pay = pay;
 	}
 
 	public String getMid_wido() {

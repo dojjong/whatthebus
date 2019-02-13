@@ -6,7 +6,7 @@ import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 
 public interface BookBoardDAO {
-	void insertBookBoard(BookBoardVO vo);
+	void insertBookBoard(SuggestBoardVO vo);
 
 	List<SuggestBoardVO> getBookBoardList();
 

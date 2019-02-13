@@ -6,8 +6,9 @@
 	<!-- 글쓰기 -->
 	<insert id="insertBookBoard">
 	<![CDATA[
-		INSERT INTO BOOKBOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES((SELECT
-		NVL(MAX(SEQ),0)+1 FROM BOOKBOARD),#{id},#{name},#{title},#{content})
+		INSERT INTO SUGGESTBOARD(SEQ,ID,NAME,TITLE,CONTENT,REGDATE,STARTDATE,MIDDATE,BUS,PAY,FINISHTIME,START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO,MID_WIDO,MID_KYUNGDO) 
+		VALUES(suggestboard_seq.nextval,#{id},#{name},#{title},#{content},sysdate,to_timestamp(#{startdate},'yyyy-MM-dd"T"hh:mi'),to_timestamp(#{middate},'hh:mi')
+		,#{bus},#{pay},#{finishtime},#{start_wido},#{start_kyungdo},#{end_wido},#{end_kyungdo},#{mid_wido},#{mid_kyungdo})
 		]]>
 	</insert>
 

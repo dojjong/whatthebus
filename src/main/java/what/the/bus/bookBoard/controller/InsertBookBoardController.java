@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.service.InsertBookBoardService;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 @Controller
 public class InsertBookBoardController {
@@ -19,7 +19,7 @@ public class InsertBookBoardController {
 	}
 	
 	@RequestMapping("/view/**/insertBookBoard.do")
-	public String insertBookBoard(BookBoardVO vo) {
+	public String insertBookBoard(SuggestBoardVO vo) {
 		bookBoardService.insertBookBoard(vo);
 		return "redirect:getBookBoardList.do";
 	}

@@ -80,7 +80,7 @@ window.onload=function(){
 		var callback4 = function(result, status) {
 			midJuso = result[0].road_address.address_name;
 			midJusoArray.push(midJuso);
-			resultDivMidJuso.innerHTML += '확정 경유지 : <span name="spanMidJuso" id="spanMidJuso_'+i+'">'+midJuso+'</span><br>';
+			resultDivMidJuso.innerHTML += '경유지 : <span name="spanMidJuso" id="spanMidJuso_'+i+'">'+midJuso+'</span><br>';
 		};
 		coord5 = new daum.maps.LatLng(Number(mid_wido_split[i]), Number(mid_kyungdo_split[i]));
 		geocoder.coord2Address(coord5.getLng(), coord5.getLat(), callback4);

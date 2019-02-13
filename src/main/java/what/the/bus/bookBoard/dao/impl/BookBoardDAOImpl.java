@@ -20,7 +20,7 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 
-	public void insertBookBoard(BookBoardVO vo) {
+	public void insertBookBoard(SuggestBoardVO vo) {
 		mybatis.insert("BookBoardDAO.insertBookBoard", vo);
 	}
 
