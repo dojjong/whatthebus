@@ -17,6 +17,7 @@ public class DeleteQaBoardController {
 	public String deleteQaBoard(@ModelAttribute QaBoardVO vo, int seq) {
 		vo.setSeq(seq);
 		qaBoardService.deleteQaBoard(vo);
+		qaBoardService.deleteQaComment(vo);
 		return "redirect:getQaBoardList.do";
 	}
 

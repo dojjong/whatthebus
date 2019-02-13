@@ -21,6 +21,7 @@
 			alias="bookBoard"></typeAlias>
 		<typeAlias type="what.the.bus.qaBoard.QaBoardVO" alias="qaBoard"></typeAlias>	
 		<typeAlias type="what.the.bus.noticeBoard.NoticeBoardVO" alias="noticeBoard"></typeAlias>	
+		<typeAlias type="what.the.bus.qaComment.QaCommentVO" alias="qaComment"></typeAlias>		
 			
 	</typeAliases>
 	<environments default="development">
@@ -48,5 +49,6 @@
 		<mapper resource="mappings/qaBoard-mapping.xml"/>
 		<mapper resource="mappings/main-mapping.xml"/>
 		<mapper resource="mappings/noticeBoard-mapping.xml"/>
+		<mapper resource="mappings/qaComment-mapping.xml" />
 	</mappers>
 </configuration>

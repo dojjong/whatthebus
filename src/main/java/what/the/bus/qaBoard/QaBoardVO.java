@@ -11,6 +11,16 @@ public class QaBoardVO {
 	private String content;
 	private Date regdate;
 	private int cnt;
+	
+	private int cntPerPage;
+	private int startIndex;
+	private String searchOption;
+	private String keyword;
+	private int count;
+	private String realregdate;
+	
+	
+	
 	public int getSeq() {
 		return seq;
 	}
@@ -53,10 +63,48 @@ public class QaBoardVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+	public int getCntPerPage() {
+		return cntPerPage;
+	}
+	public void setCntPerPage(int cntPerPage) {
+		this.cntPerPage = cntPerPage;
+	}
+	public int getStartIndex() {
+		return startIndex;
+	}
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
+	public String getSearchOption() {
+		return searchOption;
+	}
+	public void setSearchOption(String searchOption) {
+		this.searchOption = searchOption;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public String getRealregdate() {
+		return realregdate;
+	}
+	public void setRealregdate(String realregdate) {
+		this.realregdate = realregdate;
+	}
 	@Override
 	public String toString() {
 		return "QaBoardVO [seq=" + seq + ", id=" + id + ", name=" + name + ", title=" + title + ", content=" + content
-				+ ", regdate=" + regdate + ", cnt=" + cnt + "]";
+				+ ", regdate=" + regdate + ", cnt=" + cnt + ", cntPerPage=" + cntPerPage + ", startIndex=" + startIndex
+				+ ", searchOption=" + searchOption + ", keyword=" + keyword + ", count=" + count + ", realregdate="
+				+ realregdate + "]";
 	}
 	
 	

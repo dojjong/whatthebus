@@ -1,51 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="QaBoardDAO">
-  
-  <!-- 글쓰기 -->
+
+<mapper namespace="QaBoardDAO">
+	<sql id="searchCount">
+		<choose>
+			<!-- 검색옵션이 전체검색 일 경우 -->
+			<when test="searchOption=='all'">
+			<![CDATA[
+			WHERE NAME LIKE '%'||#{keyword}||'%'
+			OR CONTENT LIKE '%'||#{keyword}||'%'
+			OR TITLE LIKE '%'||#{keyword}||'%'
+			]]>
+			</when>
+			<otherwise>
+		<![CDATA[
+		WHERE ${searchOption} LIKE '%'||#{keyword}||'%'
+		]]>
+			</otherwise>
+		</choose>
+	</sql>
+
+<sql id="search">
+		<choose>
+			<!-- 검색옵션이 전체검색 일경우 -->
+			<when test="searchOption=='all'">
+			<![CDATA[
+			WHERE
+			NAME LIKE '%'||#{keyword}||'%' 
+			OR CONTENT LIKE '%'||#{keyword}||'%'
+			OR TITLE LIKE '%'||#{keyword}||'%'
+			]]>
+			</when>
+			<when test="searchOption=='comment'">
+			<![CDATA[
+			WHERE SEQ IN ( SELECT DISTINCT SEQ FROM QA_COMMENTS WHERE CONTENT LIKE '%'||#{keyword}||'%' )
+			]]>
+			</when>
+			<when test="searchOption=='cname'">
+			<![CDATA[
+			WHERE SEQ IN ( SELECT DISTINCT SEQ FROM QA_COMMENTS WHERE NAME LIKE '%'||#{keyword}||'%' )
+			]]>
+			</when>
+			<!-- 검색옵션이 전체가 아닐경우 -->
+			<otherwise>
+			<![CDATA[
+			WHERE ${searchOption} LIKE '%'||#{keyword}||'%' 
+			]]>
+			</otherwise>
+		</choose>
+	</sql>
+	
+	
+	<sql id="header">
+	<![CDATA[
+	SELECT * FROM (SELECT ROWNUM AS rn,A.*FROM(
+	]]>
+	</sql>
+	<sql id="footer">
+	<![CDATA[
+	)A)WHERE rn BETWEEN #{start} AND #{end}
+	]]>
+	</sql>
+
+
+	<!-- 글쓰기 -->
 	<insert id="insertQaBoard">
 	<![CDATA[
 		INSERT INTO QA_BOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES(qa_board_seq.nextval,#{id},#{name},#{title},#{content})
-		]]>	
+		]]>
 	</insert>
 
 	<!-- 글목록 가져오기 -->
 	<select id="getQaBoardList" resultType="qaBoard">
+		<include refid="header"></include>
 	<![CDATA[
-	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM QA_BOARD ORDER BY SEQ DESC,REGDATE DESC
+	SELECT ROWNUM,SEQ,ID,TITLE,CONTENT,NAME,REGDATE,CNT FROM (SELECT * FROM QA_BOARD ORDER BY SEQ DESC)
 	]]>
-	
-	
+		<include refid="search"></include>
+		<include refid="footer"></include>
+
 	</select>
-	
+
+	<select id="getQaBoardCommentContentListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(DISTINCT(SEQ)) FROM QA_COMMENTS WHERE CONTENT LIKE '%'||#{keyword}||'%' 
+	]]>
+	</select>
+	<select id="getQaBoardCommentNameListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(DISTINCT(SEQ)) FROM QA_COMMENTS WHERE NAME LIKE '%'||#{keyword}||'%'
+	]]>
+	</select>
+
+
 	<!-- 전체 글수 가져오기 -->
 	<select id="getQaBoardListCount" resultType="Integer">
 	<![CDATA[
 	SELECT COUNT(*) FROM QA_BOARD	
 	]]>
+	
+	<include refid="searchCount"></include>
+	
 	</select>
 	
+
+
 	<select id="getQaBoard" resultType="qaBoard">
 	<![CDATA[
-	SELECT * FROM QA_BOARD WHERE SEQ = #{seq}
+	SELECT SEQ,ID,NAME,TITLE,CONTENT,CNT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM QA_BOARD WHERE SEQ = #{seq}
 	]]>
 	</select>
 	
-	
+	<select id="getQaCommentCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*)"count" FROM QA_COMMENTS WHERE SEQ=#{seq}
+	]]>
+	</select>
+
+
 	<update id="updateQaBoard">
 	<![CDATA[
-	UPDATE QA_BOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
+	UPDATE QA_BOARD SET TITLE=#{title},REGDATE=SYSDATE, CONTENT=#{content} WHERE SEQ =#{seq}
 	]]>
 	</update>
 	
+	<update id="updateQaCnt">
+	<![CDATA[
+	UPDATE QA_BOARD SET CNT=CNT+1 WHERE SEQ=#{seq}
+	]]>
+	</update>
+	
+
 	<delete id="deleteQaBoard">
 	<![CDATA[
 	DELETE QA_BOARD WHERE SEQ=#{seq}
 	]]>
 	</delete>
-	
-	
 
-  </mapper>
+	<delete id="deleteQaComment">
+	<![CDATA[
+	DELETE QA_COMMENTS WHERE SEQ=#{seq}
+	]]>
+	</delete>
+
+
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="QaCommentDAO">
+	<insert id="insertQaComment">
+	<![CDATA[
+		INSERT INTO QA_COMMENTS(CNO,SEQ,CONTENT,ID,NAME,REGDATE) 
+		VALUES (comment_seq.nextval,#{seq},#{content},#{id},#{name},sysdate)
+		]]>
+	</insert>
+
+
+	<select id="getQaCommentList" resultType="qaComment">
+	<![CDATA[
+	SELECT CNO,SEQ,ID,NAME,CONTENT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM QA_COMMENTS WHERE SEQ=#{seq} ORDER BY CNO DESC
+	]]>
+	</select>
+
+	<select id="getQaComment" resultType="qaComment">
+	<![CDATA[
+	SELECT * FROM QA_COMMENTS WHERE CNO = #{cno}
+	]]>
+	</select>
+
+	<update id="updateQaComment">
+	<![CDATA[
+	UPDATE QA_COMMENTS SET REGDATE=SYSDATE, CONTENT=#{content} WHERE CNO =#{cno} 
+	]]>
+	</update>
+
+
+	<delete id="deleteQaComment">
+	<![CDATA[
+		DELETE FROM QA_COMMENTS WHERE CNO =#{cno} 
+	]]>
+	</delete>
+
+
+</mapper>
+  

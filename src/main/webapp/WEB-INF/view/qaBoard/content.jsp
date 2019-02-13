@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
@@ -27,7 +27,7 @@
 				<td class="contenttd">글쓴이</td>
 				<td>${vo.name }</td>
 				<td class="contenttd">작성일</td>
-				<td>${vo.regdate }</td>
+				<td>${vo.realregdate }</td>
 			</tr>
 			<tr>
 				<td class="contenttd" width="60">글 제목</td>
@@ -58,6 +58,9 @@
 		</table>
 
 	</form>
+	
+	
+	<%@include file="../qaBoard/comment.jsp"%>
 
 
 	<script type="text/javascript" src="../resources/js/boardScript.js"></script>

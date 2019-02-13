@@ -5,4 +5,5 @@ import what.the.bus.qaBoard.QaBoardVO;
 public interface DeleteQaBoardService {
 	void deleteQaBoard(QaBoardVO vo);
 	QaBoardVO getQaBoard(int seq);
+	void deleteQaComment(QaBoardVO vo);
 }

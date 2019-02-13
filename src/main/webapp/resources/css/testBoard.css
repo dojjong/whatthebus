@@ -1,5 +1,35 @@
 @charset "UTF-8";
 
-#listtab{
-	width: 800px;
+.list{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 800px;
+
+
 }
+
+.list th{
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: rgb(49, 100, 176);
+  color: white;
+ 
+  
+}
+
+.list td{
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+/*
+#writeBT{
+	 background-color: rgb(49, 100, 176);
+	 color: white;
+	 border-radius: 4px;
+}
+*/

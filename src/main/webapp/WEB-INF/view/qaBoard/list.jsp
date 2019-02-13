@@ -31,10 +31,12 @@
 				</tr>
 			</c:if> --%>
 
-			<c:forEach var="vo" items="${list }" >
+			<c:forEach var="vo" items="${map.list }" varStatus="status" >
 				<tr height="30">
 					<td align="center" width="50">${vo.seq }</td>
-					<td width="250"><a href="getQaBoard.do?seq=${vo.seq}">${vo.title }</a></td>
+					<td width="250"><a href="getQaBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
+					${vo.title }</a>
+					<c:if test="${map.qaCommentCount[status.index]!=0}">[${map.qaCommentCount[status.index]}] </c:if></td>
 					<td align="center" width="100">${vo.name }</td>
 					<td align="center" width="150">${vo.regdate }</td>
 					<td align="center" width="50">${vo.cnt }</td>
@@ -48,20 +50,55 @@
 					<form name="form" action="writeQaBoard.do" method="POST">
 						<input type="hidden" id="member" value="${member }"> <input type="button" id="writebt">
 					</form>
+					
+					<div align="center">
+						<c:if test="${map.pagination.curBlock > 1 }">
+							<a href="#" onClick="fn_paging(1,'${searchOption }','${keyword }')">[처음]</a>
+						</c:if>
+						<c:if test="${map.pagination.curBlock > 1}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.prevPage }','${searchOption }','${keyword }')">[이전]</a>
+						</c:if>
+						<c:forEach var="pageNum" begin="${map.pagination.blockBegin }"
+							end="${map.pagination.blockEnd }">
+							<c:choose>
+								<c:when test="${pageNum ==  map.pagination.curPage}">
+									<span style="font-weight: bold;"><a href="#"
+										onClick="fn_paging('${pageNum }','${searchOption }','${keyword }')">${pageNum }</a></span>
+								</c:when>
+								<c:otherwise>
+									<a href="#"
+										onClick="fn_paging('${pageNum }','${searchOption }','${keyword }')">${pageNum }</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${map.pagination.curBlock <= map.pagination.totBlock}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.nextPage }','${searchOption }','${keyword }')">[다음]</a>
+						</c:if>
+						<c:if test="${map.pagination.curPage <= map.pagination.totPage}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.totPage }','${searchOption }','${keyword }')">[끝]</a>
+						</c:if>
+					</div>
+					
+					
+					
 				</td>
 			</tr>
 		</table>
-
+	<form method="post" action="getQaBoardList.do">
 			<table>
 				<tr>
 					<td align="left"><select name="searchOption">
-						<option value="제목+내용">제목+내용</option>
-						<option value="제목만">제목만</option>
-						<option value="글작성자">글작성자</option>
-						<option value="댓글내용">댓글내용</option>
-						<option value="댓글작성자">댓글작성자</option>
+						<option value="all" <c:out value="${map.searchOption=='all'?'selected':''}"/>>전체검색</option>
+						<option value="content" <c:out value="${map.searchOption=='content'?'selected':''}"/>>제목+내용</option>
+						<option value="title" <c:out value="${map.searchOption=='title'?'selected':''}"/>>제목만</option>
+						<option value="name" <c:out value="${map.searchOption=='name'?'selected':''}"/>>글작성자</option>
+						<option value="comment" <c:out value="${map.searchOption=='comment'?'selected':''}"/>>댓글내용</option>
+						<option value="cname" <c:out value="${map.searchOption=='cname'?'selected':''}"/>>댓글작성자</option> 
 					</select></td>
-					<td align="left"><input name="keyword"></td>
+					<td align="left"><input name="keyword" value="${map.keyword}"></td>
 					<td align="right"><a href="#">
 
 							<button type="submit" class="btn btn-default">
@@ -69,8 +106,16 @@
 							</button>
 					</a></td>
 			</table>
-	
+	</form>
 	</div>
+	
+	<script>
+		function fn_paging(curPage) {
+			location.href = "getQaBoardList.do?curPage=" + curPage
+					+ "&searchOption=${map.searchOption}"
+					+ "&keyword=${map.keyword}";
+		}
+	</script>
 
 	<script type="text/javascript" src="../resources/js/boardScript.js"></script>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>

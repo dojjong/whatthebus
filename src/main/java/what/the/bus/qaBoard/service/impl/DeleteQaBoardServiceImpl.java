@@ -24,4 +24,9 @@ public class DeleteQaBoardServiceImpl implements DeleteQaBoardService{
 		return qaBoardDAO.getQaBoard(seq);
 	}
 
+	@Override
+	public void deleteQaComment(QaBoardVO vo) {
+		qaBoardDAO.deleteQaComment(vo);
+	}
+
 }
