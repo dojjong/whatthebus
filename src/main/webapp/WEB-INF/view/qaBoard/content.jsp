@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
@@ -48,8 +49,8 @@
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
-							<a href="deleteQaBoard.do?seq=${vo.seq }"> <input type="button"
-								class="contentbt" value="삭제"></a>
+							<input type="button" id="deleteButton" class="contentbt"
+								value="삭제">
 						</c:when>
 					</c:choose> <a href="getQaBoardList.do"> <input type="button"
 						class="contentbt" value="목록">
@@ -61,6 +62,15 @@
 	
 	
 	<%@include file="../qaBoard/comment.jsp"%>
+	
+	<script>
+		$("#deleteButton").click(function() {
+			if (confirm("정말 삭제하시겠습니까 ? ")) {
+				location.href = "deleteQaBoard.do?seq=${vo.seq }";
+			}
+		});
+	
+	</script>
 
 
 	<script type="text/javascript" src="../resources/js/boardScript.js"></script>

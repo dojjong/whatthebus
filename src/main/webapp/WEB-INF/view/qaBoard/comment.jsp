@@ -11,23 +11,20 @@
 </head>
 <body>
 	<div align="center">
-		<form id="qaCommentForm" name="qaCommentForm" action="insertQaComment.do"
-			method="POST">
+		<form id="qaCommentForm" name="qaCommentForm" action="insertQaComment.do" method="POST">
 			<input type="hidden" id="id" name="id" value="${member.id }" /> 
 			<input type="hidden" id="name" name="name" value="${member.name } " /> 
 			<input type="hidden" id="seq" name="seq" value="${vo.seq }" />
 			<table>
 				<tr>
-					<td align="left"><span><strong>댓글</strong></span> <span
-						id="qaCommentCount"></span></td>
+					<td align="left"><span><strong>댓글</strong></span> <span id="qaCommentCount"></span></td>
 				</tr>
 				<tr>
-					<td><textarea rows="3" cols="60" id="content" name="content"
-							placeholder="댓글을 입력하세요."></textarea></td>
+					<td><textarea rows="3" cols="60" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
 				</tr>
 				<tr>
-					<td align="right" width="60"><input type="button"
-						id="insertQaCommentbt" class="contentbt" value="등록"></td>
+					<td align="right" width="60">
+					<input type="button" id="insertQaCommentbt" class="contentbt" value="등록"></td>
 				</tr>
 			</table>
 			<input type="hidden" id="seq" name="seq" value="" />
@@ -44,7 +41,7 @@
 	<script>
 		var updateCheck = 0;
 		var updateCheckCno = 0;
-		var getComment = "";
+		var getQaComment = "";
 		//댓글 등록하기(ajax)
 		$("#insertQaCommentbt").click(function() {
 			if (document.qaCommentForm.content.value == "") {
@@ -57,7 +54,6 @@
 				data : $("#qaCommentForm").serialize(),
 				success : function(data) {
 					if (data == "success") {
-
 						getQaCommentList();
 						document.qaCommentForm.content.value = "";
 					}

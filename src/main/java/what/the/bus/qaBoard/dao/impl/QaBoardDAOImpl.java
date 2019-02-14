@@ -50,6 +50,7 @@ public class QaBoardDAOImpl implements QaBoardDAO{
 	
 	@Override
 	public QaBoardVO getQaBoard(int seq) {
+		mybatis.update("QaBoardDAO.updateQaCnt", seq);
 		return mybatis.selectOne("QaBoardDAO.getQaBoard", seq);
 	}
 

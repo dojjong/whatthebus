@@ -28,7 +28,7 @@
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" size="50" maxlength="50" name="title" /></td>
+				<td width="700"><input type="text" size="50" maxlength="50" id="title" name="title" /></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
@@ -40,9 +40,10 @@
 				<td><textarea name="content" id="ir1" rows="15" cols="600"style="width: 680px; height: 200px;"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="button" id="insertBoardbt" class="writebt" value="글쓰기" /> <input
-					type="reset" class="writebt" value="다시작성" /> 
-					<input type="button" class="writebt" value="목록" onclick="location.href='getQaBoardList.do'"></td>
+				<td colspan="2" align="center">
+				<input type="button" id="insertBoardbt" class="writebt" value="글쓰기" /> 
+				<input type="reset" class="writebt" value="다시작성" /> 
+				<input type="button" class="writebt" value="목록" onclick="location.href='getQaBoardList.do'"></td>
 			</tr>
 		</table>
 	</form>
@@ -71,7 +72,14 @@
 			$("#insertBoardbt").click(function() {
 				//id가 ir1인 textarea에 에디터에서 대입
 				oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-
+				if ($("#title").val() == "") {
+					alert("제목을 입력해주세요.");
+					return;
+				}
+				if ($("#ir1").val() == "<p>&nbsp;</p>") {
+					alert("내용을 입력해주세요.");
+					return;
+				}
 				// 이부분에 에디터 validation 검증
 
 				//폼 submit

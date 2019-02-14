@@ -34,9 +34,10 @@
 			<c:forEach var="vo" items="${map.list }" varStatus="status" >
 				<tr height="30">
 					<td align="center" width="50">${vo.seq }</td>
-					<td width="250"><a href="getQaBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
-					${vo.title }</a>
-					<c:if test="${map.qaCommentCount[status.index]!=0}">[${map.qaCommentCount[status.index]}] </c:if></td>
+					
+					<td width="650"><a href="getQaBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
+					${vo.title }</a>&nbsp;<c:if test="${map.commentCount[status.index]!=0}">
+					[${map.commentCount[status.index]}]</c:if></td>
 					<td align="center" width="100">${vo.name }</td>
 					<td align="center" width="150">${vo.regdate }</td>
 					<td align="center" width="50">${vo.cnt }</td>
