@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="LostBoardDAO">
+
+	<!-- 글쓰기 -->
+	<insert id="insertLostBoard">
+	<![CDATA[
+		INSERT INTO LOST_BOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES(lost_board_seq.nextval,#{id},#{name},#{title},#{content})
+	]]>
+	</insert>
+
+	<!-- 글목록 가져오기 -->
+	<select id="getLostBoardList" resultType="lostBoard">
+	<![CDATA[
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM LOST_BOARD ORDER BY SEQ DESC,REGDATE DESC
+	]]>
+	</select>
+
+
+
+<!-- 전체 글수 가져오기 -->
+	<select id="getLostBoardListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM LOST_BOARD	
+	]]>
+	</select>
+	
+	<select id="getLostBoard" resultType="lostBoard">
+	<![CDATA[
+	SELECT * FROM LOST_BOARD WHERE SEQ = #{seq}
+	]]>
+	</select>
+	
+	
+	<update id="updateLostBoard">
+	<![CDATA[
+	UPDATE LOST_BOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
+	]]>
+	</update>
+	
+	<delete id="deleteLostBoard">
+	<![CDATA[
+	DELETE LOST_BOARD WHERE SEQ=#{seq}
+	]]>
+	</delete>
+	
+
+</mapper>

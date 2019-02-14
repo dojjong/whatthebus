@@ -265,7 +265,7 @@
 						<ul>
 							<li><a href="getQaBoardList.do">Q&A</a></li>
 							<li><a href="getAfterBoardList.do">after</a></li>
-							<li><a href="#">분실물서비스</a></li>
+							<li><a href="getLostBoardList.do">분실물서비스</a></li>
 							<li><a href="#">ContactUs</a></li>
 						</ul></li>
 					<li><a href="#">공지사항</a>

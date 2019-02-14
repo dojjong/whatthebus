@@ -22,6 +22,8 @@
 		<typeAlias type="what.the.bus.qaBoard.QaBoardVO" alias="qaBoard"></typeAlias>	
 		<typeAlias type="what.the.bus.noticeBoard.NoticeBoardVO" alias="noticeBoard"></typeAlias>	
 		<typeAlias type="what.the.bus.qaComment.QaCommentVO" alias="qaComment"></typeAlias>		
+		<typeAlias type="what.the.bus.lostBoard.LostBoardVO" alias="lostBoard"></typeAlias>	
+			
 			
 	</typeAliases>
 	<environments default="development">
@@ -50,5 +52,6 @@
 		<mapper resource="mappings/main-mapping.xml"/>
 		<mapper resource="mappings/noticeBoard-mapping.xml"/>
 		<mapper resource="mappings/qaComment-mapping.xml" />
+		<mapper resource="mappings/lostBoard-mapping.xml" />
 	</mappers>
 </configuration>
