@@ -7,15 +7,10 @@
 <style>
 nav {
 	color: black;
-	float: left;
-	width: 30%;
-	margin-left: 100px;
 	margin-top: 10px;
 }
 
-article {
-	float: left;
-}
+
 
 @
 mypageul {
@@ -29,7 +24,7 @@ mypageul {
 li a {
 	display: block;
 	font-color: black;
-	padding: 8px 16px;
+	padding: 8px 8px;
 	text-decoration: none;
 }
 
@@ -38,72 +33,42 @@ li a:hover {
 	background-color: rgb(49, 100, 176);
 	color: white;
 }
+
+
+
 </style>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
+	<div>
+	<table width="1024px">
+	
+	<tr>
+	<td width="200px">
 	<aside id="left">
 		<nav>
 			<ul style="list-style-type: none;" id="mypageul">
 				<li><a href="moveUpdateCheckDriver.do">회원정보수정</a></li>
 				<li><a href="movePwCheckDriver.do">비밀번호변경</a></li>
 				<li><a href="moveDeleteDriver.do">회원탈퇴</a></li>
-
-
 			</ul>
-
-
-
-
-
-
 		</nav>
-
 	</aside>
-	<section>
-
-
-
-		<article>
-
-			<!-- 
-										<table>
-			<tr>
-			<td><form method="post" action="../driver/pwCheckDriver.jsp">
-			<input type="submit" value="비밀번호 변경" class="mainbt">
-			</form></td>
-			</tr>
-			
-			<tr>
-			<td><form method="post" action="../driver/updateCheckDriver.jsp">
-			<input type="submit" value="회원정보 수정" class="mainbt">
-			</form></td>
-			</tr>
-			
-			<tr>
-			<td><form method="post" action="logoutDriver.do">
-				<input type="submit" value="로그아웃" class="mainbt">
-				</form></td>
-			</tr>
-		
-		
-		</table>
-										
-										
-										
-										
-										
-			
-									 -->
-
-
-		</article>
-
-	</section>
-
+	</td>
+	<td>
 	
+	</td>
+	
+	</tr>
+	
+</table>
+</div>
+</div>
+	
+	<footer>
 		<jsp:include page="../main/mainFooter.jsp"></jsp:include>
-
+	</footer>
 </body>
 </html>
