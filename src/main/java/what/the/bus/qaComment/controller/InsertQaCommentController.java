@@ -27,7 +27,7 @@ public class InsertQaCommentController {
 	@ResponseBody
 	public String insertQaComment(QaCommentVO qaCommentvo) {
 		qaCommentService.insertQaComment(qaCommentvo);
-		return "successs";
+		return "success";
 	}
 	
 	@RequestMapping(value = "/view/**/qaCommentList.do", produces = "application/json; charset=UTF-8")

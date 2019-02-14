@@ -10,6 +10,10 @@
 <link type="text/css" rel="stylesheet" href="../resources/css/boardStyle.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- 글쓰기 버튼  -->
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
 </head>
 <body>
 
@@ -49,7 +53,7 @@
 			<tr>
 				<td align="right">
 					<form name="form" action="writeQaBoard.do" method="POST">
-						<input type="hidden" id="member" value="${member }"> <input type="button" id="writebt">
+						<input type="hidden" id="member" value="${member }"><button style='font-size:14px' class="btn btn-primary" id="writeBT"><i class='far fa-edit'style='color:white'></i><strong>글쓰기</strong></button>
 					</form>
 					
 					<div align="center">
@@ -102,9 +106,7 @@
 					<td align="left"><input name="keyword" value="${map.keyword}"></td>
 					<td align="right"><a href="#">
 
-							<button type="submit" class="btn btn-default">
-								<span class="glyphicon glyphicon-search"></span> Search
-							</button>
+							<button style='font-size:14px' type="submit" class="btn btn-primary"><i class='fas fa-search'style='color:white'> 검색</i></button>
 					</a></td>
 			</table>
 	</form>

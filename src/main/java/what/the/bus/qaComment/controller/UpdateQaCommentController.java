@@ -21,7 +21,7 @@ public class UpdateQaCommentController {
 		vo.setCno(cno);
 		vo.setContent(content);
 		qaCommentService.updateQaComment(vo);
-		return "sucess";
+		return "success";
 		
 	}
 	
