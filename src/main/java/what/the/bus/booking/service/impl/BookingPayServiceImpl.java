@@ -1,5 +1,7 @@
 package what.the.bus.booking.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,11 @@ public class BookingPayServiceImpl implements BookingPayService {
 	@Override
 	public void insertBookingPay(BookingPayVO vo) {
 		bookingPayDAO.insertBookingPay(vo);
+	}
 
+	@Override
+	public List<Integer> getSitNumList(int busseq) {
+		return bookingPayDAO.getSitNumList(busseq);
 	}
 
 }

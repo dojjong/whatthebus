@@ -33,13 +33,23 @@
 							varStatus="status">
 							<!-- 여기에 결제테이블에 정보가 있으면 이미 결제좌석인것 표시 -->
 							<!-- 25인승 와꾸 -->
-
 							<c:if test="${status.count%4==1 }">
 								<br />
 							</c:if>
 							<c:if test="${status.count%2==1}">&nbsp;&nbsp;&nbsp;&nbsp;</c:if>
-							<input type="button" class="sitNum" value="${status.count }"
-								onclick="sit(this.value)" />
+							<c:set var="doneLoop" value="false" />
+							<c:forEach items="${bussit }" varStatus="busstatus">
+
+								<c:if test="${bussit[busstatus.index]==status.count}">
+									<input type="button" class="sitNum" value="있는좌석"
+										onclick="full()" />
+									<c:set var="doneLoop" value="true" />
+								</c:if>
+							</c:forEach>
+							<c:if test="${not doneLoop}">
+								<input type="button" class="sitNum" value="${status.count }"
+									onclick="sit(this.value)" />
+							</c:if>
 						</c:forEach>
 					</div></td>
 				<td>
@@ -140,7 +150,9 @@
 		function sit(num) {
 			document.payform.sitnum.value = num;
 		}
-
+		function full() {
+			alert("다른 좌석을 골라주세요.");
+		}
 		$("#paybt").click(function() {
 			if ($("input[name=conditionsCheck]:checked").val() != "true") {
 				alert("이용약관 동의를 해주세요.");

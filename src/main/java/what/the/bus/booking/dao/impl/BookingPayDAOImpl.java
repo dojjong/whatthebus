@@ -1,5 +1,7 @@
 package what.the.bus.booking.dao.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,6 +22,11 @@ public class BookingPayDAOImpl implements BookingPayDAO {
 	@Override
 	public void insertBookingPay(BookingPayVO vo) {
 		mybatis.insert("BookingPayDAO.insertBookingPay", vo);
+	}
+
+	@Override
+	public List<Integer> getSitNumList(int busseq) {
+		return mybatis.selectList("BookingPayDAO.getSitNumList", busseq);
 	}
 
 }

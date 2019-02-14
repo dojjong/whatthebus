@@ -9,4 +9,11 @@
 	VALUES(bookingpay_seq.nextval,#{busseq},#{id},#{name},#{tel},#{selectpay},#{sitnum},#{pay})
 	]]>
 	</insert>
+
+	<select id="getSitNumList" resultType="Integer">
+	<![CDATA[
+	SELECT SITNUM FROM BOOKINGPAY WHERE BUSSEQ=#{busseq} ORDER BY SITNUM ASC
+	]]>
+	</select>
+
 </mapper>

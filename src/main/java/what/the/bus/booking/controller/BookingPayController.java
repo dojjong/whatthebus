@@ -1,5 +1,7 @@
 package what.the.bus.booking.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ public class BookingPayController {
 	@RequestMapping("/view/**/bookingTicket.do")
 	public String bookingTicket(Integer seq, Model model) {
 		SuggestBoardVO vo = bookBoardService.getBookBoard(seq);
+		List<Integer> busSit = bookingPayService.getSitNumList(seq);
+						
+		model.addAttribute("bussit",busSit);
 		model.addAttribute("vo", vo);
 		return "booking/bookingForm";
 	}
