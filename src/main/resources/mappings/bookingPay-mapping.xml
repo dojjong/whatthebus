@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BookingPayDAO">
+	<insert id="insertBookingPay">
+	<![CDATA[
+	INSERT INTO BOOKINGPAY(SEQ,BUSSEQ,ID,NAME,TEL,SELECTPAY,SITNUM,PAY) 
+	VALUES(bookingpay_seq.nextval,#{busseq},#{id},#{name},#{tel},#{selectpay},#{sitnum},#{pay})
+	]]>
+	</insert>
+</mapper>

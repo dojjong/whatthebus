@@ -29,6 +29,15 @@ public class SuggestBoardVO {
 	private int bus;
 	private int pay;
 	private String finishtime;
+	private String realstartdate;
+
+	public String getRealstartdate() {
+		return realstartdate;
+	}
+
+	public void setRealstartdate(String realstartdate) {
+		this.realstartdate = realstartdate;
+	}
 
 	@Override
 	public String toString() {

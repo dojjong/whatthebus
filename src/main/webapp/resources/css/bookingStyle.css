@@ -1,0 +1,15 @@
+@charset "UTF-8";
+#agree{
+	font-size:8px;	
+}
+#paybt{
+	width:250px;
+	height:70px;
+	background-color:#ff8080;
+	border-radius: 5px;
+	border:none;
+}
+
+.sitNum{
+	width:100px;
+}

@@ -15,7 +15,7 @@
 	<!-- 글목록 가져오기 -->
 	<select id="getBookBoardList" resultType="suggestBoard">
 	<![CDATA[
-	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT FROM SUGGESTBOARD ORDER BY SEQ DESC,REGDATE DESC
+	SELECT SEQ,TITLE,CONTENT,NAME,REGDATE,CNT,to_char(STARTDATE,'yyyy-MM-dd HH24:mi:ss')"realstartdate" FROM SUGGESTBOARD ORDER BY SEQ DESC,REGDATE DESC
 	]]>
 	</select>
 	<!-- 전체 글수 가져오기 -->

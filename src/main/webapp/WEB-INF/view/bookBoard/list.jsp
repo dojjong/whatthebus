@@ -26,7 +26,7 @@
 				<td align="center" width="55">번호</td>
 				<td align="center" width="250">제목</td>
 				<td align="center" width="100">작성자</td>
-				<td align="center" width="150">작성일</td>
+				<td align="center" width="150">운행일</td>
 			</tr>
 			<%---- 글이 없을 경우 -->
 			<c:if test="${count==0 }">
@@ -40,7 +40,7 @@
 					<td align="center" width="50">${vo.seq }</td>
 					<td width="250"><a href="getBookBoard.do?seq=${vo.seq}">${vo.title }</a></td>
 					<td align="center" width="100">${vo.name }</td>
-					<td align="center" width="150">${vo.regDate }</td>
+					<td align="center" width="150">${vo.realstartdate }</td>
 				</tr>
 			</c:forEach>
 

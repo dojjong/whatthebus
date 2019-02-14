@@ -16,15 +16,20 @@
 		<typeAlias type="what.the.bus.suggestBoard.SuggestBoardVO"
 			alias="suggestBoard"></typeAlias>
 		<typeAlias type="what.the.bus.afterBoard.AfterBoardVO"
-			alias="afterBoard"></typeAlias>	
+			alias="afterBoard"></typeAlias>
 		<typeAlias type="what.the.bus.bookBoard.BookBoardVO"
 			alias="bookBoard"></typeAlias>
-		<typeAlias type="what.the.bus.qaBoard.QaBoardVO" alias="qaBoard"></typeAlias>	
-		<typeAlias type="what.the.bus.noticeBoard.NoticeBoardVO" alias="noticeBoard"></typeAlias>	
-		<typeAlias type="what.the.bus.qaComment.QaCommentVO" alias="qaComment"></typeAlias>		
-		<typeAlias type="what.the.bus.lostBoard.LostBoardVO" alias="lostBoard"></typeAlias>	
-			
-			
+		<typeAlias type="what.the.bus.qaBoard.QaBoardVO"
+			alias="qaBoard"></typeAlias>
+		<typeAlias type="what.the.bus.noticeBoard.NoticeBoardVO"
+			alias="noticeBoard"></typeAlias>
+		<typeAlias type="what.the.bus.qaComment.QaCommentVO"
+			alias="qaComment"></typeAlias>
+		<typeAlias type="what.the.bus.lostBoard.LostBoardVO"
+			alias="lostBoard"></typeAlias>
+		<typeAlias type="what.the.bus.booking.BookingPayVO"
+			alias="bookingPay"></typeAlias>
+
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -48,10 +53,11 @@
 		<mapper resource="mappings/afterBoard-mapping.xml" />
 		<mapper resource="mappings/suggestBoard-mapping.xml" />
 		<mapper resource="mappings/admin-mapping.xml" />
-		<mapper resource="mappings/qaBoard-mapping.xml"/>
-		<mapper resource="mappings/main-mapping.xml"/>
-		<mapper resource="mappings/noticeBoard-mapping.xml"/>
+		<mapper resource="mappings/qaBoard-mapping.xml" />
+		<mapper resource="mappings/main-mapping.xml" />
+		<mapper resource="mappings/noticeBoard-mapping.xml" />
 		<mapper resource="mappings/qaComment-mapping.xml" />
 		<mapper resource="mappings/lostBoard-mapping.xml" />
+		<mapper resource="mappings/bookingPay-mapping.xml" />
 	</mappers>
 </configuration>

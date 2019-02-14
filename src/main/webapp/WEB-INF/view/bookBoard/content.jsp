@@ -101,9 +101,9 @@
 		</table>
 		<table width="500" align="center">
 			<tr>
-				<td align="right" width="200"><a href="bookingTicket.do"><input
+				<td align="right" width="200"><a href="bookingTicket.do?seq=${vo.seq }"><input
 						type="button" class="contentbt" value="예약"></a>&nbsp;<a
-					href="getSuggestBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
+					href="getBookBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
 						<input type="button" class="contentbt" value="목록">
 				</a></td>
 			</tr>
