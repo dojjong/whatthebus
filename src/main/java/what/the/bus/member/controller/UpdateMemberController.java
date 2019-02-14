@@ -56,4 +56,22 @@ public class UpdateMemberController {
 	public String updateCheck() {
 		return "main/main";
 	}
+	
+	// 마이페이지로 이동
+		@RequestMapping("/view/**/memberMypage.do")
+		public String memberMypage() {
+			return "member/memberMypage";
+	}
+		
+		// 수정비번확인 창으로 이동
+		@RequestMapping("view/**/moveUpdateCheckMember.do")
+		public String moveUpdateCheckMember() {
+			return "member/updateCheckMember";
+		}
+
+		// 비번변경비번확인 창으로 이동
+		@RequestMapping("view/**/movePwCheckMember.do")
+		public String movePwCheckMember() {
+			return "member/pwCheckMember";
+		}	
 }

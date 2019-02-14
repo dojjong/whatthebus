@@ -28,4 +28,9 @@ public class DeleteMemberController {
 			return "member/errorPW";
 	}
 }
+	
+	@RequestMapping("/view/**/moveDeleteMember.do")
+	public String moveDeleteMember() {
+		return "member/deleteMember";
+	}
 }

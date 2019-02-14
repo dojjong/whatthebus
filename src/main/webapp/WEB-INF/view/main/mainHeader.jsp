@@ -173,18 +173,12 @@
 									<div align="right">
 										<table>
 											<tr>
-												<td>${member.name }회원님환영합니다.&nbsp;</td>
-												<!-- 
-									<td><form method="post"
-											action="../member/pwCheckMember.jsp">
-											<input type="submit" value="비밀번호 변경" class="mainbt">
-										</form></td>
-									<td><form method="post"
-											action="../member/updateCheckMember.jsp">
-											<input type="submit" value="회원정보 수정" class="mainbt">
-										</form></td> -->
+											<td width="90px" align="center"><a
+													href="memberMypage.do">마이페이지</a></td>
+												<td width="150px" align="center">${member.name }회원님<br>환영합니다.&nbsp;</td>
+								
 												<td><form method="post" action="logoutMember.do">
-														<input type="submit" value="로그아웃" class="mainbt">
+														<input type="submit" value="로그아웃" class="btn btn-link">
 													</form></td>
 										</table>
 									</div>
@@ -202,19 +196,6 @@
 														<input type="submit" value="로그아웃" class="btn btn-link">
 													</form></td>
 
-												<!-- 
-									<td><form method="post"
-											action="../driver/pwCheckDriver.jsp">
-											<input type="submit" value="비밀번호 변경" class="mainbt">
-										</form></td>
-									<td><form method="post"
-											action="../driver/updateCheckDriver.jsp">
-											<input type="submit" value="회원정보 수정" class="mainbt">
-										</form></td>
-									<td><form method="post" action="logoutDriver.do">
-											<input type="submit" value="로그아웃" class="mainbt">
-										</form></td>
-									 -->
 										</table>
 									</div>
 								</c:if>
