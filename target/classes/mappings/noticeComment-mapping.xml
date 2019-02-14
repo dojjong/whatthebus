@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="NoticeCommentDAO">
+	<insert id="insertNoticeComment">
+	<![CDATA[
+		INSERT INTO NOTICE_COMMENTS(CNO,SEQ,CONTENT,ID,NAME,REGDATE) 
+		VALUES (comment_seq.nextval,#{seq},#{content},#{id},#{name},sysdate)
+		]]>
+	</insert>
+
+
+	<select id="getNoticeCommentList" resultType="noticeComment">
+	<![CDATA[
+	SELECT CNO,SEQ,ID,NAME,CONTENT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM NOTICE_COMMENTS WHERE SEQ=#{seq} ORDER BY CNO DESC
+	]]>
+	</select>
+
+	<select id="getNoticeComment" resultType="noticeComment">
+	<![CDATA[
+	SELECT * FROM NOTICE_COMMENTS WHERE CNO = #{cno}
+	]]>
+	</select>
+
+	<update id="updateNoticeComment">
+	<![CDATA[
+	UPDATE NOTICE_COMMENTS SET REGDATE=SYSDATE, CONTENT=#{content} WHERE CNO =#{cno} 
+	]]>
+	</update>
+
+
+	<delete id="deleteNoticeComment">
+	<![CDATA[
+		DELETE FROM NOTICE_COMMENTS WHERE CNO =#{cno} 
+	]]>
+	</delete>
+
+
+</mapper>
+  

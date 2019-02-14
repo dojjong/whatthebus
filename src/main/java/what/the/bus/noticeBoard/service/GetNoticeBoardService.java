@@ -4,4 +4,6 @@ import what.the.bus.noticeBoard.NoticeBoardVO;
 
 public interface GetNoticeBoardService {
 	NoticeBoardVO getNoticeBoard(int seq);
+	
+	
 }

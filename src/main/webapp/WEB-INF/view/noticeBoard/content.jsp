@@ -46,7 +46,7 @@
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
 							<a href="deleteNoticeBoard.do?seq=${vo.seq }"> <input type="button"
-								class="contentbt" value="삭제"></a>
+								class="contentbt" id="deleteButton" value="삭제"></a>
 						</c:when>
 					</c:choose> <a href="getNoticeBoardList.do"> <input type="button"
 						class="contentbt" value="목록">
@@ -55,6 +55,18 @@
 		</table>
 
 	</form>
+	
+	<%@include file="../noticeBoard/comment.jsp"%>
+	
+	<script>
+		$("#deleteButton").click(function() {
+			if (confirm("정말 삭제하시겠습니까 ? ")) {
+				location.href = "deleteNoticeBoard.do?seq=${vo.seq }";
+			}
+		});
+	
+	</script>
+	
 
 
 	<script type="text/javascript" src="../resources/js/boardScript.js"></script>

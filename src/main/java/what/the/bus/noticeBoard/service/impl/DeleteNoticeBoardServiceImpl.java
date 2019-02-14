@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import what.the.bus.noticeBoard.NoticeBoardVO;
 import what.the.bus.noticeBoard.dao.impl.NoticeBoardDAOImpl;
 import what.the.bus.noticeBoard.service.DeleteNoticeBoardService;
+import what.the.bus.noticeComment.NoticeCommentVO;
 
 
 @Service
@@ -23,6 +24,12 @@ public class DeleteNoticeBoardServiceImpl implements DeleteNoticeBoardService{
 	@Override
 	public NoticeBoardVO getNoticeBoard(int seq) {
 		return noticeBoardDAO.getNoticeBoard(seq);
+	}
+
+	@Override
+	public void deleteNoticeComment(NoticeBoardVO vo) {
+		noticeBoardDAO.deleteNoticeComment(vo);
+		
 	}
 	
 

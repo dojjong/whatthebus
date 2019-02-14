@@ -29,6 +29,7 @@
 			alias="lostBoard"></typeAlias>
 		<typeAlias type="what.the.bus.booking.BookingPayVO"
 			alias="bookingPay"></typeAlias>
+		<typeAlias type="what.the.bus.noticeComment.NoticeCommentVO" alias="noticeComment"></typeAlias>
 
 	</typeAliases>
 	<environments default="development">
@@ -59,5 +60,6 @@
 		<mapper resource="mappings/qaComment-mapping.xml" />
 		<mapper resource="mappings/lostBoard-mapping.xml" />
 		<mapper resource="mappings/bookingPay-mapping.xml" />
+		<mapper resource="mappings/noticeComment-mapping.xml"/>
 	</mappers>
 </configuration>
