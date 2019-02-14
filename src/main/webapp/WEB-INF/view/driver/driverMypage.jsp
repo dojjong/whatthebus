@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>	
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
@@ -37,8 +37,11 @@ li a:hover {
 
 
 </style>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div align="center">
@@ -50,22 +53,51 @@ li a:hover {
 	<aside id="left">
 		<nav>
 			<ul style="list-style-type: none;" id="mypageul">
-				<li><a href="moveUpdateCheckDriver.do">회원정보수정</a></li>
-				<li><a href="movePwCheckDriver.do">비밀번호변경</a></li>
-				<li><a href="moveDeleteDriver.do">회원탈퇴</a></li>
+				<li><a href="#" id="p1">회원정보수정</a></li>
+				<li><a href="#" id="p2">비밀번호변경</a></li>
+				<li><a href="#" id="p3">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</aside>
 	</td>
-	<td>
 	
+	<td id="result">
 	</td>
 	
 	</tr>
 	
+	
+	
 </table>
 </div>
 </div>
+
+<script>
+$(document).ready(function(){
+	$("#p1").click(function() {
+		$("#result").load("moveUpdateCheckDriver.do");
+		
+	});
+	
+});
+
+$(document).ready(function(){
+	$("#p2").click(function() {
+		$("#result").load("movePwCheckDriver.do");
+		
+	});
+	
+});
+
+$(document).ready(function(){
+	$("#p3").click(function() {
+		$("#result").load("moveDeleteDriver.do");
+		
+	});
+	
+});
+
+</script>
 	
 	<footer>
 		<jsp:include page="../main/mainFooter.jsp"></jsp:include>
