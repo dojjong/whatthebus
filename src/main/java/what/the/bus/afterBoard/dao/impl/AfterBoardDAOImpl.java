@@ -55,18 +55,30 @@ public class AfterBoardDAOImpl implements AfterBoardDAO{
 	}
 
 	@Override
-	public List<AfterBoardVO> getAfterBoardList_writer(String keyword) throws Exception {
-		return mybatis.selectList("AfterBoardDAO.getAfterBoardList_writer", keyword);
+	public List<AfterBoardVO> getAfterBoardList_writer(int start, int end, String keyword) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("keyword", keyword);
+		return mybatis.selectList("AfterBoardDAO.getAfterBoardList_writer", map);
 	}
 
 	@Override
-	public List<AfterBoardVO> getAfterBoardList_title(String keyword) throws Exception {
-		return mybatis.selectList("AfterBoardDAO.getAfterBoardList_title", keyword);
+	public List<AfterBoardVO> getAfterBoardList_title(int start, int end, String keyword) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("keyword", keyword);
+		return mybatis.selectList("AfterBoardDAO.getAfterBoardList_title", map);
 	}
 
 	@Override
-	public List<AfterBoardVO> getAfterBoardList_title_content(String keyword) throws Exception {
-		return mybatis.selectList("AfterBoardDAO.getAfterBoardList_title_content", keyword);
+	public List<AfterBoardVO> getAfterBoardList_title_content(int start, int end, String keyword) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("keyword", keyword);
+		return mybatis.selectList("AfterBoardDAO.getAfterBoardList_title_content", map);
 	}
 
 	@Override

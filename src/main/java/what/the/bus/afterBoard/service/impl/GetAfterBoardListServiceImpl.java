@@ -21,18 +21,18 @@ public class GetAfterBoardListServiceImpl implements GetAfterBoardListService{
 	}
 
 	@Override
-	public List<AfterBoardVO> getAfterBoardList_title(String keyword) throws Exception {
-		return afterBoardDAO.getAfterBoardList_title(keyword);
+	public List<AfterBoardVO> getAfterBoardList_title(int start, int end, String keyword) throws Exception {
+		return afterBoardDAO.getAfterBoardList_title(start, end, keyword);
 	}
 	
 	@Override
-	public List<AfterBoardVO> getAfterBoardList_writer(String keyword) throws Exception {
-		return afterBoardDAO.getAfterBoardList_writer(keyword);
+	public List<AfterBoardVO> getAfterBoardList_writer(int start, int end, String keyword) throws Exception {
+		return afterBoardDAO.getAfterBoardList_writer(start, end, keyword);
 	}
 
 	@Override
-	public List<AfterBoardVO> getAfterBoardList_title_content(String keyword) throws Exception {
-		return afterBoardDAO.getAfterBoardList_title_content(keyword);
+	public List<AfterBoardVO> getAfterBoardList_title_content(int start, int end, String keyword) throws Exception {
+		return afterBoardDAO.getAfterBoardList_title_content(start, end, keyword);
 	}
 
 	@Override
@@ -47,12 +47,11 @@ public class GetAfterBoardListServiceImpl implements GetAfterBoardListService{
 
 	@Override
 	public Integer countAfterBoardList_writer(String keyword) throws Exception {
-		return afterBoardDAO.countAfterBoardList_title(keyword);
+		return afterBoardDAO.countAfterBoardList_writer(keyword);
 	}
 
 	@Override
 	public Integer countAfterBoardList_title_content(String keyword) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return afterBoardDAO.countAfterBoardList_title_content(keyword);
 	}
 }

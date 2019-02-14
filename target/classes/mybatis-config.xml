@@ -30,6 +30,7 @@
 		<typeAlias type="what.the.bus.booking.BookingPayVO"
 			alias="bookingPay"></typeAlias>
 		<typeAlias type="what.the.bus.noticeComment.NoticeCommentVO" alias="noticeComment"></typeAlias>
+		<typeAlias type="what.the.bus.board.ChartVO1" alias="chart1"></typeAlias>
 
 	</typeAliases>
 	<environments default="development">

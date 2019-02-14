@@ -11,39 +11,42 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
+
+
 $(document).ready(function(){
 	$("#searchBt").click(function() {
-		if(document.searchForm.searchCondition.value=="제목만"){
-			alert(document.searchForm.keyword.value);
-			document.searchForm.action="getAfterBoardList_title.do?keyword2="+document.searchForm.keyword.value;
-			alert(document.searchForm.action);
-			document.searchForm.submit();
-		}else if(document.searchForm.searchCondition.value=="글작성자"){
-			alert(document.searchForm.keyword.value);
-			document.searchForm.action="getAfterBoardList_writer.do?keyword2="+document.searchForm.keyword.value;
-			alert(document.searchForm.action);
-			document.searchForm.submit();
-		}else if(document.searchForm.searchCondition.value=="제목+내용"){
-			alert(document.searchForm.keyword.value);
-			document.searchForm.action="getAfterBoardList_title_content.do?keyword2="+document.searchForm.keyword.value;
-			alert(document.searchForm.action);
-			document.searchForm.submit();
-		}else{
-			document.searchForm.action="getAfterBoardList.do";
-			alert(document.searchForm.action);
-			document.searchForm.submit();
-		}
+		condition = document.searchForm.searchCondition.value;
+		keyword = document.searchForm.keyword.value;
+		curPage = 1;
+		send(condition, keyword, curPage);
+		return;
 	});	
-	
-	//**원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해
-	/*
-	function list(page){
-		alert()
-		location.href="getAfterBoardList.do?curPage="+page;
-	}
-	*/
-		
 });
+
+function send(searchCondition, keyword, curPage){
+	if(searchCondition=="제목만"){
+		document.searchForm.action="getAfterBoardList_title.do?searchCondition="+searchCondition+"&keyword2="+keyword+"&curPage="+curPage;
+	}else if(searchCondition=="글작성자"){
+		document.searchForm.action="getAfterBoardList_writer.do?searchCondition="+searchCondition+"&keyword2="+keyword+"&curPage="+curPage;
+	}else if(searchCondition=="제목+내용"){
+		document.searchForm.action="getAfterBoardList_title_content.do?searchCondition="+searchCondition+"&keyword2="+keyword+"&curPage="+curPage;
+	}else{
+		document.searchForm.action="getAfterBoardList.do";
+	}
+	
+	document.searchForm.submit();
+	document.searchForm.setSearchCondition.value=searchCondition;
+	document.searchForm.keyword.value=setKeyword;
+	
+}
+	
+//**원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해
+function list(page){
+	condition = document.searchForm.setSearchCondition.value;
+	keyword = document.searchForm.setKeyword.value;
+	send(condition, keyword, Number(page));
+}
+
 </script>
 </head>
 <body>
@@ -71,7 +74,12 @@ $(document).ready(function(){
 			<c:forEach var="vo" items="${map.list }">
 				<tr height="30">
 					<td align="center" width="50">${vo.seq }</td>
-					<td width="250"><a href="getAfterBoard.do?seq=${vo.seq}">${vo.title }</a></td>
+					<td width="250"><a href="getAfterBoard.do?seq=${vo.seq}">${vo.title }
+						<!-- 댓글이 있으면 게시글 이름 옆에 갯수 출력 -->
+						<c:if test="${vo.recnt>0 }">
+							<span style="color: red;">(${vo.recnt })</span>
+						</c:if>
+					</a></td>
 					<td align="center" width="100">${vo.name }</td>
 					<td align="center" width="150">${vo.regDate }</td>
 					<td align="center" width="50">${vo.cnt }</td>
@@ -82,40 +90,35 @@ $(document).ready(function(){
 				<td colspan="6">
 					<!-- 처음 페이지로 이동: 현재페이지가 1보다 크면 [처음]하이퍼링크를 화면에 출력 -->
 					<c:if test="${map.boardPager.curPage>1 }">
-						<!-- <a href="javascript:list('1')">[처음]</a> -->
-						<a href="getAfterBoardList.do?curPage=1">[처음]</a>
+						<a href="javascript:list(1)">[처음]</a>
 					</c:if>
 					
 					<!-- 이전페이지 블록으로 이동:현재 페이지 블록이 1보다 크면 [이전]하이퍼링크를 화면에 출력 -->
 					<c:if test="${map.boardPager.curBlock>1 }">
-						<!-- <a href="javascript:list('${map.boardPager.prevPage }')">[이전]</a> -->
-						<a href="getAfterBoardList.do?curPage=${map.boardPager.prevPage }">[이전]</a> 
+						<a href="javascript:list(${map.boardPager.prevPage })">[이전]</a> 
 					</c:if>
 					
 					<!-- 하나의 블럭에서 반복문 수행 시작페이지부터 끝페이지까지 -->
-					<c:forEach var="seq" begin="${map.boardPager.blockBegin }" end="${map.boardPager.blockEnd }">
+					<c:forEach var="num" begin="${map.boardPager.blockBegin }" end="${map.boardPager.blockEnd }">
 						<!-- 현재페이지면 하이퍼링크 제거 -->
 						<c:choose>
-							<c:when test="${seq==map.boardPager.curPage }">
-								<span style="color: red">${seq}</span>&nbsp;
+							<c:when test="${num==map.boardPager.curPage }">
+								<span style="color: red">${num}</span>&nbsp;
 							</c:when>
 							<c:otherwise>
-								<!-- <a href="javascript:list('${seq }')">${seq }</a>&nbsp;-->
-								<a href="getAfterBoardList.do?curPage=${seq }">${seq }</a> 
+								<a href="javascript:list(${num })">${num }</a>&nbsp;
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					
 					<!-- 다음페이지 블록으로 이동:현재 페이지 블록이 전체 페이지블록 갯수보다 작거나 같으면 [다음]하이퍼링크를 화면에 출력 -->
 					<c:if test="${map.boardPager.curBlock <= map.boardPager.totBlock }">
-						<!-- <a href="javascript:list('${map.boardPager.nextPage }')">[다음]</a> -->
-						<a href="getAfterBoardList.do?curPage=${map.boardPager.nextPage }">[다음]</a> 
+						<a href="javascript:list(${map.boardPager.nextPage })">[다음]</a> 
 					</c:if>
 					
 					<!-- 끝 페이지로 이동: 현재페이지가 전체 페이지보다 작거나 같으면 [끝]하이퍼링크를 화면에 출력 -->
 					<c:if test="${map.boardPager.curPage <= map.boardPager.totPage }">
-						<!-- <a href="javascript:list('${map.boardPager.totPage }')">[끝]</a> -->
-						<a href="getAfterBoardList.do?curPage=${map.boardPager.totPage }">[끝]</a>
+						 <a href="javascript:list(${map.boardPager.totPage })">[끝]</a> 
 					</c:if>
 				</td>
 			</tr>
@@ -132,6 +135,8 @@ $(document).ready(function(){
 			</tr>
 		</table>
 		<form method="post" name="searchForm" action="#">
+		<input type="hidden" name="setKeyword" id="setKeyword" value="${map.keyword }" />
+		<input type="hidden" name="setSearchCondition" id="setSearchCondition" value="${map.searchCondition }"/>
 		<table>
 			<tr>
 				<td align="left"><select name="search" id="searchCondition">

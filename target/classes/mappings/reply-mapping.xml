@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="replyDAO">
+	
+	<!-- 댓글 입력 -->
+	<insert id="insertReply">
+		<![CDATA[INSERT INTO REPLY(RNO, SEQ, CONTENT, NAME, ID) VALUES(REPLY_SEQ.NEXTVAL, #{seq}, #{content}, #{name}, #{id})]]>
+	</insert>
+	
+	<!-- 댓글 목록 -->
+	<select id="getReplyList" resultType="what.the.bus.reply.ReplyVO">
+		<![CDATA[
+		SELECT RNO, SEQ, CONTENT, NAME, ID, r.REGDATE, r.UPDATEREGDATE FROM REPLY r ORDER BY RNO 
+		]]>
+	</select>
+</mapper>

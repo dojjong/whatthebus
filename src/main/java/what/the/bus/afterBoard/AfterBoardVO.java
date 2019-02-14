@@ -14,8 +14,15 @@ public class AfterBoardVO {
 	private String realregdate;
 	private String keyword;
 	private String searchCondition;
+	private int recnt; //게시글 댓글의 수 추가
 	
 	
+	public int getRecnt() {
+		return recnt;
+	}
+	public void setRecnt(int recnt) {
+		this.recnt = recnt;
+	}
 	public String getKeyword() {
 		return keyword;
 	}
