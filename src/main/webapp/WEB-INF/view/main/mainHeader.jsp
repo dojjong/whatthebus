@@ -105,7 +105,7 @@
 												<table id="ryonLogin" align="center">
 													<tr>
 														<td><input type="text" name="id" placeholder="아이디"
-															class="ryantext" id="id"></td>
+															class="ryantext" id="id" autocomplete="off"></td>
 													</tr>
 													<tr>
 														<td><input type="password" name="password"
