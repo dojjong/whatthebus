@@ -5,7 +5,7 @@
 <html>
 <head>
 <style type="text/css">
-td {
+.a1 td {
 	width: 220px;
 	text-align: center;
 }
@@ -17,7 +17,7 @@ td {
 	<div align="center">
 
 
-		<table>
+		<table class="a1">
 			<tr>
 				<td colspan="4"><img src="../resources/images/bus_text1.png"
 					style="width: 600px; height: 100px;"></td>

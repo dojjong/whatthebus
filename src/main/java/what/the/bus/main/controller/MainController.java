@@ -53,6 +53,13 @@ public class MainController {
 	public String site() {
 		return "main/site";
 	}
+	
+	@RequestMapping("/view/**/guide.do")
+	public String guide() {
+		return "main/guide";
+	}
+	
+	
 
 	@RequestMapping("/view/**/termsAndConditions.do")
 	public String termsAndConditions() {

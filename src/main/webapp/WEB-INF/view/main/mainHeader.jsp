@@ -106,10 +106,11 @@
 													<tr>
 														<td><input type="text" name="id" placeholder="아이디"
 															class="ryantext" id="id" autocomplete="off"></td>
+															
 													</tr>
 													<tr>
 														<td><input type="password" name="password"
-															placeholder="비밀번호" class="ryantext" id="pw"></td>
+															placeholder="비밀번호" class="ryantext" id="pw" ></td>
 													</tr>
 													<!-- 로그인버튼 비번 입력 잘못했을 때 alert뜨도록 수정해야함  -->
 													<tr>
@@ -227,7 +228,7 @@
 					<li><a href="site.do">소개</a>
 						<ul>
 							<li><a href="site.do">사이트소개</a></li>
-							<li><a href="idCheck.html">이용가이드</a></li>
+							<li><a href="guide.do">이용가이드</a></li>
 						</ul></li>
 					<li><a href="getBoardList.do">제안/대절신청</a>
 						<ul>
