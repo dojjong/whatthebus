@@ -12,6 +12,15 @@ public class CommentVO {
 	private String realregdate;
 	private String searchOption;
 	private String keyword;
+	private int bestcount;
+
+	public int getBestcount() {
+		return bestcount;
+	}
+
+	public void setBestcount(int bestcount) {
+		this.bestcount = bestcount;
+	}
 
 	public String getSearchOption() {
 		return searchOption;

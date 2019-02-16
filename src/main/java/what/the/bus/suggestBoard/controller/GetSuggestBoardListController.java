@@ -29,19 +29,25 @@ public class GetSuggestBoardListController {
 		// boardService.getListCount();
 		boardVO.setSearchOption(searchOption);
 		boardVO.setKeyword(keyword);
-		
+		//여기 바꿀것. (관리자에서)
+		boardVO.setBestcount(1);
+		commentVO.setBestcount(boardVO.getBestcount());
 		int listCnt = 0;
 		if (searchOption.equals("comment")) {
 			listCnt = boardService.getBoardCommentContentListCount(commentVO);
 		} else if (searchOption.equals("cname")) {
 			listCnt = boardService.getBoardCommentNameListCount(commentVO);
 		} else {
-			listCnt = boardService.getListCount(boardVO);
+			listCnt = boardService.getSuggestBoardListCount(boardVO);
 		}
+		
+		
 		Pagination pagination = new Pagination(listCnt, curPage);
 		int start = pagination.getPageBegin();
 		int end = pagination.getPageEnd();
-		List<BoardVO> list = boardService.getBoardList(start, end, searchOption, keyword);
+		//이부분도 바꿔줄것.
+		int bestcount = boardVO.getBestcount();
+		List<BoardVO> list = boardService.getSuggestBoardList(start, end, searchOption, keyword, bestcount);
 		List<Integer> commentCountList = new ArrayList<Integer>();
 		for (int i = 0; i < list.size(); i++) {
 			int seq = list.get(i).getSeq();
@@ -51,6 +57,7 @@ public class GetSuggestBoardListController {
 		//이부분을 나중에 list갯수 말고 best계산한걸로 불러올것 
 		int suggestCount = list.size();
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bestcount", bestcount);
 		map.put("commentCount", commentCountList);
 		map.put("list", list);
 		map.put("searchOption", searchOption);

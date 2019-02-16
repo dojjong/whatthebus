@@ -6,9 +6,9 @@ import what.the.bus.board.BoardVO;
 import what.the.bus.comment.CommentVO;
 
 public interface GetSuggestBoardListService {
-	List<BoardVO> getBoardList(int start, int end, String searchOption, String keyword);
+	List<BoardVO> getSuggestBoardList(int start, int end, String searchOption, String keyword,int bestcount);
 
-	Integer getListCount(BoardVO vo);
+	Integer getSuggestBoardListCount(BoardVO vo);
 
 	Integer getBoardCommentContentListCount(CommentVO vo);
 

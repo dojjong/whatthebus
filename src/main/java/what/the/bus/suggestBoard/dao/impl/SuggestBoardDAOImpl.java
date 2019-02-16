@@ -29,8 +29,9 @@ public class SuggestBoardDAOImpl implements SuggestBoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> getSuggestBoardList(int start, int end, String searchOption, String keyword) {
+	public List<BoardVO> getSuggestBoardList(int start, int end, String searchOption, String keyword,int bestcount) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bestcount", bestcount);
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		map.put("start", start);
@@ -41,7 +42,7 @@ public class SuggestBoardDAOImpl implements SuggestBoardDAO {
 
 	@Override
 	public int getSuggestBoardListCount(BoardVO vo) {
-		return mybatis.selectOne("SuggestBoardDAO.getListCount", vo);
+		return mybatis.selectOne("SuggestBoardDAO.getSuggestBoardListCount", vo);
 	}
 
 	@Override

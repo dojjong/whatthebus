@@ -18,7 +18,7 @@
 
 	<!-- 화면 센터 -->
 	<div align="center">
-		<b>글목록(전체 글 :  )</b>
+		<b>글목록(전체 글 :${map.count } )</b>
 		<table id="listtab">
 			<tr id="boardhead">
 				<td align="center" width="100">번호</td>
@@ -40,7 +40,7 @@
 			</c:if> --%>
 
 			<c:forEach var="vo" items="${map.list }" varStatus="status">
-				<c:if test="${vo.best>=1}">
+				<c:if test="${vo.best>=map.bestcount}">
 					<tr height="30">
 						<td align="center" width="100">${vo.seq }</td>
 						<td width="550"><a
@@ -60,8 +60,8 @@
 						</td>
 						<c:if test="${member.license!=null }">
 							<td align="center" width="120"><a
-								href="updateSuggestForm.do?seq=${vo.seq }"><input type="button"
-									class="contentbt" value="배차신청"></a></td>
+								href="updateSuggestForm.do?seq=${vo.seq }"><input
+									type="button" class="contentbt" value="배차신청"></a></td>
 						</c:if>
 					</tr>
 				</c:if>
@@ -69,7 +69,7 @@
 
 		</table>
 		<table width="700">
-		
+
 			<tr>
 				<td align="right">
 

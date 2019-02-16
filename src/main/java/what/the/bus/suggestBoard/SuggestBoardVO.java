@@ -30,6 +30,14 @@ public class SuggestBoardVO {
 	private int pay;
 	private String finishtime;
 	private String realstartdate;
+	private int bestcount;
+	public int getBestcount() {
+		return bestcount;
+	}
+
+	public void setBestcount(int bestcount) {
+		this.bestcount = bestcount;
+	}
 
 	public String getRealstartdate() {
 		return realstartdate;

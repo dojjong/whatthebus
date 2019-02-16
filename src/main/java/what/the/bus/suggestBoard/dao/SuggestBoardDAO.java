@@ -9,7 +9,7 @@ import what.the.bus.comment.CommentVO;
 public interface SuggestBoardDAO {
 	void insertSuggestBoard(BoardVO vo);
 
-	List<BoardVO> getSuggestBoardList(int start, int end, String searchOption, String keyword);
+	List<BoardVO> getSuggestBoardList(int start, int end, String searchOption, String keyword,int bestcount);
 
 	int getSuggestBoardListCount(BoardVO vo);
 

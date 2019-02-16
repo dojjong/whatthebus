@@ -28,7 +28,8 @@ public class GetBoardListController {
 
 		boardVO.setSearchOption(searchOption);
 		boardVO.setKeyword(keyword);
-
+		//여기 바꿀것. (관리자에서)
+		boardVO.setBestcount(1);
 		// 전체리스트 개수
 		int listCnt = 0;
 		if (searchOption.equals("comment")) {
