@@ -47,7 +47,7 @@ public class SuggestBoardDAOImpl implements SuggestBoardDAO {
 	@Override
 	public BoardVO getSuggestBoard(int seq) {
 		mybatis.update("BoardDAO.updateCnt", seq);
-		return mybatis.selectOne("SuggestBoardDAO.getBoard", seq);
+		return mybatis.selectOne("BoardDAO.getBoard", seq);
 	}
 
 	@Override

@@ -117,6 +117,7 @@
 
 												i = i + 1;
 											}
+											
 
 											
 											document.updateSuggestForm.action = "insertSuggestBoard.do";
