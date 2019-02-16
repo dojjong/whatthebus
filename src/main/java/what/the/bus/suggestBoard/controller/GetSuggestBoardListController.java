@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import what.the.bus.board.BoardVO;
-import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.comment.CommentVO;
 import what.the.bus.pagination.Pagination;
+import what.the.bus.suggestBoard.service.GetSuggestBoardListService;
 
 @Controller
 public class GetSuggestBoardListController {
 
 	@Autowired
-	private GetBoardListService boardService;
+	private GetSuggestBoardListService boardService;
 
 	@RequestMapping("/view/**/getSuggestBoardList.do")
 	public String getSuggestBoardList(BoardVO boardVO, CommentVO commentVO, Model model,
@@ -29,6 +29,7 @@ public class GetSuggestBoardListController {
 		// boardService.getListCount();
 		boardVO.setSearchOption(searchOption);
 		boardVO.setKeyword(keyword);
+		
 		int listCnt = 0;
 		if (searchOption.equals("comment")) {
 			listCnt = boardService.getBoardCommentContentListCount(commentVO);

@@ -14,7 +14,6 @@ public class InsertBookBoardController {
 	//게시판 글쓰기
 	@RequestMapping("/view/**/writeBookBoard.do")
 	public String writeBookBoard() {
-		
 		return "bookBoard/writeBookForm";
 	}
 	

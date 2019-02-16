@@ -40,7 +40,7 @@
 			</c:if> --%>
 
 			<c:forEach var="vo" items="${map.list }" varStatus="status">
-				<c:if test="${vo.best==1}">
+				<c:if test="${vo.best>=1}">
 					<tr height="30">
 						<td align="center" width="100">${vo.seq }</td>
 						<td width="550"><a

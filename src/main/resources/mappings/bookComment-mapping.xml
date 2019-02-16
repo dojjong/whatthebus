@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BookCommentDAO">
+
+
+	<insert id="insertBookComment">
+	<![CDATA[
+	INSERT INTO BOOKCOMMENTS(CNO,SEQ,CONTENT,ID,NAME) 
+		VALUES (bookcomments_seq.nextval,#{seq},#{content},#{id},#{name})
+	]]>
+	</insert>
+
+	<select id="getBookCommentList" resultType="bookComment">
+	<![CDATA[
+	SELECT CNO,SEQ,ID,NAME,CONTENT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM BOOKCOMMENTS WHERE SEQ=#{seq} ORDER BY CNO DESC
+	]]>
+	</select>
+
+	<select id="getBookComment" resultType="bookComment">
+	<![CDATA[
+	SELECT * FROM BOOKCOMMENTS WHERE CNO = #{cno}
+	]]>
+	</select>
+
+	<update id="updateBookComment">
+	<![CDATA[
+	UPDATE BOOKCOMMENTS SET REGDATE=SYSDATE, CONTENT=#{content} WHERE CNO =#{cno} 
+	]]>
+	</update>
+
+
+	<delete id="deleteBookComment">
+	<![CDATA[
+		DELETE FROM BOOKCOMMENTS WHERE CNO =#{cno} 
+	]]>
+	</delete>
+
+</mapper>

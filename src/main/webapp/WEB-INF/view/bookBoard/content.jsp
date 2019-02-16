@@ -110,7 +110,7 @@
 		</table>
 	</form>
 
-	<%@include file="../board/comment.jsp"%>
+	<%@include file="../bookBoard/comment.jsp"%>
 
 
 	<script>

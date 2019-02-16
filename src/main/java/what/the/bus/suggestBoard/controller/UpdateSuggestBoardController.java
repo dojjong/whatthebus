@@ -24,7 +24,7 @@ public class UpdateSuggestBoardController {
 	}
 	
 	@RequestMapping("/view/**/updateSuggestBoard.do")
-	public String updateBoard(@ModelAttribute SuggestBoardVO vo,int seq) {
+	public String updateBoard(@ModelAttribute BoardVO vo,int seq) {
 		vo.setSeq(seq);
 		suggestBoardService.updateSuggestBoard(vo);
 		return "redirect:getSuggestBoardList.do";

@@ -22,6 +22,9 @@ public class InsertSuggestBoardController {
 	
 	@RequestMapping("/view/**/insertSuggestBoard.do")
 	public String insertSuggestBoard(BoardVO vo) {
+		if(vo.getMiddate()==null) {
+			vo.setMiddate("00:00");
+		}
 		suggestBoardService.insertSuggestBoard(vo);
 		return "redirect:getSuggestBoardList.do";
 	}

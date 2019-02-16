@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet"
@@ -148,6 +150,7 @@
 			name="endJuso" value="" /> <input type="hidden" id="miduso"
 			name="midJuso" value="" /> <input type="hidden" id="spanImsiKyungdo" />
 		<input type="hidden" id="spanImsiWido" />
+		<input type="hidden" name="middate" value=""/>
 
 		<table border="1" align="center">
 

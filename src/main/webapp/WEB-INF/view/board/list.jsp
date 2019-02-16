@@ -28,12 +28,12 @@
 				<td align="center" width="100">조회수</td>
 				<td align="center" width="70">추천수</td>
 			</tr>
-			<%---- 글이 없을 경우 -->
-			<c:if test="${count==0 }">
+			
+			<c:if test="${map.count==0 }">
 				<tr>
 					<td colspan="6" align="center">게시판에 저장된 글이 없습니다.</td>
 				</tr>
-			</c:if> --%>
+			</c:if>
 
 			<c:forEach var="vo" items="${map.list }" varStatus="status">
 				<c:choose>

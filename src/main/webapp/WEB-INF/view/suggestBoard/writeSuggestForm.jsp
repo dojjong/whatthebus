@@ -28,6 +28,7 @@
 			 <input type="hidden" id="end_kyungdo" name="end_kyungdo" value="" />
 			 <input type="hidden" id="startJuso" name="startJuso" value="" />
 			 <input type="hidden" id="endJuso" name="endJuso" value="" />
+			 <input type="hidden" name="middate" value=""/>
 		<table border="1" align="center">
 
 			<tr>

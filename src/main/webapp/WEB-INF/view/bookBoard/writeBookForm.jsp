@@ -139,6 +139,7 @@
 			type="hidden" id="miduso" name="midJuso" value="" /> <input
 			type="hidden" id="spanImsiKyungdo" /> <input type="hidden"
 			id="spanImsiWido" />
+			<input type="hidden" name="middate" value=""/>
 
 		<table border="1" align="center">
 

@@ -14,10 +14,14 @@ public class DeleteSuggestBoardServiceImpl implements DeleteSuggestBoardService 
 	private SuggestBoardDAOImpl suggestBoardDAO;
 
 	@Override
-	public void deleteSuggestBoard(SuggestBoardVO vo) {
+	public void deleteSuggestBoard(BoardVO vo) {
 		suggestBoardDAO.deleteSuggestBoard(vo);
 	}
 
+	@Override
+	public void deleteSuggestComment(BoardVO vo) {
+		suggestBoardDAO.deleteSuggestComment(vo);
+	}
 	@Override
 	public BoardVO getSuggestBoard(int seq) {
 		return suggestBoardDAO.getSuggestBoard(seq);

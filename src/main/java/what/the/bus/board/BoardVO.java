@@ -29,6 +29,15 @@ public class BoardVO {
 	private int bus;
 	private int pay;
 	private String finishtime;
+	private int bestcount;
+	
+	public int getBestcount() {
+		return bestcount;
+	}
+
+	public void setBestcount(int bestcount) {
+		this.bestcount = bestcount;
+	}
 
 	public String getFinishtime() {
 		return finishtime;

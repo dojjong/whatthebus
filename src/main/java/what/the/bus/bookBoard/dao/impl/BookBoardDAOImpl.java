@@ -1,6 +1,8 @@
 package what.the.bus.bookBoard.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.dao.BookBoardDAO;
+import what.the.bus.bookcomment.BookCommentVO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 import what.the.bus.util.SqlSessionFactoryBean;
 
@@ -25,13 +28,18 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 	}
 
 	@Override
-	public List<SuggestBoardVO> getBookBoardList() {
-		return mybatis.selectList("BookBoardDAO.getBookBoardList");
+	public List<SuggestBoardVO> getBookBoardList(int start, int end, String searchOption, String keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("start", start);
+		map.put("end", end);
+		return mybatis.selectList("BookBoardDAO.getBookBoardList",map);
 	}
 
 	@Override
-	public int getBookBoardListCount() {
-		return mybatis.selectOne("BookBoardDAO.getBookBoardListCount");
+	public int getBookBoardListCount(SuggestBoardVO vo) {
+		return mybatis.selectOne("BookBoardDAO.getBookBoardListCount",vo);
 	}
 
 	@Override
@@ -47,6 +55,26 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 	@Override
 	public void deleteBookBoard(BookBoardVO vo) {
 		mybatis.delete("BookBoardDAO.deleteBookBoard", vo);
+	}
+	
+	@Override
+	public int getBoardCommentContentListCount(BookCommentVO vo) {
+		return mybatis.selectOne("BookBoardDAO.getBoardCommentContentListCount", vo);
+	}
+
+	@Override
+	public int getBoardCommentNameListCount(BookCommentVO vo) {
+		return mybatis.selectOne("BookBoardDAO.getBoardCommentNameListCount", vo);
+	}
+
+	@Override
+	public int getCommentCount(int seq) {
+		return mybatis.selectOne("BookBoardDAO.getCommentCount", seq);
+	}
+	
+	@Override
+	public int getListCount(SuggestBoardVO vo) {
+		return mybatis.selectOne("BookBoardDAO.getBookBoardListCount", vo);
 	}
 
 }

@@ -19,7 +19,7 @@
 
 	<!-- 화면 센터 -->
 	<div align="center">
-		<b>글목록(전체 글 : )</b>
+		<b>글목록(전체 글 : ${map.count })</b>
 		<table border="1" width="700" cellpadding="0" cellspacing="0"
 			align="center">
 			<tr height="30" id="boardhead">
@@ -28,17 +28,18 @@
 				<td align="center" width="100">작성자</td>
 				<td align="center" width="150">운행일</td>
 			</tr>
-			<%---- 글이 없을 경우 -->
-			<c:if test="${count==0 }">
+			
+			<c:if test="${map.count==0 }">
 				<tr>
 					<td colspan="6" align="center">게시판에 저장된 글이 없습니다.</td>
 				</tr>
-			</c:if> --%>
+			</c:if> 
 
-			<c:forEach var="vo" items="${list }">
+			<c:forEach var="vo" items="${map.list }">
 				<tr height="30">
 					<td align="center" width="50">${vo.seq }</td>
-					<td width="250"><a href="getBookBoard.do?seq=${vo.seq}">${vo.title }</a></td>
+					<td width="250"><a href="getBookBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
+					${vo.title }</a></td>
 					<td align="center" width="100">${vo.name }</td>
 					<td align="center" width="150">${vo.realstartdate }</td>
 				</tr>
@@ -96,6 +97,7 @@
 				</td>
 			</tr>
 		</table>
+		<form method="post" action="getBookBoardList.do">
 		<table>
 			<tr>
 				<td align="left"><select name="searchOption">
@@ -120,8 +122,15 @@
 						</button>
 				</a></td>
 		</table>
-
+</form>
 	</div>
+	<script>
+		function fn_paging(curPage) {
+			location.href = "getBookBoardList.do?curPage=" + curPage
+					+ "&searchOption=${map.searchOption}"
+					+ "&keyword=${map.keyword}";
+		}
+	</script>
 
 	<script type="text/javascript" src="../resources/js/boardScript.js"></script>
 

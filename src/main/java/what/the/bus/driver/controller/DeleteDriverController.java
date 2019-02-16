@@ -1,12 +1,11 @@
 package what.the.bus.driver.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.service.DeleteDriverService;
@@ -19,12 +18,11 @@ public class DeleteDriverController {
 
 	// 회원탈퇴
 	@RequestMapping("/view/**/deleteDriver.do")
-	public String deleteDriver(@ModelAttribute("member") DriverVO vo, HttpSession session) {
+	public String deleteDriver(@ModelAttribute("member") DriverVO vo, SessionStatus session) {
 		if (driverService.pwCheckDriver(vo) == true) {
-
 			driverService.deleteDriver(vo);
-			session.invalidate();
-			return "main/main";
+			session.setComplete();
+			return "redirect:main.do";
 		} else {
 			return "driver/errorPW";
 		}

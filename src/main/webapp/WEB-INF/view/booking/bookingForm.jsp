@@ -41,7 +41,7 @@
 							<c:forEach items="${bussit }" varStatus="busstatus">
 
 								<c:if test="${bussit[busstatus.index]==status.count}">
-									<input type="button" class="sitNum" value="있는좌석"
+									<input type="button" class="onsitNum" value="${status.count }"
 										onclick="full()" />
 									<c:set var="doneLoop" value="true" />
 								</c:if>

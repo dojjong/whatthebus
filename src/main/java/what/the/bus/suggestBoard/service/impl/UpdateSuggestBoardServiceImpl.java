@@ -14,13 +14,12 @@ public class UpdateSuggestBoardServiceImpl implements UpdateSuggestBoardService 
 	private SuggestBoardDAOImpl suggestBoardDAO;
 
 	@Override
-	public void updateSuggestBoard(SuggestBoardVO vo) {
+	public void updateSuggestBoard(BoardVO vo) {
 		suggestBoardDAO.updateSuggestBoard(vo);
 	}
 	@Override
 	public BoardVO getSuggestBoard(int seq) {
 		return suggestBoardDAO.getSuggestBoard(seq);
-		
 	}
 
 
