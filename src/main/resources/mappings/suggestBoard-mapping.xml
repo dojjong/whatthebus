@@ -78,7 +78,7 @@
 	<select id="getBoardList" resultType="board">
 		<include refid="header"></include>
 	<![CDATA[
-	SELECT ROWNUM,SEQ,ID,TITLE,CONTENT,NAME,REGDATE,BEST,CNT FROM (SELECT * FROM BOARD WHERE BEST >=#{bestcount} ORDER BY SEQ DESC) 
+	SELECT ROWNUM,SEQ,ID,TITLE,CONTENT,NAME,REGDATE,BEST,CNT,TOTALBEST FROM (SELECT * FROM BOARD WHERE BEST >=#{bestcount} ORDER BY SEQ DESC) 
 	]]>
 		<include refid="search"></include>
 		<include refid="footer"></include>
@@ -132,6 +132,12 @@
 	SELECT COUNT(*)"count" FROM COMMENTS WHERE SEQ=#{seq}
 	]]>
 	</select>
+	
+	<update id="totalBestCount">
+	<![CDATA[
+	UPDATE BOARD SET TOTALBEST = TOTALBEST-#{bus} WHERE SEQ=#{seq}
+	]]>
+	</update>
 
 
 

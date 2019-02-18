@@ -39,13 +39,13 @@
 
 	<update id="boardOnBestUpdate" parameterType="HashMap">
 	<![CDATA[
-	UPDATE BOARD SET BEST = BEST+1 WHERE SEQ=#{seq}
+	UPDATE BOARD SET BEST = BEST+1,TOTALBEST = BEST+1 WHERE SEQ=#{seq}
 	]]>
 	</update>
 
 	<update id="boardOffBestUpdate" parameterType="HashMap">
 	<![CDATA[
-	UPDATE BOARD SET BEST = BEST-1 WHERE SEQ=#{seq}
+	UPDATE BOARD SET BEST = BEST-1,TOTALBEST = BEST-1 WHERE SEQ=#{seq}
 	]]>
 	</update>
 

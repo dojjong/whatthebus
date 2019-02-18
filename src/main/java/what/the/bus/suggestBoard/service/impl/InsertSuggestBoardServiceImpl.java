@@ -15,5 +15,8 @@ public class InsertSuggestBoardServiceImpl implements InsertSuggestBoardService 
 	public void insertSuggestBoard(BoardVO vo) {
 		suggestBoardDAO.insertSuggestBoard(vo);
 	}
-
+	@Override
+	public void totalBestCount(BoardVO vo) {
+		suggestBoardDAO.totalBestCount(vo);
+	}
 }

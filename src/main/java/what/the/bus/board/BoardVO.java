@@ -30,7 +30,16 @@ public class BoardVO {
 	private int pay;
 	private String finishtime;
 	private int bestcount;
+	private int totalbest;
 	
+	public int getTotalbest() {
+		return totalbest;
+	}
+
+	public void setTotalbest(int totalbest) {
+		this.totalbest = totalbest;
+	}
+
 	public int getBestcount() {
 		return bestcount;
 	}

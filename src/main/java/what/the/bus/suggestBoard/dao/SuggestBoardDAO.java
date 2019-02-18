@@ -5,6 +5,7 @@ import java.util.List;
 import what.the.bus.best.BestVO;
 import what.the.bus.board.BoardVO;
 import what.the.bus.comment.CommentVO;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 public interface SuggestBoardDAO {
 	void insertSuggestBoard(BoardVO vo);
@@ -31,5 +32,6 @@ public interface SuggestBoardDAO {
 	
 	void deleteSuggestComment(BoardVO vo);
 	
+	void totalBestCount(BoardVO vo);
 	
 	}

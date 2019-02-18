@@ -152,7 +152,7 @@
 			name="midJuso" value="" /> <input type="hidden" id="spanImsiKyungdo" />
 		<input type="hidden" id="spanImsiWido" />
 		<input type="hidden" name="middate" value=""/>
-
+		<input type="hidden" name="seq" value="${vo.seq }"/>
 		<table border="1" align="center">
 
 			<tr>

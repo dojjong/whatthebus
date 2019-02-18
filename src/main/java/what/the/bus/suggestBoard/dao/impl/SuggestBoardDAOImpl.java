@@ -91,6 +91,10 @@ public class SuggestBoardDAOImpl implements SuggestBoardDAO {
 		return mybatis.selectOne("SuggestBoardDAO.getCommentCount", seq);
 	}
 
+	@Override
+	public void totalBestCount(BoardVO vo) {
+		mybatis.update("SuggestBoardDAO.totalBestCount",vo);
+	}
 	
 
 }

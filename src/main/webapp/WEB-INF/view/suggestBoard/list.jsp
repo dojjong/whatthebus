@@ -41,6 +41,8 @@
 
 			<c:forEach var="vo" items="${map.list }" varStatus="status">
 				<c:if test="${vo.best>=map.bestcount}">
+					<c:set var="doneLoop" value="false" />
+					<c:set var="bestLoop" value="false" />
 					<tr height="30">
 						<td align="center" width="100">${vo.seq }</td>
 						<td width="550"><a
@@ -54,14 +56,26 @@
 						<td align="center" width="150">${vo.cnt }</td>
 						<td align="center" width="100">${vo.best }</td>
 
-						<td align="center" width="250">
-							<!-- <font color="#0000FF">배차완료</font>--> <!-- <font color="#FF0000">미배차</font>-->
-							<font color="#00FF00">일부배차</font>
-						</td>
-						<c:if test="${member.license!=null }">
-							<td align="center" width="120"><a
-								href="updateSuggestForm.do?seq=${vo.seq }"><input
-									type="button" class="contentbt" value="배차신청"></a></td>
+						<td align="center" width="250"><c:if
+								test="${vo.totalbest==vo.best }">
+								<font color="#FF0000">미배차</font>
+								<c:set var="doneLoop" value="true" />
+							</c:if> <c:if test="${vo.totalbest<25&&not doneLoop  }">
+								<font color="#0000FF">배차완료</font>
+								<c:set var="doneLoop" value="true" />
+								<c:set var="bestLoop" value="true" />
+							</c:if> <c:if test="${vo.totalbest<vo.best&&not doneLoop }">
+								<font color="#00FF00">일부배차</font>
+							</c:if></td>
+						<c:if test="${member.license!=null}">
+							<c:if test="${bestLoop }">
+								<td align="center" width="120">배차종료</td>
+							</c:if>
+							<c:if test="${not bestLoop }">
+								<td align="center" width="120"><a
+									href="updateSuggestForm.do?seq=${vo.seq }"><input
+										type="button" class="contentbt" value="배차신청"></a></td>
+							</c:if>
 						</c:if>
 					</tr>
 				</c:if>
