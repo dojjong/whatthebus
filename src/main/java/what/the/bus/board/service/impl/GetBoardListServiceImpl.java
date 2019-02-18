@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.board.BoardVO;
+import what.the.bus.board.ChartVO1;
 import what.the.bus.board.dao.impl.BoardDAOImpl;
 import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.comment.CommentVO;
@@ -43,5 +44,11 @@ public class GetBoardListServiceImpl implements GetBoardListService {
 	public Integer getCommentCount(int seq) {
 		return boardDAO.getCommentCount(seq);
 	}
+	
+	@Override
+	public List<ChartVO1> getBoardCountPerRegdate() {
+		return boardDAO.getBoardCountPerRegdate();
+	}
+
 
 }

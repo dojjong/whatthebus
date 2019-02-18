@@ -95,7 +95,7 @@
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">통계(임시)<span class="caret"></span></a>
       
       <ul class="dropdown-menu">
-        <li><a href="../admin/admin_chart.jsp" >차트(임시)</a></li>
+         <li><a href="getAdminChartMenu.do" >차트(임시)</a></li>
         <li><a href="#" >보고서(임시)</a></li>
         <li><a href="../admin/admin_map.jsp" >지도(임시)</a></li>           
       </ul>

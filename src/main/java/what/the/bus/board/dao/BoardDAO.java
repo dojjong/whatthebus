@@ -4,6 +4,7 @@ import java.util.List;
 
 import what.the.bus.best.BestVO;
 import what.the.bus.board.BoardVO;
+import what.the.bus.board.ChartVO1;
 import what.the.bus.comment.CommentVO;
 
 public interface BoardDAO {
@@ -30,4 +31,6 @@ public interface BoardDAO {
 	int getBoardCommentNameListCount(CommentVO vo);
 
 	int getCommentCount(int seq);
+	
+	List<ChartVO1> getBoardCountPerRegdate();
 }

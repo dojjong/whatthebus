@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import what.the.bus.best.BestVO;
 import what.the.bus.board.BoardVO;
+import what.the.bus.board.ChartVO1;
 import what.the.bus.board.dao.BoardDAO;
 import what.the.bus.comment.CommentVO;
 import what.the.bus.util.SqlSessionFactoryBean;
@@ -87,6 +88,10 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int getCommentCount(int seq) {
 		return mybatis.selectOne("BoardDAO.getCommentCount", seq);
+	}
+	@Override
+	public List<ChartVO1> getBoardCountPerRegdate() {
+		return mybatis.selectList("BoardDAO.getBoardCountPerRegdate");
 	}
 
 }
