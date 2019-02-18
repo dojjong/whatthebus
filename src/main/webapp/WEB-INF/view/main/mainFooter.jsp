@@ -34,6 +34,8 @@
 					<a href="#"><img src="../resources/images/kakao.png" width="35" height="35"></a> 
 					<a href="#"><img src="../resources/images/facebook.png" width="35" height="35"></a> 
 					<a href="#"><img src="../resources/images/insta.png" width="35" height="35"></a>
+					<br>
+					<a href="adminmain.do"><input type="button" class="btn btn-link" id="termsbt" value="관리자로그인"></a>
 		</table>
 		</div>
 	</footer>

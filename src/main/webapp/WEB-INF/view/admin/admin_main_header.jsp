@@ -24,6 +24,8 @@
 
 
 		<table>
+			<tr>
+			<td><a href="main.do"><input type="text" value="홈으로"></a></td></tr>
 
 			<%-- 세션에 저장된 값이 있으면 보여지는 화면 --%>
 			<%-- 라이센스가 null이냐 아니냐로 보여지는 화면 구분 --%>
@@ -93,39 +95,7 @@
 		</table>
 
 
-		<h3>관리자화면입니다.</h3>
-		<table>
-			<tr>
-				<td width="250px">
-					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="#">Home</a></li>
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">통계(임시)<span class="caret"></span></a>
-
-							<ul class="dropdown-menu">
-								<li><a href="getAdminChartMenu.do">차트(임시)</a></li>
-								<li><a href="#">보고서(임시)</a></li>
-								<li><a href="../admin/admin_map.jsp">지도(임시)</a></li>
-							</ul></li>
-
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">회원관리(임시)<span class="caret"></span></a>
-
-							<ul class="dropdown-menu">
-								<li><a href="#">전체회원목록</a></li>
-								<li><a href="moveApprovalDriverList.do">가입승인대기(드라이버)</a></li>
-							</ul></li>
-
-						<li><a href="#">결제용(임시)</a>
-						<li><a href="#">(임시:결제화면)</a></li>
-						<li><a href="moveSetBestCount.do">게시판 추천 수 변경</a></li>
-
-					</ul>
-				</td>
-			</tr>
-		</table>
-	</div>
-
+</div>
 
 </body>
 </html>

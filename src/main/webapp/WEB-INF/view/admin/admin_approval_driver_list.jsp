@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="../admin/admin_main_header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +10,7 @@
 <title>승인대기 기사목록</title>
 </head>
 <body>
+<div>
 	<h2>가입 승인대기 기사목록</h2>
 <form method="post" id="updateDriverForm" name="updateDriverForm"> 
 	<table border="1" width="700px">
@@ -40,6 +40,8 @@
 
 	</table>
 	</form>
+	</div>
+	
 <script>
 function setStateCount(id){
 	alert("승인되었습니다.");

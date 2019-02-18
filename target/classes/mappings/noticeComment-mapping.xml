@@ -6,7 +6,7 @@
 	<insert id="insertNoticeComment">
 	<![CDATA[
 		INSERT INTO NOTICE_COMMENTS(CNO,SEQ,CONTENT,ID,NAME,REGDATE) 
-		VALUES (comment_seq.nextval,#{seq},#{content},#{id},#{name},sysdate)
+		VALUES (notice_comment_seq.nextval,#{seq},#{content},#{id},#{name},sysdate)
 		]]>
 	</insert>
 
