@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="LostCommentDAO">
+
+	<insert id="insertLostComment">
+ 		<![CDATA[
+ 			INSERT INTO LOST_COMMENTS(CNO,SEQ,CONTENT,ID,NAME,REGDATE)
+ 			VALUES (lost_comment_seq.nextval,#{seq},#{content},#{id},#{name},sysdate)
+ 		]]>
+	</insert>
+
+	<select id="getLostCommentList" resultType="lostComment">
+ 		<![CDATA[
+ 			SELECT CNO,SEQ,ID,NAME,CONTENT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM LOST_COMMENTS WHERE SEQ=#{seq} ORDER BY CNO DESC
+ 		]]>
+	</select>
+
+	<select id="getLostComment" resultType="lostComment">
+ 		<![CDATA[
+ 			SELECT * FROM LOST_COMMENTS WHERE CNO = #{cno}
+ 		]]>
+	</select>
+
+	<update id="updateLostComment">
+ 		<![CDATA[
+ 			UPDATE LOST_COMMENTS SET REGDATE=SYSDATE, CONTENT=#{content} WHERE CNO =#{cno}
+ 		]]>
+	</update>
+
+	<delete id="deleteLostComment">
+		<![CDATA[
+			DELETE FROM LOST_COMMENTS WHERE CNO =#{cno}
+		]]>
+	</delete>
+
+</mapper> 

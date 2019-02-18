@@ -8,55 +8,53 @@
 <title>분실물 updateLostForm</title>
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 
 </head>
 <body>
-
 	<div align="center">
 		<b>글수정</b>
 	</div>
 	<br />
-
 	<form method="post" id="updateLostForm" name="updateLostForm"
-		action="updateLostBoard.do?seq=${vo.seq }">
-		<input type="hidden" name="id" value="${member.id } "><input
+		action="updateLostBoard.do?seq=${vo.seq}">
+		<input type="hidden" name="id" value="${member.id }"> <input
 			type="hidden" name="name" value="${member.name }" />
 		<table border="1" align="center">
 
 			<tr>
 				<td width="100" align="center">작성자</td>
 				<td width="700">${member.name }</td>
+
+
 			</tr>
 
 			<tr>
 				<td width="100" align="center">제목</td>
 				<td width="700"><input type="text" size="50" maxlength="50"
-					name="title" value="${vo.title }" /></td>
+					name="title" value="${vo.title}"/></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
 				</td>-->
-			</tr>
 
+			</tr>
 			<tr>
 				<td width="100" align="center">내용</td>
 				<td><textarea name="content" id="ir1" rows="15" cols="600"
 						style="width: 680px; height: 200px;">${vo.content }</textarea></td>
 			</tr>
-
+			
 			<tr>
 				<td colspan="2" align="center"><input type="submit"
-					id="insertBoardbt" class="writebt" value="글쓰기" /><input
+					id="insertBoardbt" class="writebt" value="글쓰기" /> <input
 					type="reset" class="writebt" value="다시작성" /> <a
-					href="getLostBoardList.do"> <input type="button"
-						class="contentbt" value="목록"></a>
+					href="getLostBoardList.do"> <input type="button" class="contentbt"
+						value="목록"></a>
 			</tr>
 		</table>
 	</form>
-
-<script type="text/javascript">
+	<script type="text/javascript">
 		$(function() {
 			var oEditors = [];
 
@@ -89,14 +87,6 @@
 			});
 		});
 	</script>
-
-
-
-
-
-
-
-
 	<script type="text/javascript"
 		src="../resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 	<script type="text/javascript" src="../resources/js/boardScript.js"></script>

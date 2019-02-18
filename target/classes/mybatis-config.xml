@@ -37,7 +37,9 @@
 		<typeAlias type="what.the.bus.admin.AdminVO"
 			alias="admin"></typeAlias>
 		<typeAlias type="what.the.bus.eventBoard.EventBoardVO" alias="eventBoard"></typeAlias>	
-		<typeAlias type="what.the.bus.eventComment.EventCommentVO" alias="eventComment"></typeAlias>	
+		<typeAlias type="what.the.bus.eventComment.EventCommentVO" alias="eventComment"></typeAlias>
+	<typeAlias type="what.the.bus.lostBoard.LostBoardVO" alias="lostBoard"></typeAlias>	
+		<typeAlias type="what.the.bus.lostComment.LostCommentVO" alias="lostComment"></typeAlias>
 		
 	</typeAliases>
 	<environments default="development">
@@ -72,6 +74,8 @@
 		<mapper resource="mappings/bookComment-mapping.xml" />
 		<mapper resource="mappings/eventBoard-mapping.xml"/>
 		<mapper resource="mappings/eventComment-mapping.xml"/>
+		<mapper resource="mappings/lostBoard-mapping.xml" />
+		<mapper resource="mappings/lostComment-mapping.xml" />
 	
 	</mappers>
 </configuration>

@@ -17,10 +17,17 @@ public class DeleteLostBoardServiceImpl implements DeleteLostBoardService {
 	public void deleteLostBoard(LostBoardVO vo) {
 		lostBoardDAO.deleteLostBoard(vo);
 	}
-
+	
 	@Override
 	public LostBoardVO getLostBoard(int seq) {
 		return lostBoardDAO.getLostBoard(seq);
 	}
+	
+	@Override
+	public void deleteLostComment(LostBoardVO vo) {
+		lostBoardDAO.deleteLostBoard(vo);
+	}
 
+	
+	
 }

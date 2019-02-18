@@ -18,6 +18,7 @@ public class DeleteLostBoardController {
 	public String deleteLostBoard(@ModelAttribute LostBoardVO vo, int seq) {
 		vo.setSeq(seq);
 		lostBoardService.deleteLostBoard(vo);
+		lostBoardService.deleteLostComment(vo);
 		
 		return "redirect:getLostBoardList.do";
 	}
