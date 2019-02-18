@@ -14,7 +14,7 @@ public class InsertEventBoardController {
 	private InsertEventBoardService eventboardService;
 	
 	//게시판 글쓰기 화면으로 이동
-	@RequestMapping("/view/**/writeEvnetBoard.do")
+	@RequestMapping("/view/**/writeEventBoard.do")
 	public String writeEventBoard() {
 		return "eventBoard/writeEventForm";
 	}

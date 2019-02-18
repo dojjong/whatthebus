@@ -32,7 +32,7 @@ public class InsertEventCommentController {
 		return "success";
 	}
 	
-	@RequestMapping(value = "/view/**/evnetCommentList.do", produces = "application/json; charset=UTF-8")
+	@RequestMapping(value = "/view/**/eventCommentList.do", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public ResponseEntity getEventCommentList(EventCommentVO vo, HttpServletRequest request) throws Exception{
 		HttpHeaders responseHeaders = new HttpHeaders();

@@ -57,7 +57,7 @@
 			<tr>
 				<td align="right">
 					<form name="form" action="writeNoticeBoard.do" method="POST">
-						<input type="hidden" id="member" value="${member }"><button style='font-size:14px' class="btn btn-primary" id="writeBT"><i class='far fa-edit'style='color:white'></i><strong>글쓰기</strong></button>
+						<input type="hidden" id="member" value="${member }"><input type="button" id="writebt" value="글쓰기">
 					</form>
 					
 					<div align="center">
