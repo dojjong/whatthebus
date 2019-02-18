@@ -1,5 +1,7 @@
 package what.the.bus.driver;
 
+import java.sql.Date;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class DriverVO {
@@ -12,9 +14,27 @@ public class DriverVO {
 	private String tel2;
 	private String tel3;
 	private String email;
+	private Date regdate;
 	private String license;
 	private MultipartFile uploadFile;
+	private int statecount;
 	
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
+	public int getStatecount() {
+		return statecount;
+	}
+
+	public void setStatecount(int statecount) {
+		this.statecount = statecount;
+	}
+
 	public String getLicense() {
 		return license;
 	}

@@ -27,7 +27,7 @@ public class DriverDAOImpl implements DriverDAO {
 	}
 
 	public void deleteDriver(DriverVO vo) {
-		mybatis.delete("DriverDAO.deleteDriver", vo);
+		mybatis.update("DriverDAO.deleteDriver", vo);
 	}
 
 	public DriverVO loginDriver(DriverVO vo) {

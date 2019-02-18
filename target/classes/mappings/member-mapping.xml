@@ -55,12 +55,12 @@
 	</update>
 
 	<!-- 회원 탈퇴 -->
-	<delete id="deleteMember">
+	<update id="deleteMember">
 	<![CDATA[
-		DELETE FROM MEMBER WHERE ID=#{id}
+		UPDATE MEMBER SET STATECOUNT=2 WHERE ID=#{id}
 	]]>
 
-	</delete>
+	</update>
 
 	<!-- 아이디찾기 02.06 -->
 	<select id="findId" resultType="member">

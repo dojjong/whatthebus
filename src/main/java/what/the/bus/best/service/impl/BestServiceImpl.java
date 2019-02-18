@@ -1,20 +1,17 @@
 package what.the.bus.best.service.impl;
 
-import java.util.HashMap;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.best.BestVO;
-import what.the.bus.best.dao.impl.BestDAOImpl;
+import what.the.bus.best.dao.BestDAO;
 import what.the.bus.best.service.BestService;
-import what.the.bus.board.BoardVO;
 
 @Service
 public class BestServiceImpl implements BestService {
 
 	@Autowired
-	private BestDAOImpl bestDAO;
+	private BestDAO bestDAO;
 
 	@Override
 	public void best_check(BestVO vo) {

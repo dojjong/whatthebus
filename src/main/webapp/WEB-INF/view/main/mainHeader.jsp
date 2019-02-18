@@ -106,11 +106,11 @@
 													<tr>
 														<td><input type="text" name="id" placeholder="아이디"
 															class="ryantext" id="id" autocomplete="off"></td>
-															
+
 													</tr>
 													<tr>
 														<td><input type="password" name="password"
-															placeholder="비밀번호" class="ryantext" id="pw" ></td>
+															placeholder="비밀번호" class="ryantext" id="pw"></td>
 													</tr>
 													<!-- 로그인버튼 비번 입력 잘못했을 때 alert뜨도록 수정해야함  -->
 													<tr>
@@ -174,10 +174,11 @@
 									<div align="right">
 										<table>
 											<tr>
-											<td width="90px" align="center"><a
+												<td width="90px" align="center"><a
 													href="memberMypage.do">마이페이지</a></td>
-												<td width="150px" align="center">${member.name }회원님<br>환영합니다.&nbsp;</td>
-								
+												<td width="150px" align="center">${member.name }회원님<br>환영합니다.&nbsp;
+												</td>
+
 												<td><form method="post" action="logoutMember.do">
 														<input type="submit" value="로그아웃" class="btn btn-link">
 													</form></td>
@@ -196,11 +197,11 @@
 												<td><form method="post" action="logoutDriver.do">
 														<input type="submit" value="로그아웃" class="btn btn-link">
 													</form></td>
-
 										</table>
 									</div>
 								</c:if>
 							</c:when>
+
 							<c:otherwise>
 
 								<!-- 메인 헤더 상단의 로그인/회원가입 부분 -->
@@ -247,7 +248,6 @@
 						<ul>
 							<li><a href="getQaBoardList.do">Q&A</a></li>
 							<li><a href="getAfterBoardList.do">after</a></li>
-							<li><a href="getAdminMain.do">admin</a></li>
 							<li><a href="getLostBoardList.do">분실물서비스</a></li>
 							<li><a href="#">ContactUs</a></li>
 						</ul></li>

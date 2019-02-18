@@ -23,9 +23,18 @@ public class LoginMemberController {
 	@RequestMapping("/view/**/loginMember.do")
 	public String loginMember(MemberVO mvo,DriverVO dvo,Model model) {
 		if (memberService.loginMember(mvo) == true) {
+			if(memberService.getMember(mvo).getStatecount()==2) {
+				return "main/withdrawMember";
+			}
 			model.addAttribute("member", memberService.getMember(mvo));
 			return "main/main";
 		} else if (driverService.loginDriver(dvo) == true) {
+			if(driverService.getDriver(dvo).getStatecount()==2) {
+				return "main/withdrawMember";
+			}
+			if(driverService.getDriver(dvo).getStatecount()==3) {
+				return "main/approval";
+			}
 			model.addAttribute("member", driverService.getDriver(dvo));
 			return "main/main";
 		} else {

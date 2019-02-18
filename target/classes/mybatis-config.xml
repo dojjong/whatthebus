@@ -36,6 +36,8 @@
 			alias="bookComment"></typeAlias>
 		<typeAlias type="what.the.bus.admin.AdminVO"
 			alias="admin"></typeAlias>
+		<typeAlias type="what.the.bus.eventBoard.EventBoardVO" alias="eventBoard"></typeAlias>	
+		<typeAlias type="what.the.bus.eventComment.EventCommentVO" alias="eventComment"></typeAlias>	
 		
 	</typeAliases>
 	<environments default="development">
@@ -68,5 +70,8 @@
 		<mapper resource="mappings/bookingPay-mapping.xml" />
 		<mapper resource="mappings/noticeComment-mapping.xml" />
 		<mapper resource="mappings/bookComment-mapping.xml" />
+		<mapper resource="mappings/eventBoard-mapping.xml"/>
+		<mapper resource="mappings/eventComment-mapping.xml"/>
+	
 	</mappers>
 </configuration>

@@ -7,14 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import what.the.bus.admin.service.impl.GetMemberListServiceImpl;
+import what.the.bus.admin.service.GetMemberListService;
 import what.the.bus.member.MemberVO;
 
 @Controller
 public class GetMemberListController {
 	
 	@Autowired
-	private GetMemberListServiceImpl getMemberListService;
+	private GetMemberListService getMemberListService;
 	
 	@RequestMapping("/view/**/getMemberList.do")
 	public String getMemberList(Model model) {

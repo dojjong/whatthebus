@@ -26,7 +26,7 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	public void deleteMember(MemberVO vo) {
-		mybatis.delete("MemberDAO.deleteMember", vo);
+		mybatis.update("MemberDAO.deleteMember", vo);
 	
 	}
 

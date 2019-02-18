@@ -37,12 +37,12 @@
 	</update>
 	
 	<!-- 회원 탈퇴 -->
-	<delete id="deleteDriver">
+	<update id="deleteDriver">
 	<![CDATA[
-		DELETE FROM DRIVER WHERE ID=#{id}
+		UPDATE DRIVER SET STATECOUNT=2 WHERE ID=#{id}
 	]]>
 	
-	</delete>
+	</update>
 
 	
 </mapper>

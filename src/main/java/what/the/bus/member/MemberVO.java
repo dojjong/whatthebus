@@ -10,14 +10,20 @@ public class MemberVO {
 	private String tel;
 	private String tel1;
 	private String tel2;
-
-
 	private String tel3;
 	private String email;
 	private Date regdate;
 	private String license;
+	private int statecount;
 	
-	
+	public int getStatecount() {
+		return statecount;
+	}
+
+	public void setStatecount(int statecount) {
+		this.statecount = statecount;
+	}
+
 	public Date getRegdate() {
 		return regdate;
 	}
