@@ -14,6 +14,17 @@ p {
   height: 120px;
 }
 
+fieldset { 
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 2px groove (internal value);
+}
+
 </style>
 
 </head>
@@ -42,9 +53,10 @@ p {
 <td colspan="5">
 <h3>개인사용자의 경우 </h3>
 
-<h3>1. 견적요청</h3><br>
+<fieldset>
+<legend>1. 견적요청</legend><br>
 개인의 경우 제안(개인)게시판에 원하시는 출발지와 경유지를 선택하여 글을 작성합니다.
-
+</fieldset>
 <h3>2. 견적통보</h3><br>
 제안(개인)게시판에 작성한 글이 추천수(--이상)을 받게 되면 배차대기 상태가 됩니다. 
 
@@ -103,6 +115,19 @@ p {
 
 
 </table>
+
+<form>
+ <fieldset>
+  <legend>Personalia:</legend>
+  Name: <input type="text"><br>
+  Email: <input type="text"><br>
+  Date of birth: <input type="text">
+ </fieldset>
+</form>
+
+
+
+
 </div>
 
 

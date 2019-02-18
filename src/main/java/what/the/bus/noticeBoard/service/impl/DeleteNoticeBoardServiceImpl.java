@@ -4,16 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.noticeBoard.NoticeBoardVO;
-import what.the.bus.noticeBoard.dao.impl.NoticeBoardDAOImpl;
+import what.the.bus.noticeBoard.dao.NoticeBoardDAO;
 import what.the.bus.noticeBoard.service.DeleteNoticeBoardService;
-import what.the.bus.noticeComment.NoticeCommentVO;
 
 
 @Service
 public class DeleteNoticeBoardServiceImpl implements DeleteNoticeBoardService{
 	
 	@Autowired
-	private NoticeBoardDAOImpl noticeBoardDAO;
+	private NoticeBoardDAO noticeBoardDAO;
 
 	@Override
 	public void deleteNoticeBoard(NoticeBoardVO vo) {

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.qaBoard.QaBoardVO;
+import what.the.bus.qaBoard.dao.QaBoardDAO;
 import what.the.bus.qaBoard.dao.impl.QaBoardDAOImpl;
 import what.the.bus.qaBoard.service.GetQaBoardListService;
 import what.the.bus.qaComment.QaCommentVO;
@@ -13,7 +14,7 @@ import what.the.bus.qaComment.QaCommentVO;
 @Service
 public class GetQaBoardListServiceImpl implements GetQaBoardListService{
 	@Autowired
-	private QaBoardDAOImpl qaBoardDAO;
+	private QaBoardDAO qaBoardDAO;
 	
 	public void setQaBoardDAO(QaBoardDAOImpl qaBoardDAO) {
 		this.qaBoardDAO = qaBoardDAO;

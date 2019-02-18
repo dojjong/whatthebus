@@ -254,7 +254,7 @@
 					<li><a href="#">공지사항</a>
 						<ul>
 							<li><a href="getNoticeBoardList.do">공지사항</a></li>
-							<li><a href="#">이벤트</a></li>
+							<li><a href="getEventBoardList.do">이벤트</a></li>
 						</ul></li>
 				</ul>
 			</div>

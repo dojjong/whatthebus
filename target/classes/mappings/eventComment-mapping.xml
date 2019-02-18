@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="EventCommentDAO">
+	<insert id="insertEventComment">
+	<![CDATA[
+		INSERT INTO EVENT_COMMENTS(CNO,SEQ,CONTENT,ID,NAME,REGDATE) 
+		VALUES (event_comment_seq.nextval,#{seq},#{content},#{id},#{name},sysdate)
+		]]>
+	</insert>
+
+
+	<select id="getEventCommentList" resultType="eventComment">
+	<![CDATA[
+	SELECT CNO,SEQ,ID,NAME,CONTENT,TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM EVENT_COMMENTS WHERE SEQ=#{seq} ORDER BY CNO DESC
+	]]>
+	</select>
+
+	<select id="getEventComment" resultType="eventComment">
+	<![CDATA[
+	SELECT * FROM EVENT_COMMENTS WHERE CNO = #{cno}
+	]]>
+	</select>
+
+	<update id="updateEventComment">
+	<![CDATA[
+	UPDATE EVENT_COMMENTS SET REGDATE=SYSDATE, CONTENT=#{content} WHERE CNO =#{cno} 
+	]]>
+	</update>
+
+
+	<delete id="deleteEventComment">
+	<![CDATA[
+		DELETE FROM EVENT_COMMENTS WHERE CNO =#{cno} 
+	]]>
+	</delete>
+
+
+</mapper>
+  

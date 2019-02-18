@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.noticeBoard.NoticeBoardVO;
+import what.the.bus.noticeBoard.dao.NoticeBoardDAO;
 import what.the.bus.noticeBoard.dao.impl.NoticeBoardDAOImpl;
 import what.the.bus.noticeBoard.service.GetNoticeBoardListService;
 import what.the.bus.noticeComment.NoticeCommentVO;
@@ -14,7 +15,7 @@ import what.the.bus.noticeComment.NoticeCommentVO;
 public class GetNoticeBoardListSeriviceImpl implements GetNoticeBoardListService{
 
 	@Autowired
-	private NoticeBoardDAOImpl noticeBoardDAO;
+	private NoticeBoardDAO noticeBoardDAO;
 	
 	
 	
