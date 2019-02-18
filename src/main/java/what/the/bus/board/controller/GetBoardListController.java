@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import what.the.bus.admin.service.GetBestCountService;
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.comment.CommentVO;
@@ -20,7 +21,8 @@ import what.the.bus.pagination.Pagination;
 public class GetBoardListController {
 	@Autowired
 	private GetBoardListService boardService;
-
+	@Autowired
+	private GetBestCountService bestService;
 	@RequestMapping("/view/**/getBoardList.do")
 	public String getBoardList(BoardVO boardVO, CommentVO commentVO, Model model,
 			@RequestParam(defaultValue = "1") int curPage, @RequestParam(defaultValue = "") String keyword,
@@ -44,7 +46,7 @@ public class GetBoardListController {
 
 		int start = pagination.getPageBegin();
 		int end = pagination.getPageEnd();
-		
+		int bestcount = bestService.getBestCount();
 		List<BoardVO> list = boardService.getBoardList(start, end, searchOption, keyword);
 		List<Integer> commentCountList = new ArrayList<Integer>();
 		for(int i=0;i<list.size();i++) {
@@ -53,6 +55,7 @@ public class GetBoardListController {
 			commentCountList.add(i,commentCount);
 		}
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bestcount", bestcount);
 		map.put("commentCount", commentCountList);
 		map.put("list", list);
 		map.put("searchOption", searchOption);

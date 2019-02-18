@@ -23,6 +23,17 @@ public class AdminDAOImpl implements AdminDAO{
 	public List<MemberVO> getMemberList() {
 		return mybatis.selectList("AdminDAO.getMemberList");
 	}
+
+
+	@Override
+	public int getBestCount() {
+		return mybatis.selectOne("AdminDAO.getBestCount");
+	}
+
+	@Override
+	public void setBestCount(int bestCount) {
+		mybatis.update("AdminDAO.setBestCount",bestCount);
+	}
 	
 
 }

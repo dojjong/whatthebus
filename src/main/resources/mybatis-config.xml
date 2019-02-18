@@ -29,10 +29,14 @@
 			alias="lostBoard"></typeAlias>
 		<typeAlias type="what.the.bus.booking.BookingPayVO"
 			alias="bookingPay"></typeAlias>
-		<typeAlias type="what.the.bus.noticeComment.NoticeCommentVO" alias="noticeComment"></typeAlias>
+		<typeAlias type="what.the.bus.noticeComment.NoticeCommentVO"
+			alias="noticeComment"></typeAlias>
 		<typeAlias type="what.the.bus.board.ChartVO1" alias="chart1"></typeAlias>
 		<typeAlias type="what.the.bus.bookcomment.BookCommentVO"
 			alias="bookComment"></typeAlias>
+		<typeAlias type="what.the.bus.admin.AdminVO"
+			alias="admin"></typeAlias>
+		
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -62,7 +66,7 @@
 		<mapper resource="mappings/qaComment-mapping.xml" />
 		<mapper resource="mappings/lostBoard-mapping.xml" />
 		<mapper resource="mappings/bookingPay-mapping.xml" />
-		<mapper resource="mappings/noticeComment-mapping.xml"/>
-		<mapper resource="mappings/bookComment-mapping.xml"/>
+		<mapper resource="mappings/noticeComment-mapping.xml" />
+		<mapper resource="mappings/bookComment-mapping.xml" />
 	</mappers>
 </configuration>

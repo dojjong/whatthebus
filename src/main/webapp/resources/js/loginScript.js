@@ -103,5 +103,24 @@ function idCheck(id){
 	if(id==""){
 		alert("아이디를 입력해 주세요.");
 		document.ryanform.id.focus();
+		return;
 	}
+	/*
+	$.ajax({
+		type : "POST",
+		url : "loginMember.do",
+		dataType : "json",
+		data : $("#ryanform").serialize(),
+		contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+		success : function(data) {
+			if (data == "success") {
+				alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+			}
+		},
+		error : function(request, status, error) {
+			alert("잘못된 접근입니다.");
+		}
+
+	});
+*/
 }

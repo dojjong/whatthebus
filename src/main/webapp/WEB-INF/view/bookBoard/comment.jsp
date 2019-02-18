@@ -140,8 +140,7 @@
 		}
 
 		function updateComment(cno) {
-			$
-					.ajax({
+			$.ajax({
 						type : "POST",
 						url : "getBookComment.do",
 						dataType : "json",

@@ -30,7 +30,7 @@
 				+ count
 				+ ')"/>&nbsp;&nbsp;&nbsp;&nbsp;확정 경유지['
 				+ count
-				+ '] : <span name="spanMidJuso" id="spanMidJuso_'+count+'"></span><input type="hidden" name="spanMidWido" id="spanMidWido_'+count+'"><input type="hidden" name="spanMidKyungdo" id="spanMidKyungdo_'+count+'">';
+				+ '] : <span name="spanMidJuso" id="spanMidJuso_'+count+'"></span><span style="display:none;" name="spanMidWido" id="spanMidWido_'+count+'"></span><span style="display:none;" name="spanMidKyungdo" id="spanMidKyungdo_'+count+'"></span>';
 		midTimeItem.innerHTML = midtime;
 		var midTimeList = document.getElementById('midTimeDiv');
 		midTimeList.appendChild(midTimeItem);
@@ -97,9 +97,9 @@
 											while (i < getValueWido.length) {
 
 												temp1 = getValueWido[i].innerHTML;
-
+																	
 												temp2 = getValueKyungdo[i].innerHTML;
-												//alert('i='+i+'temp1='+temp1+'temp2='+temp2);
+												alert('i='+i+'temp1='+temp1+'temp2='+temp2);
 
 												document.updateSuggestForm.mid_wido.value = document.updateSuggestForm.mid_wido.value
 														+ "/" + temp1;
@@ -107,6 +107,7 @@
 														+ "/" + temp2;
 
 												i = i + 1;
+												alert("document.updateSuggestForm.mid_wido.value="+document.updateSuggestForm.mid_wido.value);
 											}
 
 											document.updateSuggestForm.action = "insertBookBoard.do";

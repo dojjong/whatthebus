@@ -112,7 +112,7 @@
 
 <li><a href="#">결제용(임시)</a>
 <li><a href="#" >(임시:결제화면)</a></li>
-  
+<li><a href="moveSetBestCount.do">게시판 추천 수 변경</a></li>
   
   </ul>
   </td>

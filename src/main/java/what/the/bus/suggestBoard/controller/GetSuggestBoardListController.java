@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import what.the.bus.admin.service.GetBestCountService;
 import what.the.bus.board.BoardVO;
 import what.the.bus.comment.CommentVO;
 import what.the.bus.pagination.Pagination;
@@ -21,7 +22,8 @@ public class GetSuggestBoardListController {
 
 	@Autowired
 	private GetSuggestBoardListService boardService;
-
+	@Autowired
+	private GetBestCountService bestService;
 	@RequestMapping("/view/**/getSuggestBoardList.do")
 	public String getSuggestBoardList(BoardVO boardVO, CommentVO commentVO, Model model,
 			@RequestParam(defaultValue = "1") int curPage, @RequestParam(defaultValue = "") String keyword,
@@ -29,8 +31,7 @@ public class GetSuggestBoardListController {
 		// boardService.getListCount();
 		boardVO.setSearchOption(searchOption);
 		boardVO.setKeyword(keyword);
-		//여기 바꿀것. (관리자에서)
-		boardVO.setBestcount(1);
+		boardVO.setBestcount(bestService.getBestCount());
 		commentVO.setBestcount(boardVO.getBestcount());
 		int listCnt = 0;
 		if (searchOption.equals("comment")) {
@@ -45,8 +46,7 @@ public class GetSuggestBoardListController {
 		Pagination pagination = new Pagination(listCnt, curPage);
 		int start = pagination.getPageBegin();
 		int end = pagination.getPageEnd();
-		//이부분도 바꿔줄것.
-		int bestcount = boardVO.getBestcount();
+		int bestcount = bestService.getBestCount();
 		List<BoardVO> list = boardService.getSuggestBoardList(start, end, searchOption, keyword, bestcount);
 		List<Integer> commentCountList = new ArrayList<Integer>();
 		for (int i = 0; i < list.size(); i++) {

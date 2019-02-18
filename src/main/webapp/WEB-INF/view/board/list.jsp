@@ -37,7 +37,7 @@
 
 			<c:forEach var="vo" items="${map.list }" varStatus="status">
 				<c:choose>
-					<c:when test="${vo.best>=1 }">
+					<c:when test="${vo.best>=map.bestcount }">
 						<tr height="30">
 							<td align="center" width="50">${vo.seq }</td>
 							<td width="550">배차대기 게시판으로 이동된 게시글입니다.&nbsp; <c:if

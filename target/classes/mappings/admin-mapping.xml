@@ -10,6 +10,15 @@
 		SELECT * FROM MEMBER ORDER BY NAME
 	]]>
 	</select>
-  
+  	<select id="getBestCount" resultType="Integer">
+  	<![CDATA[
+  	SELECT BESTCOUNT FROM ADMIN WHERE PK = 1
+  	]]>
+  	</select>
+  	<update id="setBestCount">
+  	<![CDATA[
+  	UPDATE ADMIN SET BESTCOUNT=#{bestcount} WHERE PK=1
+  	]]>
+  	</update>
   
   </mapper>
