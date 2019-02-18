@@ -58,7 +58,7 @@
 									<!--  <div class="modal-body">Modal body..</div> -->
 									<div align="center">
 										<aside id="center">
-											<form id="ryanform" method="post" action="loginMember.do">
+											<form id="ryanform" name="ryanform" method="post">
 												<svg id="ryan" viewBox="0 0 120 120"
 													xmlns="http://www.w3.org/2000/svg">
             <path d="M0,150 C0,65 120,65 120,150" fill="#e0a243"
@@ -114,8 +114,8 @@
 													</tr>
 													<!-- 로그인버튼 비번 입력 잘못했을 때 alert뜨도록 수정해야함  -->
 													<tr>
-														<td><input type="submit" value="로그인" id="login_bt"
-															onclick="idCheck(this.form.id.value)" /></td>
+														<td><input type="button" value="로그인" id="login_bt"
+															name="login_bt" onclick="idCheck(this.form.id.value)" /></td>
 													</tr>
 													<tr>
 														<td align="center"><a href="findidandpass.do"
@@ -306,8 +306,43 @@
 		naverLogin.init();
 	</script>
 	<!-- // 네이버아이디로로그인 초기화 Script -->
-
-
+	<script>
+		function idCheck(id) {
+			if (id == "") {
+				alert("아이디를 입력해 주세요.");
+				document.ryanform.id.focus();
+				return;
+			}
+			$.ajax({
+				type : "POST",
+				url : "loginMemberCheck.do",
+				data : $("#ryanform").serialize(),
+				success : function(data) {
+					if (data == "fail") {
+						alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+						return;
+					} else if (data == "success") {
+						loginCheck();
+						//window.location.replace("loginMember.do");							
+					}
+				},
+				error : function(request, status, error) {
+					alert("잘못된 접근입니다.");
+				}
+			});
+		}
+		function loginCheck() {
+			document.ryanform.action = "loginMember.do";
+			document.ryanform.submit();
+		}
+		$(document).ready(function() {
+			$("#pw").keypress(function(e) {
+				if (e.which == 13) {
+					idCheck(id); // 실행할 이벤트
+				}
+			});
+		});
+	</script>
 
 </body>
 </html>

@@ -25,10 +25,6 @@ public class InsertSuggestBoardController {
 		if(vo.getMiddate()==null) {
 			vo.setMiddate("00:00");
 		}
-		System.out.println(vo.getBus());
-		System.out.println(vo.getBest());
-		System.out.println(vo.getTotalbest());
-		System.out.println(vo.getSeq());
 		suggestBoardService.totalBestCount(vo);
 		suggestBoardService.insertSuggestBoard(vo);
 		return "redirect:getSuggestBoardList.do";

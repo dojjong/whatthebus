@@ -1,10 +1,12 @@
 package what.the.bus.member.controller;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import what.the.bus.driver.DriverVO;
@@ -21,24 +23,36 @@ public class LoginMemberController {
 	private LoginDriverService driverService;
 
 	@RequestMapping("/view/**/loginMember.do")
-	public String loginMember(MemberVO mvo,DriverVO dvo,Model model) {
+	public String loginMember(MemberVO mvo, DriverVO dvo, Model model) {
 		if (memberService.loginMember(mvo) == true) {
-			if(memberService.getMember(mvo).getStatecount()==2) {
+			if (memberService.getMember(mvo).getStatecount() == 2) {
 				return "main/withdrawMember";
 			}
 			model.addAttribute("member", memberService.getMember(mvo));
 			return "main/main";
 		} else if (driverService.loginDriver(dvo) == true) {
-			if(driverService.getDriver(dvo).getStatecount()==2) {
+			if (driverService.getDriver(dvo).getStatecount() == 2) {
 				return "main/withdrawMember";
 			}
-			if(driverService.getDriver(dvo).getStatecount()==3) {
+			if (driverService.getDriver(dvo).getStatecount() == 3) {
 				return "main/approval";
 			}
 			model.addAttribute("member", driverService.getDriver(dvo));
 			return "main/main";
 		} else {
-			return "login/loginError";
+			return "main/main";
+		}
+	}
+
+	@RequestMapping(value = "/view/**/loginMemberCheck.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String loginCheckError(MemberVO mvo, DriverVO dvo) {
+		if (memberService.loginMember(mvo) == true) {
+			return "success";
+		} else if (driverService.loginDriver(dvo) == true) {
+			return "success";
+		} else {
+			return "fail";
 		}
 	}
 }
