@@ -97,4 +97,9 @@ public class LoginMemberController {
 		model.addAttribute("member", memberService.getMember(vo));
 		return "redirect:view/main.do";
 	}
+	
+	@RequestMapping(value="/view/**/naverlogin.do")
+	public String naverLogin() {
+		return "";
+	}
 }

@@ -296,7 +296,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 				{
 					clientId : "WIH5P0pD74ERtN5bANjy",
-					callbackUrl : "http://localhost:8080/whatthebus_project/main/main.html",
+					callbackUrl : "http://localhost:8080/bus/view/naverlogin.do",
 					isPopup : true, /* 팝업을 통한 연동처리 여부 */
 					loginButton : {
 						color : "green",
