@@ -68,10 +68,10 @@
 					<td align="left"><input type="text" name="email"
 						value="${member.email}" /> <font color="red"></font>
 				<tr>
-					<td colspan="2" align="right"><input type="reset"
-						class="insertbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"
-						class="insertbt" value="수정완료" /> <input type="button"
-						class="insertbt" value="취소" onclick="" /></td>
+					<td colspan="2" align="right">
+					<input type="reset" class="insertbt" value="다시입력" />&nbsp;&nbsp; 
+					<input type="submit" class="insertbt" value="수정완료" /> 
+					<a href="memberMypage.do"><input type="button" class="insertbt" value="취소" onclick="" /></a></td>
 				</tr>
 			</table>
 		</form>

@@ -46,6 +46,7 @@ public class InsertNoticeCommentController {
 				hm.put("cno", noticeCommentVO.get(i).getCno());
 				hm.put("content", noticeCommentVO.get(i).getContent());
 				hm.put("name", noticeCommentVO.get(i).getName());
+				hm.put("regdate", noticeCommentVO.get(i).getRealregdate());
 				
 				hmlist.add(hm);
 			}
