@@ -21,13 +21,17 @@ public class MemberDAOImpl implements MemberDAO {
 		mybatis.insert("MemberDAO.insertMember", vo);
 	}
 
+	public void insertKakaoMember(MemberVO vo) {
+		mybatis.insert("MemberDAO.insertKakaoMember", vo);
+	}
+
 	public void updateMember(MemberVO vo) {
 		mybatis.update("MemberDAO.updateMember", vo);
 	}
 
 	public void deleteMember(MemberVO vo) {
 		mybatis.update("MemberDAO.deleteMember", vo);
-	
+
 	}
 
 	public MemberVO loginMember(MemberVO vo) {
@@ -46,14 +50,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public String checkEmail(String checkEmail) {
 		return mybatis.selectOne("MemberDAO.checkEmail", checkEmail);
 	}
-	
-	//01.31 추가 
+
+	// 01.31 추가
 	public String checkName(String checkName) {
 		return mybatis.selectOne("MemberDAO.checkName", checkName);
 	}
 
-
-	
-
-	
 }

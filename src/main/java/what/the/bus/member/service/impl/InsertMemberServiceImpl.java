@@ -29,6 +29,19 @@ public class InsertMemberServiceImpl implements InsertMemberService {
 	}
 
 	@Override
+	public void insertKakaoMember(MemberVO vo) {
+		// 암호화 변경 코드
+		try {
+			String shaPass = sha.getSha256(vo.getPassword().getBytes());
+			String bcPass = BCrypt.hashpw(shaPass, BCrypt.gensalt());
+			vo.setPassword(bcPass);
+			memberDAO.insertKakaoMember(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
 	public int checkMember(String checkMember) {
 		int check = memberDAO.checkMember(checkMember);
 		return check;

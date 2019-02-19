@@ -5,6 +5,8 @@ import what.the.bus.member.MemberVO;
 public interface MemberDAO {
 	void insertMember(MemberVO vo);
 
+	void insertKakaoMember(MemberVO vo);
+
 	void updateMember(MemberVO vo);
 
 	void deleteMember(MemberVO vo);
@@ -14,13 +16,9 @@ public interface MemberDAO {
 	void pwUpdateMember(MemberVO vo);
 
 	int checkMember(String checkMember);
-	
+
 	String checkEmail(String checkEmail);
-	
-	String checkName(String checkName); //01.31
-	
-	
-	
-	
+
+	String checkName(String checkName); // 01.31
 
 }

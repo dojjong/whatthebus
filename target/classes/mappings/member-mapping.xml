@@ -10,7 +10,14 @@
 		INSERT INTO
 		MEMBER(ID,PASSWORD,NAME,GENDER,TEL,TEL1,TEL2,TEL3,EMAIL)
 		VALUES (#{id},#{password},#{name},#{gender},#{tel1}||#{tel2}||#{tel3},#{tel1},#{tel2},#{tel3},#{email})
-]]>
+	]]>
+	</insert>
+	<insert id="insertKakaoMember">
+	<![CDATA[
+		INSERT INTO
+		MEMBER(ID,PASSWORD,NAME,GENDER,TEL,TEL1,TEL2,TEL3)
+		VALUES (#{id},#{password},#{name},#{gender},#{tel1}||#{tel2}||#{tel3},#{tel1},#{tel2},#{tel3})
+	]]>
 	</insert>
 
 	<!-- 로그인 -->

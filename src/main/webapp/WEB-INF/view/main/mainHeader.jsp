@@ -131,9 +131,9 @@
 													<tr>
 														<td><div align="center">
 																<a id="custom-login-btn"
-																	href="javascript:loginWithKakao()"> <img
-																	src="../resources/images/kakaologin.png" width="240"
-																	height="50" id="kakaologinbt" />
+																	href="https://kauth.kakao.com/oauth/authorize?client_id=5eefb6196059d50082978aa5c8aafd29&redirect_uri=http://localhost:8080/bus/kakaologin.do&response_type=code">
+																<img src="../resources/images/kakaologin.png"
+																	width="240" height="50" id="kakaologinbt" />
 																</a>
 															</div></td>
 													</tr>
@@ -276,8 +276,12 @@
 		function loginWithKakao() {
 			// 로그인 창을 띄웁니다.
 			Kakao.Auth.login({
-				success : function(authObj) {
-					alert(JSON.stringify(authObj));
+				url : '/v1/user/me',
+				success : function(res) {
+					//alert(JSON.stringify(authObj));
+					alert(res.properties.nickname + '님 환영합니다.');
+					location.href = "kakaologin.do?name="
+							+ res.properties.nickname;
 				},
 				fail : function(err) {
 					alert(JSON.stringify(err));
