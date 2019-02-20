@@ -7,6 +7,8 @@ public interface InsertMemberService {
 
 	void insertKakaoMember(MemberVO vo);
 
+	void insertNaverMember(MemberVO vo);
+	
 	int checkMember(String checkMember);
 
 	String checkEmail(String checkEmail);

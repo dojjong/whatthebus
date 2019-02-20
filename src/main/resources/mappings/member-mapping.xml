@@ -19,6 +19,14 @@
 		VALUES (#{id},#{password},#{name},#{gender},#{tel1}||#{tel2}||#{tel3},#{tel1},#{tel2},#{tel3})
 	]]>
 	</insert>
+	<insert id="insertNaverMember">
+	<![CDATA[
+		INSERT INTO
+		MEMBER(ID,PASSWORD,NAME,GENDER,TEL,TEL1,TEL2,TEL3)
+		VALUES (#{id},#{password},#{name},#{gender},#{tel1}||#{tel2}||#{tel3},#{tel1},#{tel2},#{tel3})
+	]]>
+	</insert>
+	
 
 	<!-- 로그인 -->
 	<select id="loginMember" resultType="member">

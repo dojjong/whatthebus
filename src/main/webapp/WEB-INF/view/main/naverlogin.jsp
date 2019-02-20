@@ -1,23 +1,35 @@
-<%@ page import="java.net.URLEncoder" %>
-<%@ page import="java.security.SecureRandom" %>
-<%@ page import="java.math.BigInteger" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <title>네이버로그인</title>
-  </head>
-  <body>
-  <%
-    String clientId = "WIH5P0pD74ERtN5bANjy";//애플리케이션 클라이언트 아이디값;
-    String redirectURI = URLEncoder.encode("http://localhost:8080/bus/view/naverlogin.do", "UTF-8");
-    SecureRandom random = new SecureRandom();
-    String state = new BigInteger(130, random).toString();
-    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-    apiURL += "&client_id=" + clientId;
-    apiURL += "&redirect_uri=" + redirectURI;
-    apiURL += "&state=" + state;
-    session.setAttribute("state", state);
- %>
-  <a href="<%=apiURL%>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
-  </body>
+<head>
+<title>LoginTest</title>
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<style type="text/css">
+html, div, body, h3 {
+	margin: 0;
+	padding: 0;
+}
+
+h3 {
+	display: inline-block;
+	padding: 0.6em;
+}
+</style>
+</head>
+<body>
+
+	<!-- 네이버 로그인 화면으로 이동 시키는 URL -->
+	<!-- 네이버 로그인 화면에서 ID, PW를 올바르게 입력하면 callback 메소드 실행 요청 -->
+	<div id="naver_id_login" class="naverLogin" style="text-align: center">
+		<a href="${url}"> <img width="223"
+			src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png" /></a>
+	</div>
+	<br>
+	
+</body>
 </html>

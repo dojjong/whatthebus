@@ -25,6 +25,10 @@ public class MemberDAOImpl implements MemberDAO {
 		mybatis.insert("MemberDAO.insertKakaoMember", vo);
 	}
 
+	public void insertNaverMember(MemberVO vo) {
+		mybatis.insert("MemberDAO.insertNaverMember", vo);
+	}
+	
 	public void updateMember(MemberVO vo) {
 		mybatis.update("MemberDAO.updateMember", vo);
 	}

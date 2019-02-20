@@ -27,6 +27,11 @@
 <script type="text/javascript"
 	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
 	charset="utf-8"></script>
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 
 </head>
@@ -132,7 +137,7 @@
 														<td><div align="center">
 																<a id="custom-login-btn"
 																	href="https://kauth.kakao.com/oauth/authorize?client_id=5eefb6196059d50082978aa5c8aafd29&redirect_uri=http://localhost:8080/bus/kakaologin.do&response_type=code">
-																<img src="../resources/images/kakaologin.png"
+																	<img src="../resources/images/kakaologin.png"
 																	width="240" height="50" id="kakaologinbt" />
 																</a>
 															</div></td>
@@ -141,7 +146,13 @@
 													<!-- 네이버 아이디로 로그인 추가버튼 -->
 													<tr>
 														<td>
-															<div id="naverIdLogin" class="naverLogin" align="center"></div>
+															<%--<div id="naver_id_login" class="naverLogin"
+																align="center">
+															
+															</div>  <a href="${naver_url}"><img height="30"
+															src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>--%>
+
+															<jsp:include page="../main/naverlogin.jsp"></jsp:include>
 														</td>
 													</tr>
 													<!-- 네이버 아이디로 로그인 추가버튼 끝-->
@@ -293,21 +304,28 @@
 	<!-- 카카오로 로그인 초기화 스크립트 끝 -->
 	<!-- 네이버아이디로로그인 초기화 Script -->
 	<script type="text/javascript">
-		var naverLogin = new naver.LoginWithNaverId(
-				{
-					clientId : "WIH5P0pD74ERtN5bANjy",
-					callbackUrl : "http://localhost:8080/bus/view/naverlogin.do",
-					isPopup : true, /* 팝업을 통한 연동처리 여부 */
-					loginButton : {
-						color : "green",
-						type : 3,
-						height : 50
-					}
-				/* 로그인 버튼의 타입을 지정 */
-				});
-
+	/*	var naver_id_login = new naver_id_login("WIH5P0pD74ERtN5bANjy",
+				"http://localhost:8080/bus/callback.do");
+		var state = naver_id_login.getUniqState();
+		naver_id_login.setButton("green", 3, 50);
+		naver_id_login.setDomain("http://localhost:8080/bus/WEB-INF/view/main/main");
+		naver_id_login.setState(state);
+		naver_id_login.setPopup();
+		naver_id_login.init_naver_id_login();
+*/
+		//	var naverLogin = new naver.LoginWithNaverId({
+		//		clientId : "WIH5P0pD74ERtN5bANjy",
+		//		callbackUrl : "http://localhost:8080/bus/callback.do",
+		//		isPopup : true, /* 팝업을 통한 연동처리 여부 */
+		//		loginButton : {
+		//			color : "green",
+		//			type : 3,
+		//			height : 50
+		//		}
+		/* 로그인 버튼의 타입을 지정 */
+		//	});
 		/* 설정정보를 초기화하고 연동을 준비 */
-		naverLogin.init();
+		//	naverLogin.init();
 	</script>
 	<!-- // 네이버아이디로로그인 초기화 Script -->
 	<script>

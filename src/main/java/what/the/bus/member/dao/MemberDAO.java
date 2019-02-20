@@ -6,6 +6,8 @@ public interface MemberDAO {
 	void insertMember(MemberVO vo);
 
 	void insertKakaoMember(MemberVO vo);
+	
+	void insertNaverMember(MemberVO vo);
 
 	void updateMember(MemberVO vo);
 

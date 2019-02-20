@@ -23,10 +23,10 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 
-	@RequestMapping("/view/**/main.do")
-	public String mainStart() {
-		return "main/main";
-	}
+	//@RequestMapping("/view/**/main.do")
+	//public String mainStart() {
+	//	return "main/main";
+	//}
 
 	// 02.04 테스트용
 	@RequestMapping("/view/**/mainfooter.do")

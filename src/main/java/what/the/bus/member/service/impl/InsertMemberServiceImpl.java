@@ -40,6 +40,18 @@ public class InsertMemberServiceImpl implements InsertMemberService {
 			e.printStackTrace();
 		}
 	}
+	@Override
+	public void insertNaverMember(MemberVO vo) {
+		// 암호화 변경 코드
+		try {
+			String shaPass = sha.getSha256(vo.getPassword().getBytes());
+			String bcPass = BCrypt.hashpw(shaPass, BCrypt.gensalt());
+			vo.setPassword(bcPass);
+			memberDAO.insertNaverMember(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public int checkMember(String checkMember) {
