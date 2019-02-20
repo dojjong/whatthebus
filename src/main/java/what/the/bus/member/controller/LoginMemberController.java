@@ -1,6 +1,10 @@
 package what.the.bus.member.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +22,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 
+import what.the.bus.board.ChartVO1;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.service.LoginDriverService;
+import what.the.bus.member.ChartVO2;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.service.InsertMemberService;
 import what.the.bus.member.service.LoginMemberService;
@@ -158,6 +164,7 @@ public class LoginMemberController {
 		model.addAttribute("member", memberService.getMember(vo));
 		return "main/main";
 	}
+
 	@RequestMapping(value = "insertNaverMember.do", method = RequestMethod.POST)
 	public String insertNaverMember(MemberVO vo, Model model) {
 
@@ -166,4 +173,28 @@ public class LoginMemberController {
 		model.addAttribute("member", memberService.getMember(vo));
 		return "redirect:view/main.do";
 	}
+
+	@RequestMapping(value = "/view/**/getMemberCountPerRegdateJson.do", produces = "application/json")
+	@ResponseBody
+	public List<ChartVO2> getMemberCountPerRegdateJson() throws Exception {
+		System.out.println("ddd");
+		List<ChartVO1> imsiList = memberService.getMemberCountPerRegdateJson();
+
+		System.out.println(imsiList.size());
+		List<ChartVO2> list = new ArrayList<ChartVO2>();
+
+		ChartVO2 vo = null;
+		for (int i = 0; i < imsiList.size(); i++) {
+
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+			Date date1 = (Date) simpleDateFormat.parse(imsiList.get(i).getCondition());
+
+			vo = new ChartVO2(new Date(date1.getTime()), imsiList.get(i).getCount());
+			System.out.println("toString:" + vo.getDateValue().toString());
+			System.out.println("vo2:" + vo.getDateValue() + "/" + vo.getCount());
+			list.add(vo);
+		}
+		return list;
+	}	
 }

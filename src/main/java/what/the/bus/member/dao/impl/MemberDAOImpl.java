@@ -1,9 +1,12 @@
 package what.the.bus.member.dao.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.board.ChartVO1;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.MemberDAO;
 import what.the.bus.util.SqlSessionFactoryBean;
@@ -58,6 +61,11 @@ public class MemberDAOImpl implements MemberDAO {
 	// 01.31 추가
 	public String checkName(String checkName) {
 		return mybatis.selectOne("MemberDAO.checkName", checkName);
+	}
+	
+	@Override
+	public List<ChartVO1> getMemberCountPerRegdateJson() {
+		return mybatis.selectList("MemberDAO.getMemberCountPerRegdateJson");
 	}
 
 }

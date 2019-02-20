@@ -88,4 +88,11 @@
 
 	<!-- 비밀번호찾기 -->
 
+
+	<!-- 가입일 별 멤버의 수 가져오기 -->
+	<select id="getMemberCountPerRegdateJson" resultType="chart1">
+	<![CDATA[ 
+	SELECT CONDITION, COUNT(*)"count" FROM (SELECT TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM MEMBER) GROUP BY CONDITION ORDER BY CONDITION ASC	
+	]]>
+	</select>
 </mapper>

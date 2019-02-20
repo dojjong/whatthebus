@@ -1,8 +1,11 @@
 package what.the.bus.member.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import what.the.bus.board.ChartVO1;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.impl.MemberDAOImpl;
 import what.the.bus.member.service.LoginMemberService;
@@ -36,4 +39,9 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 	public MemberVO getMember(MemberVO vo) {
 		return memberDAO.loginMember(vo);
 	}
+	@Override
+	public List<ChartVO1> getMemberCountPerRegdateJson() {
+		return memberDAO.getMemberCountPerRegdateJson();
+	}
+
 }

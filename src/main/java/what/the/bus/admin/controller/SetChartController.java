@@ -18,16 +18,4 @@ public class SetChartController {
 		
 		return "admin/admin_chartMenu";
 	}
-	
-	@RequestMapping("/view/**/getAdminChart1.do")
-	public String getAdminChart1(Model model) {
-		
-		return "admin/admin_chart1";
-	}
-	
-	@RequestMapping("/view/**/getAdminChart2.do")
-	public String getAdminChart2(Model model) {
-		
-		return "admin/admin_chart2";
-	}
 }

@@ -33,4 +33,5 @@ public interface BoardDAO {
 	int getCommentCount(int seq);
 	
 	List<ChartVO1> getBoardCountPerRegdate();
+	
 }

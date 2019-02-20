@@ -83,8 +83,8 @@ li a:hover {
 		<nav>
 			<ul style="list-style-type: none;" id="mypageul">
 				<li><a href="#">통계</a></li>
-				<li><a href="#" id="p3">- 차트(임시)</a></li>
-				<li><a href="#">- 보고서(임시)</a></li>
+				<li><a id="p3">- 차트(임시)</a></li>
+				<li><a id="p5">- 보고서(임시)</a></li>
 				<li><a href="#">- 지도(임시)</a></li>
 				<li><a href="#">회원관리</a></li>
 				<li><a href="#" id="p1">- 전체회원목록</a></li>
@@ -92,7 +92,7 @@ li a:hover {
 				<li><a href="#">결제</a></li>
 				<li><a href="#">- 결제화면</a></li>
 				<li><a href="#" id="p4">게시판 추천수 변경</a></li>
-				<li><a href="#">임시</a></li>
+				<li><a href="report1.do">임시</a></li>
 				<li><a href="#">임시</a></li>
 			</ul>
 		</nav>
@@ -144,6 +144,14 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#p4").click(function() {
 		$("#result").load("moveSetBestCount.do");
+		
+	});
+	
+});
+
+$(document).ready(function(){
+	$("#p5").click(function() {
+		$("#result").load("getAdminReportMenu.do");
 		
 	});
 	
