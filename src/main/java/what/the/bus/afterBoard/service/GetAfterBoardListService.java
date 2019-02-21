@@ -19,5 +19,5 @@ public interface GetAfterBoardListService {
 	public Integer countAfterBoardList_writer(String keyword) throws Exception;
 	public Integer countAfterBoardList_title_content(String keyword) throws Exception;
 	
-	
+	public List<AfterBoardVO> getAfterBoardListAll() throws Exception;
 }

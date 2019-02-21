@@ -19,6 +19,9 @@
 	<context:component-scan
 		base-package="what.the.bus"></context:component-scan>
 	<mvc:annotation-driven></mvc:annotation-driven>
-	
-
+	<!-- <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"> 
+		<property name="defaultContentType" value="TEXT_HTML"/> <property name="parameterName" 
+		value="type"/> <property name="favorParameter" value="true"/> <property name="ignoreUnknownPathExtensions" 
+		value="false"/> <property name="ignoreAcceptHeader" value="false"/> <property 
+		name="useJaf" value="true"/> </bean> -->
 </beans>

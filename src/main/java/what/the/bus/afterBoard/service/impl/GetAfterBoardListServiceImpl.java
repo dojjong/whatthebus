@@ -54,4 +54,10 @@ public class GetAfterBoardListServiceImpl implements GetAfterBoardListService{
 	public Integer countAfterBoardList_title_content(String keyword) throws Exception {
 		return afterBoardDAO.countAfterBoardList_title_content(keyword);
 	}
+
+	@Override
+	public List<AfterBoardVO> getAfterBoardListAll() throws Exception {
+		
+		return afterBoardDAO.getAfterBoardListAll();
+	}
 }

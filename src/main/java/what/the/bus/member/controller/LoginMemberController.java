@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 
+import what.the.bus.admin.AdminVO;
+import what.the.bus.admin.service.GetBannerListService;
 import what.the.bus.board.ChartVO1;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.service.LoginDriverService;
@@ -42,6 +44,10 @@ public class LoginMemberController {
 	private LoginDriverService driverService;
 	@Autowired
 	private InsertMemberService insertMemberService;
+	@Autowired
+	private GetBannerListService getBannerListService;
+	
+	
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 	private String apiResult = null;
@@ -122,7 +128,7 @@ public class LoginMemberController {
 	@RequestMapping(value = "/view/**/main.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(Model model, HttpSession session) {
 
-		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
+		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */	
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
 
 		// https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=sE***************&
@@ -132,6 +138,11 @@ public class LoginMemberController {
 		// 네이버
 		model.addAttribute("url", naverAuthUrl);
 
+		// 배너
+		List<AdminVO> list = getBannerListService.getBannerList();
+		System.out.println("main컨트롤러에서 list = "+list.size());
+		model.addAttribute("list", list);
+		
 		/* 생성한 인증 URL을 View로 전달 */
 		return "main/main";
 	}
@@ -177,10 +188,10 @@ public class LoginMemberController {
 	@RequestMapping(value = "/view/**/getMemberCountPerRegdateJson.do", produces = "application/json")
 	@ResponseBody
 	public List<ChartVO2> getMemberCountPerRegdateJson() throws Exception {
-		System.out.println("ddd");
+
 		List<ChartVO1> imsiList = memberService.getMemberCountPerRegdateJson();
 
-		System.out.println(imsiList.size());
+		
 		List<ChartVO2> list = new ArrayList<ChartVO2>();
 
 		ChartVO2 vo = null;
@@ -191,8 +202,7 @@ public class LoginMemberController {
 			Date date1 = (Date) simpleDateFormat.parse(imsiList.get(i).getCondition());
 
 			vo = new ChartVO2(new Date(date1.getTime()), imsiList.get(i).getCount());
-			System.out.println("toString:" + vo.getDateValue().toString());
-			System.out.println("vo2:" + vo.getDateValue() + "/" + vo.getCount());
+			
 			list.add(vo);
 		}
 		return list;

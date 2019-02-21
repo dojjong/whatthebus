@@ -9,6 +9,14 @@
 		INSERT INTO AFTERBOARD(SEQ,ID,NAME,TITLE,CONTENT) VALUES(afterboard_seq.nextval,#{id},#{name},#{title},#{content})
 		]]>
 	</insert>
+	
+	<!-- 글목록 가져오기(페이징없이) -->
+	<select id="getAfterBoardListAll" resultType="afterBoard">
+		 
+		<![CDATA[ SELECT SEQ,ID,NAME,TITLE,CONTENT FROM AFTERBOARD ORDER BY SEQ DESC, REGDATE DESC]]>
+		
+
+	</select>
 
 	<!-- 글목록 가져오기 -->
 	<select id="getAfterBoardList" resultType="afterBoard">

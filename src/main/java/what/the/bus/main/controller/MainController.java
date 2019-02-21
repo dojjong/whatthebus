@@ -1,5 +1,6 @@
 package what.the.bus.main.controller;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import what.the.bus.admin.AdminVO;
+import what.the.bus.admin.service.GetBannerListService;
 import what.the.bus.mail.service.MailService;
 import what.the.bus.main.service.MainService;
 import what.the.bus.member.MemberVO;
@@ -22,9 +25,11 @@ public class MainController {
 	private MailService mailService;
 	@Autowired
 	private MainService mainService;
+	
 
 	//@RequestMapping("/view/**/main.do")
-	//public String mainStart() {
+	//public String mainStart(Model model) {
+		
 	//	return "main/main";
 	//}
 

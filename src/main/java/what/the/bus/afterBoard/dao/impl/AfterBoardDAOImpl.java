@@ -101,5 +101,10 @@ public class AfterBoardDAOImpl implements AfterBoardDAO{
 		return mybatis.selectOne("AfterBoardDAO.countAfterBoardList_title_content", keyword);
 	}
 
+	@Override
+	public List<AfterBoardVO> getAfterBoardListAll() throws Exception {
+		return mybatis.selectList("AfterBoardDAO.getAfterBoardListAll");
+	}
+
 	
 }

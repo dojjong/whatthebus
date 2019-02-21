@@ -34,7 +34,7 @@ public class MyWebConfig extends WebMvcConfigurerAdapter  {
         return view;
     }
     
-    @Bean
+    @Bean("xlsView")
     public View xlsView() {
     	XlsView view = new XlsView();
         return view;

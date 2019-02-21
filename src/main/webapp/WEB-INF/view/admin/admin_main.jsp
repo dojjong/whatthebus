@@ -152,7 +152,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	$("#p5").click(function() {
-		$("#result").load("getAdminReportMenu.do");
+		$("#result").load("afterBoardListReport_jsp.do");
 		
 	});
 	

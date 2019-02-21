@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
 
 <link href="../resources/css/mainStyle.css" rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -57,9 +59,22 @@
 
 
 
-<jsp:include page="../main/main_banner_center.jsp"></jsp:include>
+
+<c:forEach var="vo" items="${list }">
+	 <span id="listSpan" name="listSpan" style="display:none;">${vo.bannername }</span>
+</c:forEach>
 
 
+
+
+<div align="center">
+
+<div id="arrayBanner"></div>
+
+<br>
+  
+
+</div>
 
 
 
@@ -67,7 +82,9 @@
 <!-- 테이블 -->
 	<div align="center">
 	
-	
+	<div>
+		<img src="../resources/images/129603e0-a560-4524-b662-e33bfe2e30cb_bus.png" style="width:80%">
+	</div>
 
 	
 	
@@ -112,7 +129,28 @@
 
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 	
-	
+<script>
+window.onload  = function() {
+	 
+	 var list = document.getElementsByName("listSpan");
+	 var value=[];
+	 for( var i = 0; i < list.length; i++ ){
+		// alert(list[i].innerHTML);
+		 var jbSplit = list[i].innerHTML.split('/');
+	      for ( var k in jbSplit ) {
+	       value[i] = jbSplit[k];
+	      }
+	      
+		    
+	}
+	 document.getElementById('arrayBanner').innerHTML="";
+	 for(var j=0; j<value.length;j++){
+		 alert(value[j]);
+	 	document.getElementById('arrayBanner').innerHTML +="<div class='mySlides fade'><img src='../resources/images/"+value[j]+"' style='width:80%'></div>";
+	 }
+}
+ </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	
 	
 

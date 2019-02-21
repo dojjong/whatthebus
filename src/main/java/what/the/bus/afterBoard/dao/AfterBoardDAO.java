@@ -11,6 +11,7 @@ public interface AfterBoardDAO {
 	public void updateAfterBoard(AfterBoardVO vo) throws Exception;
 	public void deleteAfterBoard(int seq) throws Exception;
 	
+	public List<AfterBoardVO> getAfterBoardListAll() throws Exception;
 	public List<AfterBoardVO> getAfterBoardList(int start, int end) throws Exception;
 	public List<AfterBoardVO> getAfterBoardList_title(int start, int end, String keyword) throws Exception;
 	public List<AfterBoardVO> getAfterBoardList_writer(int start, int end, String keyword) throws Exception;
