@@ -34,4 +34,20 @@
   	UPDATE DRIVER SET STATECOUNT = 1 WHERE ID =#{id}
   	]]>
 	</update>
+	
+	<!-- 배너이미지 업로드 -->
+	<insert id="insertBanner">
+	<![CDATA[
+		INSERT INTO
+		ADMIN_BANNER(BANNERNAME)VALUES(#{bannername, jdbcType=VARCHAR})
+		]]>
+	</insert>
+	
+	<select id="getBannerList" resultType="admin">
+	<![CDATA[
+		SELECT * FROM ADMIN_BANNER ORDER BY BANNERNAME
+	]]>
+	</select>
+	
+	
 </mapper>

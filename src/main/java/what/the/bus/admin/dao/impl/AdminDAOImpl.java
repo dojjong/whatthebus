@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.admin.AdminVO;
 import what.the.bus.admin.dao.AdminDAO;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.member.MemberVO;
@@ -36,6 +37,17 @@ public class AdminDAOImpl implements AdminDAO{
 	@Override
 	public void setStateCount(String id) {
 		mybatis.update("AdminDAO.setStateCount",id);
+	}
+
+	@Override
+	public void insertBanner(AdminVO vo) {
+		mybatis.insert("AdminDAO.insertBanner", vo);
+		
+	}
+
+	@Override
+	public List<AdminVO> getBannerList() {
+		return mybatis.selectList("AdminDAO.getBannerList");
 	}
 
 }

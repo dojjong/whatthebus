@@ -12,10 +12,7 @@
 <body>
 	<h2>회원목록</h2>
 
-	<div>
-		<a href="getMemberList.do">회원 관리</a>
 
-	</div>
 
 	<table border="1" width="700px">
 

@@ -94,6 +94,7 @@ li a:hover {
 				<li><a href="#" id="p4">게시판 추천수 변경</a></li>
 				<li><a href="report1.do">임시</a></li>
 				<li><a href="#">임시</a></li>
+				<li><a href="#" id="p6">메인센터배너변경</a></li>
 			</ul>
 		</nav>
 	</aside>
@@ -152,6 +153,14 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#p5").click(function() {
 		$("#result").load("getAdminReportMenu.do");
+		
+	});
+	
+});
+
+$(document).ready(function(){
+	$("#p6").click(function() {
+		$("#result").load("admin_banner.do");
 		
 	});
 	

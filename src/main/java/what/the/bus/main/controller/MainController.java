@@ -66,6 +66,10 @@ public class MainController {
 		return "main/termsAndConditions";
 	}
 
+
+	
+	
+	
 	// 아이디찾기
 	@RequestMapping(value = "/view/**/sendFindId.do", method = RequestMethod.POST)
 	public String sendId(MemberVO vo, @RequestParam String email) {
