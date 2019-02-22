@@ -4,10 +4,23 @@
 
 <mapper namespace="AdminDAO">
 
-	<!-- 회원목록 list 02.07 -->
+	<!-- 회원,기사 전체목록 list 02.07 -->
+	<select id="getAllMemberList" resultType="member">
+	<![CDATA[
+		SELECT * FROM (SELECT * FROM MEMBER UNION 
+		SELECT * FROM DRIVER) ORDER BY NAME
+	]]>
+	</select>
+	<!-- 회원 목록 -->
 	<select id="getMemberList" resultType="member">
 	<![CDATA[
 		SELECT * FROM MEMBER ORDER BY NAME
+	]]>
+	</select>
+	<!-- 기사 목록 -->
+	<select id="getDriverList" resultType="driver">
+	<![CDATA[
+		SELECT * FROM DRIVER ORDER BY NAME
 	]]>
 	</select>
 	<!-- 기사 가입승인대기목록 -->
@@ -34,20 +47,32 @@
   	UPDATE DRIVER SET STATECOUNT = 1 WHERE ID =#{id}
   	]]>
 	</update>
-	
+	<!-- 회원 추방 처리 -->
+	<update id="expulsionMember">
+	<![CDATA[
+	UPDATE MEMBER SET STATECOUNT = 2 WHERE ID =#{id}
+	]]>
+	</update>
+	<!-- 기사 추방 처리 -->
+	<update id="expulsionDriver">
+	<![CDATA[
+	UPDATE DRIVER SET STATECOUNT = 2 WHERE ID =#{id}
+	]]>
+	</update>
+
 	<!-- 배너이미지 업로드 -->
 	<insert id="insertBanner">
 	<![CDATA[
 		INSERT INTO
-		ADMIN_BANNER(BANNERNAME)VALUES(#{bannername, jdbcType=VARCHAR})
+		ADMIN_BANNER(BANNERNAME)VALUES(#{bannername})
 		]]>
 	</insert>
-	
+
 	<select id="getBannerList" resultType="admin">
 	<![CDATA[
 		SELECT * FROM ADMIN_BANNER ORDER BY BANNERNAME
 	]]>
 	</select>
-	
-	
+
+
 </mapper>

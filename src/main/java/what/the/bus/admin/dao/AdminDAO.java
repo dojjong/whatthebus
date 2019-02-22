@@ -7,7 +7,7 @@ import what.the.bus.driver.DriverVO;
 import what.the.bus.member.MemberVO;
 
 public interface AdminDAO {
-	List<MemberVO> getMemberList(); // 02.07
+	List<MemberVO> getAllMemberList(); // 02.07
 
 	int getBestCount();
 
@@ -16,8 +16,16 @@ public interface AdminDAO {
 	List<DriverVO> getApprovalDriverList();
 
 	void setStateCount(String id);
-	
+
 	void insertBanner(AdminVO vo);
-	
-	List<AdminVO> getBannerList(); //02.21
+
+	List<AdminVO> getBannerList(); // 02.21
+
+	List<MemberVO> getMemberList();
+
+	List<DriverVO> getDriverList();
+
+	void expulsionMember(String id);
+
+	void expulsionDriver(String id);
 }

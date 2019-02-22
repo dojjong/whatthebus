@@ -26,7 +26,7 @@ public class InsertDriverController {
 
 		String resource = "/fileUpload.properties";
 		Properties properties = new Properties();
-
+		
 		MultipartFile uploadFile = vo.getUploadFile();
 		UUID uuid = UUID.randomUUID();
 		try {
