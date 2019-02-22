@@ -57,7 +57,9 @@
 			<tr>
 				<td align="right">
 					<form name="form" action="writeNoticeBoard.do" method="POST">
-						<input type="hidden" id="member" value="${member }"><input type="button" id="writebt" value="글쓰기">
+						<input type="hidden" id="member" value="${member }">
+						<c:if
+							test="${member.statecount==4 }"><input type="button" id="writebt" value="글쓰기"></c:if>
 					</form>
 					
 					<div align="center">

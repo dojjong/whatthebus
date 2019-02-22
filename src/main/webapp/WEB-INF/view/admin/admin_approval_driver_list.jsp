@@ -24,10 +24,13 @@
 			<th>License</th>
 			<th>승인</th>
 		</tr>
-
+		<c:if test="${empty list}">
+		<tr><td colspan="8">가입승인 대기중인 기사님이 없습니다.</td></tr>
+		</c:if>
 		<c:forEach var="row" items="${list }">
 			<tr>
 				<td>${row.id }</td>
+				
 				<td>${row.name }</td>
 				<td>${row.gender }</td>
 				<td>${row.tel }</td>
@@ -44,10 +47,31 @@
 	
 <script>
 function setStateCount(id){
-	alert("승인되었습니다.");
+	
 	document.updateDriverForm.id.value=id;
-	document.updateDriverForm.action = "setStateCount.do?id="+id;
-	document.updateDriverForm.submit();
+	//document.updateDriverForm.action = "setStateCount.do?id="+id;
+	//document.updateDriverForm.submit();
+	
+	//document.updateDriverForm.action = "moveApprovalDriverList.do";
+	//document.updateDriverForm.submit();
+	$.ajax({
+		type : "POST",
+		url : "setStateCount.do",
+		data :{"id" : id},
+		success : function(data) {
+			if (data == "success") {
+				alert("승인되었습니다.");
+				//document.updateDriverForm.action = "refreshApprovalDriverList.do";
+				//document.updateDriverForm.submit();
+				$("#result").load("moveApprovalDriverList.do");
+				return;
+			}
+		},
+		error : function(request, status, error) {
+			alert("잘못된 접근입니다.");
+		}
+
+	});
 }
 	
 

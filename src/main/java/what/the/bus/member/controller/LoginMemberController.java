@@ -173,7 +173,7 @@ public class LoginMemberController {
 			return "member/insertNaverMember";
 		}
 		model.addAttribute("member", memberService.getMember(vo));
-		return "main/main";
+		return "redirect:view/main.do";
 	}
 
 	@RequestMapping(value = "insertNaverMember.do", method = RequestMethod.POST)
