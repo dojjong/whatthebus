@@ -51,4 +51,19 @@ public class GetMemberListServiceImpl implements GetMemberListService {
 		return adminDAO.getExpulstionDriver(id);
 	}
 
+	@Override
+	public void returnMember(String id) {
+		adminDAO.returnMember(id);
+	}
+
+	@Override
+	public void returnDriver(String id) {
+		adminDAO.returnDriver(id);
+	}
+
+	@Override
+	public List<MemberVO> searchMember(String searchOption, String keyword) {
+		return adminDAO.searchMember(searchOption, keyword);
+	}
+
 }

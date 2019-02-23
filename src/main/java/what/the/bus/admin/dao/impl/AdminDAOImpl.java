@@ -1,6 +1,8 @@
 package what.the.bus.admin.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +82,24 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public int getExpulstionDriver(String id) {
 		return mybatis.selectOne("AdminDAO.getExpulstionDriver", id);
+	}
+
+	@Override
+	public void returnMember(String id) {
+		mybatis.update("AdminDAO.returnMember", id);
+	}
+
+	@Override
+	public void returnDriver(String id) {
+		mybatis.update("AdminDAO.returnDriver", id);
+	}
+
+	@Override
+	public List<MemberVO> searchMember(String searchOption, String keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		return mybatis.selectList("AdminDAO.searchMember", map);
 	}
 
 }

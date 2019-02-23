@@ -32,4 +32,10 @@ public interface AdminDAO {
 	int getExpulstionMember(String id);
 
 	int getExpulstionDriver(String id);
+
+	void returnMember(String id);
+
+	void returnDriver(String id);
+
+	List<MemberVO> searchMember(String searchOption,String keyword);
 }

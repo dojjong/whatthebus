@@ -20,4 +20,9 @@ public interface GetMemberListService {
 
 	int getExpulstionDriver(String id);
 
+	void returnMember(String id);
+
+	void returnDriver(String id);
+
+	List<MemberVO> searchMember(String searchOption, String keyword);
 }

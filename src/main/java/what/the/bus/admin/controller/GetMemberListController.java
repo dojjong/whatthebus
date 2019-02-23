@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +20,9 @@ public class GetMemberListController {
 	@Autowired
 	private GetMemberListService getMemberListService;
 
+	
+	private String fullSearchOption = "all";
+	private String fullKeyword = "";
 	@RequestMapping("/view/**/getAllMemberList.do")
 	public String getAllMemberList(Model model) {
 		List<MemberVO> list = getMemberListService.getAllMemberList();
@@ -64,4 +68,46 @@ public class GetMemberListController {
 		getMemberListService.expulsionDriver(id);
 		return "success";
 	}
+
+	@RequestMapping("/view/**/allReturnMember.do")
+	@ResponseBody
+	public String allReturnMember(@RequestParam String id) {
+		if (getMemberListService.getExpulstionMember(id) >= 1) {
+			getMemberListService.returnMember(id);
+		} else if (getMemberListService.getExpulstionDriver(id) >= 1) {
+			getMemberListService.returnDriver(id);
+		}
+		return "success";
+	}
+
+	@RequestMapping("/view/**/returnMember.do")
+	@ResponseBody
+	public String returnMember(@RequestParam String id) {
+		getMemberListService.returnMember(id);
+		return "success";
+	}
+
+	@RequestMapping("/view/**/returnDriver.do")
+	@ResponseBody
+	public String returnDriver(@RequestParam String id) {
+		getMemberListService.returnDriver(id);
+		return "success";
+	}
+
+	@RequestMapping("/view/**/searchMember.do")
+	@ResponseBody
+	public String searchMember(@RequestParam(defaultValue = "all") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, Model model) {
+		fullSearchOption = searchOption;
+		fullKeyword = keyword;
+		return "success";
+	}
+
+	@RequestMapping("/view/**/returnSearchMember.do")
+	public String returnSearchMember(Model model) {
+		List<MemberVO> list = getMemberListService.searchMember(fullSearchOption, fullKeyword);
+		model.addAttribute("list", list);
+		return "admin/admin_all_member_list";
+	}
+
 }

@@ -14,6 +14,17 @@
 </head>
 <body>
 	<h2>전체회원목록</h2>
+	<form id="searchMemberForm" name="searchMemberForm">
+		<select id="searchOption" name="searchOption">
+			<option value="all">전체검색</option>
+			<option value="id">ID로 검색</option>
+			<option value="name">이름으로 검색</option>
+			<option value="tel">전화번호로 검색</option>
+			<option value="email">이메일로 검색</option>
+		</select> <input name="keyword" id="keyword" value=""> <input
+			type="button" id="searchButton" name="searchButton"
+			class="btn btn-default" value="검색" />
+	</form>
 	<table border="1" width="700px">
 		<tr>
 			<th>아이디</th>
@@ -45,38 +56,91 @@
 				</c:if> <c:if test="${row.statecount==4 }">
 				관리자
 				</c:if></td>
-				<td><input type="button" id="expulsionbt" value="제명"
-					onclick="expulsionMember('${row.id}')"></td>
+				<td><c:if test="${row.statecount!=2 }">
+						<input type="button" id="expulsionbt" value="제명"
+							onclick="expulsionMember('${row.id}')">
+					</c:if> <c:if test="${row.statecount==2 }">
+						<input type="button" id="expulsionbt" value="ID복구"
+							onclick="returnMember('${row.id}')">
+					</c:if></td>
 			</tr>
 		</c:forEach>
 
 	</table>
 	<script>
-	
-	function expulsionMember(mid){
-		var id = String(mid);
-	var test=confirm("정말 추방하시겠습니까 ? ");
-	if(test==true){
-	$.ajax({
-		type : "POST",
-		url : "allExpulstionMember.do",
-		data :{"id" : id},
-		success : function(data) {
-			if (data == "success") {
-				alert("제명되었습니다.");
-				//document.updateDriverForm.action = "refreshApprovalDriverList.do";
-				//document.updateDriverForm.submit();
-				$("#result").load("getAllMemberList.do");
-				return;
+		function expulsionMember(mid) {
+			var id = String(mid);
+			var test = confirm("정말 추방하시겠습니까 ? ");
+			if (test == true) {
+				$.ajax({
+					type : "POST",
+					url : "allExpulstionMember.do",
+					data : {
+						"id" : id
+					},
+					success : function(data) {
+						if (data == "success") {
+							alert("제명되었습니다.");
+							//document.updateDriverForm.action = "refreshApprovalDriverList.do";
+							//document.updateDriverForm.submit();
+							$("#result").load("getAllMemberList.do");
+							return;
+						}
+					},
+					error : function(request, status, error) {
+						alert("잘못된 접근입니다.");
+					}
+				});
 			}
-		},
-		error : function(request, status, error) {
-			alert("잘못된 접근입니다.");
 		}
-	});
-	}
-}
-	
+
+		function returnMember(mid) {
+			var id = String(mid);
+			var test = confirm("정말 복구하시겠습니까 ? ");
+			if (test == true) {
+				$.ajax({
+					type : "POST",
+					url : "allReturnMember.do",
+					data : {
+						"id" : id
+					},
+					success : function(data) {
+						if (data == "success") {
+							alert("복구되었습니다.");
+							//document.updateDriverForm.action = "refreshApprovalDriverList.do";
+							//document.updateDriverForm.submit();
+							$("#result").load("getAllMemberList.do");
+							return;
+						}
+					},
+					error : function(request, status, error) {
+						alert("잘못된 접근입니다.");
+					}
+				});
+			}
+		}
+
+		$("#searchButton").click(function() {
+			var keyword = $("#keyword").val();
+			var searchOption = $("#searchOption").val();
+			$.ajax({
+				type : "POST",
+				url : "searchMember.do",
+				data : {
+					"keyword" : keyword,
+					"searchOption" : searchOption
+				},
+				success : function(data) {
+					if (data == "success") {
+						$("#result").load("returnSearchMember.do");
+						return;
+					}
+				},
+				error : function(request, status, error) {
+					alert("잘못된 접근입니다.");
+				}
+			});
+		});
 	</script>
 
 </body>
