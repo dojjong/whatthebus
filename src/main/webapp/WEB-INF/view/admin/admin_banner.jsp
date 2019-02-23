@@ -27,8 +27,9 @@
 		<table>
 			<tr>
 				<td>배너등록</td>
-				<td><%-- <input type="file" id="uploadBanner" name="uploadBanner">--%></td>
-				<td><input type="submit" id="registBt" value="등록" /></td>
+				<td><input type="file" id="uploadBanner" name="uploadBanner"></td>
+				<td><input type="button" id="registBt" value="등록"
+					onclick="insertBanner()" /></td>
 			</tr>
 		</table>
 	</form>
@@ -57,47 +58,21 @@
 
 
 	<script>
-		//function insertBanner() {
-			//alert(document.form.uploadBanner.value);
-			//var form = $('#bannerForm')[0];
-			//var formData = new FormData(form);
-			//formData.append("fileObj", $("#uploadBanner")[0].files[0]);
-			//$('#ajaxform').ajaxForm({
-				//보내기전 validation check가 필요할경우 beforeSubmit: 
-				//function (data, frm, opt) { alert("전송전!!"); return true; }, 
-				//submit이후의 처리 
-			//	success : function(responseText, statusText) {
-			//		alert("전송성공!!");
-			//	},
-				//ajax error 
-			//	error : function() {
-			//		alert("에러발생!!");
-			//	}
-			//});
-
-			//var uploadBanner;
-			//alert("var:" + uploadBanner);
-			//document.form.uploadBanner.value = uploadBanner;
-			//alert("var2:"+uploadBanner);
-			/*alert("얼럿 : " + formData);
+		function insertBanner() {
+			var formData = new FormData($('#ajaxForm')[0]);
 			$.ajax({
-				type : "POST",
-				url : "insertBanner.do",
-				data : formData,
-				success : function(data) {
-					if (data == "success") {
-						alert("등록되었습니다.");
-						//document.updateDriverForm.action = "refreshApprovalDriverList.do";
-						//document.updateDriverForm.submit();
-						$("#result").load("getBannerList.do");
-						return;
-					}
-				},
-				error : function(request, status, error) {
-					alert("잘못된 접근입니다.");
+				url: 'insertBanner.do',
+				processData: false,
+				contentType: false,
+				data: formData,
+				type: 'POST',
+				success: function(msg){
+					alert("등록되었습니다.");
+					$("#result").load("admin_banner.do");
 				}
-			});*/
-	//	}
+			});
+		}
+			
 	</script>
 
 
