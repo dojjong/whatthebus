@@ -47,6 +47,17 @@
   	UPDATE DRIVER SET STATECOUNT = 1 WHERE ID =#{id}
   	]]>
 	</update>
+	<!-- 급해서 무식한방법의 전체회원화면에서 추방처리 -->
+	<select id="getExpulstionMember" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM MEMBER WHERE ID =#{id}
+	]]>
+	</select>
+	<select id="getExpulstionDriver" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM Driver WHERE ID =#{id}
+	]]>
+	</select>
 	<!-- 회원 추방 처리 -->
 	<update id="expulsionMember">
 	<![CDATA[

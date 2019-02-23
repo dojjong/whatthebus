@@ -16,4 +16,8 @@ public interface GetMemberListService {
 
 	void expulsionMember(String id);
 
+	int getExpulstionMember(String id);
+
+	int getExpulstionDriver(String id);
+
 }

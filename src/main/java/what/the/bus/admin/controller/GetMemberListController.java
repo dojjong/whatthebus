@@ -40,6 +40,16 @@ public class GetMemberListController {
 		return "admin/admin_driver_list";
 	}
 
+	@RequestMapping("/view/**/allExpulstionMember.do")
+	public String allExpulstionMember(@RequestParam String id) {
+		if (getMemberListService.getExpulstionMember(id) >= 1) {
+			getMemberListService.expulsionMember(id);
+		} else if (getMemberListService.getExpulstionDriver(id) >= 1) {
+			getMemberListService.expulsionDriver(id);
+		}
+		return "success";
+	}
+
 	@RequestMapping("/view/**/expulsionMember.do")
 	public String expulsionMember(@RequestParam String id) {
 		getMemberListService.expulsionMember(id);

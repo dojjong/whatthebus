@@ -64,12 +64,22 @@ public class AdminDAOImpl implements AdminDAO {
 
 	@Override
 	public void expulsionMember(String id) {
-		mybatis.update("AdminDAO.expulsionMember",id);
+		mybatis.update("AdminDAO.expulsionMember", id);
 	}
 
 	@Override
 	public void expulsionDriver(String id) {
-		mybatis.update("AdminDAO.expulsionDriver",id);
+		mybatis.update("AdminDAO.expulsionDriver", id);
+	}
+
+	@Override
+	public int getExpulstionMember(String id) {
+		return mybatis.selectOne("AdminDAO.getExpulstionMember", id);
+	}
+
+	@Override
+	public int getExpulstionDriver(String id) {
+		return mybatis.selectOne("AdminDAO.getExpulstionDriver", id);
 	}
 
 }

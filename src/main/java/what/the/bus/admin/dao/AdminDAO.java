@@ -28,4 +28,8 @@ public interface AdminDAO {
 	void expulsionMember(String id);
 
 	void expulsionDriver(String id);
+
+	int getExpulstionMember(String id);
+
+	int getExpulstionDriver(String id);
 }

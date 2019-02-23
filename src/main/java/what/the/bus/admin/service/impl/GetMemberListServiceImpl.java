@@ -41,4 +41,14 @@ public class GetMemberListServiceImpl implements GetMemberListService {
 		adminDAO.expulsionMember(id);
 	}
 
+	@Override
+	public int getExpulstionMember(String id) {
+		return adminDAO.getExpulstionMember(id);
+	}
+
+	@Override
+	public int getExpulstionDriver(String id) {
+		return adminDAO.getExpulstionDriver(id);
+	}
+
 }

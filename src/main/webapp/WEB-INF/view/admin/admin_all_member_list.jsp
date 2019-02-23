@@ -26,7 +26,7 @@
 			<th>이메일</th>
 			<th>가입일자</th>
 			<th>License</th>
-			<th>추방처리</th>
+			<th>제명처리</th>
 		</tr>
 
 		<c:forEach var="row" items="${list }">
@@ -38,7 +38,7 @@
 				<td>${row.email }</td>
 				<td>${row.regdate }</td>
 				<td>${row.license }</td>
-				<td><input type="button" id="expulsionbt" value="추방하기"
+				<td><input type="button" id="expulsionbt" value="제명"
 					onclick="expulsionMember(${row.id})"></td>
 			</tr>
 		</c:forEach>
@@ -50,11 +50,11 @@
 	if(test==true){
 	$.ajax({
 		type : "POST",
-		url : "expulsionMember.do",
+		url : "allExpulstionMember.do",
 		data :{"id" : id},
 		success : function(data) {
 			if (data == "success") {
-				alert("추방되었습니다.");
+				alert("제명되었습니다.");
 				//document.updateDriverForm.action = "refreshApprovalDriverList.do";
 				//document.updateDriverForm.submit();
 				$("#result").load("getAllMemberList.do");
