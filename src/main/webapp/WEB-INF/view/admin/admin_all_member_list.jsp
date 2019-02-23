@@ -7,17 +7,14 @@
 <meta charset="UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
 <title>회원목록</title>
 </head>
 <body>
 	<h2>전체회원목록</h2>
-
-
-
 	<table border="1" width="700px">
-
-
-
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>
@@ -26,6 +23,7 @@
 			<th>이메일</th>
 			<th>가입일자</th>
 			<th>License</th>
+			<th>회원상태</th>
 			<th>제명처리</th>
 		</tr>
 
@@ -38,14 +36,25 @@
 				<td>${row.email }</td>
 				<td>${row.regdate }</td>
 				<td>${row.license }</td>
+				<td><c:if test="${row.statecount==1}">
+				정상
+				</c:if> <c:if test="${row.statecount==2 }">
+				제명,탈퇴
+				</c:if> <c:if test="${row.statecount==3 }">
+				승인대기
+				</c:if> <c:if test="${row.statecount==4 }">
+				관리자
+				</c:if></td>
 				<td><input type="button" id="expulsionbt" value="제명"
-					onclick="expulsionMember(${row.id})"></td>
+					onclick="expulsionMember('${row.id}')"></td>
 			</tr>
 		</c:forEach>
 
 	</table>
 	<script>
-	function expulsionMember(id){
+	
+	function expulsionMember(mid){
+		var id = String(mid);
 	var test=confirm("정말 추방하시겠습니까 ? ");
 	if(test==true){
 	$.ajax({
@@ -67,8 +76,8 @@
 	});
 	}
 }
+	
 	</script>
-
 
 </body>
 </html>

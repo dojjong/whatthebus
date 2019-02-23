@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import what.the.bus.admin.service.GetMemberListService;
 import what.the.bus.driver.DriverVO;
@@ -41,6 +41,7 @@ public class GetMemberListController {
 	}
 
 	@RequestMapping("/view/**/allExpulstionMember.do")
+	@ResponseBody
 	public String allExpulstionMember(@RequestParam String id) {
 		if (getMemberListService.getExpulstionMember(id) >= 1) {
 			getMemberListService.expulsionMember(id);
@@ -51,12 +52,14 @@ public class GetMemberListController {
 	}
 
 	@RequestMapping("/view/**/expulsionMember.do")
+	@ResponseBody
 	public String expulsionMember(@RequestParam String id) {
 		getMemberListService.expulsionMember(id);
 		return "success";
 	}
 
 	@RequestMapping("/view/**/expulsionDriver.do")
+	@ResponseBody
 	public String expulsionDriver(@RequestParam String id) {
 		getMemberListService.expulsionDriver(id);
 		return "success";
