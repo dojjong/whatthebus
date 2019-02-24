@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import what.the.bus.admin.service.GetMemberListService;
 import what.the.bus.driver.DriverVO;
+import what.the.bus.mail.service.MailService;
 import what.the.bus.member.MemberVO;
 
 @Controller
@@ -19,10 +20,11 @@ public class GetMemberListController {
 
 	@Autowired
 	private GetMemberListService getMemberListService;
-
-	
+	@Autowired
+	private MailService mailService;
 	private String fullSearchOption = "all";
 	private String fullKeyword = "";
+
 	@RequestMapping("/view/**/getAllMemberList.do")
 	public String getAllMemberList(Model model) {
 		List<MemberVO> list = getMemberListService.getAllMemberList();
@@ -108,6 +110,28 @@ public class GetMemberListController {
 		List<MemberVO> list = getMemberListService.searchMember(fullSearchOption, fullKeyword);
 		model.addAttribute("list", list);
 		return "admin/admin_all_member_list";
+	}
+
+	@RequestMapping("/view/**/sendMailMember.do")
+	@ResponseBody
+	public String moveSendMailForm() {
+		return "success";
+	}
+
+	@RequestMapping("/view/**/sendMailForm.do")
+	public String sendMail(String id, Model model) {
+		model.addAttribute("id", id);
+		return "admin/sendMailForm";
+	}
+
+	@RequestMapping("/view/**/adminSendMail.do")
+	@ResponseBody
+	public String adminSendMail(String id, String title, String content) {
+		System.out.println(id + "," + title + "," + content);
+		MemberVO vo = getMemberListService.getMemberOne(id);
+		String email = vo.getEmail();
+		mailService.send(title, content, "WhatTheBus1@gmail.com", email);
+		return "success";
 	}
 
 }

@@ -112,4 +112,9 @@ public class AdminDAOImpl implements AdminDAO {
 		mybatis.delete("AdminDAO.deleteBanner", seq);
 	}
 
+	@Override
+	public MemberVO getMemberOne(String id) {
+		return mybatis.selectOne("AdminDAO.getMemberOne",id);
+	}
+
 }

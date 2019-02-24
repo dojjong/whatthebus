@@ -42,4 +42,6 @@ public interface AdminDAO {
 	void updateBanner(AdminVO vo);
 	
 	void deleteBanner(int seq);
+	
+	MemberVO getMemberOne(String id);
 }

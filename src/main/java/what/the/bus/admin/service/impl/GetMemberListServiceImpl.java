@@ -66,4 +66,9 @@ public class GetMemberListServiceImpl implements GetMemberListService {
 		return adminDAO.searchMember(searchOption, keyword);
 	}
 
+	@Override
+	public MemberVO getMemberOne(String id) {
+		return adminDAO.getMemberOne(id);
+	}
+
 }

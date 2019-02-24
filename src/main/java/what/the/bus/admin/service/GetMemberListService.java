@@ -25,4 +25,6 @@ public interface GetMemberListService {
 	void returnDriver(String id);
 
 	List<MemberVO> searchMember(String searchOption, String keyword);
+	
+	MemberVO getMemberOne(String id);
 }

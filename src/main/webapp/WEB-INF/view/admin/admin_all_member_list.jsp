@@ -36,6 +36,7 @@
 			<th>License</th>
 			<th>회원상태</th>
 			<th>제명처리</th>
+			<th>메일발송</th>
 		</tr>
 
 		<c:forEach var="row" items="${list }">
@@ -63,6 +64,8 @@
 						<input type="button" id="expulsionbt" value="ID복구"
 							onclick="returnMember('${row.id}')">
 					</c:if></td>
+				<td><input type="button" id="sendMailMember" value="메일전송"
+				onclick="sendMailMember('${row.id}')"></td>
 			</tr>
 		</c:forEach>
 
@@ -120,6 +123,25 @@
 			}
 		}
 
+		function sendMailMember(mid){
+			var id = String(mid);
+			$.ajax({
+				type : "POST",
+				url : "sendMailMember.do",
+				data : {
+					"id" : id
+				},
+				success : function(data) {
+					if (data == "success") {
+						$("#result").load("sendMailForm.do?id="+id);
+						return;
+					}
+				},error : function(request, status, error) {
+					alert("잘못된 접근입니다.");
+				}
+			});
+		}
+		
 		$("#searchButton").click(function() {
 			var keyword = $("#keyword").val();
 			var searchOption = $("#searchOption").val();
@@ -141,6 +163,8 @@
 				}
 			});
 		});
+		
+		
 	</script>
 
 </body>

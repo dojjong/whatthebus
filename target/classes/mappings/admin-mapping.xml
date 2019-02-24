@@ -136,7 +136,10 @@
 		SELECT * FROM (SELECT * FROM MEMBER UNION SELECT * FROM DRIVER)
 	]]>
 		<include refid="search"></include>
-
 	</select>
-
+	<select id="getMemberOne" resultType="member">
+	<![CDATA[
+		SELECT * FROM (SELECT * FROM MEMBER UNION SELECT * FROM DRIVER) WHERE ID =#{id}
+	]]>
+	</select>
 </mapper>
