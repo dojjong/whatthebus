@@ -8,4 +8,7 @@ public interface BookingPayDAO {
 	void insertBookingPay(BookingPayVO vo);
 
 	List<Integer> getSitNumList(int busseq);
+	
+	
+	
 }

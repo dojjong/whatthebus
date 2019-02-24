@@ -29,4 +29,5 @@ public class BookingPayDAOImpl implements BookingPayDAO {
 		return mybatis.selectList("BookingPayDAO.getSitNumList", busseq);
 	}
 
+
 }

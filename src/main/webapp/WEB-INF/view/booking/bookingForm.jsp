@@ -15,22 +15,24 @@
 </head>
 <body>
 
+<div>
+
+
 	<form id="payform" name="payform" action="bookingPay.do" method="post">
 		<!-- 화면 센터 -->
-		<input type="hidden" name="busseq" value="${vo.seq }"> <input
-			type="hidden" name="id" value="${member.id }"> <input
-			type="hidden" id="pname" name="name" value="${member.name }">
+		<input type="hidden" name="busseq" value="${vo.seq }"> 
+		<input type="hidden" name="id" value="${member.id }"> 
+		<input type="hidden" id="pname" name="name" value="${member.name }">
 		<input type="hidden" id="tel" name="tel" value="${member.tel }">
-		<input type="hidden" id="pay" name="pay" value="${vo.pay }"> <input
-			type="hidden" id="sitnum" name="sitnum"> <input type="hidden"
-			name="email" value="${member.email }"> <input type="hidden"
-			id="title" name="title" value="${vo.title }">
-		<table align="center">
+		<input type="hidden" id="pay" name="pay" value="${vo.pay }"> 
+		<input type="hidden" id="sitnum" name="sitnum"> 
+		<input type="hidden" name="email" value="${member.email }"> 
+		<input type="hidden" id="title" name="title" value="${vo.title }">
+		<table align="center" width="1024px">
 			<tr>
 				<td><div align="left">
-						<h1>좌석정보</h1>
-						<c:forEach var="num" begin="1" end="${vo.bus }" step="1"
-							varStatus="status">
+						<h4>좌석정보</h4>
+						<c:forEach var="num" begin="1" end="${vo.bus }" step="1" varStatus="status">
 							<!-- 여기에 결제테이블에 정보가 있으면 이미 결제좌석인것 표시 -->
 							<!-- 25인승 와꾸 -->
 							<c:if test="${status.count%4==1 }">
@@ -56,7 +58,7 @@
 					<div>
 						<table>
 							<tr>
-								<td><h1>버스 경로정보</h1></td>
+								<td colspan="2"><h4>버스 경로정보</h4></td>
 							<tr>
 								<td align="left">노선명</td>
 								<td>${vo.title }</td>
@@ -69,7 +71,7 @@
 							</tr>
 
 							<tr>
-								<td><h1>신청 정보</h1></td>
+								<td colspan="2"><h4>신청 정보</h4></td>
 							</tr>
 							<tr>
 								<td>신청인 &nbsp;</td>
@@ -82,7 +84,7 @@
 
 
 							<tr>
-								<td><h1>결제정보</h1></td>
+								<td colspan="2"><h4>결제정보</h4></td>
 							</tr>
 							<tr>
 								<td>결제수단</td>
@@ -101,7 +103,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td><h2>신청동의</h2></td>
+								<td colspan="2"><h4>신청동의</h4></td>
 							</tr>
 							<tr>
 								<td colspan="3"><input type="checkbox"
@@ -109,10 +111,12 @@
 									이용권 구매 및 결제대행서비스에 이용약관 등에 모두 동의합니다.</td>
 							</tr>
 							<tr>
-								<td id="agree">
+								<td colspan="2">
+								<ul id="agree">
 									<li>구매조건 확인 및 결제 진행 동의</li>
 									<li>개인정보 수집 이용 및 제 3자 정보 제공 동의</li>
 									<li>결제대행서비스 이용약관 동의</li>
+								</ul>	
 								</td>
 						</table>
 					</div>
@@ -122,7 +126,7 @@
 						<table>
 
 							<tr>
-								<td><h1>결제 금액</h1></td>
+								<td><h4>결제 금액</h4></td>
 							</tr>
 							<tr>
 								<td>이용금액&nbsp;</td>
@@ -130,7 +134,7 @@
 							</tr>
 
 							<tr>
-								<td><h3>최종 결제금액</h3></td>
+								<td><h4>최종 결제금액</h4></td>
 							</tr>
 							<tr>
 								<td align="right" colspan="2"><strong> ${vo.pay }
@@ -146,6 +150,11 @@
 			</tr>
 		</table>
 	</form>
+	
+	
+	
+</div>	
+	
 	<script>
 		function sit(num) {
 			document.payform.sitnum.value = num;

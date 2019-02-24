@@ -15,5 +15,8 @@
 	SELECT SITNUM FROM BOOKINGPAY WHERE BUSSEQ=#{busseq} ORDER BY SITNUM ASC
 	]]>
 	</select>
+	
+	
 
+	
 </mapper>

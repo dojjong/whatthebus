@@ -30,8 +30,9 @@ public class BookingPayController {
 	}
 	
 	@RequestMapping("/view/**/bookingPay.do")
-	public String bookingPay(BookingPayVO vo) {
+	public String bookingPay(BookingPayVO vo, Model model) {
 		bookingPayService.insertBookingPay(vo);
+		model.addAttribute("vo", vo);
 		return "booking/successPay";
 	}
 	

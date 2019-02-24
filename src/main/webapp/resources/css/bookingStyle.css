@@ -1,7 +1,29 @@
 @charset "UTF-8";
-#agree{
-	font-size:8px;	
+/* 빨간선-확인용 삭제 할겁니다!*/
+div {
+	border: 1px solid red;
 }
+
+table {
+	border: 1px solid red;
+}
+
+tr {
+	border: 1px solid red;
+}
+
+td {
+	border: 1px solid red;
+}
+/* 구간 확인용 삭제 할겁니다!*/
+
+
+
+#agree{
+	font-size: 12px;
+}
+
+
 #paybt{
 	width:250px;
 	height:70px;
@@ -11,22 +33,24 @@
 }
 
 .sitNum{
-	width:100px;
+	width:50px;
 	background-image: url("../images/sitbt.png");
 	background-repeat: no-repeat;
-	background-size: 100px 25px;
+	background-size: 50px 25px;
 	border: none;
 	cursor: pointer;
 	margin-top:5px;
+	margin-left:-5px;
 	background-color:white;
 }
 .onsitNum{
-	width:100px;
+	width:50px;
 	background-image: url("../images/onsitbt.png");
 	background-repeat: no-repeat;
-	background-size: 100px 25px;
+	background-size: 50px 25px;
 	border: none;
 	cursor: pointer;
 	margin-top:5px;
+	margin-left:-5px;
 	background-color:white;
 }

@@ -20,7 +20,7 @@
 				<tr>
 					<td align="right" width="200">아이디 :&nbsp;</td>
 					<td align="left" width="500"><input type="text" id="insertId"
-						name="id" />&nbsp; <font color="red"><span id="idMessage"></span></font></td>
+						name="id" autocomplete="off"/>&nbsp; <font color="red"><span id="idMessage"></span></font></td>
 				</tr>
 				<tr>
 					<td align="right">비밀번호 :&nbsp;</td>
@@ -37,7 +37,7 @@
 				<tr>
 					<td align="right">이름 :&nbsp;</td>
 					<td align="left"><input type="text" id="insertName"
-						name="name" value="" /> &nbsp; <font color="red"> <span
+						name="name" value="" autocomplete="off"/> &nbsp; <font color="red"> <span
 							id="nameMessage"> </span></font></td>
 				</tr>
 				<tr>
@@ -58,20 +58,20 @@
 							<option value="017">017</option>
 							<option value="018">018</option>
 							<option value="019">019</option>
-					</select>- <input type="text" id="insertTel2" name="tel2" size="2" value="" />
-						- <input type="text" id="insertTel3" name="tel3" size="2" value="" />
+					</select>- <input type="text" id="insertTel2" name="tel2" size="2" value="" autocomplete="off"/>
+						- <input type="text" id="insertTel3" name="tel3" size="2" value="" autocomplete="off"/>
 						&nbsp; <font color="red"><span id="telMessage"> </span></font></td>
 				</tr>
 				<tr>
 					<td align="right">이메일 :&nbsp;</td>
 					<td align="left"><input type="text" id="insertEmail"
-						name="email" value="" />&nbsp;<input type="button" id="emailbt"
+						name="email" value="" autocomplete="off"/>&nbsp;<input type="button" id="emailbt"
 						value="인증번호 발송" /><br /></td>
 				</tr>
 				<tr>
 					<td align="right">인증번호 입력 : &nbsp;</td>
 					<td align="left"><input type="text" id="insertEmailCheck"
-						name="EmailCheck" value="">&nbsp;<input type="button"
+						name="EmailCheck" value="" autocomplete="off">&nbsp;<input type="button"
 						id="emailCheckbt" value="인증번호 확인"><font color="red"><span
 							id="emailCheckMessage"> </span></font></td>
 				</tr>

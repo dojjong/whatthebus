@@ -28,7 +28,7 @@
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" size="50" maxlength="50" id="title" name="title" /></td>
+				<td width="700"><input type="text" size="50" maxlength="50" id="title" name="title" autocomplete="off"/></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
