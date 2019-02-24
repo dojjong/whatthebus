@@ -33,46 +33,64 @@
 			</tr>
 		</table>
 	</form>
-
-	<div id="view">
-		<c:if test="${list!=null}">
-
-
-
-			<table border="1">
-
-				<tr>
-					<th>이미지경로</th>
-				</tr>
-
-				<c:forEach var="row" items="${list }">
+	<form id="updateForm" name="updateForm" method="post"
+		action="updateBanner.do" enctype="multipart/form-data">
+		<div id="view">
+			<c:if test="${list!=null}">
+				<table border="1">
 					<tr>
-						<td>${row.bannername }</td>
+						<th>이미지번호</th>
+						<th>이미지이름</th>
+						<th>이미지수정</th>
 					</tr>
-				</c:forEach>
-			</table>
+					<tr><td colspan="3"><input type="file" id="uploadBanner" name="uploadBanner"
+								value="uploadBanner"></td></tr>
+					<c:forEach var="row" items="${list }">
+						<tr>
+							<td>${row.seq }</td>
+							<td>${row.bannername }</td>
+							<td> <input type="button" value="수정"
+								onclick="updateBanner('${row.seq }')"></td>
+						</tr>
+					</c:forEach>
+				</table>
 
-		</c:if>
-	</div>
-
+			</c:if>
+		</div>
+	</form>
 
 
 	<script>
 		function insertBanner() {
 			var formData = new FormData($('#ajaxForm')[0]);
 			$.ajax({
-				url: 'insertBanner.do',
-				processData: false,
-				contentType: false,
-				data: formData,
-				type: 'POST',
-				success: function(msg){
+				url : 'insertBanner.do',
+				processData : false,
+				contentType : false,
+				data : formData,
+				type : 'POST',
+				success : function(msg) {
 					alert("등록되었습니다.");
 					$("#result").load("admin_banner.do");
 				}
 			});
 		}
-			
+
+		function updateBanner(seq) {
+			var formData = new FormData($('#updateForm')[0]);
+			formData.set("seq", seq);
+			$.ajax({
+				url : 'updateBanner.do',
+				processData : false,
+				contentType : false,
+				data : formData,
+				type : 'POST',
+				success : function(msg) {
+					alert("수정되었습니다.");
+					$("#result").load("admin_banner.do");
+				}
+			});
+		}
 	</script>
 
 

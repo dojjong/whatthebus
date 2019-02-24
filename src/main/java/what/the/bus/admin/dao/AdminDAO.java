@@ -38,4 +38,6 @@ public interface AdminDAO {
 	void returnDriver(String id);
 
 	List<MemberVO> searchMember(String searchOption,String keyword);
+	
+	void updateBanner(AdminVO vo);
 }

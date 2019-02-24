@@ -15,7 +15,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  width: 1000px;
   position: relative;
   margin: auto;
 }
@@ -72,21 +72,17 @@ img {vertical-align: middle;}
 <div align="center">
 
 
-<div class="mySlides fade">
-  <img src="../resources/images/ad_main_03.png" style="width:80%">
-</div>
-<div class="mySlides fade">
-  <img src="../resources/images/ad_main_04.png" style="width:80%">
-</div>
 
-
+<c:forEach var="vo" items="${bannerList }">
+<div class="mySlides fade">
+  <img src="../resources/images/<c:out value="${vo.bannername }"/>" style="width:80%">
+</div>
+</c:forEach>
 
 <br>
-  
-<div style="text-align:center">
-  <span class="dot"></span> 
-	<span class="dot"></span> 
-</div>
+<c:forEach var="vo" items="${bannerList }">
+  <span class="dot"></span>
+</c:forEach>
 </div>
 
 

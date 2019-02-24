@@ -46,8 +46,7 @@ public class LoginMemberController {
 	private InsertMemberService insertMemberService;
 	@Autowired
 	private GetBannerListService getBannerListService;
-	
-	
+
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 	private String apiResult = null;
@@ -128,7 +127,7 @@ public class LoginMemberController {
 	@RequestMapping(value = "/view/**/main.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(Model model, HttpSession session) {
 
-		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */	
+		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
 
 		// https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=sE***************&
@@ -139,10 +138,21 @@ public class LoginMemberController {
 		model.addAttribute("url", naverAuthUrl);
 
 		// 배너
-		List<AdminVO> list = getBannerListService.getBannerList();
-		System.out.println("main컨트롤러에서 list = "+list.size());
-		model.addAttribute("list", list);
-		
+		List<AdminVO> bannerList = getBannerListService.getBannerList();
+/*
+		for (int i = 0; i < bannerList.size(); i++) {
+			String imsi = bannerList.get(i).getBannername();
+			String[] array = imsi.split("/");
+			String banner = array[9];
+			bannerList.get(i).setBannername(banner);
+		}
+*/
+		for (int i = 0; i < bannerList.size(); i++) {
+			String imsi = bannerList.get(i).getBannername();
+			System.out.println("임시"+imsi);
+		}
+		model.addAttribute("bannerList", bannerList);
+
 		/* 생성한 인증 URL을 View로 전달 */
 		return "main/main";
 	}
@@ -191,7 +201,6 @@ public class LoginMemberController {
 
 		List<ChartVO1> imsiList = memberService.getMemberCountPerRegdateJson();
 
-		
 		List<ChartVO2> list = new ArrayList<ChartVO2>();
 
 		ChartVO2 vo = null;
@@ -202,9 +211,9 @@ public class LoginMemberController {
 			Date date1 = (Date) simpleDateFormat.parse(imsiList.get(i).getCondition());
 
 			vo = new ChartVO2(new Date(date1.getTime()), imsiList.get(i).getCount());
-			
+
 			list.add(vo);
 		}
 		return list;
-	}	
+	}
 }

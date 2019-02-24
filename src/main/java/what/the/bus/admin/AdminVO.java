@@ -8,6 +8,15 @@ public class AdminVO {
 	private String bannername;
 	private String searchOption;
 	private String keyword;
+	private int seq;
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
 
 	public String getSearchOption() {
 		return searchOption;
@@ -52,7 +61,7 @@ public class AdminVO {
 	@Override
 	public String toString() {
 		return "AdminVO [bestcount=" + bestcount + ", uploadBanner=" + uploadBanner + ", bannername=" + bannername
-				+ "]";
+				+ ", searchOption=" + searchOption + ", keyword=" + keyword + ", seq=" + seq + "]";
 	}
 
 }

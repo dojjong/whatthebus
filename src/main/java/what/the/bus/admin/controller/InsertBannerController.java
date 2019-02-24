@@ -27,9 +27,36 @@ public class InsertBannerController {
 	@ResponseBody
 	public String insertBanner(AdminVO vo) throws IOException {
 
+		//String resource = "/adminBanner.properties";
+		//Properties properties = new Properties();
+		System.out.println(vo.toString());
+
+		MultipartFile uploadBannerFile = vo.getUploadBanner();
+		//UUID uuid = UUID.randomUUID();
+		//try {
+			//Reader reader = Resources.getResourceAsReader(resource);
+			//properties.load(reader);
+			if (!uploadBannerFile.isEmpty()) {
+			//	String fileName = uuid + "_" + uploadBannerFile.getOriginalFilename();
+				//uploadBannerFile.transferTo(new File(properties.getProperty("path") + fileName));
+				//vo.setBannername(properties.getProperty("path") + fileName);
+				String fileName = uploadBannerFile.getOriginalFilename();
+				vo.setBannername(fileName);
+			}
+		//} catch (Exception e) {
+		//	e.printStackTrace();
+		//}
+		insertBanner.insertBanner(vo);
+		return "success";
+	}
+	
+	@RequestMapping("/view/**/updateBanner.do")
+	@ResponseBody
+	public String updateBanner(AdminVO vo) throws IOException {
+		/*
 		String resource = "/adminBanner.properties";
 		Properties properties = new Properties();
-		System.out.println(vo.toString());
+		
 
 		MultipartFile uploadBannerFile = vo.getUploadBanner();
 		UUID uuid = UUID.randomUUID();
@@ -43,8 +70,13 @@ public class InsertBannerController {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		insertBanner.insertBanner(vo);
+		}*/
+		MultipartFile uploadBannerFile = vo.getUploadBanner();
+		String fileName = uploadBannerFile.getOriginalFilename();
+		vo.setBannername(fileName);
+	
+		insertBanner.updateBanner(vo);
+		
 		return "success";
 	}
 }

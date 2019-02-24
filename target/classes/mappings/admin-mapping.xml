@@ -109,9 +109,15 @@
 	<insert id="insertBanner">
 	<![CDATA[
 		INSERT INTO
-		ADMIN_BANNER(BANNERNAME)VALUES(#{bannername})
+		ADMIN_BANNER(SEQ,BANNERNAME)VALUES(admin_banner_seq.nextval,#{bannername})
 		]]>
 	</insert>
+	<update id="updateBanner">
+	<![CDATA[
+	UPDATE ADMIN_BANNER SET BANNERNAME = #{bannername} WHERE SEQ =#{seq}
+	]]>
+	</update>
+
 
 	<select id="getBannerList" resultType="admin">
 	<![CDATA[
@@ -120,7 +126,8 @@
 	</select>
 
 	<!-- 회원 전체목록에서 검색기능 -->
-	<select id="searchMember" resultType="member" parameterType="map">
+	<select id="searchMember" resultType="member"
+		parameterType="map">
 	<![CDATA[
 		SELECT * FROM (SELECT * FROM MEMBER UNION SELECT * FROM DRIVER)
 	]]>

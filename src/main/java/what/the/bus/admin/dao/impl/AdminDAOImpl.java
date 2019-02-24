@@ -102,4 +102,9 @@ public class AdminDAOImpl implements AdminDAO {
 		return mybatis.selectList("AdminDAO.searchMember", map);
 	}
 
+	@Override
+	public void updateBanner(AdminVO vo) {
+		mybatis.update("AdminDAO.updateBanner", vo);
+	}
+
 }
