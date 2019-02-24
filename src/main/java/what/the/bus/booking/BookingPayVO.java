@@ -1,6 +1,7 @@
 package what.the.bus.booking;
 
-
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class BookingPayVO {
 	private int seq;
@@ -11,8 +12,7 @@ public class BookingPayVO {
 	private String selectpay;
 	private int sitnum;
 	private int pay;
-	private String regdate;
-	
+	private Date regdate;
 	public int getSeq() {
 		return seq;
 	}
@@ -61,10 +61,10 @@ public class BookingPayVO {
 	public void setPay(int pay) {
 		this.pay = pay;
 	}
-	public String getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(String regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 	@Override
@@ -72,6 +72,9 @@ public class BookingPayVO {
 		return "BookingPayVO [seq=" + seq + ", busseq=" + busseq + ", id=" + id + ", name=" + name + ", tel=" + tel
 				+ ", selectpay=" + selectpay + ", sitnum=" + sitnum + ", pay=" + pay + ", regdate=" + regdate + "]";
 	}
-
+	
+	
+	
+	
 	
 }
