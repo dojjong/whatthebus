@@ -107,4 +107,9 @@ public class AdminDAOImpl implements AdminDAO {
 		mybatis.update("AdminDAO.updateBanner", vo);
 	}
 
+	@Override
+	public void deleteBanner(int seq) {
+		mybatis.delete("AdminDAO.deleteBanner", seq);
+	}
+
 }

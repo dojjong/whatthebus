@@ -43,14 +43,18 @@
 						<th>이미지이름</th>
 						<th>이미지수정</th>
 					</tr>
-					<tr><td colspan="3"><input type="file" id="uploadBanner" name="uploadBanner"
-								value="uploadBanner"></td></tr>
+					<tr>
+						<td colspan="3"><input type="file" id="uploadBanner"
+							name="uploadBanner" value="uploadBanner"></td>
+					</tr>
 					<c:forEach var="row" items="${list }">
 						<tr>
 							<td>${row.seq }</td>
 							<td>${row.bannername }</td>
-							<td> <input type="button" value="수정"
+							<td><input type="button" value="수정"
 								onclick="updateBanner('${row.seq }')"></td>
+							<td><input type="button" value="삭제"
+								onclick="deleteBanner('${row.seq}')"></td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -87,6 +91,20 @@
 				type : 'POST',
 				success : function(msg) {
 					alert("수정되었습니다.");
+					$("#result").load("admin_banner.do");
+				}
+			});
+		}
+
+		function deleteBanner(seq) {
+			$.ajax({
+				type : 'POST',
+				url : 'deleteBanner.do',
+				data : {
+					"seq" : seq
+				},
+				success : function(msg) {
+					alert("삭제되었습니다.");
 					$("#result").load("admin_banner.do");
 				}
 			});

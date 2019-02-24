@@ -40,4 +40,6 @@ public interface AdminDAO {
 	List<MemberVO> searchMember(String searchOption,String keyword);
 	
 	void updateBanner(AdminVO vo);
+	
+	void deleteBanner(int seq);
 }

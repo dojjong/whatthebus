@@ -75,7 +75,7 @@ img {vertical-align: middle;}
 
 <c:forEach var="vo" items="${bannerList }">
 <div class="mySlides fade">
-  <img src="../resources/images/<c:out value="${vo.bannername }"/>" style="width:80%">
+  <img src="../resources/images/<c:out value="${vo.bannername }"/>" style="width:1000px; height:200px;">
 </div>
 </c:forEach>
 

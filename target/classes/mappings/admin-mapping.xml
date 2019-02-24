@@ -117,7 +117,11 @@
 	UPDATE ADMIN_BANNER SET BANNERNAME = #{bannername} WHERE SEQ =#{seq}
 	]]>
 	</update>
-
+	<delete id="deleteBanner">
+	<![CDATA[
+	DELETE ADMIN_BANNER WHERE SEQ =#{seq}
+	]]>
+	</delete>
 
 	<select id="getBannerList" resultType="admin">
 	<![CDATA[

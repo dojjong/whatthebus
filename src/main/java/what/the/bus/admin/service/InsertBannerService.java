@@ -6,4 +6,6 @@ public interface InsertBannerService {
 	void insertBanner(AdminVO vo);
 
 	void updateBanner(AdminVO vo);
+
+	void deleteBanner(int seq);
 }

@@ -16,6 +16,6 @@ public class LogoutDriverController {
 	@RequestMapping("/view/**/logoutDriver.do")
 	public String logoutDriver(HttpSession session) {
 		driverService.logoutDriver(session);
-		return "main/main";
+		return "redirect:main.do";
 	}
 }

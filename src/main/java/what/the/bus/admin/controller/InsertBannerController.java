@@ -79,4 +79,11 @@ public class InsertBannerController {
 		
 		return "success";
 	}
+	@RequestMapping("/view/**/deleteBanner.do")
+	@ResponseBody
+	public String deleteBanner(int seq) {
+		insertBanner.deleteBanner(seq);
+		return "success";
+	}
+	
 }
