@@ -45,23 +45,26 @@ public class BookingPayController {
 	
 	@RequestMapping("/view/**/getBookingPayList.do")
 	public String getBookingPayList(BookingPayVO bookingPayVO, Model model, HttpSession session,@RequestParam(defaultValue = "1") int curPage) {
-
-		//int listCnt = 0;
-		//listCnt =  bookingPayService.getBookingPayListCount(bookingPayVO);
-		Pagination pagination = new Pagination(curPage, curPage);
+		String id;
+		MemberVO vo;
+		vo = (MemberVO)session.getAttribute("member");
+		id = vo.getId();
+		bookingPayVO.setId(id);
+		
+		System.out.println(bookingPayVO.toString());
+		int listCnt = 0;
+		listCnt =  bookingPayService.getBookingPayListCount(bookingPayVO);
+		Pagination pagination = new Pagination(listCnt, curPage);
 		
 
 		int start = pagination.getPageBegin();
 		int end = pagination.getPageEnd();
 		
-		String id;
-		MemberVO vo;
-		vo = (MemberVO)session.getAttribute("member");
-		id = vo.getId();
+		
 		List<BookingPayVO> list = bookingPayService.getBookingPayList(start, end, id);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
-		//map.put("count", listCnt);
+		map.put("count", listCnt);
 		map.put("pagination", pagination);
 		model.addAttribute("map", map);
 		

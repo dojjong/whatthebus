@@ -64,7 +64,11 @@
 						</c:if>
 					</div>
 				
-				
+					<script>
+		function fn_paging(curPage) {
+			location.href = "getBookingPayList.do?curPage=" + curPage;
+		}
+	</script>
 
 </body>
 </html>

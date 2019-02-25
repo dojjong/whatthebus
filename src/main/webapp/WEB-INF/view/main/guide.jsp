@@ -6,13 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-table, th, td {
-  border: 1px solid black;
-  padding: 5px;
 
-}
-</style>
 
 </head>
 <body>
@@ -172,6 +166,13 @@ table, th, td {
 </table>
     
 </table>
+
+</table>
+
+</td>
+</tr>
+</table>
+</div>
 
 
 <jsp:include page="../main/mainFooter.jsp"></jsp:include>
