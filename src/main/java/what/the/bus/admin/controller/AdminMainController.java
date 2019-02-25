@@ -25,4 +25,8 @@ public class AdminMainController {
 		return "admin/admin_banner";
 	}
 
+	@RequestMapping("/view/**/selectAdmin.do")
+	public String selectAdmin() {
+		return "admin/selectAdmin";
+	}
 }

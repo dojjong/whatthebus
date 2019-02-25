@@ -37,11 +37,15 @@ public interface AdminDAO {
 
 	void returnDriver(String id);
 
-	List<MemberVO> searchMember(String searchOption,String keyword);
-	
+	List<MemberVO> searchMember(String searchOption, String keyword);
+
 	void updateBanner(AdminVO vo);
-	
+
 	void deleteBanner(int seq);
-	
+
 	MemberVO getMemberOne(String id);
+
+	void selectMemberAdminSpecify(String id);
+
+	void selectDriverAdminSpecify(String id);
 }

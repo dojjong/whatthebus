@@ -105,11 +105,27 @@ public class GetMemberListController {
 		return "success";
 	}
 
+	@RequestMapping("/view/**/searchAdminMember.do")
+	@ResponseBody
+	public String searchAdminMember(@RequestParam(defaultValue = "all") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, Model model) {
+		fullSearchOption = searchOption;
+		fullKeyword = keyword;
+		return "success";
+	}
+
 	@RequestMapping("/view/**/returnSearchMember.do")
 	public String returnSearchMember(Model model) {
 		List<MemberVO> list = getMemberListService.searchMember(fullSearchOption, fullKeyword);
 		model.addAttribute("list", list);
 		return "admin/admin_all_member_list";
+	}
+
+	@RequestMapping("/view/**/returnSearchAdminMember.do")
+	public String returnSearchAdminMember(Model model) {
+		List<MemberVO> list = getMemberListService.searchMember(fullSearchOption, fullKeyword);
+		model.addAttribute("list", list);
+		return "admin/selectAdmin";
 	}
 
 	@RequestMapping("/view/**/sendMailMember.do")
@@ -161,6 +177,17 @@ public class GetMemberListController {
 				mailService.send(title, content, "WhatTheBus1@gmail.com", email);
 			}
 			// System.out.println("스플릿 checkBox : " + checkBox[i]);
+		}
+		return "success";
+	}
+
+	@RequestMapping("/view/**/selectAdminSpecify.do")
+	@ResponseBody
+	public String selectAdminSpecify(String id) {
+		if (getMemberListService.getExpulstionMember(id) >= 1) {
+			getMemberListService.selectMemberAdminSpecify(id);
+		} else if (getMemberListService.getExpulstionDriver(id) >= 1) {
+			getMemberListService.selectDriverAdminSpecify(id);
 		}
 		return "success";
 	}

@@ -71,4 +71,14 @@ public class GetMemberListServiceImpl implements GetMemberListService {
 		return adminDAO.getMemberOne(id);
 	}
 
+	@Override
+	public void selectMemberAdminSpecify(String id) {
+		adminDAO.selectMemberAdminSpecify(id);
+	}
+
+	@Override
+	public void selectDriverAdminSpecify(String id) {
+		adminDAO.selectDriverAdminSpecify(id);
+	}
+
 }

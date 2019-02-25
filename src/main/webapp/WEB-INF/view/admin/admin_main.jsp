@@ -81,6 +81,7 @@ li a:hover {
 									<li><a href="#" id="m1">- 회원목록</a></li>
 									<li><a href="#" id="d1">- 기사목록</a></li>
 									<li><a href="#" id="p2">- 가입승인대기(드라이버)</a></li>
+									<li><a href="#" id="a1">- 관리자 설정</a></li>
 									<li><a href="#">결제</a></li>
 									<li><a href="#">- 결제화면</a></li>
 									<li><a href="#" id="p4">게시판 추천수 변경</a></li>
@@ -165,6 +166,12 @@ li a:hover {
 		$(document).ready(function() {
 			$("#p6").click(function() {
 				$("#result").load("admin_banner.do");
+
+			});
+		});
+		$(document).ready(function() {
+			$("#a1").click(function() {
+				$("#result").load("selectAdmin.do");
 
 			});
 		});

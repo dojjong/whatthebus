@@ -114,7 +114,17 @@ public class AdminDAOImpl implements AdminDAO {
 
 	@Override
 	public MemberVO getMemberOne(String id) {
-		return mybatis.selectOne("AdminDAO.getMemberOne",id);
+		return mybatis.selectOne("AdminDAO.getMemberOne", id);
+	}
+
+	@Override
+	public void selectMemberAdminSpecify(String id) {
+		mybatis.update("AdminDAO.selectMemberAdminSpecify", id);
+	}
+
+	@Override
+	public void selectDriverAdminSpecify(String id) {
+		mybatis.update("AdminDAO.selectDriverAdminSpecify", id);
 	}
 
 }

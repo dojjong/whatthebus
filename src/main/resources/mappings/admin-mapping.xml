@@ -142,4 +142,15 @@
 		SELECT * FROM (SELECT * FROM MEMBER UNION SELECT * FROM DRIVER) WHERE ID =#{id}
 	]]>
 	</select>
+	<update id="selectMemberAdminSpecify">
+	<![CDATA[
+		UPDATE MEMBER SET STATECOUNT = 4 WHERE ID =#{id}
+	]]>
+	</update>
+	<update id="selectDriverAdminSpecify">
+	<![CDATA[
+		UPDATE DRIVER SET STATECOUNT = 4 WHERE ID =#{id}
+	]]>
+	</update>
+
 </mapper>
