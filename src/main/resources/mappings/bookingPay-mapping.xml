@@ -22,6 +22,12 @@
 	SELECT BUSSEQ, ID, NAME, SELECTPAY, SITNUM, PAY, TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM BOOKINGPAY WHERE ID=#{id} ORDER BY SEQ ASC
 	]]>
 	</select>
+	
+	<select id="getBookingPayListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM BOOKINGPAY WHERE ID=#{id}
+	]]>
+	</select>
 
 	
 </mapper>

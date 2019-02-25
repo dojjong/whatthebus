@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import what.the.bus.booking.BookingPayVO;
 import what.the.bus.booking.dao.impl.BookingPayDAOImpl;
 import what.the.bus.booking.service.BookingPayService;
+import what.the.bus.member.MemberVO;
 
 @Service
 public class BookingPayServiceImpl implements BookingPayService {
@@ -24,9 +25,17 @@ public class BookingPayServiceImpl implements BookingPayService {
 		return bookingPayDAO.getSitNumList(busseq);
 	}
 
+
 	@Override
-	public List<BookingPayVO> getBookingPayList(String id) {
-		return bookingPayDAO.getBookingPayList(id);
+	public List<BookingPayVO> getBookingPayList(int start, int end, String id) {
+		return bookingPayDAO.getBookingPayList(start, end, id);
 	}
+
+	@Override
+	public int getBookingPayListCount(BookingPayVO vo) {
+		return bookingPayDAO.getBookingPayListCount(vo);
+	}
+
+
 
 }

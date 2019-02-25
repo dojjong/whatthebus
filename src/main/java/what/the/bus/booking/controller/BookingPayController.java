@@ -1,6 +1,8 @@
 package what.the.bus.booking.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import what.the.bus.bookBoard.service.GetBookBoardService;
 import what.the.bus.booking.BookingPayVO;
 import what.the.bus.booking.service.BookingPayService;
 import what.the.bus.member.MemberVO;
+import what.the.bus.pagination.Pagination;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 
 @Controller
@@ -40,13 +44,27 @@ public class BookingPayController {
 	}
 	
 	@RequestMapping("/view/**/getBookingPayList.do")
-	public String getBookingPayList(Model model, HttpSession session) {
+	public String getBookingPayList(BookingPayVO bookingPayVO, Model model, HttpSession session,@RequestParam(defaultValue = "1") int curPage) {
+
+		//int listCnt = 0;
+		//listCnt =  bookingPayService.getBookingPayListCount(bookingPayVO);
+		Pagination pagination = new Pagination(curPage, curPage);
+		
+
+		int start = pagination.getPageBegin();
+		int end = pagination.getPageEnd();
+		
 		String id;
 		MemberVO vo;
 		vo = (MemberVO)session.getAttribute("member");
-		id=vo.getId();
-		List<BookingPayVO> list = bookingPayService.getBookingPayList(id);
-		model.addAttribute("list", list);
+		id = vo.getId();
+		List<BookingPayVO> list = bookingPayService.getBookingPayList(start, end, id);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		//map.put("count", listCnt);
+		map.put("pagination", pagination);
+		model.addAttribute("map", map);
+		
 		return "member/member_getBookingPayList";
 	}
 	

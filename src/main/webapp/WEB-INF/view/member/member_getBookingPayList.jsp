@@ -20,19 +20,51 @@
 </tr>
 
 
-<c:forEach var="row" items="${list }">
+<c:forEach var="vo" items="${map.list }" varStatus="status">
 <tr>
-<td>${row.busseq }</td>
-<td>${row.selectpay }</td>
-<td>${row.sitnum }</td>
-<td>${row.pay }</td>
-<td>${row.realregdate }</td>
+
+<td>${vo.busseq }</td>
+<td>${vo.selectpay }</td>
+<td>${vo.sitnum }</td>
+<td>${vo.pay }</td>
+<td>${vo.realregdate }</td>
 </tr>
 </c:forEach>
 
-
-
 </table>
+
+
+
+<div align="center">
+					
+						<c:if test="${map.pagination.curBlock > 1}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.prevPage }')">[이전]</a>
+						</c:if>
+						<c:forEach var="pageNum" begin="${map.pagination.blockBegin }"
+							end="${map.pagination.blockEnd }">
+							<c:choose>
+								<c:when test="${pageNum ==  map.pagination.curPage}">
+									<span style="font-weight: bold;"><a href="#"
+										onClick="fn_paging('${pageNum }')">${pageNum }</a></span>
+								</c:when>
+								<c:otherwise>
+									<a href="#"
+										onClick="fn_paging('${pageNum }')">${pageNum }</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${map.pagination.curBlock <= map.pagination.totBlock}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.nextPage }')">[다음]</a>
+						</c:if>
+						<c:if test="${map.pagination.curPage <= map.pagination.totPage}">
+							<a href="#"
+								onClick="fn_paging('${map.pagination.totPage }')">[끝]</a>
+						</c:if>
+					</div>
+				
+				
 
 </body>
 </html>

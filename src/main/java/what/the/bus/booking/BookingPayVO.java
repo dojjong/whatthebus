@@ -15,6 +15,11 @@ public class BookingPayVO {
 	private String realregdate;
 	
 	
+	private int cntPerPage;
+	private int startIndex;
+	private int count;
+	
+	
 	public int getSeq() {
 		return seq;
 	}
@@ -75,10 +80,30 @@ public class BookingPayVO {
 	public void setRealregdate(String realregdate) {
 		this.realregdate = realregdate;
 	}
+	public int getCntPerPage() {
+		return cntPerPage;
+	}
+	public void setCntPerPage(int cntPerPage) {
+		this.cntPerPage = cntPerPage;
+	}
+	public int getStartIndex() {
+		return startIndex;
+	}
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	@Override
 	public String toString() {
 		return "BookingPayVO [seq=" + seq + ", busseq=" + busseq + ", id=" + id + ", name=" + name + ", tel=" + tel
-				+ ", selectpay=" + selectpay + ", sitnum=" + sitnum + ", pay=" + pay + ", regdate=" + regdate + "]";
+				+ ", selectpay=" + selectpay + ", sitnum=" + sitnum + ", pay=" + pay + ", regdate=" + regdate
+				+ ", realregdate=" + realregdate + ", cntPerPage=" + cntPerPage + ", startIndex=" + startIndex
+				+ ", count=" + count + "]";
 	}
 	
 	

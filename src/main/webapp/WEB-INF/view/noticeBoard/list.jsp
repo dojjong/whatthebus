@@ -5,6 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
+
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
@@ -20,12 +24,17 @@
 	<br>
 	<br>
 	<!-- 화면 센터 -->
-	<div align="center" width="1024px">
-
-		
-	<b>글목록(전체 글 : ${map.count } )</b>
+	<div align="center">
 	
+
+	
+		<table width="800px">
+		<tr><td colspan="5"><h3><b>공지사항 게시판</b></h3></td></tr>
+		<tr><td colspan="3"></td><td colspan="2" align="right"><b>Total : ${map.count } </b></td></tr>
+		
+		</table>
 		<table class="list">
+			
 			<tr>
 				<th width="50">번호</th>
 				<th>제목</th>

@@ -8,8 +8,10 @@
 <head>
 <style>
 
-.comment_table{ border: 1px solid red;}
+.comment_table{ 
+border-top: 1px solid red;
 
+}
 </style>
 
 
