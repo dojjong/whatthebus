@@ -25,8 +25,12 @@
 			type="button" id="searchButton" name="searchButton"
 			class="btn btn-default" value="검색" />
 	</form>
+
+	<input type="button" value="선택회원 메일발송" onclick="checkSendMail();">
 	<table border="1" width="700px">
 		<tr>
+			<th>전체선택<input type="checkbox" name="checkAll" id="th_checkAll"
+				onclick="checkAll();" /></th>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>성별</th>
@@ -41,6 +45,7 @@
 
 		<c:forEach var="row" items="${list }">
 			<tr>
+				<td><input type="checkbox" name="check" value="${row.id }" /></td>
 				<td>${row.id }</td>
 				<td>${row.name }</td>
 				<td>${row.gender }</td>
@@ -65,7 +70,7 @@
 							onclick="returnMember('${row.id}')">
 					</c:if></td>
 				<td><input type="button" id="sendMailMember" value="메일전송"
-				onclick="sendMailMember('${row.id}')"></td>
+					onclick="sendMailMember('${row.id}')"></td>
 			</tr>
 		</c:forEach>
 
@@ -123,7 +128,7 @@
 			}
 		}
 
-		function sendMailMember(mid){
+		function sendMailMember(mid) {
 			var id = String(mid);
 			$.ajax({
 				type : "POST",
@@ -133,15 +138,16 @@
 				},
 				success : function(data) {
 					if (data == "success") {
-						$("#result").load("sendMailForm.do?id="+id);
+						$("#result").load("sendMailForm.do?id=" + id);
 						return;
 					}
-				},error : function(request, status, error) {
+				},
+				error : function(request, status, error) {
 					alert("잘못된 접근입니다.");
 				}
 			});
 		}
-		
+
 		$("#searchButton").click(function() {
 			var keyword = $("#keyword").val();
 			var searchOption = $("#searchOption").val();
@@ -163,8 +169,43 @@
 				}
 			});
 		});
-		
-		
+
+		function checkAll() {
+			if ($("#th_checkAll").is(':checked')) {
+				$("input[name=check]").prop("checked", true);
+			} else {
+				$("input[name=check]").prop("checked", false);
+			}
+		}
+		function checkSendMail() {
+
+			var checkBoxArr = [];
+
+			$("input[name=check]:checked").each(function(i) {
+				checkBoxArr.push($(this).val());
+			});
+
+			$.ajax({
+				type : "POST",
+				url : "moveChecksendMailMember.do",
+				traditional : true,
+				data : {
+					"checkBox" : checkBoxArr
+				},
+				success : function(data) {
+					if (data == "success") {
+
+						$("#result").load(
+								"moveCheckSendMailMemberForm.do?checkBox="
+										+ checkBoxArr);
+						return;
+					}
+				},
+				error : function(request, status, error) {
+					alert("잘못된 접근입니다.");
+				}
+			});
+		}
 	</script>
 
 </body>

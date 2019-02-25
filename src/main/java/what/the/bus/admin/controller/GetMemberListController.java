@@ -127,11 +127,41 @@ public class GetMemberListController {
 	@RequestMapping("/view/**/adminSendMail.do")
 	@ResponseBody
 	public String adminSendMail(String id, String title, String content) {
-		System.out.println(id + "," + title + "," + content);
 		MemberVO vo = getMemberListService.getMemberOne(id);
 		String email = vo.getEmail();
 		mailService.send(title, content, "WhatTheBus1@gmail.com", email);
 		return "success";
 	}
 
+	@RequestMapping("/view/**/moveChecksendMailMember.do")
+	@ResponseBody
+	public String moveCheckSendMailForm() {
+		return "success";
+	}
+
+	@RequestMapping("/view/**/moveCheckSendMailMemberForm.do")
+	public String moveCheckSendMailMember(String[] checkBox, Model model) {
+		String idList = "";
+		for (int i = 0; i < checkBox.length; i++) {
+			idList += checkBox[i].toString();
+			idList += ",";
+		}
+		model.addAttribute("idList", idList);
+		return "admin/checkSendMailForm";
+	}
+
+	@RequestMapping("/view/**/checkSendMailMember.do")
+	@ResponseBody
+	public String checkSendMailMember(String idList, String title, String content) {
+		String[] checkBox = idList.split(",");
+		for (int i = 0; i < checkBox.length; i++) {
+			MemberVO vo = getMemberListService.getMemberOne(checkBox[i]);
+			String email = vo.getEmail();
+			if (email != null) {
+				mailService.send(title, content, "WhatTheBus1@gmail.com", email);
+			}
+			// System.out.println("스플릿 checkBox : " + checkBox[i]);
+		}
+		return "success";
+	}
 }
