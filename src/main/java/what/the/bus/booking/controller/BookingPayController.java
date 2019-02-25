@@ -46,7 +46,6 @@ public class BookingPayController {
 		vo = (MemberVO)session.getAttribute("member");
 		id=vo.getId();
 		List<BookingPayVO> list = bookingPayService.getBookingPayList(id);
-
 		model.addAttribute("list", list);
 		return "member/member_getBookingPayList";
 	}
