@@ -29,5 +29,10 @@ public class BookingPayDAOImpl implements BookingPayDAO {
 		return mybatis.selectList("BookingPayDAO.getSitNumList", busseq);
 	}
 
+	@Override
+	public List<BookingPayVO> getBookingPayList(String id) {
+		return mybatis.selectList("BookingPayDAO.getBookingPayList", id);
+	}
+
 
 }

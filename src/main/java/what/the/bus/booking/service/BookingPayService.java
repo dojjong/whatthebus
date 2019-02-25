@@ -8,4 +8,7 @@ public interface BookingPayService {
 	void insertBookingPay(BookingPayVO vo);
 
 	List<Integer> getSitNumList(int busseq);
+	
+	List<BookingPayVO> getBookingPayList(String id);
+
 }

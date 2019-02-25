@@ -56,7 +56,7 @@ li a:hover {
 				<li><a href="#" id="p1">회원정보수정</a></li>
 				<li><a href="#" id="p2">비밀번호변경</a></li>
 				<li><a href="#">내가 작성한 글</a></li>
-				<li><a href="#">결제내역</a></li>
+				<li><a href="#" id="p4">결제내역</a></li>
 				<li><a href="#" id="p3">회원탈퇴</a></li>
 			</ul>
 		</nav>
@@ -98,6 +98,16 @@ $(document).ready(function(){
 	});
 	
 });
+
+$(document).ready(function(){
+	$("#p4").click(function() {
+		$("#result").load("getBookingPayList.do");
+		
+	});
+	
+});
+
+
 
 </script>
 	

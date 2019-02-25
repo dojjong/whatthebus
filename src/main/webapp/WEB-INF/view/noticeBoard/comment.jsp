@@ -6,10 +6,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+.comment_table{ border: 1px solid red;}
+
+</style>
+
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
+		<div align="center">
+		<form id="noticeCommentListForm" name="noticeCommentListForm" method="post">
+			<c:set var="check" value="" />
+
+		<div id="noticeCommentList" align="center"></div>
+		</form>
+	</div>
+
+
 	<div align="center">
 		<form id="noticeCommentForm" name="noticeCommentForm" action="insertNoticeComment.do" method="POST">
 			<input type="hidden" id="id" name="id" value="${member.id }" /> 
@@ -30,13 +47,7 @@
 			<input type="hidden" id="seq" name="seq" value="" />
 		</form>
 	</div>
-	<div align="center">
-		<form id="noticeCommentListForm" name="noticeCommentListForm" method="post">
-			<c:set var="check" value="" />
 
-			<div id="noticeCommentList" align="center"></div>
-		</form>
-	</div>
 
 	<script>
 		var updateCheck = 0;
@@ -87,7 +98,7 @@
 							if (data.length > 0) {
 								for (i = 0; i < data.length; i++) {
 
-									html += "<table width='500'><tr><td align='left'colspan='2'><h6><strong>"
+									html += "<table width='500' class='comment_table'><tr><td align='left'colspan='2'><h6><strong>"
 											+ data[i].name
 											+ "</strong></td><td align='left'>"
 											+ data[i].regdate;

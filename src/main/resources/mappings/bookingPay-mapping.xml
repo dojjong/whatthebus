@@ -16,7 +16,12 @@
 	]]>
 	</select>
 	
-	
+	<!-- 02.25 결제내역 -->
+	<select id="getBookingPayList" resultType="bookingPay">
+	<![CDATA[
+	SELECT BUSSEQ, ID, NAME, SELECTPAY, SITNUM, PAY, TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM BOOKINGPAY WHERE ID=#{id} ORDER BY SEQ ASC
+	]]>
+	</select>
 
 	
 </mapper>

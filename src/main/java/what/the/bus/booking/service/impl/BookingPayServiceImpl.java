@@ -24,4 +24,9 @@ public class BookingPayServiceImpl implements BookingPayService {
 		return bookingPayDAO.getSitNumList(busseq);
 	}
 
+	@Override
+	public List<BookingPayVO> getBookingPayList(String id) {
+		return bookingPayDAO.getBookingPayList(id);
+	}
+
 }

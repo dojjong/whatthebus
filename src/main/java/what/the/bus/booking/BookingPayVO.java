@@ -1,7 +1,6 @@
 package what.the.bus.booking;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 public class BookingPayVO {
 	private int seq;
@@ -13,6 +12,9 @@ public class BookingPayVO {
 	private int sitnum;
 	private int pay;
 	private Date regdate;
+	private String realregdate;
+	
+	
 	public int getSeq() {
 		return seq;
 	}
@@ -67,11 +69,20 @@ public class BookingPayVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	public String getRealregdate() {
+		return realregdate;
+	}
+	public void setRealregdate(String realregdate) {
+		this.realregdate = realregdate;
+	}
 	@Override
 	public String toString() {
 		return "BookingPayVO [seq=" + seq + ", busseq=" + busseq + ", id=" + id + ", name=" + name + ", tel=" + tel
 				+ ", selectpay=" + selectpay + ", sitnum=" + sitnum + ", pay=" + pay + ", regdate=" + regdate + "]";
 	}
+	
+	
+	
 	
 	
 	

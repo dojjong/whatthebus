@@ -20,7 +20,8 @@
 	<br>
 	<br>
 	<!-- 화면 센터 -->
-	<div align="center">
+	<div align="center" width="1024px">
+
 		
 	<b>글목록(전체 글 : ${map.count } )</b>
 	

@@ -9,6 +9,6 @@ public interface BookingPayDAO {
 
 	List<Integer> getSitNumList(int busseq);
 	
-	
+	List<BookingPayVO> getBookingPayList(String id);
 	
 }
