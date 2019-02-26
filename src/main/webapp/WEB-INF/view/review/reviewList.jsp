@@ -21,7 +21,7 @@
 	<div align="center" width="500">
 		<table id="listtab">
 			<tr height="30">
-				<td width="30">기사님 성함</td>
+				<td width="70">기사님 성함</td>
 				<td width="5">별점</td>
 				<td width="30">작성자</td>
 				<td width="150">내용</td>
@@ -46,13 +46,13 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<div align="center">후기는 [마이페이지]-[결제내역]에서 작성하실수 있습니다.</div>
 	</div>
 
 	<%-- <input type="button" class="contentbt" value="후기작성">--%>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 	<script type="text/javascript">
 		$(function() {
-
 			$('.star').each(function(index, el) {
 				var $El = $(el);
 				$El.barrating({

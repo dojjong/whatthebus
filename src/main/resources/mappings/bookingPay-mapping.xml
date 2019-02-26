@@ -3,6 +3,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="BookingPayDAO">
+	<sql id="header">
+	<![CDATA[
+	SELECT * FROM (SELECT ROWNUM AS rn,A.*FROM(
+	]]>
+	</sql>
+	<sql id="footer">
+	<![CDATA[
+	)A)WHERE rn BETWEEN #{start} AND #{end}
+	]]>
+	</sql>
+
 	<insert id="insertBookingPay">
 	<![CDATA[
 	INSERT INTO BOOKINGPAY(SEQ,BUSSEQ,ID,NAME,TEL,SELECTPAY,SITNUM,PAY) 
@@ -15,19 +26,21 @@
 	SELECT SITNUM FROM BOOKINGPAY WHERE BUSSEQ=#{busseq} ORDER BY SITNUM ASC
 	]]>
 	</select>
-	
+
 	<!-- 02.25 결제내역 -->
 	<select id="getBookingPayList" resultType="bookingPay">
+		<include refid="header"></include>
 	<![CDATA[
 	SELECT BUSSEQ, ID, NAME, SELECTPAY, SITNUM, PAY, TO_CHAR(REGDATE, 'yyyy-mm-dd hh24:mi:ss')"REALREGDATE" FROM BOOKINGPAY WHERE ID=#{id} ORDER BY REGDATE DESC
 	]]>
+		<include refid="footer"></include>
 	</select>
-	
+
 	<select id="getBookingPayListCount" resultType="Integer">
 	<![CDATA[
 	SELECT COUNT(*) FROM BOOKINGPAY WHERE ID=#{id}
 	]]>
 	</select>
 
-	
+
 </mapper>

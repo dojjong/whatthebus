@@ -23,13 +23,13 @@
 
 		<c:forEach var="vo" items="${map.list }" varStatus="status">
 			<tr>
-
 				<td>${vo.busseq }</td>
 				<td>${vo.selectpay }</td>
 				<td>${vo.sitnum }</td>
 				<td>${vo.pay }</td>
 				<td>${vo.realregdate }</td>
-				<td><input type="button" value="후기작성" onclick="moveReviewForm('${vo.busseq}');"></td>
+				<td><input type="button" value="후기작성"
+					onclick="moveReviewForm('${vo.busseq}');"></td>
 			</tr>
 		</c:forEach>
 
@@ -64,28 +64,29 @@
 
 	<script>
 		function fn_paging(curPage) {
-			location.href = "getBookingPayList.do?curPage=" + curPage;
+			$("#result").load("getBookingPayList.do?curPage=" + curPage);
+
 		}
-		
-		function moveReviewForm(busseq){
-			$.ajax({
-				type : "POST",
-				url : "moveReview.do",
-				data : {
-					"busseq" : busseq
-				},
-				success : function(data) {
-					if (data == "success") {
-						$("#result").load("moveReviewForm.do?busseq="+busseq);
-						return;
-					}
-				},
-				error : function(request, status, error) {
-					alert("잘못된 접근입니다.");
-				}
-			});
+		function moveReviewForm(busseq) {
+			$
+					.ajax({
+						type : "POST",
+						url : "moveReview.do",
+						data : {
+							"busseq" : busseq
+						},
+						success : function(data) {
+							if (data == "success") {
+								$("#result").load(
+										"moveReviewForm.do?busseq=" + busseq);
+								return;
+							}
+						},
+						error : function(request, status, error) {
+							alert("잘못된 접근입니다.");
+						}
+					});
 		}
-		
 	</script>
 
 </body>

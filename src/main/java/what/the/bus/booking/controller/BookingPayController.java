@@ -54,15 +54,15 @@ public class BookingPayController {
 		id = vo.getId();
 		bookingPayVO.setId(id);
 
-		System.out.println(bookingPayVO.toString());
 		int listCnt = 0;
 		listCnt = bookingPayService.getBookingPayListCount(bookingPayVO);
 		Pagination pagination = new Pagination(listCnt, curPage);
-
 		int start = pagination.getPageBegin();
 		int end = pagination.getPageEnd();
-
 		List<BookingPayVO> list = bookingPayService.getBookingPayList(start, end, id);
+		System.out.println("start:" + start);
+		System.out.println("end:" + end);
+		System.out.println("받아온 리스트 갯수 : " + list.size());
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
 		map.put("count", listCnt);
@@ -72,5 +72,4 @@ public class BookingPayController {
 		return "member/member_getBookingPayList";
 	}
 
-	
 }
