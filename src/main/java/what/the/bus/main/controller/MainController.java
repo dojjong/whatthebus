@@ -1,6 +1,5 @@
 package what.the.bus.main.controller;
 
-import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import what.the.bus.admin.AdminVO;
-import what.the.bus.admin.service.GetBannerListService;
 import what.the.bus.mail.service.MailService;
 import what.the.bus.main.service.MainService;
 import what.the.bus.member.MemberVO;
@@ -25,13 +22,12 @@ public class MainController {
 	private MailService mailService;
 	@Autowired
 	private MainService mainService;
-	
 
-	//@RequestMapping("/view/**/main.do")
-	//public String mainStart(Model model) {
-		
-	//	return "main/main";
-	//}
+	// @RequestMapping("/view/**/main.do")
+	// public String mainStart(Model model) {
+
+	// return "main/main";
+	// }
 
 	// 02.04 테스트용
 	@RequestMapping("/view/**/mainfooter.do")
@@ -45,7 +41,11 @@ public class MainController {
 	}
 
 	@RequestMapping("/view/**/adminmain.do")
-	public String adminMain() {
+	public String adminMain(HttpSession session) {
+		MemberVO vo = (MemberVO) session.getAttribute("member");
+		if (vo == null) {
+			return "main/main";
+		}
 		return "admin/admin_main";
 	}
 
@@ -58,23 +58,17 @@ public class MainController {
 	public String site() {
 		return "main/site";
 	}
-	
+
 	@RequestMapping("/view/**/guide.do")
 	public String guide() {
 		return "main/guide";
 	}
-	
-	
 
 	@RequestMapping("/view/**/termsAndConditions.do")
 	public String termsAndConditions() {
 		return "main/termsAndConditions";
 	}
 
-
-	
-	
-	
 	// 아이디찾기
 	@RequestMapping(value = "/view/**/sendFindId.do", method = RequestMethod.POST)
 	public String sendId(MemberVO vo, @RequestParam String email) {

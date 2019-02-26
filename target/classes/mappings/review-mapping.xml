@@ -3,6 +3,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ReviewDAO">
+	<sql id="header">
+	<![CDATA[
+	SELECT * FROM (SELECT ROWNUM AS rn,A.*FROM(
+	]]>
+	</sql>
+	<sql id="footer">
+	<![CDATA[
+	)A)WHERE rn BETWEEN #{start} AND #{end}
+	]]>
+	</sql>
+
 	<!-- 리뷰넣기 -->
 	<insert id="insertReview">
 	<![CDATA[
@@ -10,10 +21,24 @@
 		VALUES(review_seq.nextval,#{busseq},#{driverid},#{drivername},#{id},#{name},#{content},#{star},sysdate)
 		]]>
 	</insert>
+
 	<select id="getAllReviewList" resultType="review">
+		<include refid="header"></include>
 	<![CDATA[
 		SELECT * FROM REVIEW ORDER BY REGDATE DESC
 	]]>
+		<include refid="footer"></include>
 	</select>
 
+	<select id="getAllReviewListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM REVIEW
+	]]>
+	</select>
+
+	<select id="getReviewCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM REVIEW WHERE ID=#{id} AND BUSSEQ=#{busseq}
+	]]>
+	</select>
 </mapper>

@@ -1,6 +1,8 @@
 package what.the.bus.review.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,21 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public List<ReviewVO> getAllReviewList() {
-		return mybatis.selectList("ReviewDAO.getAllReviewList");
+	public List<ReviewVO> getAllReviewList(int start, int end) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		return mybatis.selectList("ReviewDAO.getAllReviewList", map);
+	}
+
+	@Override
+	public int getAllReviewListCount() {
+		return mybatis.selectOne("ReviewDAO.getAllReviewListCount");
+	}
+
+	@Override
+	public int getReviewCount(ReviewVO vo) {
+		return mybatis.selectOne("ReviewDAO.getReviewCount", vo);
 	}
 
 }

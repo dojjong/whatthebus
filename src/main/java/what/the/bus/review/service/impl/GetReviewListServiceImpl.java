@@ -15,8 +15,18 @@ public class GetReviewListServiceImpl implements GetReviewListService {
 	private ReviewDAO reviewDAO;
 
 	@Override
-	public List<ReviewVO> getAllReviewList() {
-		return reviewDAO.getAllReviewList();
+	public List<ReviewVO> getAllReviewList(int start, int end) {
+		return reviewDAO.getAllReviewList(start, end);
+	}
+
+	@Override
+	public int getAllReviewListCount() {
+		return reviewDAO.getAllReviewListCount();
+	}
+
+	@Override
+	public int getReviewCount(ReviewVO vo) {
+		return reviewDAO.getReviewCount(vo);
 	}
 
 }

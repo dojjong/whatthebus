@@ -27,7 +27,7 @@
 				<td width="150">내용</td>
 				<td width="50">작성일</td>
 			</tr>
-			<c:forEach var="vo" items="${reviewList }" varStatus="status">
+			<c:forEach var="vo" items="${map.reviewList }" varStatus="status">
 				<tr height="30">
 
 					<td width="30">${vo.drivername }</td>
@@ -46,12 +46,41 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<div align="center">
+			<c:if test="${map.pagination.curBlock > 1}">
+				<a href="#" onClick="fn_paging('${map.pagination.prevPage }')">[이전]</a>
+			</c:if>
+			<c:forEach var="pageNum" begin="${map.pagination.blockBegin }"
+				end="${map.pagination.blockEnd }">
+				<c:choose>
+					<c:when test="${pageNum ==  map.pagination.curPage}">
+						<span style="font-weight: bold;"><a href="#"
+							onClick="fn_paging('${pageNum }')">${pageNum }</a></span>
+					</c:when>
+					<c:otherwise>
+						<a href="#" onClick="fn_paging('${pageNum }')">${pageNum }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${map.pagination.curBlock <= map.pagination.totBlock}">
+				<a href="#" onClick="fn_paging('${map.pagination.nextPage }')">[다음]</a>
+			</c:if>
+			<c:if test="${map.pagination.curPage <= map.pagination.totPage}">
+				<a href="#" onClick="fn_paging('${map.pagination.totPage }')">[끝]</a>
+			</c:if>
+		</div>
+
+
 		<div align="center">후기는 [마이페이지]-[결제내역]에서 작성하실수 있습니다.</div>
 	</div>
 
 	<%-- <input type="button" class="contentbt" value="후기작성">--%>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 	<script type="text/javascript">
+		function fn_paging(curPage) {
+			location.href = "getAllReviewList.do?curPage=" + curPage
+		}
+
 		$(function() {
 			$('.star').each(function(index, el) {
 				var $El = $(el);

@@ -18,6 +18,7 @@
 			<th>결제금액</th>
 			<th>결제일시</th>
 			<th>후기등록</th>
+			<th>후기등록여부</th>
 		</tr>
 
 
@@ -29,7 +30,12 @@
 				<td>${vo.pay }</td>
 				<td>${vo.realregdate }</td>
 				<td><input type="button" value="후기작성"
-					onclick="moveReviewForm('${vo.busseq}');"></td>
+					onclick="moveReviewForm('${vo.busseq}','${map.reviewCount[status.index] }');"></td>
+				<td><c:if test="${map.reviewCount[status.index]!=0}">
+						<font color="#0000FF">등록</font>
+					</c:if> <c:if test="${map.reviewCount[status.index]==0}">
+						<font color="#FF0000">미등록</font>
+					</c:if></td>
 			</tr>
 		</c:forEach>
 
@@ -67,7 +73,11 @@
 			$("#result").load("getBookingPayList.do?curPage=" + curPage);
 
 		}
-		function moveReviewForm(busseq) {
+		function moveReviewForm(busseq, check) {
+			if (check != 0) {
+				alert("이미 후기를 등록하셨습니다.");
+				return;
+			}
 			$
 					.ajax({
 						type : "POST",

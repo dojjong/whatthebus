@@ -7,5 +7,9 @@ import what.the.bus.review.ReviewVO;
 public interface ReviewDAO {
 	void insertReview(ReviewVO vo);
 
-	List<ReviewVO> getAllReviewList();
+	List<ReviewVO> getAllReviewList(int start,int end);
+
+	int getAllReviewListCount();
+	
+	int getReviewCount(ReviewVO vo);
 }

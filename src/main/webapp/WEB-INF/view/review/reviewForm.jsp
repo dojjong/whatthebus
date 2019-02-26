@@ -71,7 +71,7 @@
 					}
 				},
 				error : function(request, status, error) {
-					alert("잘못된 접근입니다.");
+					alert("별점을 선택해주세요.");
 				}
 			});
 		}
