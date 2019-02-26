@@ -257,7 +257,7 @@
 					<li><a href="#">고객센터</a>
 						<ul>
 							<li><a href="getQaBoardList.do">Q&A</a></li>
-							<li><a href="getAfterBoardList.do">후기</a></li>
+							<li><a href="getAllReviewList.do">후기</a></li>
 							<li><a href="getLostBoardList.do">분실물서비스</a></li>
 						</ul></li>
 					<li><a href="#">공지사항</a>

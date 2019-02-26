@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ReviewDAO">
+	<!-- 리뷰넣기 -->
+	<insert id="insertReview">
+	<![CDATA[
+		INSERT INTO REVIEW(SEQ,BUSSEQ,DRIVERID,DRIVERNAME,ID,NAME,CONTENT,STAR,REGDATE) 
+		VALUES(review_seq.nextval,#{busseq},#{driverid},#{drivername},#{id},#{name},#{content},#{star},sysdate)
+		]]>
+	</insert>
+	<select id="getAllReviewList" resultType="review">
+	<![CDATA[
+		SELECT * FROM REVIEW ORDER BY REGDATE DESC
+	]]>
+	</select>
+
+</mapper>
