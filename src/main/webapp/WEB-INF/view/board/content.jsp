@@ -13,36 +13,7 @@
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
 	
-	<style>
 
-/* 빨간선-확인용 삭제 할겁니다!*/
-div {
-   border: 1px solid red;
-}
-
-table {
-   border: 1px solid red;
-}
-
-tr {
-   border: 1px solid red;
-}
-
-td {
-   border: 1px solid red;
-}
-/* 구간 확인용 삭제 할겁니다!*/
-
-
-#outline{
-	border: 1px solid lightgrey;
-}
-
-
-
-</style>
-	
-	
 </head>
 <body>
 	<form id="form" action="updateForm.do?seq=${vo.seq }" method="post">
@@ -67,25 +38,26 @@ td {
 		
 		
 		<table width="960" align="center">
-		<tr><td colspan="4" align="right"><a
-					href="getBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
+		<tr><td><c:choose><c:when test="${member.statecount == 4 }">
+				<input type="submit" class="contentbt" value="수정">
+				<!-- 관리자가 이 버튼이 보이도록 코드 수정 -->
+				<input type="button" id="deleteAdminButton" class="admin_contentbt" value="관리자삭제">
+			    </c:when></c:choose></td>
+						
+		<td align="right" colspan="3"><a href="getBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
 						<input type="button" class="contentbt" value="목록"></a></td></tr>
-		<tr><td>${vo.title }</td>
-		<td>${vo.name }(${vo.id})</td>
-		<td align="right"><font color="grey" size="1">${vo.realregdate }</font></td>
-		<td align="right" width="200"><c:choose>
+						
+		<tr id="tr01"><td><b>${vo.title }</b></td>
+		<td width="90"><b>${vo.name }(${vo.id})</b></td>
+		<td align="right" width="100"><font color="grey" size="1">${vo.realregdate }</font></td>
+		<td align="right" width="150"><c:choose>
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
 							<input type="button" id="deleteButton" class="contentbt"
 								value="삭제">
 						</c:when>
-						<c:when test="${member.statecount == 4 }">
-							<input type="submit" class="contentbt" value="수정">
-							<!-- 관리자가 이 버튼이 보이도록 코드 수정 -->
-							<input type="button" id="deleteAdminButton" class="contentbt"
-								value="관리자삭제">
-						</c:when>
+						
 					</c:choose>
 		</td></tr>
 		
@@ -94,17 +66,17 @@ td {
 		<tr><td colspan="4" align="center"><div id="map" style="width: 950px; height: 500px;"></div></td></tr>
 		
 		<tr>
-				<td colSpan="4">확정 출발지 : <span id="spanStartJuso"></span></td>
+				<td colSpan="4"><b>확정 출발지 : <span id="spanStartJuso"></span></b></td>
 			</tr>
 			<tr>
-				<td colSpan="4">확정 도착지 : <span id="spanEndJuso"></span></td>
+				<td colSpan="4"><b>확정 도착지 : <span id="spanEndJuso"></span></b></td>
 			</tr>
 		
 		
 		</table>
 		<table width="960" align="center">
-		<tr><td align="left"  width="100">조회수:${vo.cnt }</td>
-		<td align="left"><a href='javascript:void(0);'onclick="best_click();"> <c:choose>
+		<tr><td align="left"  width="100"><font size="1">조회수:<b>${vo.cnt }</b></font></td>
+		<td align="right"><a href='javascript:void(0);'onclick="best_click();"> <c:choose>
 							<c:when test="${best==0 }">
 								<img src='../resources/images/bestbt.png' id="bestButton">
 							</c:when>
@@ -123,7 +95,7 @@ td {
 
 </td></tr>
 </table>
-
+<br/>
 
 	<script>
 		$("#deleteButton").click(function() {

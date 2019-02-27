@@ -6,18 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="../resources/css/testBoardStyle.css" />
+<style>
+#outline{
+	border: 1px solid lightgrey;
+	background-color: rgb(249, 249, 249);
+}
+
+.writebt {
+
+ height: 30px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+}
+
+
+
+</style>
 </head>
 <body>
 
-	<div align="center">
-		<b>글쓰기</b>
-	</div>
+
 	<br />
 	<form method="post" id="writeForm" name="writeForm" action="insertNoticeBoard.do">
 		<input type="hidden" name="id" value="${member.id }"> 
 		<input type="hidden" name="name" value="${member.name }" />
-		<table border="1" align="center">
+		<table border="1" align="center" width="1000" id="outline">
 
 			<tr>
 				<td width="100" align="center">작성자</td>
@@ -44,6 +58,8 @@
 			</tr>
 		</table>
 	</form>
+	
+	<br/>
 	<script type="text/javascript">
 		$(function() {
 			var oEditors = [];

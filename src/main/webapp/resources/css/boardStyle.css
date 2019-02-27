@@ -5,6 +5,15 @@ body {
 	font-family:'맑은 고딕';
 }
 
+#tr01{
+	border-bottom: 1px dashed lightgrey;
+}
+
+#outline{
+	border: 1px solid lightgrey;
+}
+
+
 #listtab {
   border-collapse: collapse;
   border: 1px;
@@ -66,9 +75,9 @@ body {
 	background-color: rgb(49, 100, 176);
 }
 
+
 #content {
-	width: 500px;
-	margin-top:50px;
+	resize: none;
 }
 
 .contenttd {
@@ -77,7 +86,7 @@ body {
 }
 
 #bestButton {
-	width: 40px;
+	width: 20px;
 	height:20px;
 	text-align: right;
 	border-radius: 10px;
@@ -88,12 +97,27 @@ body {
 }
 
 .contentbt {
-	border-radius: 10px;
-	background-color:  rgb(49, 100, 176);
-	color: white;
-	height : 40px;
-	border: none;
+ width: 65px;
+ height: 30px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
 }
+
+.admin_contentbt {
+ width: 90px;
+ height: 30px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+}
+
+
+
+#cmt{
+background-color: rgb(249, 249, 249);
+}
+
 
 #list{
 	margin-top:30px;

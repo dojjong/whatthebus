@@ -58,7 +58,7 @@ background-color: rgb(249, 249, 249);
 					<td align="left" colspan="2"><span><strong>댓글</strong></span> <span id="noticeCommentCount"></span></td>
 				</tr>
 				<tr>
-					<td><textarea rows="3" cols="120" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
+					<td><textarea rows="3" cols="117" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
 					<td align="right" width="60">
 					<input type="button" id="insertNoticeCommentbt" class="contentbt" value="등록"></td>
 				</tr>

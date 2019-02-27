@@ -37,7 +37,7 @@
 
 </head>
 <body>
-	<br>
+
 	<br>
 	<!-- 화면 센터 -->
 	<div align="center">
