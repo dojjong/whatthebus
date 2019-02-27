@@ -23,8 +23,8 @@ background-color: rgb(249, 249, 249);
 }
 
 #insertNoticeCommentbt{
- width: 65px;
- height: 50px;
+ width: 88px;
+ height: 75px;
  background-color: white;
  border: 1px solid lightgrey;
  color: grey;
@@ -53,12 +53,12 @@ background-color: rgb(249, 249, 249);
 			<input type="hidden" id="name" name="name" value="${member.name } " /> 
 			<input type="hidden" id="seq" name="seq" value="${vo.seq }" />
 			
-			<table width="800px" id="cmt">
+			<table width="960px" id="cmt">
 				<tr>
 					<td align="left" colspan="2"><span><strong>댓글</strong></span> <span id="noticeCommentCount"></span></td>
 				</tr>
 				<tr>
-					<td><textarea rows="3" cols="100" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
+					<td><textarea rows="3" cols="120" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
 					<td align="right" width="60">
 					<input type="button" id="insertNoticeCommentbt" class="contentbt" value="등록"></td>
 				</tr>
@@ -118,7 +118,7 @@ background-color: rgb(249, 249, 249);
 							if (data.length > 0) {
 								for (i = 0; i < data.length; i++) {
 
-									html += "<table width='800' class='comment_table' id='cmt'><tr><td align='left'colspan='2'><h6><strong>"
+									html += "<table width='960' class='comment_table' id='cmt'><tr><td align='left'colspan='2'><h6><strong>"
 											+ data[i].name
 											+ "</strong></td><td align='left'>"
 											+ data[i].regdate;

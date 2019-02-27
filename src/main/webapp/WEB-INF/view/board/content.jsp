@@ -12,6 +12,37 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
+	
+	<style>
+
+/* 빨간선-확인용 삭제 할겁니다!*/
+div {
+   border: 1px solid red;
+}
+
+table {
+   border: 1px solid red;
+}
+
+tr {
+   border: 1px solid red;
+}
+
+td {
+   border: 1px solid red;
+}
+/* 구간 확인용 삭제 할겁니다!*/
+
+
+#outline{
+	border: 1px solid lightgrey;
+}
+
+
+
+</style>
+	
+	
 </head>
 <body>
 	<form id="form" action="updateForm.do?seq=${vo.seq }" method="post">
@@ -25,55 +56,24 @@
 		<input type="hidden" id="end_wido" name="end_wido"
 			value="${vo.end_wido }" /> <input type="hidden" id="end_kyungdo"
 			name="end_kyungdo" value="${vo.end_kyungdo }" />
-		<table id="content" border="1" align="center">
-
-			<tr>
-				<td class="contenttd">글번호</td>
-				<td>${vo.seq}</td>
-				<td class="contenttd">조회수</td>
-				<td>${vo.cnt }</td>
-			</tr>
-			<tr>
-				<td class="contenttd">글쓴이</td>
-				<td>${vo.name }</td>
-				<td class="contenttd">작성일</td>
-				<td>${vo.realregdate }</td>
-			</tr>
-			<tr>
-				<td class="contenttd" width="60">글 제목</td>
-				<td colspan="3">${vo.title }</td>
-			</tr>
-			<tr>
-				<td width="500" height="70" colspan="4">글내용</td>
-			</tr>
-			<tr>
-				<td width="500" height="200" colspan="4">${vo.content }</td>
-			</tr>
-			<tr>
-				<td colSpan="4"><div id="map"
-						style="width: 800px; height: 300px;"></div></td>
-			</tr>
-			<tr>
-				<td colSpan="4">확정 출발지 : <span id="spanStartJuso"></span></td>
-			</tr>
-			<tr>
-				<td colSpan="4">확정 도착지 : <span id="spanEndJuso"></span></td>
-			</tr>
-
-		</table>
-		<table width="500" align="center">
-			<tr>
-				<td align="center"><a href='javascript:void(0);'
-					onclick="best_click();"> <c:choose>
-							<c:when test="${best==0 }">
-								<img src='../resources/images/bestbt.png' id="bestButton">
-							</c:when>
-							<c:otherwise>
-								<img src='../resources/images/onbestbt.png' id="bestButton">
-							</c:otherwise>
-						</c:choose> <span id="best_cnt">${vo.best } </span></a></td>
-				<!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
-				<td align="right" width="200"><c:choose>
+			
+<!-- 테이블 시작 -->
+<br/>	
+<!-- 아웃라인  -->
+<table width="1000px" align="center" id="outline">
+		<tr><td>
+		
+		
+		
+		
+		<table width="960" align="center">
+		<tr><td colspan="4" align="right"><a
+					href="getBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
+						<input type="button" class="contentbt" value="목록"></a></td></tr>
+		<tr><td>${vo.title }</td>
+		<td>${vo.name }(${vo.id})</td>
+		<td align="right"><font color="grey" size="1">${vo.realregdate }</font></td>
+		<td align="right" width="200"><c:choose>
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
@@ -86,15 +86,43 @@
 							<input type="button" id="deleteAdminButton" class="contentbt"
 								value="관리자삭제">
 						</c:when>
-					</c:choose> <a
-					href="getBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
-						<input type="button" class="contentbt" value="목록">
-				</a></td>
+					</c:choose>
+		</td></tr>
+		
+		<tr><td colspan="4">${vo.content }</td></tr>
+		
+		<tr><td colspan="4" align="center"><div id="map" style="width: 950px; height: 500px;"></div></td></tr>
+		
+		<tr>
+				<td colSpan="4">확정 출발지 : <span id="spanStartJuso"></span></td>
 			</tr>
+			<tr>
+				<td colSpan="4">확정 도착지 : <span id="spanEndJuso"></span></td>
+			</tr>
+		
+		
 		</table>
+		<table width="960" align="center">
+		<tr><td align="left"  width="100">조회수:${vo.cnt }</td>
+		<td align="left"><a href='javascript:void(0);'onclick="best_click();"> <c:choose>
+							<c:when test="${best==0 }">
+								<img src='../resources/images/bestbt.png' id="bestButton">
+							</c:when>
+							<c:otherwise>
+								<img src='../resources/images/onbestbt.png' id="bestButton">
+							</c:otherwise>
+						</c:choose> <span id="best_cnt">${vo.best } </span></a></td></tr>
+		</table>
+		
+<!-- 테이블 끝 -->		
+		
+	
 	</form>
 
 	<%@include file="../board/comment.jsp"%>
+
+</td></tr>
+</table>
 
 
 	<script>

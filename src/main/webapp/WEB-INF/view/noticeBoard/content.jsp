@@ -42,10 +42,10 @@
 		<input type="hidden" name="id" value="${member.id }"> 
 		<input type="hidden" name="name" value="${member.name }" />
 		
-		<table width="840px" align="center" id="outline">
+		<table width="1000px" align="center" id="outline">
 		<tr><td>
 		
-		<table width="800px" align="center">
+		<table width="960px" align="center">
 		<tr><td align="right"><p><a href="getNoticeBoardList.do"> <input type="button" class="contentbt" id="listbt" value="목록"></a></p></td>
 		</tr>
 		</table>
@@ -53,10 +53,10 @@
 
 		
 		<div align="center">
-		<table width="800px">
+		<table width="960px">
 		<tr id="tr01">
 		<td><b>${vo.title }</b> </td>
-		<td align="right"><b>${vo.name }(${vo.id })</b>&nbsp;<font color="lightgrey" size="1">${vo.realregdate }</font><c:choose><c:when test="${member.id == vo.id }">
+		<td align="right"><b>${vo.name }(${vo.id })</b>&nbsp;<font color="grey" size="1">${vo.realregdate }</font><c:choose><c:when test="${member.id == vo.id }">
 			<input type="submit" class="btn btn-link" value="수정"><font color="lightgrey">ㅣ</font>
 			<a href="deleteNoticeBoard.do?seq=${vo.seq }"> 
 			<input type="button" class="btn btn-link" id="deleteButton" value="삭제"></a>
@@ -102,7 +102,7 @@
 		
 		</form>
 
-	
+
 	<%@include file="../noticeBoard/comment.jsp"%>
 	</td></tr>
 		</table>
@@ -134,7 +134,7 @@
 
 
 	<script type="text/javascript" src="../resources/js/boardScript.js"></script>
-
+	<br/>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
 </html>
