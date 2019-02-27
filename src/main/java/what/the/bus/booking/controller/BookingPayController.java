@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import what.the.bus.bookBoard.service.GetBookBoardService;
 import what.the.bus.booking.BookingPayVO;
 import what.the.bus.booking.service.BookingPayService;
+import what.the.bus.mail.service.MailService;
 import what.the.bus.member.MemberVO;
 import what.the.bus.pagination.Pagination;
 import what.the.bus.review.ReviewVO;
@@ -30,6 +31,8 @@ public class BookingPayController {
 	private BookingPayService bookingPayService;
 	@Autowired
 	private GetReviewListService reviewService;
+	@Autowired
+	private MailService mailService;
 
 	@RequestMapping("/view/**/bookingTicket.do")
 	public String bookingTicket(Integer seq, Model model) {
@@ -42,9 +45,31 @@ public class BookingPayController {
 	}
 
 	@RequestMapping("/view/**/bookingPay.do")
-	public String bookingPay(BookingPayVO vo, Model model) {
+	public String bookingPay(BookingPayVO vo, Model model, HttpSession session) {
+		System.out.println(vo.toString());
 		bookingPayService.insertBookingPay(vo);
 		model.addAttribute("vo", vo);
+
+		// javax.mail.Message.setContent("메일 본문 내용 HTML 코딩",
+		// "text/html;charset=euc-kr");
+
+		MemberVO mvo = (MemberVO) session.getAttribute("member");
+		SuggestBoardVO svo = bookBoardService.getBookBoard(vo.getBusseq());
+		System.out.println(svo.toString());
+		String email = mvo.getEmail();
+		String title = "WTB 결제 확인 메일입니다.";
+		String content = "<table>" + "<tr><td colspan='2'>회원님께서 결제하신 내역입니다.</td></tr>" + "<tr><td></td></tr>"
+				+ "<tr><td>게시글번호 </td><td>" + vo.getBusseq() + "</td></tr>" + "<tr><td>게시글제목 </td><td>" + svo.getTitle()
+				+ "</td></tr>" + "<tr><td>기사님 성함 </td><td>" + svo.getName() + "기사님</td></tr>" + "<tr><td>출발일시 </td><td>"
+				+ svo.getStartdate() + "</td></tr>" + "<tr><td>운행예상소요시간 </td><td>" + svo.getFinishtime() + "분</td></tr>"
+				+ "<tr><td>신청고객님  </td><td>" + vo.getName() + "회원님</td></tr>" + "<tr><td>결제수단  </td><td>"
+				+ vo.getSelectpay() + "</td></tr>" + "<tr><td>좌석  </td><td>" + vo.getSitnum() + "번</td></tr>"
+				+ "<tr><td>결제금액 </td><td>" + vo.getPay() + "원</td></tr>" + "<tr><td> </td><td></td></tr>"
+				+ "<tr><td colspan='2'>자세한 운행경로와 경유시간 등은 홈페이지에서 확인해주세요.</td><td></td></tr>" + "</table>";
+		if (email != null) {
+			mailService.send(title, content, "WhatTheBus1@gmail.com", email);
+		}
+
 		return "booking/successPay";
 	}
 
