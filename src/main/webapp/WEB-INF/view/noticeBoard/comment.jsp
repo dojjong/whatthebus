@@ -8,10 +8,28 @@
 <head>
 <style>
 
-.comment_table{ 
-border-bottom: 1px solid red;
 
+
+textarea#content{
+	resize: none;
 }
+
+#comment{
+   border-bottom: 1px dotted grey;
+}
+
+#cmt{
+background-color: rgb(249, 249, 249);
+}
+
+#insertNoticeCommentbt{
+ width: 65px;
+ height: 50px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+}
+
 </style>
 
 
@@ -34,17 +52,17 @@ border-bottom: 1px solid red;
 			<input type="hidden" id="id" name="id" value="${member.id }" /> 
 			<input type="hidden" id="name" name="name" value="${member.name } " /> 
 			<input type="hidden" id="seq" name="seq" value="${vo.seq }" />
-			<table>
+			
+			<table width="800px" id="cmt">
 				<tr>
-					<td align="left"><span><strong>댓글</strong></span> <span id="noticeCommentCount"></span></td>
+					<td align="left" colspan="2"><span><strong>댓글</strong></span> <span id="noticeCommentCount"></span></td>
 				</tr>
 				<tr>
-					<td><textarea rows="3" cols="60" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
-				</tr>
-				<tr>
+					<td><textarea rows="3" cols="100" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
 					<td align="right" width="60">
 					<input type="button" id="insertNoticeCommentbt" class="contentbt" value="등록"></td>
 				</tr>
+				
 			</table>
 			<input type="hidden" id="seq" name="seq" value="" />
 		</form>
@@ -100,7 +118,7 @@ border-bottom: 1px solid red;
 							if (data.length > 0) {
 								for (i = 0; i < data.length; i++) {
 
-									html += "<table width='500' class='comment_table'><tr><td align='left'colspan='2'><h6><strong>"
+									html += "<table width='800' class='comment_table' id='cmt'><tr><td align='left'colspan='2'><h6><strong>"
 											+ data[i].name
 											+ "</strong></td><td align='left'>"
 											+ data[i].regdate;
@@ -118,7 +136,7 @@ border-bottom: 1px solid red;
 									if (data[i].cno == updateCheckCno
 											&& updateCheck == 1) {
 										html += "<tr><td colspan='3'>";
-										html += "<textarea rows='2' cols='50' id='updateContent' name='content'>"
+										html += "<textarea rows='2' cols='80' id='updateContent' name='content'>"
 												+ getNoticeComment
 												+ "</textarea></td><td align='right'><input type='button' value = '확인'  class='contentbt' onclick='updateNoticeCommentCheck("
 												+ data[i].cno
@@ -126,7 +144,7 @@ border-bottom: 1px solid red;
 												+ "</td></tr>";
 										html += "</table>";
 									} else {
-										html += "<tr><td colspan='4'>";
+										html += "<tr id='comment'><td colspan='4'>";
 										html += data[i].content + "</td></tr>";
 										html += "</table>";
 									}

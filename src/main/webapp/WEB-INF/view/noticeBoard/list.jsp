@@ -5,7 +5,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+#writebt{
+ width: 65px;
+ height: 30px;
+ background-color: white;
+ background-image: url("../resources/images/writebutton.png");
+ background-repeat: no-repeat;
+ background-size: 65px 30px;
+ border: 1px solid lightgrey;
 
+}
+
+
+
+
+
+</style>
 
 
 
@@ -63,13 +79,14 @@
 			</c:forEach>
 
 		</table>
-		<table width="700">
+		<br/>
+		<table width="800">
 			<tr>
 				<td align="right">
 					<form name="form" action="writeNoticeBoard.do" method="POST">
 						<input type="hidden" id="member" value="${member }">
 						<c:if
-							test="${member.statecount==4 }"><input type="button" id="writebt" value="글쓰기"></c:if>
+							test="${member.statecount==4 }"><input type="button" id="writebt" ></c:if>
 					</form>
 					
 					<div align="center">

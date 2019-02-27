@@ -6,29 +6,22 @@
 <html>
 <head>
 <style>
-/* 빨간선-확인용 삭제 할겁니다!*/
-div {
-	border: 1px solid red;
-}
-
-table {
-	border: 1px solid red;
-}
-
-tr {
-	border: 1px solid red;
-}
-
-td {
-	border: 1px solid red;
-}
-/* 구간 확인용 삭제 할겁니다!*/
-
-
-
 
 #tr01{
 	border-bottom: 1px dashed lightgrey;
+}
+
+#outline{
+	border: 1px solid lightgrey;
+}
+
+#listbt{
+ width: 65px;
+ height: 30px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+ 
 }
 
 
@@ -49,8 +42,11 @@ td {
 		<input type="hidden" name="id" value="${member.id }"> 
 		<input type="hidden" name="name" value="${member.name }" />
 		
+		<table width="840px" align="center" id="outline">
+		<tr><td>
+		
 		<table width="800px" align="center">
-		<tr><td align="right"><p><a href="getNoticeBoardList.do"> <input type="button" class="contentbt" value="목록"></a></p></td>
+		<tr><td align="right"><p><a href="getNoticeBoardList.do"> <input type="button" class="contentbt" id="listbt" value="목록"></a></p></td>
 		</tr>
 		</table>
 		
@@ -59,23 +55,22 @@ td {
 		<div align="center">
 		<table width="800px">
 		<tr id="tr01">
-		<td>${vo.title } <font color="lightgrey">ㅣ</font></td>
-		<td><a href="getNoticeBoardList.do">공지사항</a></td>
-		<td>${vo.realregdate }</td>
-		<td><c:choose><c:when test="${member.id == vo.id }">
-			<input type="submit" class="btn btn-link" value="수정">
+		<td><b>${vo.title }</b> </td>
+		<td align="right"><b>${vo.name }(${vo.id })</b>&nbsp;<font color="lightgrey" size="1">${vo.realregdate }</font><c:choose><c:when test="${member.id == vo.id }">
+			<input type="submit" class="btn btn-link" value="수정"><font color="lightgrey">ㅣ</font>
 			<a href="deleteNoticeBoard.do?seq=${vo.seq }"> 
 			<input type="button" class="btn btn-link" id="deleteButton" value="삭제"></a>
 			</c:when></c:choose> </td></tr>	
-				
-		<tr><td colspan="4">${vo.name }(${vo.id })</td></tr>
-		
+	
+		<tr><td></br></br></br></td></tr>
 		<tr><td colspan="4">${vo.content }</td></tr>
 		
-		<tr><td>조회수 ${vo.cnt }</td></tr>
+		<tr><td colspan="4"><b><font size="1">조회수 ${vo.cnt }</font></b></td></tr>
 		
 		</table>
 		</div>
+		
+		
 		
 		<!-- 
 		<table id="content" border="1" align="center" width="800">
@@ -109,13 +104,15 @@ td {
 
 	
 	<%@include file="../noticeBoard/comment.jsp"%>
-	
+	</td></tr>
+		</table>
+	<!-- 
 	<table width="500" align="center">
 			<tr>
 				<td align="center"><c:choose>
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
-							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
+							
 							<a href="deleteNoticeBoard.do?seq=${vo.seq }"> <input type="button"
 								class="contentbt" id="deleteButton" value="삭제"></a>
 						</c:when>
@@ -124,6 +121,7 @@ td {
 				</a></td>
 			</tr>
 		</table>
+	 -->	
 	<script>
 		$("#deleteButton").click(function() {
 			if (confirm("정말 삭제하시겠습니까 ? ")) {
