@@ -10,7 +10,7 @@ import what.the.bus.comment.CommentVO;
 public interface BoardDAO {
 	void insertBoard(BoardVO vo);
 
-	List<BoardVO> getBoardList(int start,int end, String searchOption,String keyword);
+	List<BoardVO> getBoardList(int start, int end, String searchOption, String keyword);
 
 	int getListCount(BoardVO vo);
 
@@ -20,8 +20,10 @@ public interface BoardDAO {
 
 	void deleteBoard(BoardVO vo);
 
+	void deleteAdminBoard(BoardVO vo);
+
 	void deleteComment(BoardVO vo);
-	
+
 	int getCheckBest(BestVO vo);
 
 	int getCheckBestCheck(BestVO vo);
@@ -31,7 +33,7 @@ public interface BoardDAO {
 	int getBoardCommentNameListCount(CommentVO vo);
 
 	int getCommentCount(int seq);
-	
+
 	List<ChartVO1> getBoardCountPerRegdate();
-	
+
 }

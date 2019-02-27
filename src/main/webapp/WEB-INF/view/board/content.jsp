@@ -80,6 +80,12 @@
 							<input type="button" id="deleteButton" class="contentbt"
 								value="삭제">
 						</c:when>
+						<c:when test="${member.statecount == 4 }">
+							<input type="submit" class="contentbt" value="수정">
+							<!-- 관리자가 이 버튼이 보이도록 코드 수정 -->
+							<input type="button" id="deleteAdminButton" class="contentbt"
+								value="관리자삭제">
+						</c:when>
 					</c:choose> <a
 					href="getBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
 						<input type="button" class="contentbt" value="목록">
@@ -97,7 +103,12 @@
 				location.href = "deleteBoard.do?seq=${vo.seq }";
 			}
 		});
-
+		$("#deleteAdminButton").click(function() {
+			if (confirm("정말 삭제하시겠습니까 ? ")) {
+				location.href = "deleteAdminBoard.do?seq=${vo.seq }";
+			}
+		});
+		
 		function best_click() {
 			var frm_read = $('#form');
 			var seq = $('#seq', form).val();

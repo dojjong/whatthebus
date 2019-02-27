@@ -14,11 +14,18 @@ public class DeleteBoardController {
 	private DeleteBoardService boardService;
 
 	@RequestMapping("/view/**/deleteBoard.do")
-	public String updateBoard(@ModelAttribute BoardVO vo, int seq) {
+	public String deleteBoard(@ModelAttribute BoardVO vo, int seq) {
 		vo.setSeq(seq);
 		boardService.deleteBoard(vo);
 		boardService.deleteComment(vo);
 		return "redirect:getBoardList.do";
 	}
-
+	@RequestMapping("/view/**/deleteAdminBoard.do")
+	public String deleteAdminBoard(@ModelAttribute BoardVO vo, int seq) {
+		vo.setSeq(seq);
+		vo.setBest(-1);
+		boardService.deleteAdminBoard(vo);
+		return "redirect:getBoardList.do";
+	}
+	
 }

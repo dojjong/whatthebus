@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import what.the.bus.bookcomment.service.DeleteBookCommentService;
+
 @Controller
 public class DeleteBookCommentController {
 	@Autowired
@@ -17,6 +18,13 @@ public class DeleteBookCommentController {
 	@ResponseBody
 	public String deleteBookComment(@RequestParam int cno) {
 		commentService.deleteBookComment(cno);
+		return "success";
+	}
+
+	@RequestMapping(value = "/view/**/deleteAdminBookComment.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String deleteAdminBookComment(@RequestParam int cno) {
+		commentService.deleteAdminBookComment(cno);
 		return "success";
 	}
 

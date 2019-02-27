@@ -85,7 +85,7 @@
 	<select id="getBookBoardList" resultType="suggestBoard">
 		<include refid="header"></include>
 	<![CDATA[
-	SELECT ROWNUM,SEQ,TITLE,CONTENT,NAME,REGDATE,CNT,to_char(STARTDATE,'yyyy-MM-dd HH24:mi:ss')"realstartdate" FROM (SELECT * FROM SUGGESTBOARD ORDER BY SEQ DESC,REGDATE DESC)
+	SELECT ROWNUM,SEQ,TITLE,CONTENT,BEST,NAME,REGDATE,CNT,to_char(STARTDATE,'yyyy-MM-dd HH24:mi:ss')"realstartdate" FROM (SELECT * FROM SUGGESTBOARD ORDER BY SEQ DESC,REGDATE DESC)
 	]]>
 		<include refid="search"></include>
 		<include refid="footer"></include>
@@ -105,15 +105,15 @@
 
 	<update id="updateBookBoard">
 	<![CDATA[
-	UPDATE BOOKBOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
+	UPDATE SUGGESTBOARD SET TITLE=#{title}, CONTENT=#{content} WHERE SEQ =#{seq}
 	]]>
 	</update>
 
-	<delete id="deleteBookBoard">
+	<update id="deleteBookBoard">	
 	<![CDATA[
-	DELETE BOOKBOARD WHERE SEQ=#{seq}
+	UPDATE SUGGESTBOARD SET BEST =#{best} WHERE SEQ=#{seq}
 	]]>
-	</delete>
+	</update>
 
 	<select id="getCommentCount" resultType="Integer">
 	<![CDATA[

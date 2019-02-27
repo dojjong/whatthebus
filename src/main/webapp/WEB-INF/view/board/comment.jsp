@@ -15,7 +15,8 @@
 			method="POST">
 			<input type="hidden" id="id" name="id" value="${member.id }" /> <input
 				type="hidden" id="name" name="name" value="${member.name } " /> <input
-				type="hidden" id="seq" name="seq" value="${vo.seq }" />
+				type="hidden" id="seq" name="seq" value="${vo.seq }" /> <input
+				type="hidden" id="state" name="state" value="${member.statecount }" />
 			<table>
 				<tr>
 					<td align="left"><span><strong>댓글</strong></span> <span
@@ -87,7 +88,7 @@
 							var html = "";
 							var cCnt = data.length;
 							var sid = document.commentForm.id.value;
-
+							var state = document.commentForm.state.value;
 							if (data.length > 0) {
 								for (i = 0; i < data.length; i++) {
 
@@ -102,6 +103,11 @@
 												+ ")'>수정</a>&nbsp;"
 												+ "<a href='#' onclick='deleteComment("
 												+ data[i].cno + ")'>삭제</a>"
+												+ "</td></tr>";
+									} else if (state == 4) {
+										html += "<a href='#' onclick='deleteAdminComment("
+												+ data[i].cno
+												+ ")'>관리자 삭제</a>"
 												+ "</td></tr>";
 									} else {
 										html += "<td></td>";
@@ -177,6 +183,26 @@
 
 				}
 			});
+		}
+		function deleteAdminComment(cno) {
+			if (confirm("정말 삭제하시겠습니까 ? ")) {
+				$.ajax({
+					type : "POST",
+					url : "deleteAdminComment.do",
+					data : {
+						"cno" : cno
+					},
+					success : function(data) {
+						if (data == "success") {
+							getCommentList();
+						}
+					},
+					error : function(request, status, error) {
+						alert("비정상적인 요청입니다.");
+					}
+
+				});
+			}
 		}
 
 		function deleteComment(cno) {

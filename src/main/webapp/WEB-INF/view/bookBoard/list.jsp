@@ -28,21 +28,34 @@
 				<td align="center" width="100">작성자</td>
 				<td align="center" width="150">운행일</td>
 			</tr>
-			
+
 			<c:if test="${map.count==0 }">
 				<tr>
 					<td colspan="6" align="center">게시판에 저장된 글이 없습니다.</td>
 				</tr>
-			</c:if> 
+			</c:if>
 
 			<c:forEach var="vo" items="${map.list }">
-				<tr height="30">
-					<td align="center" width="50">${vo.seq }</td>
-					<td width="250"><a href="getBookBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
-					${vo.title }</a></td>
-					<td align="center" width="100">${vo.name }</td>
-					<td align="center" width="150">${vo.realstartdate }</td>
-				</tr>
+				<c:choose>
+					<c:when test="${vo.best<0 }">
+						<tr height="30">
+							<td align="center" width="50">${vo.seq }</td>
+							<td width="550">관리자에 의해 삭제된 게시글입니다. &nbsp;
+							<td align="center" width="100">관리자</td>
+							<td align="center" width="150">${vo.realstartdate }</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<tr height="30">
+							<td align="center" width="50">${vo.seq }</td>
+							<td width="250"><a
+								href="getBookBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">
+									${vo.title }</a></td>
+							<td align="center" width="100">${vo.name }</td>
+							<td align="center" width="150">${vo.realstartdate }</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
 
 		</table>
@@ -98,31 +111,31 @@
 			</tr>
 		</table>
 		<form method="post" action="getBookBoardList.do">
-		<table>
-			<tr>
-				<td align="left"><select name="searchOption">
-						<option value="all"
-							<c:out value="${map.searchOption=='all'?'selected':'' }"/>>전체검색</option>
-						<option value="content"
-							<c:out value="${map.searchOption=='content'?'selected':'' }"/>>제목+내용</option>
-						<option value="title"
-							<c:out value="${map.searchOption=='title'?'selected':'' }"/>>제목만</option>
-						<option value="name"
-							<c:out value="${map.searchOption=='name'?'selected':'' }"/>>글작성자</option>
-						<option value="comment"
-							<c:out value="${map.searchOption=='comment'?'selected':'' }"/>>댓글내용</option>
-						<option value="cname"
-							<c:out value="${map.searchOption=='cname'?'selected':'' }"/>>댓글작성자</option>
-				</select></td>
-				<td align="left"><input name="keyword" value="${map.keyword}"></td>
-				<td align="right"><a href="#">
+			<table>
+				<tr>
+					<td align="left"><select name="searchOption">
+							<option value="all"
+								<c:out value="${map.searchOption=='all'?'selected':'' }"/>>전체검색</option>
+							<option value="content"
+								<c:out value="${map.searchOption=='content'?'selected':'' }"/>>제목+내용</option>
+							<option value="title"
+								<c:out value="${map.searchOption=='title'?'selected':'' }"/>>제목만</option>
+							<option value="name"
+								<c:out value="${map.searchOption=='name'?'selected':'' }"/>>글작성자</option>
+							<option value="comment"
+								<c:out value="${map.searchOption=='comment'?'selected':'' }"/>>댓글내용</option>
+							<option value="cname"
+								<c:out value="${map.searchOption=='cname'?'selected':'' }"/>>댓글작성자</option>
+					</select></td>
+					<td align="left"><input name="keyword" value="${map.keyword}"></td>
+					<td align="right"><a href="#">
 
-						<button type="submit" class="btn btn-default">
-							<span class="glyphicon glyphicon-search"></span> Search
-						</button>
-				</a></td>
-		</table>
-</form>
+							<button type="submit" class="btn btn-default">
+								<span class="glyphicon glyphicon-search"></span> Search
+							</button>
+					</a></td>
+			</table>
+		</form>
 	</div>
 	<script>
 		function fn_paging(curPage) {

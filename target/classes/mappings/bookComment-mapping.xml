@@ -30,11 +30,16 @@
 	]]>
 	</update>
 
-
 	<delete id="deleteBookComment">
 	<![CDATA[
 		DELETE FROM BOOKCOMMENTS WHERE CNO =#{cno} 
 	]]>
 	</delete>
+
+	<update id="deleteAdminBookComment">
+	<![CDATA[
+		UPDATE BOOKCOMMENTS SET CONTENT=#{content},NAME=#{name},id=#{id} WHERE CNO =#{cno}
+	]]>
+	</update>
 
 </mapper>

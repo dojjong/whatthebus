@@ -129,20 +129,27 @@
 	]]>
 	</delete>
 
+	<update id="deleteAdminBoard">	
+	<![CDATA[
+	UPDATE BOARD SET BEST =#{best} WHERE SEQ=#{seq}
+	]]>
+	</update>
+
+
 	<delete id="deleteComment">
 	<![CDATA[
 	DELETE COMMENTS WHERE SEQ=#{seq}
 	]]>
 	</delete>
-	
+
 	<!-- 등록일 별 글의 갯수 가져오기 -->
 	<select id="getBoardCountPerRegdate" resultType="chart1">
 	<![CDATA[ 
 	SELECT CONDITION, COUNT(*)"count" FROM (SELECT REGDATE, TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM BOARD) GROUP BY CONDITION ORDER BY CONDITION ASC	
 	]]>
 	</select>
-	
-	
 
-	
+
+
+
 </mapper>

@@ -101,8 +101,13 @@
 		</table>
 		<table width="500" align="center">
 			<tr>
-				<td align="right" width="200"><a href="bookingTicket.do?seq=${vo.seq }"><input
-						type="button" class="contentbt" value="예약"></a>&nbsp;<a
+				<td align="right" width="200"><c:if
+						test="${member.statecount == 4 }">
+						<!-- 관리자가 이 버튼이 보이도록 코드 수정 -->
+						<input type="button" id="deleteButton" class="contentbt"
+							value="삭제">
+					</c:if> <a href="bookingTicket.do?seq=${vo.seq }"><input type="button"
+						class="contentbt" value="예약"></a>&nbsp;<a
 					href="getBookBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
 						<input type="button" class="contentbt" value="목록">
 				</a></td>
@@ -116,7 +121,7 @@
 	<script>
 		$("#deleteButton").click(function() {
 			if (confirm("정말 삭제하시겠습니까 ? ")) {
-				location.href = "deleteBoard.do?seq=${vo.seq }";
+				location.href = "deleteBookBoard.do?seq=${vo.seq }";
 			}
 		})
 

@@ -154,6 +154,7 @@ public class SuggestBoardVO {
 		this.content = content;
 	}
 
+	
 	public int getBest() {
 		return best;
 	}

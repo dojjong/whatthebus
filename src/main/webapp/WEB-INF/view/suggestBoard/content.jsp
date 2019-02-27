@@ -73,7 +73,11 @@
 							</c:otherwise>
 						</c:choose> <span id="best_cnt">${vo.best } </span></a></td>
 				<!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
-				<td align="right" width="200"><a
+				<td align="right" width="200"><c:if
+						test="${member.statecount == 4 }">
+						<input type="button" id="deleteAdminButton" class="contentbt"
+							value="관리자삭제">
+					</c:if><a
 					href="getSuggestBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
 						<input type="button" class="contentbt" value="목록">
 				</a></td>
@@ -89,7 +93,13 @@
 			if (confirm("정말 삭제하시겠습니까 ? ")) {
 				location.href = "deleteBoard.do?seq=${vo.seq }";
 			}
-		})
+		});
+
+		$("#deleteAdminButton").click(function() {
+			if (confirm("정말 삭제하시겠습니까 ? ")) {
+				location.href = "deleteAdminBoard.do?seq=${vo.seq }";
+			}
+		});
 
 		function best_click() {
 			var frm_read = $('#form');

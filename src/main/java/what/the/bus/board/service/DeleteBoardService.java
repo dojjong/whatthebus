@@ -8,4 +8,6 @@ public interface DeleteBoardService {
 	void deleteComment(BoardVO vo);
 
 	BoardVO getBoard(int seq);
+
+	void deleteAdminBoard(BoardVO vo);
 }

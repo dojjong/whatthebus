@@ -34,29 +34,29 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 		map.put("keyword", keyword);
 		map.put("start", start);
 		map.put("end", end);
-		return mybatis.selectList("BookBoardDAO.getBookBoardList",map);
+		return mybatis.selectList("BookBoardDAO.getBookBoardList", map);
 	}
 
 	@Override
 	public int getBookBoardListCount(SuggestBoardVO vo) {
-		return mybatis.selectOne("BookBoardDAO.getBookBoardListCount",vo);
+		return mybatis.selectOne("BookBoardDAO.getBookBoardListCount", vo);
 	}
 
 	@Override
 	public SuggestBoardVO getBookBoard(int seq) {
-		return mybatis.selectOne("BookBoardDAO.getBookBoard",seq);
+		return mybatis.selectOne("BookBoardDAO.getBookBoard", seq);
 	}
 
 	@Override
-	public void updateBookBoard(BookBoardVO vo) {
-		mybatis.update("BookBoardDAO.updateBookBoard",vo);
+	public void updateBookBoard(SuggestBoardVO vo) {
+		mybatis.update("BookBoardDAO.updateBookBoard", vo);
 	}
 
 	@Override
-	public void deleteBookBoard(BookBoardVO vo) {
-		mybatis.delete("BookBoardDAO.deleteBookBoard", vo);
+	public void deleteBookBoard(SuggestBoardVO vo) {
+		mybatis.update("BookBoardDAO.deleteBookBoard", vo);
 	}
-	
+
 	@Override
 	public int getBoardCommentContentListCount(BookCommentVO vo) {
 		return mybatis.selectOne("BookBoardDAO.getBoardCommentContentListCount", vo);
@@ -71,7 +71,7 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 	public int getCommentCount(int seq) {
 		return mybatis.selectOne("BookBoardDAO.getCommentCount", seq);
 	}
-	
+
 	@Override
 	public int getListCount(SuggestBoardVO vo) {
 		return mybatis.selectOne("BookBoardDAO.getBookBoardListCount", vo);

@@ -3,7 +3,6 @@ package what.the.bus.bookBoard.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.dao.impl.BookBoardDAOImpl;
 import what.the.bus.bookBoard.service.DeleteBookBoardService;
 import what.the.bus.suggestBoard.SuggestBoardVO;
@@ -14,7 +13,7 @@ public class DeleteBookBoardServiceImpl implements DeleteBookBoardService {
 	private BookBoardDAOImpl bookBoardDAO;
 
 	@Override
-	public void deleteBookBoard(BookBoardVO vo) {
+	public void deleteBookBoard(SuggestBoardVO vo) {
 		bookBoardDAO.deleteBookBoard(vo);
 	}
 

@@ -20,5 +20,11 @@ public class DeleteCommentController {
 		commentService.deleteComment(cno);
 		return "success";
 	}
+	@RequestMapping(value = "/view/**/deleteAdminComment.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String deleteAdminBookComment(@RequestParam int cno) {
+		commentService.deleteAdminComment(cno);
+		return "success";
+	}
 
 }

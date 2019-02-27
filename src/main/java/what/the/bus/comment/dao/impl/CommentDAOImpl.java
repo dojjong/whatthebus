@@ -1,6 +1,8 @@
 package what.the.bus.comment.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,16 @@ public class CommentDAOImpl implements CommentDAO {
 	@Override
 	public void updateComment(CommentVO vo) {
 		mybatis.update("CommentDAO.updateComment", vo);
+	}
+
+	@Override
+	public void deleteAdminComment(int cno) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("content", "관리자에 의해 삭제된 댓글입니다.");
+		map.put("id", "admin");
+		map.put("name", "관리자");
+		map.put("cno", cno);
+		mybatis.update("CommentDAO.deleteAdminComment", map);
 	}
 
 }

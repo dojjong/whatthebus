@@ -18,6 +18,11 @@ public class DeleteBoardServiceImpl implements DeleteBoardService {
 	}
 
 	@Override
+	public void deleteAdminBoard(BoardVO vo) {
+		boardDAO.deleteAdminBoard(vo);
+	}
+
+	@Override
 	public void deleteComment(BoardVO vo) {
 		boardDAO.deleteComment(vo);
 	}

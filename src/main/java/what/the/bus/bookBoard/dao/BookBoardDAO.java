@@ -15,16 +15,16 @@ public interface BookBoardDAO {
 	int getBookBoardListCount(SuggestBoardVO vo);
 
 	SuggestBoardVO getBookBoard(int seq);
-	
-	void updateBookBoard(BookBoardVO vo);
-	
-	void deleteBookBoard(BookBoardVO vo);
-	
+
+	void updateBookBoard(SuggestBoardVO vo);
+
+	void deleteBookBoard(SuggestBoardVO vo);
+
 	int getBoardCommentContentListCount(BookCommentVO vo);
 
 	int getBoardCommentNameListCount(BookCommentVO vo);
 
 	int getCommentCount(int seq);
-	
+
 	int getListCount(SuggestBoardVO vo);
 }

@@ -14,19 +14,16 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-#writebt{
- width: 65px;
- height: 30px;
- background-color: white;
- background-image: url("../resources/images/writebutton.png");
- background-repeat: no-repeat;
- background-size: 65px 30px;
- border: 1px solid lightgrey;
-
+#writebt {
+	width: 65px;
+	height: 30px;
+	background-color: white;
+	background-image: url("../resources/images/writebutton.png");
+	background-repeat: no-repeat;
+	background-size: 65px 30px;
+	border: 1px solid lightgrey;
 }
-
-</style>	
-	
+</style>
 </head>
 <body>
 
@@ -42,7 +39,7 @@
 				<td align="center" width="100">조회수</td>
 				<td align="center" width="70">추천수</td>
 			</tr>
-			
+
 			<c:if test="${map.count==0 }">
 				<tr>
 					<td colspan="6" align="center">게시판에 저장된 글이 없습니다.</td>
@@ -62,6 +59,19 @@
 							<td align="center" width="150">${vo.regDate }</td>
 							<td align="center" width="50">${vo.cnt }</td>
 							<td align="center" width="50">${vo.best }</td>
+						</tr>
+					</c:when>
+					<c:when test="${vo.best<0 }">
+						<tr height="30">
+							<td align="center" width="50">${vo.seq }</td>
+							<td width="550">관리자에 의해 삭제된 게시글입니다. &nbsp; <c:if
+									test="${map.commentCount[status.index]!=0}">
+								[${map.commentCount[status.index]}]
+								</c:if></td>
+							<td align="center" width="100">관리자</td>
+							<td align="center" width="150">${vo.regDate }</td>
+							<td align="center" width="50">${vo.cnt }</td>
+							<td align="center" width="50">0</td>
 						</tr>
 					</c:when>
 					<c:otherwise>

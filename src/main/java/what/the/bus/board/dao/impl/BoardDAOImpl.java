@@ -61,6 +61,11 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
+	public void deleteAdminBoard(BoardVO vo) {
+		mybatis.update("BoardDAO.deleteAdminBoard", vo);
+	}
+
+	@Override
 	public void deleteComment(BoardVO vo) {
 		mybatis.delete("BoardDAO.deleteComment", vo);
 	}
@@ -89,6 +94,7 @@ public class BoardDAOImpl implements BoardDAO {
 	public int getCommentCount(int seq) {
 		return mybatis.selectOne("BoardDAO.getCommentCount", seq);
 	}
+
 	@Override
 	public List<ChartVO1> getBoardCountPerRegdate() {
 		return mybatis.selectList("BoardDAO.getBoardCountPerRegdate");

@@ -14,4 +14,6 @@ public interface CommentDAO {
 	CommentVO getComment(int cno);
 
 	void updateComment(CommentVO vo);
+	
+	void deleteAdminComment(int cno);
 }

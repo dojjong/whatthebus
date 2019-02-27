@@ -35,6 +35,11 @@
 		DELETE FROM COMMENTS WHERE CNO =#{cno} 
 	]]>
 	</delete>
+	<update id="deleteAdminComment">
+	<![CDATA[
+		UPDATE COMMENTS SET CONTENT=#{content},NAME=#{name},id=#{id} WHERE CNO =#{cno}
+	]]>
+	</update>
 
 
 </mapper>

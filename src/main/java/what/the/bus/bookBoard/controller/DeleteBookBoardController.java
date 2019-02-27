@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.service.DeleteBookBoardService;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 @Controller
 public class DeleteBookBoardController {
@@ -14,8 +14,9 @@ public class DeleteBookBoardController {
 	private DeleteBookBoardService bookBoardService;
 
 	@RequestMapping("/view/**/deleteBookBoard.do")
-	public String updateBookBoard(@ModelAttribute BookBoardVO vo, int seq) {
+	public String updateBookBoard(@ModelAttribute SuggestBoardVO vo, int seq) {
 		vo.setSeq(seq);
+		vo.setBest(-1);
 		bookBoardService.deleteBookBoard(vo);
 		return "redirect:getBookBoardList.do";
 	}

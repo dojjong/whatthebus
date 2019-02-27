@@ -16,15 +16,14 @@ public class UpdateBookBoardController {
 	private UpdateBookBoardService bookBoardService;
 
 	@RequestMapping("/view/**/updateBookForm.do")
-	public String updateBookForm(int seq,SuggestBoardVO vo,Model model) {
+	public String updateBookForm(int seq, SuggestBoardVO vo, Model model) {
 		vo = bookBoardService.getBookBoard(seq);
 		model.addAttribute("vo", vo);
 		return "bookBoard/updateBookForm";
 	}
-	
-	
+
 	@RequestMapping("/view/**/updateBookBoard.do")
-	public String updateBookBoard(@ModelAttribute BookBoardVO vo,int seq) {
+	public String updateBookBoard(@ModelAttribute SuggestBoardVO vo, int seq) {
 		vo.setSeq(seq);
 		bookBoardService.updateBookBoard(vo);
 		return "redirect:getBookBoardList.do";

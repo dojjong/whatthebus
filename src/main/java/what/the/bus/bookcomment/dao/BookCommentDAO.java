@@ -14,4 +14,6 @@ public interface BookCommentDAO {
 	BookCommentVO getBookComment(int cno);
 
 	void updateBookComment(BookCommentVO vo);
+
+	void deleteAdminBookComment(int cno);
 }
