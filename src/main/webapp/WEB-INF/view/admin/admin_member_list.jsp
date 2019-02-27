@@ -11,14 +11,11 @@
 </head>
 <body>
 	<h2>회원목록</h2>
-
-
-
+	<input type="button" value="선택회원 메일발송" onclick="checkSendMail();">
 	<table border="1" width="700px">
-
-
-
 		<tr>
+			<th>전체선택<input type="checkbox" name="checkAll" id="th_checkAll"
+				onclick="checkAll();" /></th>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>성별</th>
@@ -32,6 +29,7 @@
 
 		<c:forEach var="row" items="${list }">
 			<tr>
+				<td><input type="checkbox" name="check" value="${row.id }" /></td>
 				<td>${row.id }</td>
 				<td>${row.name }</td>
 				<td>${row.gender }</td>
@@ -54,53 +52,90 @@
 					</c:if> <c:if test="${row.statecount==2 }">
 						<input type="button" id="expulsionbt" value="ID복구"
 							onclick="returnMember('${row.id}')">
-					</c:if>
-				</td>
+					</c:if></td>
 			</tr>
 		</c:forEach>
 
 	</table>
-<script>
-	
-	function expulsionMember(mid){
-		var id = String(mid);
-	var test=confirm("정말 추방하시겠습니까 ? ");
-	if(test==true){
-	$.ajax({
-		type : "POST",
-		url : "expulsionMember.do",
-		data :{"id" : id},
-		success : function(data) {
-			if (data == "success") {
-				alert("제명되었습니다.");
-				//document.updateDriverForm.action = "refreshApprovalDriverList.do";
-				//document.updateDriverForm.submit();
-				$("#result").load("getMemberList.do");
-				return;
+	<script>
+		function expulsionMember(mid) {
+			var id = String(mid);
+			var test = confirm("정말 추방하시겠습니까 ? ");
+			if (test == true) {
+				$.ajax({
+					type : "POST",
+					url : "expulsionMember.do",
+					data : {
+						"id" : id
+					},
+					success : function(data) {
+						if (data == "success") {
+							alert("제명되었습니다.");
+							//document.updateDriverForm.action = "refreshApprovalDriverList.do";
+							//document.updateDriverForm.submit();
+							$("#result").load("getMemberList.do");
+							return;
+						}
+					},
+					error : function(request, status, error) {
+						alert("잘못된 접근입니다.");
+					}
+				});
 			}
-		},
-		error : function(request, status, error) {
-			alert("잘못된 접근입니다.");
 		}
-	});
-	}
-}
-	function returnMember(mid) {
-		var id = String(mid);
-		var test = confirm("정말 복구하시겠습니까 ? ");
-		if (test == true) {
+		function returnMember(mid) {
+			var id = String(mid);
+			var test = confirm("정말 복구하시겠습니까 ? ");
+			if (test == true) {
+				$.ajax({
+					type : "POST",
+					url : "returnMember.do",
+					data : {
+						"id" : id
+					},
+					success : function(data) {
+						if (data == "success") {
+							alert("복구되었습니다.");
+							//document.updateDriverForm.action = "refreshApprovalDriverList.do";
+							//document.updateDriverForm.submit();
+							$("#result").load("getMemberList.do");
+							return;
+						}
+					},
+					error : function(request, status, error) {
+						alert("잘못된 접근입니다.");
+					}
+				});
+			}
+		}
+		function checkAll() {
+			if ($("#th_checkAll").is(':checked')) {
+				$("input[name=check]").prop("checked", true);
+			} else {
+				$("input[name=check]").prop("checked", false);
+			}
+		}
+		function checkSendMail() {
+
+			var checkBoxArr = [];
+
+			$("input[name=check]:checked").each(function(i) {
+				checkBoxArr.push($(this).val());
+			});
+
 			$.ajax({
 				type : "POST",
-				url : "returnMember.do",
+				url : "moveChecksendMailMember.do",
+				traditional : true,
 				data : {
-					"id" : id
+					"checkBox" : checkBoxArr
 				},
 				success : function(data) {
 					if (data == "success") {
-						alert("복구되었습니다.");
-						//document.updateDriverForm.action = "refreshApprovalDriverList.do";
-						//document.updateDriverForm.submit();
-						$("#result").load("getMemberList.do");
+
+						$("#result").load(
+								"moveCheckSendMailMemberForm.do?checkBox="
+										+ checkBoxArr);
 						return;
 					}
 				},
@@ -109,7 +144,6 @@
 				}
 			});
 		}
-	}
 	</script>
 
 

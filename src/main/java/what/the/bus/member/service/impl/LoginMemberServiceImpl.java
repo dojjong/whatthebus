@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.impl.MemberDAOImpl;
@@ -30,7 +31,7 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 				return false;
 			}
 		} catch (Exception e) {
-			
+
 		}
 		return false;
 	}
@@ -39,9 +40,20 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 	public MemberVO getMember(MemberVO vo) {
 		return memberDAO.loginMember(vo);
 	}
+
 	@Override
 	public List<ChartVO1> getMemberCountPerRegdateJson() {
 		return memberDAO.getMemberCountPerRegdateJson();
+	}
+
+	@Override
+	public List<BoardVO> getMyWriteList(int start, int end, String id) {
+		return memberDAO.getMyWriteList(start, end, id);
+	}
+
+	@Override
+	public int getMyWriteListCount(String id) {
+		return memberDAO.getMyWriteListCount(id);
 	}
 
 }

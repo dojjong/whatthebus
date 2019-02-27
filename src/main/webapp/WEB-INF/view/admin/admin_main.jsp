@@ -57,6 +57,18 @@ li a:hover {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=clusterer"></script>
+<!-- chart Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -75,7 +87,7 @@ li a:hover {
 									<li><a href="#">통계</a></li>
 									<li><a id="p3">- 차트(임시)</a></li>
 									<li><a id="p5">- 보고서(임시)</a></li>
-									<li><a href="#">- 지도(임시)</a></li>
+									<li><a id="p7">- 지도(임시)</a></li>
 									<li><a href="#">회원관리</a></li>
 									<li><a href="#" id="p1">- 전체회원목록</a></li>
 									<li><a href="#" id="m1">- 회원목록</a></li>
@@ -175,12 +187,12 @@ li a:hover {
 
 			});
 		});
-		$(document).ready(function(){
+		$(document).ready(function() {
 			$("#p7").click(function() {
 				$("#result").load("getStartMapCluster.do");
-				
+
 			});
-			
+
 		});
 	</script>
 

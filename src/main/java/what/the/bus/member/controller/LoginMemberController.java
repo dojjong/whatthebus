@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,13 +26,16 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
 
 import what.the.bus.admin.AdminVO;
 import what.the.bus.admin.service.GetBannerListService;
+import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
+import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.service.LoginDriverService;
 import what.the.bus.member.ChartVO2;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.service.InsertMemberService;
 import what.the.bus.member.service.LoginMemberService;
+import what.the.bus.pagination.Pagination;
 import what.the.bus.util.JsonStringParse;
 import what.the.bus.util.KakaoLogin;
 import what.the.bus.util.NaverLoginBO;
@@ -46,7 +51,8 @@ public class LoginMemberController {
 	private InsertMemberService insertMemberService;
 	@Autowired
 	private GetBannerListService getBannerListService;
-
+	@Autowired
+	private GetBoardListService boardService;
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 	private String apiResult = null;
@@ -138,16 +144,12 @@ public class LoginMemberController {
 		// 배너
 		List<AdminVO> bannerList = getBannerListService.getBannerList();
 		model.addAttribute("bannerList", bannerList);
-		
+
 		/*
-		for (int i = 0; i < bannerList.size(); i++) {
-			String imsi = bannerList.get(i).getBannername();
-			String[] array = imsi.split("/");
-			String banner = array[9];
-			bannerList.get(i).setBannername(banner);
-		}
-*/
-		
+		 * for (int i = 0; i < bannerList.size(); i++) { String imsi =
+		 * bannerList.get(i).getBannername(); String[] array = imsi.split("/"); String
+		 * banner = array[9]; bannerList.get(i).setBannername(banner); }
+		 */
 
 		/* 생성한 인증 URL을 View로 전달 */
 		return "main/main";
@@ -197,7 +199,6 @@ public class LoginMemberController {
 
 		List<ChartVO1> imsiList = memberService.getMemberCountPerRegdateJson();
 
-		
 		List<ChartVO2> list = new ArrayList<ChartVO2>();
 
 		ChartVO2 vo = null;
@@ -208,9 +209,40 @@ public class LoginMemberController {
 			Date date1 = (Date) simpleDateFormat.parse(imsiList.get(i).getCondition());
 
 			vo = new ChartVO2(new Date(date1.getTime()), imsiList.get(i).getCount());
-			
+
 			list.add(vo);
 		}
 		return list;
-	}	
+	}
+
+	@RequestMapping("/view/**/getMyWriteList.do")
+	public String getMyWriteList(BoardVO boardVO, Model model, HttpSession session,
+			@RequestParam(defaultValue = "1") int curPage) {
+
+		MemberVO vo = (MemberVO) session.getAttribute("member");
+		String id = vo.getId();
+
+		// 전체리스트 개수
+		int listCnt = 0;
+		listCnt = memberService.getMyWriteListCount(id);
+
+		Pagination pagination = new Pagination(listCnt, curPage);
+
+		int start = pagination.getPageBegin();
+		int end = pagination.getPageEnd();
+		List<BoardVO> list = memberService.getMyWriteList(start, end, id);
+		List<Integer> commentCountList = new ArrayList<Integer>();
+		for (int i = 0; i < list.size(); i++) {
+			int seq = list.get(i).getSeq();
+			int commentCount = boardService.getCommentCount(seq);
+			commentCountList.add(i, commentCount);
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("commentCount", commentCountList);
+		map.put("list", list);
+		map.put("count", listCnt);
+		map.put("pagination", pagination);
+		model.addAttribute("map", map);
+		return "member/getMyWriteList";
+	}
 }

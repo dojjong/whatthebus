@@ -2,6 +2,7 @@ package what.the.bus.member.dao;
 
 import java.util.List;
 
+import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
 import what.the.bus.member.MemberVO;
 
@@ -9,7 +10,7 @@ public interface MemberDAO {
 	void insertMember(MemberVO vo);
 
 	void insertKakaoMember(MemberVO vo);
-	
+
 	void insertNaverMember(MemberVO vo);
 
 	void updateMember(MemberVO vo);
@@ -27,5 +28,9 @@ public interface MemberDAO {
 	String checkName(String checkName); // 01.31
 
 	List<ChartVO1> getMemberCountPerRegdateJson();
-	
+
+	List<BoardVO> getMyWriteList(int start, int end, String id);
+
+	int getMyWriteListCount(String id);
+
 }

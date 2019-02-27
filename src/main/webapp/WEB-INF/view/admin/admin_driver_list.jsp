@@ -11,14 +11,11 @@
 </head>
 <body>
 	<h2>기사목록</h2>
-
-
-
+	<input type="button" value="선택회원 메일발송" onclick="checkSendMail();">
 	<table border="1" width="700px">
-
-
-
 		<tr>
+			<th>전체선택<input type="checkbox" name="checkAll" id="th_checkAll"
+				onclick="checkAll();" /></th>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>성별</th>
@@ -32,6 +29,7 @@
 
 		<c:forEach var="row" items="${list }">
 			<tr>
+				<td><input type="checkbox" name="check" value="${row.id }" /></td>
 				<td>${row.id }</td>
 				<td>${row.name }</td>
 				<td>${row.gender }</td>
@@ -109,6 +107,42 @@
 					}
 				});
 			}
+		}
+		function checkAll() {
+			if ($("#th_checkAll").is(':checked')) {
+				$("input[name=check]").prop("checked", true);
+			} else {
+				$("input[name=check]").prop("checked", false);
+			}
+		}
+		function checkSendMail() {
+
+			var checkBoxArr = [];
+
+			$("input[name=check]:checked").each(function(i) {
+				checkBoxArr.push($(this).val());
+			});
+
+			$.ajax({
+				type : "POST",
+				url : "moveChecksendMailMember.do",
+				traditional : true,
+				data : {
+					"checkBox" : checkBoxArr
+				},
+				success : function(data) {
+					if (data == "success") {
+
+						$("#result").load(
+								"moveCheckSendMailMemberForm.do?checkBox="
+										+ checkBoxArr);
+						return;
+					}
+				},
+				error : function(request, status, error) {
+					alert("잘못된 접근입니다.");
+				}
+			});
 		}
 	</script>
 
