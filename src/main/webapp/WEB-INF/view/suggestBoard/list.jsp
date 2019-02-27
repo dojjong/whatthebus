@@ -13,23 +13,30 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>   	
 </head>
 <body>
 
 	<!-- 화면 센터 -->
 	<div align="center">
-		<b>글목록(전체 글 :${map.count } )</b>
-		<table id="listtab">
+	<table width="1000px">
+      <tr><td colspan="5"><h3><b>배차대기 게시판</b></h3></td></tr>
+      <tr><td colspan="3"></td><td colspan="2" align="right"><b>Total : ${map.count } </b></td></tr>
+      
+      </table>
+	
+	<!-- 	<b>글목록(전체 글 :${map.count } )</b> -->
+		<table id="listtab" class="list">
 			<tr id="boardhead">
-				<td align="center" width="100">번호</td>
-				<td align="center" width="550">제목</td>
-				<td align="center" width="200">작성자</td>
-				<td align="center" width="250">작성일</td>
-				<td align="center" width="200">조회수</td>
-				<td align="center" width="100">추천</td>
-				<td align="center" width="250">배차상태</td>
+				<th align="center" width="100">번호</th>
+				<th align="center" width="550">제목</th>
+				<th align="center" width="200">작성자</th>
+				<th align="center" width="250">작성일</th>
+				<th align="center" width="200">조회수</th>
+				<th align="center" width="100">추천</th>
+				<th align="center" width="250">배차상태</th>
 				<c:if test="${member.license!=null }">
-					<td align="center" width="120">배차신청</td>
+					<th align="center" width="120">배차신청</th>
 				</c:if>
 			</tr>
 			<%---- 글이 없을 경우 -->
@@ -143,9 +150,10 @@
 					<td align="left"><input name="keyword" value="${map.keyword}"></td>
 					<td align="right"><a href="#">
 
-							<button type="submit" class="btn btn-default">
-								<span class="glyphicon glyphicon-search"></span> Search
-							</button>
+							<button style='font-size:14px' type="submit" class="btn btn-primary"><i class='fas fa-search'style='color:white'> 검색</i></button>
+                     <!-- <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span> Search
+                     </button> -->
 					</a></td>
 				<tr>
 					<td colspan="2"><a href="dataTransform.do">지도 데이터 변환</a><a

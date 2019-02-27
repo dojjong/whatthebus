@@ -44,12 +44,12 @@
 	
 
 	
-		<table width="800px">
+		<table width="1000px">
 		<tr><td colspan="5"><h3><b>공지사항 게시판</b></h3></td></tr>
 		<tr><td colspan="3"></td><td colspan="2" align="right"><b>Total : ${map.count } </b></td></tr>
 		
 		</table>
-		<table class="list">
+		<table class="list" width="1000">
 			
 			<tr>
 				<th width="50">번호</th>
@@ -80,7 +80,7 @@
 
 		</table>
 		<br/>
-		<table width="800">
+		<table width="1000">
 			<tr>
 				<td align="right">
 					<form name="form" action="writeNoticeBoard.do" method="POST">

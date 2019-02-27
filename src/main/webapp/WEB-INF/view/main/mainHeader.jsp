@@ -244,7 +244,7 @@
 					<li><a href="getBoardList.do">제안/대절신청</a>
 						<ul>
 							<li><a href="getBoardList.do">제안(개인)</a></li>
-							<li><a href="getAfterBoardList.do">대절신청(단체)</a></li>
+							<!-- <li><a href="getAfterBoardList.do">대절신청(단체)</a></li>  -->
 						</ul></li>
 					<li><a href="getSuggestBoardList.do">조회</a>
 						<ul>
