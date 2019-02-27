@@ -13,6 +13,20 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+#writebt{
+ width: 65px;
+ height: 30px;
+ background-color: white;
+ background-image: url("../resources/images/writebutton.png");
+ background-repeat: no-repeat;
+ background-size: 65px 30px;
+ border: 1px solid lightgrey;
+
+}
+
+</style>	
+	
 </head>
 <body>
 

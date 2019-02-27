@@ -29,14 +29,7 @@ body {
 	height: 30px;
 }
 
-#writebt {
-	width: 70px;
-	height: 35px;
-	background-image: url("../images/writebt.PNG");
-	background-repeat: no-repeat;
-	background-size: 71px 37px;
-	border-radius: 5px;
-}
+
 
 #searchbt {
 	width: 70px;
