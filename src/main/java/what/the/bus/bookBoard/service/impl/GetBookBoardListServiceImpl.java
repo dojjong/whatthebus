@@ -48,4 +48,9 @@ public class GetBookBoardListServiceImpl implements GetBookBoardListService {
 	public Integer getCommentCount(int seq) {
 		return bookBoardDAO.getCommentCount(seq);
 	}
+
+	@Override
+	public List<SuggestBoardVO> cluster() {
+		return bookBoardDAO.cluster();
+	}
 }

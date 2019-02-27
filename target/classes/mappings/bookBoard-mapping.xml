@@ -120,4 +120,12 @@
 	SELECT COUNT(*)"count" FROM BOOKCOMMENTS WHERE SEQ=#{seq}
 	]]>
 	</select>
+	
+	<!-- 지도클러스용 -->
+	<!-- 출발지 -->
+	<select id="cluster" resultType="suggestBoard">
+	<![CDATA[
+	SELECT START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO,MID_WIDO,MID_KYUNGDO FROM SUGGESTBOARD 
+	]]>
+	</select>
 </mapper>

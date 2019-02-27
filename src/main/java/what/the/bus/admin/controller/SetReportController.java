@@ -21,7 +21,7 @@ import what.the.bus.afterBoard.service.GetAfterBoardListService;
 
 @Controller
 
-public class ReportController {
+public class SetReportController {
 
 	@Autowired
 	GetAfterBoardListService getAfterBoardListService;
@@ -59,7 +59,7 @@ public class ReportController {
 		
     	model.addAttribute("list", list);
         return new XlsxView(model);
-
+    	
     }
 	
 	@RequestMapping(value="/view/**/afterBoardListReport_pdf.do", method=RequestMethod.GET)
@@ -68,7 +68,7 @@ public class ReportController {
 		 List<AfterBoardVO> list = getAfterBoardListService.getAfterBoardListAll();
 		
     	model.addAttribute("list", list);
-        return new ItextPdfView(model);
-
+        //return new PDFView(model);
+    	return new ItextPdfView(model);
     }
 }

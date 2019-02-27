@@ -197,6 +197,7 @@ public class LoginMemberController {
 
 		List<ChartVO1> imsiList = memberService.getMemberCountPerRegdateJson();
 
+		
 		List<ChartVO2> list = new ArrayList<ChartVO2>();
 
 		ChartVO2 vo = null;
@@ -207,9 +208,9 @@ public class LoginMemberController {
 			Date date1 = (Date) simpleDateFormat.parse(imsiList.get(i).getCondition());
 
 			vo = new ChartVO2(new Date(date1.getTime()), imsiList.get(i).getCount());
-
+			
 			list.add(vo);
 		}
 		return list;
-	}
+	}	
 }

@@ -175,6 +175,13 @@ li a:hover {
 
 			});
 		});
+		$(document).ready(function(){
+			$("#p7").click(function() {
+				$("#result").load("getStartMapCluster.do");
+				
+			});
+			
+		});
 	</script>
 
 

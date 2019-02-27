@@ -2,8 +2,6 @@ package what.the.bus.bookBoard.dao;
 
 import java.util.List;
 
-import what.the.bus.board.BoardVO;
-import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookcomment.BookCommentVO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 
@@ -27,4 +25,6 @@ public interface BookBoardDAO {
 	int getCommentCount(int seq);
 
 	int getListCount(SuggestBoardVO vo);
+	
+	List<SuggestBoardVO> cluster();
 }

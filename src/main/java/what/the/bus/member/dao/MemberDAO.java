@@ -27,4 +27,5 @@ public interface MemberDAO {
 	String checkName(String checkName); // 01.31
 
 	List<ChartVO1> getMemberCountPerRegdateJson();
+	
 }

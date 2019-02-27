@@ -13,18 +13,14 @@
 }
 </style>
 
-<!-- Resources -->
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 
 </head>
 <body>
 
 	<!-- 모든 차트는 여기서 나올 예정 -->
+	<div id="chartTitle"></div>
 	<div id="chartdiv"></div>
-	<div id="chartDatadiv"></div>
 	
 	<!-- 차트선택하기  -->
 	<table>
@@ -156,6 +152,7 @@
 
 		function chart1(result) {
 
+			document.getElementById("chartTitle").innerHTML = "<h4>일별 User 가입자수</h4>";
 			// Themes begin
 			am4core.useTheme(am4themes_animated);
 			// Themes end
@@ -228,6 +225,7 @@
 		
 		function chart2(result) {
 
+			document.getElementById("chartTitle").innerHTML = "<h4>일별 게시판 글 등록수</h4>";
 			// Themes begin
 			am4core.useTheme(am4themes_animated);
 			// Themes end

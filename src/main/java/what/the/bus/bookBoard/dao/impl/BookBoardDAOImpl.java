@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import what.the.bus.bookBoard.BookBoardVO;
 import what.the.bus.bookBoard.dao.BookBoardDAO;
 import what.the.bus.bookcomment.BookCommentVO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
@@ -75,6 +74,10 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 	@Override
 	public int getListCount(SuggestBoardVO vo) {
 		return mybatis.selectOne("BookBoardDAO.getBookBoardListCount", vo);
+	}
+	@Override
+	public List<SuggestBoardVO> cluster() {
+		return mybatis.selectList("BookBoardDAO.cluster");
 	}
 
 }
