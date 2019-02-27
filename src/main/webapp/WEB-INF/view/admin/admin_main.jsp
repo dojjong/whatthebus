@@ -1,68 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="../admin/admin_main_header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
-<style>
 
-/* 빨간선-확인용 삭제 할겁니다!*/
-div {
-	border: 1px solid red;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+<link type="text/css" rel="stylesheet"
+	href="../resources/css/adminStyle.css" />
+</head>
 
-table {
-	border: 1px solid red;
-}
 
-tr {
-	border: 1px solid red;
-}
-
-td {
-	border: 1px solid red;
-}
-/* 구간 확인용 삭제 할겁니다!*/
-nav {
-	color: black;
-	margin-top: 10px;
-}
-
-@
-mypageul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 100px;
-	background-color: #f1f1f1;
-}
-
-li a {
-	display: block;
-	font-color: black;
-	padding: 8px 8px;
-	text-decoration: none;
-}
-
-/* Change the link color on hover */
-li a:hover {
-	background-color: rgb(49, 100, 176);
-	color: white;
-}
-</style>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=clusterer"></script>
 <!-- chart Resources -->
@@ -74,50 +25,72 @@ li a:hover {
 <title>Insert title here</title>
 </head>
 <body>
+	
+<div class="sidenav">
+  <button class="dropdown-btn">통계 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#" id="p3">차트</a>
+    <a href="#" id="p5">보고서</a>
+    <a href="#" id="p7">지도</a>
+  </div>
+  <button class="dropdown-btn">회원관리 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#" id="p1">전체회원목록</a>
+    <a href="#" id="m1">회원목록</a>
+    <a href="#" id="d1">기사목록</a>
+    <a href="#" id="p2">가입승인(기사)</a>
+    <a href="#" id="a1">관리자설정</a>
+  </div>
+ <button class="dropdown-btn">기타
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">결제화면</a>
+    <a href="#" id="p6">추천수변경</a>
+    <a href="#" id="p4">광고이미지변경</a>
+  </div> 
+ 
+</div>
 
-	<div align="center">
-		<div>
-			<table width="1024px">
+<div class="main">
+ 
+		<table width="900" id="header">
+			<tr>
+			<td width="200" align="center"><a href="main.do"><img
+                     src="../resources/images/admin_logo.png" id="gogo"></a></td>
+         	<td align="center"><h1><b>WHAT THE BUS 관리자 페이지</b></h1></td>   
+                     
+            </tr>
+			<tr>
+									<td align="right"><b>${member.name }님 환영합니다.&nbsp;</b></td>
+			</tr>
 
-				<tr>
-					<td width="200px">
-						<aside id="left">
-							<nav>
-								<ul style="list-style-type: none;" id="mypageul">
-									<li><a href="#">통계</a></li>
-									<li><a id="p3">- 차트(임시)</a></li>
-									<li><a id="p5">- 보고서(임시)</a></li>
-									<li><a id="p7">- 지도(임시)</a></li>
-									<li><a href="#">회원관리</a></li>
-									<li><a href="#" id="p1">- 전체회원목록</a></li>
-									<li><a href="#" id="m1">- 회원목록</a></li>
-									<li><a href="#" id="d1">- 기사목록</a></li>
-									<li><a href="#" id="p2">- 가입승인대기(드라이버)</a></li>
-									<li><a href="#" id="a1">- 관리자 설정</a></li>
-									<li><a href="#">결제</a></li>
-									<li><a href="#">- 결제화면</a></li>
-									<li><a href="#" id="p4">게시판 추천수 변경</a></li>
-									<li><a href="report1.do">임시</a></li>
-									<li><a href="#">임시</a></li>
-									<li><a href="#" id="p6">메인센터배너변경</a></li>
-								</ul>
-							</nav>
-						</aside>
-					</td>
+</table>
+<div id="result"></div>
 
-					<td id="result"></td>
+</div>		
 
-				</tr>
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
 
-
-
-			</table>
-		</div>
-	</div>
-
-
-
-
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
 
 
 
@@ -195,11 +168,6 @@ li a:hover {
 
 		});
 	</script>
-
-
-
-
-
 
 
 
