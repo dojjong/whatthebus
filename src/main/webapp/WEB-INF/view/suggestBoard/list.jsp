@@ -155,10 +155,10 @@
                         <span class="glyphicon glyphicon-search"></span> Search
                      </button> -->
 					</a></td>
-				<tr>
+			<!-- 	<tr>
 					<td colspan="2"><a href="dataTransform.do">지도 데이터 변환</a><a
 						href="cluster.do">클러스터통계</a></td>
-				</tr>
+				</tr>  -->
 			</table>
 		</form>
 	</div>

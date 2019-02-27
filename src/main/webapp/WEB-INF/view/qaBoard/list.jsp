@@ -13,20 +13,36 @@
 
 <!-- 글쓰기 버튼  -->
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<style>
+#writebt {
+	width: 65px;
+	height: 30px;
+	background-color: white;
+	background-image: url("../resources/images/writebutton.png");
+	background-repeat: no-repeat;
+	background-size: 65px 30px;
+	border: 1px solid lightgrey;
+}
 
+
+</style>
 </head>
 <body>
 
 	<!-- 화면 센터 -->
 	<div align="center">
-		<b>글목록(전체 글 : ${map.count } )</b>
-		<table id="listtab">
+		<table width="1000px">
+      <tr><td colspan="5"><h3><b>Q&A 게시판</b></h3></td></tr>
+      <tr><td colspan="3"></td><td colspan="2" align="right"><b>Total : ${map.count } </b></td></tr>
+      
+      </table>
+		<table id="listtab" class="list">
 			<tr id="boardhead">
-				<td align="center" width="55">번호</td>
-				<td align="center" width="250">제목</td>
-				<td align="center" width="100">작성자</td>
-				<td align="center" width="150">작성일</td>
-				<td align="center" width="100">조회수</td>
+				<th align="center" width="55">번호</th>
+				<th align="center" width="250">제목</th>
+				<th align="center" width="100">작성자</th>
+				<th align="center" width="150">작성일</th>
+				<th align="center" width="100">조회수</th>
 			</tr>
 			<%---- 글이 없을 경우 -->
 			<c:if test="${count==0 }">
@@ -49,7 +65,8 @@
 			</c:forEach>
 
 		</table>
-		<table width="700">
+		<br/>
+		<table width="1000">
 			<tr>
 				<td align="right">
 					<form name="form" action="writeQaBoard.do" method="POST">

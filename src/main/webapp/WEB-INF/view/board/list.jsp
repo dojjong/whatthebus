@@ -25,6 +25,9 @@
 	background-size: 65px 30px;
 	border: 1px solid lightgrey;
 }
+
+
+
 </style>
 </head>
 <body>
@@ -41,12 +44,12 @@
       <!-- <b>글목록(전체 글 : ${map.count } )</b> -->
       <table id="listtab" class="list">
          <tr id="boardhead">
-            <th align="center" width="55">번호</th>
-            <th align="center" width="650">제목</th>
-            <th align="center" width="100">작성자</th>
-            <th align="center" width="150">작성일</th>
-            <th align="center" width="100">조회수</th>
-            <th align="center" width="70">추천수</th>
+            <th width="55">번호</th>
+            <th width="650">제목</th>
+            <th width="100">작성자</th>
+            <th width="150">작성일</th>
+            <th width="100">조회수</th>
+            <th width="70">추천수</th>
          </tr>
 	
 	
