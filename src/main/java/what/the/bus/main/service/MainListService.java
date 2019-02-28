@@ -1,27 +1,12 @@
-package what.the.bus.main.dao;
+package what.the.bus.main.service;
 
 import java.util.List;
 
 import what.the.bus.board.BoardVO;
-import what.the.bus.member.MemberVO;
 import what.the.bus.noticeBoard.NoticeBoardVO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 
-public interface MainDAO {
-	int getIdCheck(MemberVO vo);
-
-	String getId(MemberVO vo);
-
-	int getPWCheck(MemberVO vo);
-
-	int idCheckMember(MemberVO vo);
-
-	int idCheckDriver(MemberVO vo);
-
-	void updatePWMember(MemberVO vo);
-
-	void updatePWDriver(MemberVO vo);
-
+public interface MainListService {
 	List<BoardVO> hotList(int maincount);
 
 	List<BoardVO> recentList(int maincount);

@@ -31,10 +31,12 @@ import what.the.bus.board.ChartVO1;
 import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.service.LoginDriverService;
+import what.the.bus.main.service.MainListService;
 import what.the.bus.member.ChartVO2;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.service.InsertMemberService;
 import what.the.bus.member.service.LoginMemberService;
+import what.the.bus.noticeBoard.NoticeBoardVO;
 import what.the.bus.pagination.Pagination;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 import what.the.bus.suggestBoard.service.GetSuggestBoardListService;
@@ -57,6 +59,9 @@ public class LoginMemberController {
 	private GetBoardListService boardService;
 	@Autowired
 	private GetSuggestBoardListService suggestBoardService;
+	@Autowired
+	private MainListService listService;
+
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 	private String apiResult = null;
@@ -138,24 +143,20 @@ public class LoginMemberController {
 	// 로그인 첫 화면 요청 메소드
 	@RequestMapping(value = "/view/**/main.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(Model model, HttpSession session) {
-		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
-		// https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=sE***************&
-		// redirect_uri=http%3A%2F%2F211.63.89.90%3A8090%2Flogin_project%2Fcallback&state=e68c269c-5ba9-4c31-85da-54c16c658125
-		// System.out.println("네이버:" + naverAuthUrl);
-		// 네이버
+		int maincount = listService.getMainCount();
+
 		model.addAttribute("url", naverAuthUrl);
-		// 배너
 		List<AdminVO> bannerList = getBannerListService.getBannerList();
 		model.addAttribute("bannerList", bannerList);
-
-		/*
-		 * for (int i = 0; i < bannerList.size(); i++) { String imsi =
-		 * bannerList.get(i).getBannername(); String[] array = imsi.split("/"); String
-		 * banner = array[9]; bannerList.get(i).setBannername(banner); }
-		 */
-
-		/* 생성한 인증 URL을 View로 전달 */
+		List<BoardVO> hotList = listService.hotList(maincount);
+		model.addAttribute("hotList", hotList);
+		List<BoardVO> recentList = listService.recentList(maincount);
+		model.addAttribute("recentList", recentList);
+		List<SuggestBoardVO> finishTimeList = listService.finishTimeList(maincount);
+		model.addAttribute("finishTimeList", finishTimeList);
+		List<NoticeBoardVO> noticeList = listService.noticeList(maincount);
+		model.addAttribute("noticeList", noticeList);
 		return "main/main";
 	}
 

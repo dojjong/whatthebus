@@ -48,4 +48,6 @@ public interface AdminDAO {
 	void selectMemberAdminSpecify(String id);
 
 	void selectDriverAdminSpecify(String id);
+
+	void setMainCount(int mainCount);
 }

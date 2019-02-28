@@ -15,13 +15,13 @@
 	SELECT ID FROM (SELECT * FROM MEMBER WHERE EMAIL=#{email} AND NAME=#{name} UNION SELECT * FROM DRIVER WHERE EMAIL=#{email} AND NAME=#{name})
 	]]>
 	</select>
-	
+
 	<select id="getPWCheck" resultType="Integer">
 	<![CDATA[
 	SELECT COUNT(*) FROM (SELECT * FROM MEMBER WHERE EMAIL=#{email} AND NAME=#{name} AND ID=#{id} UNION SELECT * FROM DRIVER WHERE EMAIL=#{email} AND NAME=#{name} AND ID=#{id})
 	]]>
 	</select>
-	
+
 	<select id="idCheckMember" resultType="Integer">
 	<![CDATA[
 	SELECT COUNT(*) FROM MEMBER WHERE ID = #{id}
@@ -33,16 +33,42 @@
 	SELECT COUNT(*) FROM DRIVER WHERE ID = #{id}
 	]]>
 	</select>
-	
+
 	<update id="updatePWMember">
 	<![CDATA[
 	UPDATE MEMBER SET PASSWORD=#{password} WHERE ID=#{id}
 	]]>
 	</update>
-	
+
 	<update id="updatePWDriver">
 	<![CDATA[
 	UPDATE DRIVER SET PASSWORD=#{password} WHERE ID=#{id}
 	]]>
 	</update>
+
+	<select id="hotList" resultType="board">
+	<![CDATA[
+	SELECT * FROM (SELECT * FROM BOARD ORDER BY TOTALBEST DESC) WHERE TOTALBEST IS NOT NULL AND ROWNUM>=1 AND ROWNUM<=#{maincount}
+	]]>
+	</select>
+	<select id="recentList" resultType="board">
+	<![CDATA[
+	SELECT * FROM (SELECT * FROM BOARD ORDER BY REGDATE DESC) WHERE ROWNUM>=1 AND ROWNUM<=#{maincount}
+	]]>
+	</select>
+	<select id="finishTimeList" resultType="suggestBoard">
+	<![CDATA[
+	SELECT * FROM (SELECT * FROM SUGGESTBOARD WHERE TO_CHAR( STARTDATE, 'yyyy-MM-dd hh24:mi:ss' ) > TO_CHAR(SYSDATE, 'yyyy-MM-dd hh24:mi:ss') ORDER BY STARTDATE ASC) WHERE ROWNUM>=1 AND ROWNUM<=#{maincount}
+	]]>
+	</select>
+	<select id="noticeList" resultType="noticeBoard">
+	<![CDATA[
+	SELECT * FROM (SELECT * FROM NOTICEBOARD ORDER BY REGDATE DESC) WHERE ROWNUM>=1 AND ROWNUM<=#{maincount}
+	]]>
+	</select>
+	<select id="getMainCount" resultType="Integer">
+	<![CDATA[
+	SELECT MAINCOUNT FROM ADMIN WHERE PK=1
+	]]>
+	</select>
 </mapper>

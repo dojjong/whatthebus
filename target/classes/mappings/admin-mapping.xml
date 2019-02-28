@@ -152,5 +152,9 @@
 		UPDATE DRIVER SET STATECOUNT = 4 WHERE ID =#{id}
 	]]>
 	</update>
-
+	<update id="setMainCount">
+	<![CDATA[
+		UPDATE ADMIN SET MAINCOUNT=#{mainCount}
+	]]>
+	</update>
 </mapper>

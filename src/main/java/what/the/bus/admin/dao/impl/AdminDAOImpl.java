@@ -127,4 +127,10 @@ public class AdminDAOImpl implements AdminDAO {
 		mybatis.update("AdminDAO.selectDriverAdminSpecify", id);
 	}
 
+	@Override
+	public void setMainCount(int mainCount) {
+		mybatis.update("AdminDAO.setMainCount", mainCount);
+
+	}
+
 }

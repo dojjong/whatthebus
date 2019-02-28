@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import what.the.bus.mail.service.MailService;
+import what.the.bus.main.service.MainListService;
 import what.the.bus.main.service.MainService;
 import what.the.bus.member.MemberVO;
 
@@ -22,7 +23,8 @@ public class MainController {
 	private MailService mailService;
 	@Autowired
 	private MainService mainService;
-
+	
+	
 	// @RequestMapping("/view/**/main.do")
 	// public String mainStart(Model model) {
 
