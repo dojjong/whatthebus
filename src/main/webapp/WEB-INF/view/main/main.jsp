@@ -90,58 +90,8 @@
 
 
 
-
-		<table>
-			<tr>
-				<td class="mainSubTitle">공지사항</td>
-				<td class="mainSubTitle">HOT 제의</td>
-
-			</tr>
-			<tr>
-				<td class="mainSubValue"><c:forEach var="vo"
-						items="${noticeList }" varStatus="status">
-						${status.count}<a
-							href="getNoticeBoard.do?seq=${vo.seq}&&id=${member.id}">
-							${vo.title }</a>
-						&nbsp;<br />
-					</c:forEach></td>
-
-				<td class="mainSubValue"><c:forEach var="vo"
-						items="${hotList }" varStatus="status">
-						${status.count}<a
-							href="getBoard.do?seq=${vo.seq}&&id=${member.id}"> ${vo.title }</a>
-						&nbsp;<br />
-					</c:forEach></td>
-
-
-			</tr>
-			<tr>
-
-				<td class="mainSubTitle">최근 제의</td>
-				<td class="mainSubTitle">출발마감임박!!</td>
-
-			</tr>
-			<tr>
-				<td class="mainSubValue"><c:forEach var="vo"
-						items="${finishTimeList }" varStatus="status">
-						${status.count}<a
-							href="getBookBoard.do?seq=${vo.seq}&&id=${member.id}">
-							${vo.title }</a>
-						&nbsp;<br />
-					</c:forEach></td>
-				<td class="mainSubValue"><c:forEach var="vo"
-						items="${recentList }" varStatus="status">
-						${status.count}<a
-							href="getBoard.do?seq=${vo.seq}&&id=${member.id}"> ${vo.title }</a>
-						&nbsp;<br />
-					</c:forEach></td>
-
-
-				<td class="mainSubValue">
-					<!-- 디비에서 불러올 값 : 예비3-->
-				</td>
-			</tr>
-		</table>
+		<jsp:include page="../main/main_table.jsp"></jsp:include>
+		
 	</div>
 
 
