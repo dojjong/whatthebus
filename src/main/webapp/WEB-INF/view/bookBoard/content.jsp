@@ -16,7 +16,6 @@
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 
 
-
 </head>
 <body>
 	<form id="form" action="updateForm.do?seq=${vo.seq }" method="post">
@@ -60,48 +59,55 @@
 	<tr><td colspan="4">${vo.content }</td></tr>			
 	<tr><td colspan="4" align="center"><div id="map" style="width: 950px; height: 500px;"></div></td></tr>	
 	
+	</table>
+	
+	<br/>
+	<!--  -->
+	
+	<table width="960" align="center">
+	
 	<tr>
-		<td colSpan="4">&nbsp;<b><i class='far fa-hand-point-right' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;출발지 : <span id="spanStartJuso"></b></span>
+		<td>&nbsp;<b><i class='far fa-hand-point-right' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;출발지 : <span id="spanStartJuso"></b></span>
 	</td>
-			</tr>
-			<tr>
-				<td colSpan="4">
-					<div id="divMidJuso"></div>
+	
+	<td>&nbsp;<b><i class='fas fa-hand-point-right' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;도착지 : <span id="spanEndJuso"></b></span>
 				</td>
-			</tr>
+	</tr>
+		
+			
 			<tr>
-				<td colSpan="4">&nbsp;<b><i class='fas fa-hand-point-right' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;도착지 : <span id="spanEndJuso"></b></span>
-				</td>
-			</tr>
-			<tr>
-				<td colSpan="4">
+				<td>
 					&nbsp;<i class="fa fa-bus" style="font-size:20px;color:rgb(49, 100, 176)"></i>&nbsp;<b>차종 : </b> <b><c:if test="${vo.bus == 45}">
 								45인승 대형버스</c:if> <c:if test="${vo.bus == 28}">
 								28인승 리무진 대형버스</c:if> <c:if test="${vo.bus == 25}">
 								25인승 중형버스</c:if></b>
 				</td>
-			</tr>
-			<tr>
+				
 				<td colSpan="4">&nbsp;<b><i class='fas fa-calendar-alt' style='font-size:20px;color:rgb(49, 100, 176)'></i></b>
 					<b>출발일시 : ${vo.startdate }</b>
 				</td>
 			</tr>
+			
 			<tr>
-				<td colSpan="4">
+				<td colSpan="2">
 					<div id="midTimeDiv">&nbsp;<b><i class='far fa-plus-square' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;경유 : ${vo.middate }</b></div>
 				</td>
 			</tr>
 			<tr>
-				<td colSpan="4">
+				<td>
 					&nbsp;<b><i class='far fa-clock' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;총 예상 소요시간 : ${vo.finishtime }분</b>
 				</td>
-			</tr>
-			<tr>
-				<td colSpan="4">
+				
+				<td>
 					&nbsp;<b><i class="fa fa-krw" style="font-size:20px;color:rgb(49, 100, 176)"></i>&nbsp;승차금액 : ${vo.pay }원</b>
 				</td>
 			</tr>
 			
+			<tr>
+				<td colspan="2" align="right"> <a href="bookingTicket.do?seq=${vo.seq }"><input type="button"
+						class="contentbt" value="예약"></a>&nbsp;</td>
+			</tr>
+			</table>
 			<!-- 
 			<tr>
 				<td class="contenttd">글번호</td>

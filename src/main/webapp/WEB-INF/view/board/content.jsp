@@ -12,24 +12,7 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
-<style>
-/* 빨간선-확인용 삭제 할겁니다!*/
-div {
-   border: 1px solid red;
-}
 
-table {
-   border: 1px solid red;
-}
-
-tr {
-   border: 1px solid red;
-}
-
-td {
-   border: 1px solid red;
-}
-/* 구간 확인용 삭제 할겁니다!*/
 
 
 </style>	
