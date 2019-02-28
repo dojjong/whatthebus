@@ -191,4 +191,41 @@ public class GetMemberListController {
 		}
 		return "success";
 	}
+
+	@RequestMapping("/view/**/insertAdminMemberPoint.do")
+	@ResponseBody
+	public String insertAdminPoint(String[] checkBox, String point, Model model) {
+		for (int i = 0; i < checkBox.length; i++) {
+			if (getMemberListService.getExpulstionMember(checkBox[i]) >= 1) {
+				MemberVO vo = getMemberListService.getMemberOne(checkBox[i]);
+				String id = vo.getId();
+				getMemberListService.insertAdminMemberPoint(Integer.parseInt(point), id);
+			} else if (getMemberListService.getExpulstionDriver(checkBox[i]) >= 1) {
+				MemberVO vo = getMemberListService.getMemberOne(checkBox[i]);
+				String id = vo.getId();
+				getMemberListService.insertAdminDriverPoint(Integer.parseInt(point), id);
+			}
+
+		}
+		return "success";
+	}
+
+	@RequestMapping("/view/**/recoveryAdminMemberPoint.do")
+	@ResponseBody
+	public String recoveryAdminPoint(String[] checkBox, String point, Model model) {
+		for (int i = 0; i < checkBox.length; i++) {
+			if (getMemberListService.getExpulstionMember(checkBox[i]) >= 1) {
+				MemberVO vo = getMemberListService.getMemberOne(checkBox[i]);
+				String id = vo.getId();
+				getMemberListService.recoveryAdminMemberPoint(Integer.parseInt(point), id);
+			} else if (getMemberListService.getExpulstionDriver(checkBox[i]) >= 1) {
+				MemberVO vo = getMemberListService.getMemberOne(checkBox[i]);
+				String id = vo.getId();
+				getMemberListService.recoveryAdminDriverPoint(Integer.parseInt(point), id);
+			}
+
+		}
+		return "success";
+	}
+
 }

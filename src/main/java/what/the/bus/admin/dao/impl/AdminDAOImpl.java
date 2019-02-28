@@ -133,4 +133,30 @@ public class AdminDAOImpl implements AdminDAO {
 
 	}
 
+	@Override
+	public void insertAdminMemberPoint(int point, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("point", point);
+		map.put("id", id);
+		mybatis.update("AdminDAO.insertAdminMemberPoint", map);
+	}
+
+	@Override
+	public void insertAdminDriverPoint(int point, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("point", point);
+		map.put("id", id);
+		mybatis.update("AdminDAO.insertAdminDriverPoint", map);
+	}
+
+	@Override
+	public int getMemberPoint(String id) {
+		return mybatis.selectOne("AdminDAO.getMemberPoint", id);
+	}
+
+	@Override
+	public int getDriverPoint(String id) {
+		return mybatis.selectOne("AdminDAO.getDriverPoint", id);
+	}
+
 }

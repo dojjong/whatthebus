@@ -157,4 +157,24 @@
 		UPDATE ADMIN SET MAINCOUNT=#{mainCount}
 	]]>
 	</update>
+	<update id="insertAdminMemberPoint">
+	<![CDATA[
+	UPDATE MEMBER SET POINT =#{point} WHERE ID=#{id}
+	]]>
+	</update>
+	<update id="insertAdminDriverPoint">
+	<![CDATA[
+	UPDATE DRIVER SET POINT =#{point} WHERE ID=#{id}
+	]]>
+	</update>
+	<select id="getMemberPoint" resultType="Integer">
+	<![CDATA[
+	SELECT POINT FROM MEMBER WHERE ID =#{id}
+	]]>
+	</select>
+	<select id="getDriverPoint" resultType="Integer">
+	<![CDATA[
+	SELECT POINT FROM Driver WHERE ID =#{id}
+	]]>
+	</select>
 </mapper>

@@ -31,4 +31,16 @@ public interface GetMemberListService {
 	void selectMemberAdminSpecify(String id);
 
 	void selectDriverAdminSpecify(String id);
+
+	void insertAdminMemberPoint(int point, String id);
+
+	void insertAdminDriverPoint(int point, String id);
+
+	void recoveryAdminMemberPoint(int point, String id);
+
+	void recoveryAdminDriverPoint(int point, String id);
+
+	int getMemberPoint(String id);
+
+	int getDriverPoint(String id);
 }

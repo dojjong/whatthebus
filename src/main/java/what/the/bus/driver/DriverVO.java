@@ -18,7 +18,16 @@ public class DriverVO {
 	private String license;
 	private MultipartFile uploadFile;
 	private int statecount;
-	
+	private int point;
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -49,13 +58,6 @@ public class DriverVO {
 
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
-	}
-
-	@Override
-	public String toString() {
-		return "DriverVO [id=" + id + ", password=" + password + ", name=" + name + ", gender=" + gender + ", tel="
-				+ tel + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", email=" + email + ", license="
-				+ license + "]";
 	}
 
 	public String getId() {
@@ -128,6 +130,14 @@ public class DriverVO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "DriverVO [id=" + id + ", password=" + password + ", name=" + name + ", gender=" + gender + ", tel="
+				+ tel + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", email=" + email + ", regdate="
+				+ regdate + ", license=" + license + ", uploadFile=" + uploadFile + ", statecount=" + statecount
+				+ ", point=" + point + "]";
 	}
 
 }

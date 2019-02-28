@@ -15,7 +15,16 @@ public class MemberVO {
 	private Date regdate;
 	private String license;
 	private int statecount;
-	
+	private int point;
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
 	public int getStatecount() {
 		return statecount;
 	}
@@ -31,7 +40,7 @@ public class MemberVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
+
 	public String getTel1() {
 		return tel1;
 	}
@@ -116,8 +125,7 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", gender=" + gender + ", tel="
 				+ tel + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", email=" + email + ", regdate="
-				+ regdate + ", license=" + license + "]";
+				+ regdate + ", license=" + license + ", statecount=" + statecount + ", point=" + point + "]";
 	}
-
 
 }

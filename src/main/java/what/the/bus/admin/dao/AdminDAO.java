@@ -50,4 +50,12 @@ public interface AdminDAO {
 	void selectDriverAdminSpecify(String id);
 
 	void setMainCount(int mainCount);
+
+	void insertAdminMemberPoint(int point, String id);
+
+	void insertAdminDriverPoint(int point, String id);
+
+	int getMemberPoint(String id);
+
+	int getDriverPoint(String id);
 }

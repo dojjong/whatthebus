@@ -180,13 +180,14 @@
 						<c:choose>
 							<c:when test="${member ne null }">
 								<c:if test="${member.license==null }">
-								
+
 									<div align="right">
 										<table>
 											<tr>
 												<td width="90px" align="center"><a
 													href="memberMypage.do">마이페이지</a></td>
-												<td width="150px" align="center">${member.name }회원님<br>환영합니다.&nbsp;
+												<td width="150px" align="center">${member.name }회원님<br>환영합니다.<br>보유
+													포인트 : ${member.point }P&nbsp;
 												</td>
 
 												<td><form method="post" action="logoutMember.do">
@@ -202,7 +203,8 @@
 											<tr>
 												<td width="90px" align="center"><a
 													href="driverMypage.do">마이페이지</a></td>
-												<td width="150px" align="center">${member.name }기사님<br>환영합니다.
+												<td width="150px" align="center">${member.name }기사님<br>환영합니다.<br>보유
+													포인트 : ${member.point }P
 												</td>
 												<td><form method="post" action="logoutDriver.do">
 														<input type="submit" value="로그아웃" class="btn btn-link">
@@ -302,15 +304,15 @@
 	<!-- 카카오로 로그인 초기화 스크립트 끝 -->
 	<!-- 네이버아이디로로그인 초기화 Script -->
 	<script type="text/javascript">
-	/*	var naver_id_login = new naver_id_login("WIH5P0pD74ERtN5bANjy",
-				"http://localhost:8080/bus/callback.do");
-		var state = naver_id_login.getUniqState();
-		naver_id_login.setButton("green", 3, 50);
-		naver_id_login.setDomain("http://localhost:8080/bus/WEB-INF/view/main/main");
-		naver_id_login.setState(state);
-		naver_id_login.setPopup();
-		naver_id_login.init_naver_id_login();
-*/
+		/*	var naver_id_login = new naver_id_login("WIH5P0pD74ERtN5bANjy",
+					"http://localhost:8080/bus/callback.do");
+			var state = naver_id_login.getUniqState();
+			naver_id_login.setButton("green", 3, 50);
+			naver_id_login.setDomain("http://localhost:8080/bus/WEB-INF/view/main/main");
+			naver_id_login.setState(state);
+			naver_id_login.setPopup();
+			naver_id_login.init_naver_id_login();
+		 */
 		//	var naverLogin = new naver.LoginWithNaverId({
 		//		clientId : "WIH5P0pD74ERtN5bANjy",
 		//		callbackUrl : "http://localhost:8080/bus/callback.do",

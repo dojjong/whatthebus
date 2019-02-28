@@ -81,4 +81,44 @@ public class GetMemberListServiceImpl implements GetMemberListService {
 		adminDAO.selectDriverAdminSpecify(id);
 	}
 
+	@Override
+	public void insertAdminMemberPoint(int point, String id) {
+		int imsi = adminDAO.getMemberPoint(id);
+		adminDAO.insertAdminMemberPoint(imsi + point, id);
+	}
+
+	@Override
+	public void insertAdminDriverPoint(int point, String id) {
+		int imsi = adminDAO.getDriverPoint(id);
+		adminDAO.insertAdminDriverPoint(imsi + point, id);
+	}
+
+	@Override
+	public void recoveryAdminMemberPoint(int point, String id) {
+		int imsi = adminDAO.getMemberPoint(id) - point;
+		if (imsi < 0) {
+			imsi = 0;
+		}
+		adminDAO.insertAdminMemberPoint(imsi, id);
+	}
+
+	@Override
+	public void recoveryAdminDriverPoint(int point, String id) {
+		int imsi = adminDAO.getDriverPoint(id) - point;
+
+		if (imsi < 0) {
+			imsi = 0;
+		}
+		adminDAO.insertAdminDriverPoint(imsi, id);
+	}
+
+	@Override
+	public int getMemberPoint(String id) {
+		return adminDAO.getMemberPoint(id);
+	}
+
+	@Override
+	public int getDriverPoint(String id) {
+		return adminDAO.getDriverPoint(id);
+	}
 }

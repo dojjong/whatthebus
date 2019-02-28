@@ -50,8 +50,8 @@
 			기타 <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-container">
-			<a href="#" id="p8">메인화면 게시글 수 변경</a> <a href="#" id="p6">추천수 변경</a>
-			<a href="#" id="p4">광고이미지 변경</a>
+			<a href="#" id="p8">메인화면 게시글 수 변경</a> <a href="#" id="p6">메인배너이미지
+				변경</a> <a href="#" id="p4">추천수 변경</a>
 		</div>
 
 	</div>
@@ -77,22 +77,22 @@
 	</div>
 
 	<script>
-/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
+		/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+		var dropdown = document.getElementsByClassName("dropdown-btn");
+		var i;
 
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-  this.classList.toggle("active");
-  var dropdownContent = this.nextElementSibling;
-  if (dropdownContent.style.display === "block") {
-  dropdownContent.style.display = "none";
-  } else {
-  dropdownContent.style.display = "block";
-  }
-  });
-}
-</script>
+		for (i = 0; i < dropdown.length; i++) {
+			dropdown[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var dropdownContent = this.nextElementSibling;
+				if (dropdownContent.style.display === "block") {
+					dropdownContent.style.display = "none";
+				} else {
+					dropdownContent.style.display = "block";
+				}
+			});
+		}
+	</script>
 
 
 
