@@ -25,6 +25,80 @@
 		<input type="hidden" id="end_wido" name="end_wido"
 			value="${vo.end_wido }" /> <input type="hidden" id="end_kyungdo"
 			name="end_kyungdo" value="${vo.end_kyungdo }" />
+		
+	
+		<!-- 테이블 시작 -->
+<br/>	
+<!-- 아웃라인  -->
+<table width="1000px" align="center" id="outline">
+		<tr><td>
+		
+		
+		
+		
+		<table width="960" align="center">
+		<tr><td><c:choose><c:when test="${member.statecount == 4 }">
+				<input type="submit" class="contentbt" value="수정">
+				<!-- 관리자가 이 버튼이 보이도록 코드 수정 -->
+				<input type="button" id="deleteAdminButton" class="admin_contentbt" value="관리자삭제">
+			    </c:when></c:choose></td>
+						
+		<td align="right" colspan="3"><a
+					href="getSuggestBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
+						<input type="button" class="contentbt" value="목록">
+				</a></td></tr>
+						
+		<tr id="tr01"><td><b>${vo.title }</b></td>
+		<td width="90"><b>${vo.name }(${vo.id})</b></td>
+		<td align="right" width="100"><font color="grey" size="1">${vo.realregdate }</font></td>
+		
+		</td></tr>
+		
+		<tr><td colspan="4">${vo.content }</td></tr>
+		
+		<tr><td colspan="4" align="center"><div id="map" style="width: 950px; height: 500px;"></div></td></tr>
+		
+		<tr>
+				<td colSpan="4"><b>확정 출발지 : <span id="spanStartJuso"></span></b></td>
+			</tr>
+			<tr>
+				<td colSpan="4"><b>확정 도착지 : <span id="spanEndJuso"></span></b></td>
+			</tr>
+		
+		
+		</table>
+		<table width="960" align="center">
+		<tr><td align="left"  width="100"><font size="1">조회수:<b>${vo.cnt }</b></font></td>
+		<td align="right"><a href='javascript:void(0);'onclick="best_click();"> <c:choose>
+							<c:when test="${best==0 }">
+								<img src='../resources/images/bestbt.png' id="bestButton">
+							</c:when>
+							<c:otherwise>
+								<img src='../resources/images/onbestbt.png' id="bestButton">
+							</c:otherwise>
+						</c:choose> <span id="best_cnt">${vo.best } </span></a></td></tr>
+		</table>
+		
+<!-- 테이블 끝 -->		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- 
 		<table id="content" border="1" align="center">
 
 			<tr>
@@ -61,6 +135,8 @@
 			</tr>
 
 		</table>
+		
+	
 		<table width="500" align="center">
 			<tr>
 				<td align="center"><a href='javascript:void(0);'
@@ -72,7 +148,7 @@
 								<img src='../resources/images/onbestbt.png' id="bestButton">
 							</c:otherwise>
 						</c:choose> <span id="best_cnt">${vo.best } </span></a></td>
-				<!-- 벨류에 추천1 늘때마다 숫자 늘어나는 코드 넣어주기 -->
+
 				<td align="right" width="200"><c:if
 						test="${member.statecount == 4 }">
 						<input type="button" id="deleteAdminButton" class="contentbt"
@@ -83,11 +159,14 @@
 				</a></td>
 			</tr>
 		</table>
+			 -->
 	</form>
 
 	<%@include file="../board/comment.jsp"%>
 
-
+	
+		</td></tr></table>
+		<br/>
 	<script>
 		$("#deleteButton").click(function() {
 			if (confirm("정말 삭제하시겠습니까 ? ")) {

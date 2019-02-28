@@ -35,12 +35,12 @@
 
 			<tr>
 				<td width="100" align="center">작성자</td>
-				<td width="700">${member.name }</td>
+				<td width="700">&nbsp;${member.name }</td>
 			</tr>
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" size="50" maxlength="50" name="title" autocomplete="off"/></td>
+				<td width="700"><input type="text" size="110" maxlength="50" name="title" autocomplete="off"/></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
@@ -49,7 +49,7 @@
 			</tr>
 			<tr>
 				<td width="100" align="center">내용</td>
-				<td><textarea name="content" id="ir1" rows="15" cols="600"style="width: 680px; height: 200px;"></textarea></td>
+				<td><textarea name="content" id="ir1" rows="15" cols="600"style="width: 850px; height: 200px;"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="button" id="insertBoardbt" class="writebt" value="글쓰기" /> <input

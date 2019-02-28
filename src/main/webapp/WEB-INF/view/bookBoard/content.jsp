@@ -12,6 +12,11 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+
+
 </head>
 <body>
 	<form id="form" action="updateForm.do?seq=${vo.seq }" method="post">
@@ -28,8 +33,76 @@
 			type="hidden" id="mid_wido" name="mid_wido" value="${vo.mid_wido }" />
 		<input type="hidden" id="mid_kyungdo" name="mid_kyungdo"
 			value="${vo.mid_kyungdo }" />
-		<table id="content" border="1" align="center">
-
+<br/>
+<table width="1000px" align="center" id="outline">
+		<tr><td>	
+		
+		<table align="center" width="960">
+		
+		<tr>
+		<td align="left" ><c:if
+						test="${member.statecount == 4 }">
+						<!-- 관리자가 이 버튼이 보이도록 코드 수정 -->
+						<input type="button" id="deleteButton" class="contentbt"
+							value="삭제">
+					</c:if></td>
+		
+		<td align="right" colspan="3"><a
+					href="getBookBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
+						<input type="button" class="contentbt" value="목록">
+				</a></td></tr>
+				
+			<tr id="tr01"><td><b>${vo.title }</b></td>
+		<td width="90"><b>${vo.name }(${vo.id})</b></td>
+		<td align="right" width="100"><font color="grey" size="1">${vo.regDate }</font></td>
+	</tr>		
+		
+	<tr><td colspan="4">${vo.content }</td></tr>			
+	<tr><td colspan="4" align="center"><div id="map" style="width: 950px; height: 500px;"></div></td></tr>	
+	
+	<tr>
+		<td colSpan="4">&nbsp;<b><i class='far fa-hand-point-right' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;출발지 : <span id="spanStartJuso"></b></span>
+	</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					<div id="divMidJuso"></div>
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">&nbsp;<b><i class='fas fa-hand-point-right' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;도착지 : <span id="spanEndJuso"></b></span>
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					&nbsp;<i class="fa fa-bus" style="font-size:20px;color:rgb(49, 100, 176)"></i>&nbsp;<b>차종 : </b> <b><c:if test="${vo.bus == 45}">
+								45인승 대형버스</c:if> <c:if test="${vo.bus == 28}">
+								28인승 리무진 대형버스</c:if> <c:if test="${vo.bus == 25}">
+								25인승 중형버스</c:if></b>
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">&nbsp;<b><i class='fas fa-calendar-alt' style='font-size:20px;color:rgb(49, 100, 176)'></i></b>
+					<b>출발일시 : ${vo.startdate }</b>
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					<div id="midTimeDiv">&nbsp;<b><i class='far fa-plus-square' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;경유 : ${vo.middate }</b></div>
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					&nbsp;<b><i class='far fa-clock' style='font-size:20px;color:rgb(49, 100, 176)'></i>&nbsp;총 예상 소요시간 : ${vo.finishtime }분</b>
+				</td>
+			</tr>
+			<tr>
+				<td colSpan="4">
+					&nbsp;<b><i class="fa fa-krw" style="font-size:20px;color:rgb(49, 100, 176)"></i>&nbsp;승차금액 : ${vo.pay }원</b>
+				</td>
+			</tr>
+			
+			<!-- 
 			<tr>
 				<td class="contenttd">글번호</td>
 				<td colspan="3">${vo.seq}</td>
@@ -101,21 +174,18 @@
 		</table>
 		<table width="500" align="center">
 			<tr>
-				<td align="right" width="200"><c:if
-						test="${member.statecount == 4 }">
-						<!-- 관리자가 이 버튼이 보이도록 코드 수정 -->
-						<input type="button" id="deleteButton" class="contentbt"
-							value="삭제">
-					</c:if> <a href="bookingTicket.do?seq=${vo.seq }"><input type="button"
-						class="contentbt" value="예약"></a>&nbsp;<a
-					href="getBookBoardList.do?curPage=${curPage }&searchOption=${searchOption}&keyword=${keyword}">
-						<input type="button" class="contentbt" value="목록">
-				</a></td>
+				<td> <a href="bookingTicket.do?seq=${vo.seq }"><input type="button"
+						class="contentbt" value="예약"></a>&nbsp;</td>
 			</tr>
 		</table>
+		 -->
 	</form>
 
 	<%@include file="../bookBoard/comment.jsp"%>
+		
+	</td></tr>
+</table>	
+
 
 
 	<script>

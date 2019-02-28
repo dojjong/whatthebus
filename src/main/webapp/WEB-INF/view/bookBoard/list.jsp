@@ -27,7 +27,7 @@
       </table>
 	
 		<!-- <b>글목록(전체 글 : ${map.count })</b>  -->
-		<table border="1" width="1000" cellpadding="0" cellspacing="0" align="center" class="list">
+		<table border="1" width="1000" cellpadding="0" cellspacing="0" align="center" class="list" id="listtab">
 			<tr height="30" id="boardhead">
 				<th align="center" width="55">번호</th>
 				<th align="center" width="250">제목</th>

@@ -81,7 +81,7 @@
 							<c:if test="${not bestLoop }">
 								<td align="center" width="120"><a
 									href="updateSuggestForm.do?seq=${vo.seq }"><input
-										type="button" class="contentbt" value="배차신청"></a></td>
+										type="button" class="contentbt_suggest" value="배차신청"></a></td>
 							</c:if>
 						</c:if>
 					</tr>

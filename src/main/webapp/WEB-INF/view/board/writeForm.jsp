@@ -12,7 +12,14 @@
 
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
+<style>
+#outline{
+	border: 1px solid lightgrey;
+	background-color: rgb(249, 249, 249);
+}
 
+
+</style>
 </head>
 <body>
 
@@ -35,19 +42,19 @@
 			type="hidden" id="endJuso" name="endJuso" value="" /> <input
 			type="hidden" id="spanImsiKyungdo" /> <input type="hidden"
 			id="spanImsiWido">
-		<table border="1" align="center">
+		<table border="1" align="center" id="outline" width="1000">
 
 			<tr>
 				<td width="100" align="center">작성자</td>
-				<td width="700">${member.name }</td>
+				<td width="700">&nbsp;${member.name }</td>
 
 
 			</tr>
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" id="title" size="50"
-					maxlength="50" name="title" /></td>
+				<td width="700"><input type="text" id="title" size="110"
+					maxlength="50" name="title" autocomplete="off"/></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
@@ -57,17 +64,17 @@
 			<tr>
 				<td>내용</td>
 				<td><textarea name="content" id="ir1" rows="15" cols="600"
-						style="width: 680px; height: 200px;"></textarea></td>
+						style="width: 850px; height: 200px;"></textarea></td>
 			</tr>
 
 			<tr>
 				<td colSpan="2">1) 원하는 위치를 입력해주세요 → <input type="text"
 					id="usertRegistMap_input" />&nbsp;<input type="button" value="검색"
-					onClick="search()" /></td>
+					onClick="search()" class="writebt"/></td>
 			</tr>
 			<tr>
 				<td colSpan="2"><div id="map"
-						style="width: 800px; height: 300px;"></div></td>
+						style="width: 990px; height: 400px;"></div></td>
 			</tr>
 			<tr>
 				<td colSpan="2">2) 검색 후, 정확한 위치를 마우스로 클릭해주세요</td>
@@ -79,8 +86,8 @@
 			</tr>
 			<tr>
 				<td colSpan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button"
-					id="startSetBt" value="희망출발지 지정" onClick="startSet()" />&nbsp;<input
-					type="button" id="endSetBt" onClick="endSet()" value="희망도착지 지정" /></td>
+					id="startSetBt" value="희망출발지 지정" onClick="startSet()" class="writebt"/>&nbsp;<input
+					type="button" id="endSetBt" onClick="endSet()" value="희망도착지 지정" class="writebt"/></td>
 			</tr>
 			<tr>
 				<td colSpan="2">3) 확정 결과</td>
@@ -104,6 +111,7 @@
 					onclick="location.href='getBoardList.do'"></td>
 			</tr>
 		</table>
+		<br/>
 	</form>
 	<script type="text/javascript">
 		$(function() {

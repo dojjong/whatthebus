@@ -1,4 +1,12 @@
 
+
+	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+	var options = { //지도를 생성할 때 필요한 기본 옵션
+		center: new daum.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+		level: 3 //지도의 레벨(확대, 축소 정도)
+	};
+
+	var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
 	
 	//var start_wido = Number($('#start_wido').val());
 	//alert(Number(start_wido));	
@@ -13,14 +21,7 @@
 	//alert(Number(end_kyungdo));	
 	var end_kyungdo=document.updateSuggestForm.end_kyungdo.value;
 	
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	
-    mapOption = { 
-        center: new daum.maps.LatLng(Number(start_wido), Number(start_kyungdo)), // 지도의 중심좌표
-        level: 5 // 지도의 확대 레벨
-	    };
-	
-	var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
 	// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
 	var positions = [

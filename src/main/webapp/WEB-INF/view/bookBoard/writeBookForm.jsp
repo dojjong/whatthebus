@@ -6,11 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link type="text/css" rel="stylesheet"
-	href="../resources/css/boardStyle.css" />
+	href="../resources/css/boardStyle.css" /> 
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
-
+<script type="text/javascript"
+		src="../resources/js/userUpdateMapScript2.js"></script>
 <script>
 	var count = 0;
 	function appendItem() {
@@ -118,6 +120,7 @@
 </script>
 </head>
 <body>
+
 	<div align="center">
 		<b>글수정</b>
 	</div>
@@ -289,7 +292,7 @@
 	<script type="text/javascript"
 		src="../resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 	<script type="text/javascript"
-		src="../resources/js/userUpdateMapScript.js"></script>
+		src="../resources/js/userRegistMapScript2.js"></script>
 
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>

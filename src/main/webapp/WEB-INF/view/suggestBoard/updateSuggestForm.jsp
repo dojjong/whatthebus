@@ -140,7 +140,9 @@
 			type="hidden" id="imsi_kyungdo" name="imsi_kyungdo" value="" /> <input
 			type="hidden" id="imsiJuso" name="imsiJuso" value="" /> <input
 			type="hidden" id="start_wido" name="start_wido"
-			value="${vo.start_wido }" /> <input type="hidden" id="start_kyungdo"
+			value="${vo.start_wido }" /> 
+			
+			<input type="hidden" id="start_kyungdo"
 			name="start_kyungdo" value="${vo.start_kyungdo }" /> <input
 			type="hidden" id="mid_wido" name="mid_wido" value="" /> <input
 			type="hidden" id="mid_kyungdo" name="mid_kyungdo" value="" /> <input
