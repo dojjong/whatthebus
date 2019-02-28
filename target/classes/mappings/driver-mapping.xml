@@ -35,14 +35,26 @@
 		UPDATE DRIVER SET PASSWORD=#{password} WHERE ID=#{id}
 		]]>
 	</update>
-	
+
 	<!-- 회원 탈퇴 -->
 	<update id="deleteDriver">
 	<![CDATA[
 		UPDATE DRIVER SET STATECOUNT=2 WHERE ID=#{id}
 	]]>
-	
 	</update>
 
-	
+	<select id="getMyDriveList" resultType="suggestBoard">
+	<![CDATA[
+	SELECT * FROM (SELECT ROWNUM AS rn,A.*FROM(
+	SELECT ROWNUM,SEQ,TITLE,CONTENT,BEST,NAME,REGDATE,CNT,to_char(STARTDATE,'yyyy-MM-dd HH24:mi:ss')"realstartdate" FROM (SELECT * FROM SUGGESTBOARD ORDER BY SEQ DESC,REGDATE DESC) WHERE ID=#{id}
+	)A)WHERE rn BETWEEN #{start} AND #{end}
+	]]>
+	</select>
+
+	<select id="getMyDriveListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM SUGGESTBOARD WHERE ID=#{id}
+	]]>
+	</select>
+
 </mapper>

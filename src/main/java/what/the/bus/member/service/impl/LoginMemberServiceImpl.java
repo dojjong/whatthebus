@@ -10,6 +10,7 @@ import what.the.bus.board.ChartVO1;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.impl.MemberDAOImpl;
 import what.the.bus.member.service.LoginMemberService;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 import what.the.bus.util.BCrypt;
 import what.the.bus.util.SHA256;
 
@@ -53,6 +54,15 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 
 	@Override
 	public int getMyWriteListCount(String id) {
+		return memberDAO.getMyWriteListCount(id);
+	}
+	@Override
+	public List<SuggestBoardVO> getMyDriveList(int start, int end, String id) {
+		return memberDAO.getMyDriveList(start, end, id);
+	}
+
+	@Override
+	public int getMyDriveListCount(String id) {
 		return memberDAO.getMyWriteListCount(id);
 	}
 

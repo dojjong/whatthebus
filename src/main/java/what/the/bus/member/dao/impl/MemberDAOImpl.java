@@ -12,6 +12,7 @@ import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.MemberDAO;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 import what.the.bus.util.SqlSessionFactoryBean;
 
 @Repository
@@ -85,4 +86,17 @@ public class MemberDAOImpl implements MemberDAO {
 		return mybatis.selectOne("MemberDAO.getMyWriteListCount", id);
 	}
 
+	@Override
+	public List<SuggestBoardVO> getMyDriveList(int start, int end, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("start", start);
+		map.put("end", end);
+		return mybatis.selectList("DriverDAO.getMyDriveList", map);
+	}
+
+	@Override
+	public int getMyDriveListCount(String id) {
+		return mybatis.selectOne("DriverDAO.getMyDriveListCount", id);
+	}
 }

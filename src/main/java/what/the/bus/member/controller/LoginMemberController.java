@@ -36,6 +36,8 @@ import what.the.bus.member.MemberVO;
 import what.the.bus.member.service.InsertMemberService;
 import what.the.bus.member.service.LoginMemberService;
 import what.the.bus.pagination.Pagination;
+import what.the.bus.suggestBoard.SuggestBoardVO;
+import what.the.bus.suggestBoard.service.GetSuggestBoardListService;
 import what.the.bus.util.JsonStringParse;
 import what.the.bus.util.KakaoLogin;
 import what.the.bus.util.NaverLoginBO;
@@ -53,6 +55,8 @@ public class LoginMemberController {
 	private GetBannerListService getBannerListService;
 	@Autowired
 	private GetBoardListService boardService;
+	@Autowired
+	private GetSuggestBoardListService suggestBoardService;
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 	private String apiResult = null;
@@ -244,5 +248,36 @@ public class LoginMemberController {
 		map.put("pagination", pagination);
 		model.addAttribute("map", map);
 		return "member/getMyWriteList";
+	}
+
+	@RequestMapping("/view/**/getMyDriveList.do")
+	public String getMyDriveList(SuggestBoardVO boardVO, Model model, HttpSession session,
+			@RequestParam(defaultValue = "1") int curPage) {
+
+		DriverVO vo = (DriverVO) session.getAttribute("member");
+		String id = vo.getId();
+
+		// 전체리스트 개수
+		int listCnt = 0;
+		listCnt = memberService.getMyDriveListCount(id);
+
+		Pagination pagination = new Pagination(listCnt, curPage);
+
+		int start = pagination.getPageBegin();
+		int end = pagination.getPageEnd();
+		List<SuggestBoardVO> list = memberService.getMyDriveList(start, end, id);
+		List<Integer> commentCountList = new ArrayList<Integer>();
+		for (int i = 0; i < list.size(); i++) {
+			int seq = list.get(i).getSeq();
+			int commentCount = suggestBoardService.getCommentCount(seq);
+			commentCountList.add(i, commentCount);
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("commentCount", commentCountList);
+		map.put("list", list);
+		map.put("count", listCnt);
+		map.put("pagination", pagination);
+		model.addAttribute("map", map);
+		return "driver/getMyDriveList";
 	}
 }

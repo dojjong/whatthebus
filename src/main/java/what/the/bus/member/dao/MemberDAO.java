@@ -5,6 +5,7 @@ import java.util.List;
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
 import what.the.bus.member.MemberVO;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 public interface MemberDAO {
 	void insertMember(MemberVO vo);
@@ -32,5 +33,9 @@ public interface MemberDAO {
 	List<BoardVO> getMyWriteList(int start, int end, String id);
 
 	int getMyWriteListCount(String id);
+
+	List<SuggestBoardVO> getMyDriveList(int start, int end, String id);
+
+	int getMyDriveListCount(String id);
 
 }
