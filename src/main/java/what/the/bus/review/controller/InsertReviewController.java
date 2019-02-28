@@ -56,7 +56,7 @@ public class InsertReviewController {
 	@ResponseBody
 	public String insertDriverReview(ReviewVO vo, HttpSession session) {
 		DriverVO dvo = (DriverVO) session.getAttribute("member");
-		if (dvo.getId() == vo.getDriverid()) {
+		if (dvo.getId().equals(vo.getDriverid())) {
 			return "fail";
 		}
 		insertReviewService.inserReview(vo);

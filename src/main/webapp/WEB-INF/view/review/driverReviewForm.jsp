@@ -70,7 +70,7 @@
 						return;
 					}
 					if (data == "fail") {
-						alert("자신에게는 후기를 남길수 없습니다.");
+						alert("자신의 배차에는 후기를 남길수 없습니다.");
 						return;
 					}
 				},
