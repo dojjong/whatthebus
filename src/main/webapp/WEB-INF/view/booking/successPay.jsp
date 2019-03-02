@@ -15,16 +15,7 @@
 
 <jsp:include page="../booking/getBookInfo.jsp"></jsp:include>
 
-<div align="center">
-<!-- 
-예약정보
-예약테이블
- -->
-<br>
-<!-- 뿌려주기 -->
-<a href="main.do"><input type="button" value="메인페이지로 이동"></a>
-<a href="getBookBoardList.do"><input type="button" value="배차조회목록으로 이동"></a>
-</div>
+
 
 <jsp:include page="../main/mainFooter.jsp"></jsp:include>
 </body>
