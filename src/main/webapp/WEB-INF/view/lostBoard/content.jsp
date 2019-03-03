@@ -17,51 +17,57 @@
 	<form action="updateLostForm.do?seq=${vo.seq}" method="post">
 		<input type="hidden" name="id" value="${member.id }"> <input
 			type="hidden" name="name" value="${member.name }" />
-		<table id="content" border="1" align="center">
-			<tr>
-				<td class="contenttd">글번호</td>
-				<td>${vo.seq}</td>
-				<td class="contenttd">조회수</td>
-				<td>${vo.cnt }</td>
-			</tr>
-			<tr>
-				<td class="contenttd">글쓴이</td>
-				<td>${vo.name }</td>
-				<td class="contenttd">작성일</td>
-				<td>${vo.realregdate }</td>
-			</tr>
-			<tr>
-				<td class="contenttd" width="60">글 제목</td>
-				<td colspan="3">${vo.title }</td>
-			</tr>
-			<tr>
-				<td width="500" height="70" colspan="4">글내용</td>
-			</tr>
-			<tr>
-				<td width="500" height="200" colspan="4">${vo.content }</td>
-			</tr>
 			
-		</table>
+			
+<br/>	
 
-		<table width="500" align="center">
-			<tr>
-				<td align="center"><c:choose>
+<table width="1000px" align="center" id="outline"><!-- 아웃라인  -->
+		<tr><td>
+		
+					
+		<table id="content" width="960" align="center">
+		
+		<tr><td><c:choose><c:when test="${member.statecount == 4 }">
+				<input type="submit" class="contentbt" value="수정">
+				<!-- 관리자가 이 버튼이 보이도록 코드 수정 -->
+				<input type="button" id="deleteAdminButton" class="admin_contentbt" value="관리자삭제">
+				 </c:when></c:choose></td>
+				 
+		 <td align="right" colspan="3"><a href="getLostBoardList.do"> <input type="button"
+						class="contentbt" value="목록">
+				</a></td>
+		</tr>
+		
+		<tr id="tr01"><td><b>${vo.title }</b></td>
+		<td width="90"><b>${vo.name }(${vo.id})</b></td>
+		<td align="right" width="100"><font color="grey" size="1">${vo.realregdate }</font></td>
+		<td align="right" width="150"><c:choose>
 						<c:when test="${member.id == vo.id }">
 							<input type="submit" class="contentbt" value="수정">
 							<!-- 글쓴이만 이 버튼이 보이도록 코드 수정 -->
 							<input type="button" id="deleteButton" class="contentbt"
 								value="삭제">
 						</c:when>
-					</c:choose> <a href="getLostBoardList.do"> <input type="button"
-						class="contentbt" value="목록">
-				</a></td>
-			</tr>
+						
+					</c:choose>
+		</td></tr>
+				
+		<tr><td colspan="4">${vo.content }</td></tr>
+		
+		
 		</table>
+		
+		<table width="960" align="center">
+		<tr><td align="left"  width="100"><font size="1">조회수:<b>${vo.cnt }</b></font></td>
+		</tr></table>
 
 	</form>
 	
 	
 	<%@include file="../lostBoard/comment.jsp"%>
+	
+</table><!-- 아웃라인  -->
+	<br/>
 	
 	<script>
 		$("#deleteButton").click(function() {

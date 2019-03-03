@@ -22,6 +22,11 @@
    border-bottom: 1px dotted grey;
 }
 
+#content {
+	resize: none;
+}
+
+
 </style>
 </head>
 <body>
@@ -136,7 +141,7 @@
                            if (data[i].cno == updateCheckCno
                                  && updateCheck == 1) {
                               html += "<tr><td colspan='3'>";
-                              html += "<textarea rows='2' cols='50' id='updateContent' name='content'>"
+                              html += "<textarea rows='2' cols='117' id='updateContent' name='content'>"
                                     + getComment
                                     + "</textarea></td><td align='right'><input type='button' value = '확인'  class='contentbt' onclick='updateCommentCheck("
                                     + data[i].cno

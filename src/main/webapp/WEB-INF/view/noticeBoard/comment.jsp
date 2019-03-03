@@ -8,7 +8,13 @@
 <head>
 <style>
 
-
+.contentbt {
+ width: 65px;
+ height: 30px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+}
 
 textarea#content{
 	resize: none;
@@ -136,7 +142,7 @@ background-color: rgb(249, 249, 249);
 									if (data[i].cno == updateCheckCno
 											&& updateCheck == 1) {
 										html += "<tr><td colspan='3'>";
-										html += "<textarea rows='2' cols='80' id='updateContent' name='content'>"
+										html += "<textarea rows='2' cols='117' id='updateContent' name='content'>"
 												+ getNoticeComment
 												+ "</textarea></td><td align='right'><input type='button' value = '확인'  class='contentbt' onclick='updateNoticeCommentCheck("
 												+ data[i].cno

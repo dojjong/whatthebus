@@ -7,7 +7,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../resources/css/testBoardStyle.css" />
+<style>
+#outline{
+	border: 1px solid lightgrey;
+	background-color: rgb(249, 249, 249);
+}
 
+.writebt {
+ height: 30px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+}
+</style>
 
 </head>
 <body>
@@ -19,7 +31,7 @@
 		action="updateNoticeBoard.do?seq=${vo.seq}">
 		<input type="hidden" name="id" value="${member.id }"> <input
 			type="hidden" name="name" value="${member.name }" />
-		<table border="1" align="center">
+		<table border="1" align="center" id="outline" width="1000">
 
 			<tr>
 				<td width="100" align="center">작성자</td>
@@ -30,7 +42,7 @@
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" size="50" maxlength="50"
+				<td width="700"><input type="text" size="110" maxlength="50"
 					name="title" value="${vo.title}"/></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
@@ -41,18 +53,19 @@
 			<tr>
 				<td width="100" align="center">내용</td>
 				<td><textarea name="content" id="ir1" rows="15" cols="600"
-						style="width: 680px; height: 200px;">${vo.content }</textarea></td>
+						style="width: 850px; height: 200px;">${vo.content }</textarea></td>
 			</tr>
 			
 			<tr>
 				<td colspan="2" align="center"><input type="submit"
 					id="insertBoardbt" class="writebt" value="글쓰기" /> <input
 					type="reset" class="writebt" value="다시작성" /> <a
-					href="getNoticeBoardList.do"> <input type="button" class="contentbt"
+					href="getNoticeBoardList.do"> <input type="button" class="writebt"
 						value="목록"></a>
 			</tr>
 		</table>
 	</form>
+	<br/>
 	<script type="text/javascript">
 		$(function() {
 			var oEditors = [];

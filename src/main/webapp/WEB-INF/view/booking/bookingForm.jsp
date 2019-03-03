@@ -12,9 +12,16 @@
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
+<style>
+.tb_td {
+  height: 50px;
+  vertical-align: top;
+}
+</style>
+
 </head>
 <body>
-
+<br/>
 <div>
 
 
@@ -28,11 +35,17 @@
 		<input type="hidden" id="sitnum" name="sitnum"> 
 		<input type="hidden" name="email" value="${member.email }"> 
 		<input type="hidden" id="title" name="title" value="${vo.title }">
-		<table align="center" width="1024px">
-			<tr>
-				<td><div align="left">
-						<h4>좌석정보</h4>
-						<c:forEach var="num" begin="1" end="${vo.bus }" step="1" varStatus="status">
+		
+		
+		<table align="center" width="1024px"><!-- 전체 화면 끝나는 제일 큰 테이블 -->
+		<tr><td class="tb_td">
+		
+		
+		<table align="center"><!-- 좌석정보 테이블 -->
+		<tr><td><h4>좌석정보</h4></td></tr>
+		<tr>
+		<td>
+		<c:forEach var="num" begin="1" end="${vo.bus }" step="1" varStatus="status">
 							<!-- 여기에 결제테이블에 정보가 있으면 이미 결제좌석인것 표시 -->
 							<!-- 25인승 와꾸 -->
 							<c:if test="${status.count%4==1 }">
@@ -53,10 +66,13 @@
 									onclick="sit(this.value)" />
 							</c:if>
 						</c:forEach>
-					</div></td>
-				<td>
-					<div>
-						<table>
+				</td>
+				</tr>		
+		</table> <!-- 좌석정보 테이블 -->
+		
+		<td class="tb_td">
+		<table> <!-- 버스에 대한 정보 테이블 -->
+		
 							<tr>
 								<td colspan="2"><h4>버스 경로정보</h4></td>
 							<tr>
@@ -118,15 +134,14 @@
 									<li>결제대행서비스 이용약관 동의</li>
 								</ul>	
 								</td>
-						</table>
-					</div>
-				</td>
-				<td>
-					<div align="right">
-						<table>
+						</table><!-- 버스에 대한 정보 테이블 -->
+						</td>
+						
+			<td class="tb_td">
+			<table>
 
 							<tr>
-								<td><h4>결제 금액</h4></td>
+								<td colspan="2"><h4>결제 금액</h4></td>
 							</tr>
 							<tr>
 								<td>이용금액&nbsp;</td>
@@ -134,7 +149,7 @@
 							</tr>
 
 							<tr>
-								<td><h4>최종 결제금액</h4></td>
+								<td colspan="2"><h4>최종 결제금액</h4></td>
 							</tr>
 							<tr>
 								<td align="right" colspan="2"><strong> ${vo.pay }
@@ -144,17 +159,21 @@
 								<td colspan="2"><input type="button" id="paybt"
 									value="결제하기"></td>
 							</tr>
-						</table>
-					</div>
-				</td>
+						</table><!-- 결제정보에 대한 테이블 -->
+					</td>	
 			</tr>
-		</table>
+	
+		
+		
+		</table><!-- 전체 화면 끝나는 제일 큰 테이블 -->
+		
+	
 	</form>
 	
 	
 	
 </div>	
-	
+	<br/>
 	<script>
 		function sit(num) {
 			document.payform.sitnum.value = num;

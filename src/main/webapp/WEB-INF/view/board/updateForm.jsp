@@ -10,6 +10,15 @@
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
 
+<style>
+#outline{
+	border: 1px solid lightgrey;
+	background-color: rgb(249, 249, 249);
+}
+
+
+</style>
+
 </head>
 <body>
 
@@ -22,7 +31,8 @@
 		<input type="hidden" name="id" value="${member.id }"> <input
 			type="hidden" name="name" value="${member.name }" /> <input
 			type="hidden" id="imsi" name="imsi" value="${vo.content }" />
-		<table border="1" align="center">
+		
+		<table border="1" align="center" id="outline" width="1000">
 
 			<tr>
 				<td width="100" align="center">작성자</td>
@@ -33,7 +43,7 @@
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" id="title" size="50"
+				<td width="700"><input type="text" id="title" size="110"
 					maxlength="50" name="title" value="${vo.title}" /></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
@@ -44,7 +54,7 @@
 			<tr>
 				<td width="100" align="center">내용</td>
 				<td><textarea name="content" id="ir1" rows="15" cols="600"
-						style="width: 680px; height: 200px;">${vo.content }</textarea></td>
+						style="width: 850px; height: 200px;">${vo.content }</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="button"
@@ -55,6 +65,7 @@
 			</tr>
 		</table>
 	</form>
+	<br/>
 	<script type="text/javascript">
 		$(function() {
 			var oEditors = [];

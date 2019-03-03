@@ -192,7 +192,7 @@
 	</td></tr>
 </table>	
 
-
+<br/>
 
 	<script>
 		$("#deleteButton").click(function() {

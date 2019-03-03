@@ -17,6 +17,9 @@
 
 }
 
+#hover:hover {background-color:#f5f5f5;}
+
+
 </style>
 
 
@@ -62,7 +65,7 @@
 			</c:if> --%>
 
 			<c:forEach var="vo" items="${map.list }" varStatus="status" >
-				<tr height="30">
+				<tr height="30" id="hover">
 					<td align="center" width="50">${vo.seq }</td>
 					
 					<td width="650"><a href="getNoticeBoard.do?seq=${vo.seq}&&id=${member.id}&&curPage=${map.pagination.curPage }&searchOption=${map.searchOption}&keyword=${map.keyword}">

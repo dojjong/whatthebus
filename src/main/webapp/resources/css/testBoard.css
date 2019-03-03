@@ -26,6 +26,14 @@
 
 
 
+.writebt {
+ height: 30px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+}
+
+
 /*
 #writeBT{
 	 background-color: rgb(49, 100, 176);

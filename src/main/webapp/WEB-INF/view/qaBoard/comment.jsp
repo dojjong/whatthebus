@@ -8,33 +8,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#insertQaCommentbt{
+ width: 88px;
+ height: 75px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+}
+
+
+#tr_comment{
+   border-bottom: 1px dotted grey;
+}
+
+#content {
+	resize: none;
+}
+
+
+</style>
+
 </head>
 <body>
-	<div align="center">
-		<form id="qaCommentForm" name="qaCommentForm" action="insertQaComment.do" method="POST">
-			<input type="hidden" id="id" name="id" value="${member.id }" /> 
-			<input type="hidden" id="name" name="name" value="${member.name } " /> 
-			<input type="hidden" id="seq" name="seq" value="${vo.seq }" />
-			<table>
-				<tr>
-					<td align="left"><span><strong>댓글</strong></span> <span id="qaCommentCount"></span></td>
-				</tr>
-				<tr>
-					<td><textarea rows="3" cols="60" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
-				</tr>
-				<tr>
-					<td align="right" width="60">
-					<input type="button" id="insertQaCommentbt" class="contentbt" value="등록"></td>
-				</tr>
-			</table>
-			<input type="hidden" id="seq" name="seq" value="" />
-		</form>
-	</div>
 	<div align="center">
 		<form id="qaCommentListForm" name="qaCommentListForm" method="post">
 			<c:set var="check" value="" />
 
 			<div id="qaCommentList" align="center"></div>
+		</form>
+	</div>
+	
+
+
+
+	<div align="center">
+		<form id="qaCommentForm" name="qaCommentForm" action="insertQaComment.do" method="POST">
+			<input type="hidden" id="id" name="id" value="${member.id }" /> 
+			<input type="hidden" id="name" name="name" value="${member.name } " /> 
+			<input type="hidden" id="seq" name="seq" value="${vo.seq }" />
+			<table width="960" id="cmt">
+				<tr>
+					<td align="left" colspan="2"><span><strong>댓글</strong></span> <span id="qaCommentCount"></span></td>
+				</tr>
+				<tr>
+					<td><textarea rows="3"cols="117" id="content" name="content" placeholder="댓글을 입력하세요."></textarea></td>
+					<td align="right" width="60">
+					<input type="button" id="insertQaCommentbt" class="contentbt" value="등록"></td>
+				</tr>
+				
+			</table>
+			<input type="hidden" id="seq" name="seq" value="" />
 		</form>
 	</div>
 
@@ -83,11 +107,11 @@
 							var html = "";
 							var cCnt = data.length;
 							var sid = document.qaCommentForm.id.value;
-
+				
 							if (data.length > 0) {
 								for (i = 0; i < data.length; i++) {
 
-									html += "<table width='500'><tr><td align='left'colspan='2'><h6><strong>"
+									html += "<table width='960' id='cmt'><tr><td align='left'colspan='2'><h6><strong>"
 											+ data[i].name
 											+ "</strong></td><td align='left'>"
 											+ data[i].regdate;
@@ -99,13 +123,14 @@
 												+ "<a href='#' onclick='deleteQaComment("
 												+ data[i].cno + ")'>삭제</a>"
 												+ "</td></tr>";
+								
 									} else {
 										html += "<td></td>";
 									}
 									if (data[i].cno == updateCheckCno
 											&& updateCheck == 1) {
 										html += "<tr><td colspan='3'>";
-										html += "<textarea rows='2' cols='50' id='updateContent' name='content'>"
+										html += "<textarea rows='2' cols='117' id='updateContent' name='content'>"
 												+ getQaComment
 												+ "</textarea></td><td align='right'><input type='button' value = '확인'  class='contentbt' onclick='updateQaCommentCheck("
 												+ data[i].cno
@@ -113,7 +138,7 @@
 												+ "</td></tr>";
 										html += "</table>";
 									} else {
-										html += "<tr><td colspan='4'>";
+										html += "<tr id='tr_comment'><td colspan='4'>";
 										html += data[i].content + "</td></tr>";
 										html += "</table>";
 									}

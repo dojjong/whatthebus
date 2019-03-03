@@ -92,7 +92,7 @@ int second = c.get(Calendar.SECOND);
 <a href="main.do"><input type="button" value="메인페이지로 이동"></a>
 <a href="getBookBoardList.do"><input type="button" value="배차조회목록으로 이동"></a>
 </div>
-
+<br/>
 
 
 

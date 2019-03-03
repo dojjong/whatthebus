@@ -42,6 +42,7 @@
 			type="hidden" id="endJuso" name="endJuso" value="" /> <input
 			type="hidden" id="spanImsiKyungdo" /> <input type="hidden"
 			id="spanImsiWido">
+			
 		<table border="1" align="center" id="outline" width="1000">
 
 			<tr>
