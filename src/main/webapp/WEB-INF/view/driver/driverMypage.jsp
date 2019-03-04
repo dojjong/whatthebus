@@ -52,6 +52,7 @@ li a:hover {
 									<li><a href="#" id="p1">회원정보수정</a></li>
 									<li><a href="#" id="p2">비밀번호변경</a></li>
 									<li><a href="#" id="p5">내 배차조회</a>
+									<li><a href="#" id="p6">포인트 사용내역</a></li>
 									<li><a href="#" id="p4">결제내역</a></li>
 									<li><a href="#" id="p3">회원탈퇴</a></li>
 								</ul>
@@ -59,7 +60,7 @@ li a:hover {
 						</aside>
 					</td>
 
-					<td id="result"></td>
+					<td id="result">현재 보유 포인트 : ${point }P&nbsp;</td>
 
 				</tr>
 
@@ -103,6 +104,12 @@ li a:hover {
 		$(document).ready(function() {
 			$("#p5").click(function() {
 				$("#result").load("getMyDriveList.do");
+			});
+
+		});
+		$(document).ready(function() {
+			$("#p6").click(function() {
+				$("#result").load("getDriverPointList.do");
 			});
 
 		});

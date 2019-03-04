@@ -1,8 +1,11 @@
 package what.the.bus.driver.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import what.the.bus.booking.BookingPayVO;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.dao.impl.DriverDAOImpl;
 import what.the.bus.driver.service.UpdateDriverService;
@@ -53,6 +56,16 @@ public class UpdateDriverServiceImpl implements UpdateDriverService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<BookingPayVO> getDriverPointList(int start, int end, String id) {
+		return driverDAO.getDriverPointList(start, end, id);
+	}
+
+	@Override
+	public int getDriverPointListCount(String id) {
+		return driverDAO.getDriverPointListCount(id);
 	}
 
 }

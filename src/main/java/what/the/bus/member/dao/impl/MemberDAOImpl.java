@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
+import what.the.bus.booking.BookingPayVO;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.MemberDAO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
@@ -98,5 +99,19 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public int getMyDriveListCount(String id) {
 		return mybatis.selectOne("DriverDAO.getMyDriveListCount", id);
+	}
+
+	@Override
+	public List<BookingPayVO> getMemberPointList(int start, int end, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("start", start);
+		map.put("end", end);
+		return mybatis.selectList("MemberDAO.getMemberPointList", map);
+	}
+
+	@Override
+	public int getMemberPointListCount(String id) {
+		return mybatis.selectOne("MemberDAO.getMemberPointListCount", id);
 	}
 }

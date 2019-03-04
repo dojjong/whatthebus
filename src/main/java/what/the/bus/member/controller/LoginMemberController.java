@@ -29,6 +29,7 @@ import what.the.bus.admin.service.GetBannerListService;
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
 import what.the.bus.board.service.GetBoardListService;
+import what.the.bus.booking.service.BookingPayService;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.service.LoginDriverService;
 import what.the.bus.main.service.MainListService;
@@ -61,7 +62,8 @@ public class LoginMemberController {
 	private GetSuggestBoardListService suggestBoardService;
 	@Autowired
 	private MainListService listService;
-
+	@Autowired
+	private BookingPayService bookingPayService;
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 	private String apiResult = null;
@@ -80,8 +82,9 @@ public class LoginMemberController {
 			if (memberService.getMember(mvo).getStatecount() == 2) {
 				return "main/withdrawMember";
 			}
+			// model.addAttribute("point", bookingPayService.getMemberPoint(mvo.getId()));
 			model.addAttribute("member", memberService.getMember(mvo));
-			return "main/main";
+			return "redirect:main.do";
 		} else if (driverService.loginDriver(dvo) == true) {
 			if (driverService.getDriver(dvo).getStatecount() == 2) {
 				return "main/withdrawMember";
@@ -89,10 +92,11 @@ public class LoginMemberController {
 			if (driverService.getDriver(dvo).getStatecount() == 3) {
 				return "main/approval";
 			}
+			// model.addAttribute("point", bookingPayService.getDriverPoint(dvo.getId()));
 			model.addAttribute("member", driverService.getDriver(dvo));
-			return "main/main";
+			return "redirect:main.do";
 		} else {
-			return "main/main";
+			return "redirect:main.do";
 		}
 	}
 

@@ -3,7 +3,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="MemberDAO">
-
+	<sql id="header">
+	<![CDATA[
+	SELECT * FROM (SELECT ROWNUM AS rn,A.*FROM(
+	]]>
+	</sql>
+	<sql id="footer">
+	<![CDATA[
+	)A)WHERE rn BETWEEN #{start} AND #{end}
+	]]>
+	</sql>
 	<!-- 회원가입 -->
 	<insert id="insertMember">
 	<![CDATA[
@@ -105,4 +114,17 @@
 	SELECT CONDITION, COUNT(*)"count" FROM (SELECT TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM MEMBER) GROUP BY CONDITION ORDER BY CONDITION ASC	
 	]]>
 	</select>
+	<select id="getMemberPointList" resultType="bookingPay">
+		<include refid="header"></include>
+	<![CDATA[
+	SELECT * FROM BOOKINGPAY WHERE ID=#{id} AND POINT>0 ORDER BY REGDATE DESC
+	]]>
+		<include refid="footer"></include>
+	</select>
+	<select id="getMemberPointListCount" resultType="Integer">
+	<![CDATA[
+	SELECT COUNT(*) FROM BOOKINGPAY WHERE ID=#{id} AND POINT>0
+	]]>
+	</select>
+
 </mapper>

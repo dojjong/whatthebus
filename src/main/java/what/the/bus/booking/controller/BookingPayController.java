@@ -36,9 +36,16 @@ public class BookingPayController {
 	private MailService mailService;
 
 	@RequestMapping("/view/**/bookingTicket.do")
-	public String bookingTicket(Integer seq, Model model) {
+	public String bookingTicket(Integer seq, Model model, HttpSession session) {
 		SuggestBoardVO vo = bookBoardService.getBookBoard(seq);
 		List<Integer> busSit = bookingPayService.getSitNumList(seq);
+		if (session.getAttribute("member").getClass() == MemberVO.class) {
+			MemberVO mvo = (MemberVO) session.getAttribute("member");
+			model.addAttribute("point", bookingPayService.getMemberPoint(mvo.getId()));
+		} else if (session.getAttribute("member").getClass() == DriverVO.class) {
+			DriverVO dvo = (DriverVO) session.getAttribute("member");
+			model.addAttribute("point", bookingPayService.getDriverPoint(dvo.getId()));
+		}
 
 		model.addAttribute("bussit", busSit);
 		model.addAttribute("vo", vo);
@@ -47,7 +54,6 @@ public class BookingPayController {
 
 	@RequestMapping("/view/**/bookingPay.do")
 	public String bookingPay(BookingPayVO vo, Model model, HttpSession session) {
-
 		bookingPayService.insertBookingPay(vo);
 		model.addAttribute("vo", vo);
 
@@ -57,11 +63,13 @@ public class BookingPayController {
 		if (session.getAttribute("member").getClass() == MemberVO.class) {
 			MemberVO mvo = (MemberVO) session.getAttribute("member");
 			email = mvo.getEmail();
+			bookingPayService.useMemberPoint(vo);
 		} else if (session.getAttribute("member").getClass() == DriverVO.class) {
 			DriverVO dvo = (DriverVO) session.getAttribute("member");
 			email = dvo.getEmail();
+			bookingPayService.useDriverPoint(vo);
 		} else {
-			System.out.println("뭐가문젠겨 대체");
+			System.out.println("카카오나 네이버 사용자입니다.");
 		}
 
 		SuggestBoardVO svo = bookBoardService.getBookBoard(vo.getBusseq());

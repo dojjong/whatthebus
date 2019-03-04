@@ -1,8 +1,11 @@
 package what.the.bus.member.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import what.the.bus.booking.BookingPayVO;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.impl.MemberDAOImpl;
 import what.the.bus.member.service.UpdateMemberService;
@@ -52,5 +55,15 @@ public class UpdateMemberServiceImpl implements UpdateMemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<BookingPayVO> getMemberPointList(int start, int end, String id) {
+		return memberDAO.getMemberPointList(start, end, id);
+	}
+
+	@Override
+	public int getMemberPointListCount(String id) {
+		return memberDAO.getMemberPointListCount(id);
 	}
 }

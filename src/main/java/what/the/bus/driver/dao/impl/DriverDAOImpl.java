@@ -1,9 +1,14 @@
 package what.the.bus.driver.dao.impl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.booking.BookingPayVO;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.dao.DriverDAO;
 import what.the.bus.util.SqlSessionFactoryBean;
@@ -37,5 +42,19 @@ public class DriverDAOImpl implements DriverDAO {
 	public void pwUpdateDriver(DriverVO vo) {
 		mybatis.update("DriverDAO.pwUpdateDriver", vo);
 	}
-	
+
+	@Override
+	public List<BookingPayVO> getDriverPointList(int start, int end, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("start", start);
+		map.put("end", end);
+		return mybatis.selectList("DriverDAO.getDriverPointList", map);
+	}
+
+	@Override
+	public int getDriverPointListCount(String id) {
+		return mybatis.selectOne("DriverDAO.getDriverPointListCount", id);
+	}
+
 }

@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.booking.BookingPayVO;
-import what.the.bus.booking.dao.impl.BookingPayDAOImpl;
+import what.the.bus.booking.dao.BookingPayDAO;
 import what.the.bus.booking.service.BookingPayService;
-import what.the.bus.member.MemberVO;
 
 @Service
 public class BookingPayServiceImpl implements BookingPayService {
 	@Autowired
-	private BookingPayDAOImpl bookingPayDAO;
+	private BookingPayDAO bookingPayDAO;
 
 	@Override
 	public void insertBookingPay(BookingPayVO vo) {
@@ -25,7 +24,6 @@ public class BookingPayServiceImpl implements BookingPayService {
 		return bookingPayDAO.getSitNumList(busseq);
 	}
 
-
 	@Override
 	public List<BookingPayVO> getBookingPayList(int start, int end, String id) {
 		return bookingPayDAO.getBookingPayList(start, end, id);
@@ -36,6 +34,34 @@ public class BookingPayServiceImpl implements BookingPayService {
 		return bookingPayDAO.getBookingPayListCount(vo);
 	}
 
+	@Override
+	public void useMemberPoint(BookingPayVO vo) {
+		int imsi1 = getMemberPoint(vo.getId());
+		int imsi2 = (vo.getPay() - vo.getPoint()) / 10;
+		int point = (imsi1 - vo.getPoint()) + imsi2;
+		vo.setPoint(point);
 
+		bookingPayDAO.useMemberPoint(vo);
+	}
+
+	@Override
+	public void useDriverPoint(BookingPayVO vo) {
+		int imsi1 = getDriverPoint(vo.getId());
+		int imsi2 = (vo.getPay() - vo.getPoint()) / 10;
+		int point = (imsi1 - vo.getPoint()) + imsi2;
+		vo.setPoint(point);
+
+		bookingPayDAO.useDriverPoint(vo);
+	}
+
+	@Override
+	public int getMemberPoint(String id) {
+		return bookingPayDAO.getMemberPoint(id);
+	}
+
+	@Override
+	public int getDriverPoint(String id) {
+		return bookingPayDAO.getDriverPoint(id);
+	}
 
 }

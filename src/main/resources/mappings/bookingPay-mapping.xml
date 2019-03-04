@@ -16,8 +16,8 @@
 
 	<insert id="insertBookingPay">
 	<![CDATA[
-	INSERT INTO BOOKINGPAY(SEQ,BUSSEQ,ID,NAME,TEL,SELECTPAY,SITNUM,PAY) 
-	VALUES(bookingpay_seq.nextval,#{busseq},#{id},#{name},#{tel},#{selectpay},#{sitnum},#{pay})
+	INSERT INTO BOOKINGPAY(SEQ,BUSSEQ,ID,NAME,TEL,SELECTPAY,SITNUM,PAY,POINT) 
+	VALUES(bookingpay_seq.nextval,#{busseq},#{id},#{name},#{tel},#{selectpay},#{sitnum},#{pay},#{point})
 	]]>
 	</insert>
 
@@ -41,6 +41,24 @@
 	SELECT COUNT(*) FROM BOOKINGPAY WHERE ID=#{id}
 	]]>
 	</select>
-
-
+	<update id="useMemberPoint">
+	<![CDATA[
+	UPDATE MEMBER SET POINT =#{point} WHERE ID=#{id}
+	]]>
+	</update>
+	<update id="useDriverPoint">
+	<![CDATA[
+	UPDATE DRIVER SET POINT =#{point} WHERE ID=#{id}
+	]]>
+	</update>
+	<select id="getMemberPoint" resultType="Integer">
+	<![CDATA[
+	SELECT POINT FROM MEMBER WHERE ID=#{id}
+	]]>
+	</select>
+	<select id="getDriverPoint" resultType="Integer">
+	<![CDATA[
+	SELECT POINT FROM DRIVER WHERE ID=#{id}
+	]]>
+	</select>
 </mapper>

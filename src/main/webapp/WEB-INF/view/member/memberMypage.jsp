@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>	
+	pageEncoding="EUC-KR"%>
 <jsp:include page="../main/mainHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
@@ -9,8 +9,6 @@ nav {
 	color: black;
 	margin-top: 10px;
 }
-
-
 
 @
 mypageul {
@@ -33,90 +31,91 @@ li a:hover {
 	background-color: rgb(49, 100, 176);
 	color: white;
 }
-
-
-
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 <body>
-<div align="center">
-	<div>
-	<table width="1024px">
-	
-	<tr>
-	<td width="200px">
-	<aside id="left">
-		<nav>
-			<ul style="list-style-type: none;" id="mypageul">
-				<li><a href="#" id="p1">회원정보수정</a></li>
-				<li><a href="#" id="p2">비밀번호변경</a></li>
-				<li><a href="#" id="p5">내가 작성한 글</a></li>
-				<li><a href="#" id="p4">결제내역</a></li>
-				<li><a href="#" id="p3">회원탈퇴</a></li>
-			</ul>
-		</nav>
-	</aside>
-	</td>
-	
-	<td id="result">
-	</td>
-	
-	</tr>
-	
-	
-	
-</table>
-</div>
-</div>
+	<div align="center">
+		<div>
+			<table width="1024px">
 
-<script>
-$(document).ready(function(){
-	$("#p1").click(function() {
-		$("#result").load("moveUpdateCheckMember.do");
-		
-	});
-	
-});
+				<tr>
+					<td width="200px">
+						<aside id="left">
+							<nav>
+								<ul style="list-style-type: none;" id="mypageul">
+									<li><a href="#" id="p1">회원정보수정</a></li>
+									<li><a href="#" id="p2">비밀번호변경</a></li>
+									<li><a href="#" id="p5">내가 작성한 글</a></li>
+									<li><a href="#" id="p6">포인트 사용내역</a></li>
+									<li><a href="#" id="p4">결제내역</a></li>
+									<li><a href="#" id="p3">회원탈퇴</a></li>
+								</ul>
+							</nav>
+						</aside>
+					</td>
 
-$(document).ready(function(){
-	$("#p2").click(function() {
-		$("#result").load("movePwCheckMember.do");
-		
-	});
-	
-});
+					<td id="result">현재 보유 포인트 : ${point }P&nbsp;</td>
 
-$(document).ready(function(){
-	$("#p3").click(function() {
-		$("#result").load("moveDeleteMember.do");
-		
-	});
-	
-});
-
-$(document).ready(function(){
-	$("#p4").click(function() {
-		$("#result").load("getBookingPayList.do");
-
-	});
-	
-});
-$(document).ready(function(){
-	$("#p5").click(function() {
-		$("#result").load("getMyWriteList.do");
-	});
-	
-});
+				</tr>
 
 
 
-</script>
-	
+			</table>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			$("#p1").click(function() {
+				$("#result").load("moveUpdateCheckMember.do");
+
+			});
+
+		});
+
+		$(document).ready(function() {
+			$("#p2").click(function() {
+				$("#result").load("movePwCheckMember.do");
+
+			});
+
+		});
+
+		$(document).ready(function() {
+			$("#p3").click(function() {
+				$("#result").load("moveDeleteMember.do");
+
+			});
+
+		});
+
+		$(document).ready(function() {
+			$("#p4").click(function() {
+				$("#result").load("getBookingPayList.do");
+
+			});
+
+		});
+		$(document).ready(function() {
+			$("#p5").click(function() {
+				$("#result").load("getMyWriteList.do");
+			});
+
+		});
+		$(document).ready(function() {
+			$("#p6").click(function() {
+				$("#result").load("getMemberPointList.do");
+			});
+
+		});
+	</script>
+
 	<footer>
 		<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 	</footer>

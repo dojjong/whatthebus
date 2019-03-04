@@ -13,10 +13,18 @@ public class BookingPayVO {
 	private int pay;
 	private Date regdate;
 	private String realregdate;
-
 	private int cntPerPage;
 	private int startIndex;
 	private int count;
+	private int point;
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
 
 	public int getSeq() {
 		return seq;
@@ -127,7 +135,9 @@ public class BookingPayVO {
 		return "BookingPayVO [seq=" + seq + ", busseq=" + busseq + ", id=" + id + ", name=" + name + ", tel=" + tel
 				+ ", selectpay=" + selectpay + ", sitnum=" + sitnum + ", pay=" + pay + ", regdate=" + regdate
 				+ ", realregdate=" + realregdate + ", cntPerPage=" + cntPerPage + ", startIndex=" + startIndex
-				+ ", count=" + count + "]";
+				+ ", count=" + count + ", point=" + point + "]";
 	}
+
+	
 
 }

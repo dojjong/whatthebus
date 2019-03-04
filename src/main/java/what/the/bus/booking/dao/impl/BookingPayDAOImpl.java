@@ -32,7 +32,6 @@ public class BookingPayDAOImpl implements BookingPayDAO {
 		return mybatis.selectList("BookingPayDAO.getSitNumList", busseq);
 	}
 
-
 	@Override
 	public List<BookingPayVO> getBookingPayList(int start, int end, String id) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -47,5 +46,24 @@ public class BookingPayDAOImpl implements BookingPayDAO {
 		return mybatis.selectOne("BookingPayDAO.getBookingPayListCount", vo);
 	}
 
+	@Override
+	public void useMemberPoint(BookingPayVO vo) {
+		mybatis.update("BookingPayDAO.useMemberPoint", vo);
+	}
+
+	@Override
+	public void useDriverPoint(BookingPayVO vo) {
+		mybatis.update("BookingPayDAO.useDriverPoint", vo);
+	}
+
+	@Override
+	public int getMemberPoint(String id) {
+		return mybatis.selectOne("BookingPayDAO.getMemberPoint", id);
+	}
+
+	@Override
+	public int getDriverPoint(String id) {
+		return mybatis.selectOne("BookingPayDAO.getDriverPoint", id);
+	}
 
 }

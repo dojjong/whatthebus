@@ -174,7 +174,7 @@
 	</select>
 	<select id="getDriverPoint" resultType="Integer">
 	<![CDATA[
-	SELECT POINT FROM Driver WHERE ID =#{id}
+	SELECT POINT FROM DRIVER WHERE ID =#{id}
 	]]>
 	</select>
 </mapper>
