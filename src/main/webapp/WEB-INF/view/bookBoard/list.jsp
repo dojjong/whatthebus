@@ -90,7 +90,7 @@
 					</c:if></td>
 			</tr>
 		</table>
-		<table width="700">
+		<table width="1000">
 
 			<tr>
 				<td align="right">
