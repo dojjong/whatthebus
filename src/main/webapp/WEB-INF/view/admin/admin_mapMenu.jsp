@@ -20,9 +20,12 @@
 .category .ico_allcluster {background-position:-10px -144px;} 
 </style>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 </head>
 <body>
-	
+	<br/>
+	<br/>
 	<p style="margin-top: -12px">
 		사용한 데이터를 보시려면 클릭하세요..<em class="link"><br> <a
 			href="javascript:dataView('1')" target="_blank">출발지만Data</a>
@@ -46,23 +49,26 @@
     <div class="category">
         <ul>
 	        <li id="startMenu" onclick="changeMarker('start')">
-	                <span class="ico_comm ico_start"></span>
+	               <!--<span class="ico_comm ico_start"> </span> --> 
+	               <span><i class='fas fa-map-marker-alt' style='font-size:12px;color:red'></i><br/></span>
 	                출발지
 	            </li>
             <li id="midMenu" onclick="changeMarker('mid')">
-                <span class="ico_comm ico_mid"></span>
+                <!-- <span class="ico_comm ico_mid"></span> -->
+                <span><i class='fas fa-map-marked-alt' style='font-size:12px;color:red'></i><br/></span>
                 경유지
             </li>
             <li id="endMenu" onclick="changeMarker('end')">
-                <span class="ico_comm ico_end"></span>
+                <!-- <span class="ico_comm ico_end"></span> -->
+                <span><i class="fa fa-map-marker" style="font-size:12px;color:red"></i><br/></span>
                 도착지
             </li>
             <li id="allMenu" onclick="changeMarker('all')">
-                <span class="ico_comm ico_all"></span>
+                <span><i class="fa fa-map-pin" style="font-size:12px;color:red"></i><br/></span>
                 짬뽕
             </li>
             <li id="allClusterMenu" onclick="changeMarker('allcluster')">
-                <span class="ico_comm ico_allcluster"></span>
+                <span><i class="fa fa-map" style="font-size:12px;color:red"></i><br/></span>
                 클러스터
             </li>
         </ul> 

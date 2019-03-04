@@ -51,8 +51,13 @@ td {
 </style>
 
 
+
+
 </head>
 <body>
+
+
+<!-- 사이드 메뉴 -->
 
 	<div class="sidenav">
 		<button class="dropdown-btn">
@@ -79,6 +84,9 @@ td {
 		</div>
 
 	</div>
+
+<!-- 사이드 메뉴 -->
+
 
 	<div class="main">
 

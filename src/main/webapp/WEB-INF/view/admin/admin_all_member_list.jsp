@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -49,8 +50,8 @@ font-size: 12px;
 			<td align="center">이메일</td>
 			<td align="center">가입일자</td>
 			<td align="center">License</td>
-			<td align="center">회원<br/>상태</td>
-			<td align="center">보유<br/>포인트</td>
+			<td align="center" width="40">회원<br/>상태</td>
+			<td align="center" width="40">보유<br/>포인트</td>
 			<td align="center">제명처리</td>
 			<td align="center">메일발송</td>
 		</tr>
@@ -59,11 +60,11 @@ font-size: 12px;
 			<tr>
 				<td width="60" align="center" colspan="2"><input type="checkbox" name="check" value="${row.id }" /></td>
 				<td>${row.id }</td>
-				<td>${row.name }</td>
-				<td>${row.gender }</td>
+				<td width="45">${row.name }</td>
+				<td width="30" align="center">${row.gender }</td>
 				<td>${row.tel }</td>
 				<td>${row.email }</td>
-				<td>${row.regdate }</td>
+				<td width="70" align="center">${row.regdate }</td>
 				<td>${row.license }</td>
 				<td><c:if test="${row.statecount==1}">
 				정상
