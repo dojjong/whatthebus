@@ -37,11 +37,12 @@ font-size: 12px;
 	<input type="text" id="point" name="point">P
 	<input type="button" value="지급" onclick="insertPoint();">&nbsp;
 	<input type="button" value="회수" onclick="recoveryPoint();">
-	<table border="1" id="tb01" width="1000">
+	<br/>
+	<br/>
+	<table border="1" id="tb01" width="1000" border="1">
 		<tr>
 		<td align="center"><input type="checkbox" name="checkAll" id="th_checkAll"
-				onclick="checkAll();" /></td>
-			<td align="center">전체<br/>선택<br/>
+				onclick="checkAll();" />전체선택</td>
 			
 			<td align="center">아이디</td>
 			<td align="center">이름</td>
@@ -50,7 +51,7 @@ font-size: 12px;
 			<td align="center">이메일</td>
 			<td align="center">가입일자</td>
 			<td align="center">License</td>
-			<td align="center" width="40">회원<br/>상태</td>
+			<td align="center" width="40" align="center">회원<br/>상태</td>
 			<td align="center" width="40">보유<br/>포인트</td>
 			<td align="center">제명처리</td>
 			<td align="center">메일발송</td>
@@ -58,7 +59,7 @@ font-size: 12px;
 
 		<c:forEach var="row" items="${list }">
 			<tr>
-				<td width="60" align="center" colspan="2"><input type="checkbox" name="check" value="${row.id }" /></td>
+				<td width="65" align="center"><input type="checkbox" name="check" value="${row.id }" /></td>
 				<td>${row.id }</td>
 				<td width="45">${row.name }</td>
 				<td width="30" align="center">${row.gender }</td>

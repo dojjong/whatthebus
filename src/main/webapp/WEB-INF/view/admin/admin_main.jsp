@@ -28,31 +28,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<style>
-/* 빨간선-확인용 삭제 할겁니다!*/
-div {
-   border: 1px solid red;
-}
-
-table {
-   border: 1px solid red;
-}
-
-tr {
-   border: 1px solid red;
-}
-
-td {
-   border: 1px solid red;
-}
-/* 구간 확인용 삭제 할겁니다!*/
-
-
-</style>
-
-
-
-
 </head>
 <body>
 

@@ -43,7 +43,7 @@
 
 	<div id="mapwrap"> 
     <!-- 지도가 표시될 div -->
-    <div id="map" style="overflow-y:scroll;width:100%;height:350px;"></div>
+    <div id="map" style="overflow-y:scroll;width:1000px;height:500px;"></div>
     <!-- 지도 위에 표시될 마커 카테고리 -->
 	
     <div class="category">

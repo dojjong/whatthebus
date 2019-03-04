@@ -40,11 +40,11 @@
 				<table border="1">
 					<tr>
 						<th>이미지번호</th>
-						<th>이미지이름</th>
+						<th colspan="2">이미지이름</th>
 						<th>이미지수정</th>
 					</tr>
 					<tr>
-						<td colspan="3"><input type="file" id="uploadBanner"
+						<td colspan="4" width="right"><input type="file" id="uploadBanner"
 							name="uploadBanner" value="uploadBanner"></td>
 					</tr>
 					<c:forEach var="row" items="${list }">

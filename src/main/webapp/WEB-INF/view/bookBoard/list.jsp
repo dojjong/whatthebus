@@ -15,6 +15,21 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>   		
+<style>
+#writebt {
+	width: 65px;
+	height: 30px;
+	background-color: white;
+	background-image: url("../resources/images/writebutton.png");
+	background-repeat: no-repeat;
+	background-size: 65px 30px;
+	border: 1px solid lightgrey;
+}
+
+
+
+</style>
+
 </head>
 <body>
 
@@ -65,7 +80,7 @@
 			</c:forEach>
 
 		</table>
-		<table width="700">
+		<table width="1000">
 			<tr>
 				<td align="right"><c:if test="${member.license!=null }">
 						<form name="form" action="writeBookBoard.do" method="POST">

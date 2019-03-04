@@ -8,6 +8,12 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>회원목록</title>
+<style>
+#tb01{
+font-size: 12px;
+}
+
+</style>
 </head>
 <body>
 	<h2>회원목록</h2>
@@ -16,7 +22,7 @@
 	<input type="text" id="point" name="point">P
 	<input type="button" value="지급" onclick="insertPoint();">&nbsp;
 	<input type="button" value="회수" onclick="recoveryPoint();">
-	<table border="1" width="700px">
+	<table border="1" id="tb01" width="1000">
 		<tr>
 			<th>전체선택<input type="checkbox" name="checkAll" id="th_checkAll"
 				onclick="checkAll();" /></th>

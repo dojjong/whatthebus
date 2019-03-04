@@ -8,12 +8,18 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>승인대기 기사목록</title>
+<style>
+#tb01{
+font-size: 12px;
+}
+
+</style>
 </head>
 <body>
 <div>
 	<h2>가입 승인대기 기사목록</h2>
 <form method="post" id="updateDriverForm" name="updateDriverForm"> 
-	<table border="1" width="700px">
+	<table border="1" id="tb01" width="1000">
 		<tr>
 			<th width="50">아이디</th>
 			<th width="50">이름</th>
