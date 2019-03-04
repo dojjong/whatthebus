@@ -46,9 +46,12 @@ td {
 
 
 #welcome {
-	color: #abdcf1250145145;
+	background-color: rgb(49, 100, 176);
+	color: white;
 	font-size: 20pt;
-	font-family: '휴먼매직체';
+	font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
+		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
+		sans-serif;
 }
 
 .insertbt {

@@ -7,15 +7,22 @@
 <meta charset="UTF-8">
 <title>회원가입 화면</title>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<style>
+
+
+</style>
+
+
 </head>
 <body>
+	<br/>
 	<!-- 화면 센터 -->
 	<div align="center">
 		<form name="form" method="post" action="insertMember.do">
-			<table>
+			<table id="tb01">
 				<tr>
-					<td id="welcome" colspan="3" align="center">What The Bus에 오신것을
-						환영합니다 !</td>
+					<td id="welcome" colspan="3" align="center"><b>Welcome to What the Bus! Please, join us!</b></td>
 				</tr>
 				<tr>
 					<td align="right"width="200">아이디 :&nbsp;</td>
@@ -85,6 +92,7 @@
 		</form>
 
 	</div>
+	<br/>
 	<script type="text/javascript" src="../resources/js/memberScript.js"></script>
 
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
