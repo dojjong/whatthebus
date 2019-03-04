@@ -17,7 +17,13 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	<context:component-scan
-		base-package="what.the.bus"></context:component-scan>
+		base-package="what.the.bus">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<aop:aspectj-autoproxy />
+
+
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<!-- <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"> 
 		<property name="defaultContentType" value="TEXT_HTML"/> <property name="parameterName" 

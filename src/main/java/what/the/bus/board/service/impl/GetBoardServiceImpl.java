@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 
 import what.the.bus.best.BestVO;
 import what.the.bus.board.BoardVO;
-import what.the.bus.board.dao.impl.BoardDAOImpl;
+import what.the.bus.board.dao.BoardDAO;
 import what.the.bus.board.service.GetBoardService;
 
 @Service
 public class GetBoardServiceImpl implements GetBoardService {
 	@Autowired
-	private BoardDAOImpl boardDAO;
+	private BoardDAO boardDAO;
 
 	@Override
 	public BoardVO getBoard(int seq) {

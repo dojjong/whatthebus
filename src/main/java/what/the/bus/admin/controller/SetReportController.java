@@ -20,7 +20,6 @@ import what.the.bus.afterBoard.AfterBoardVO;
 import what.the.bus.afterBoard.service.GetAfterBoardListService;
 
 @Controller
-
 public class SetReportController {
 
 	@Autowired

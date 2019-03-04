@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
+import what.the.bus.board.dao.BoardDAO;
 import what.the.bus.board.dao.impl.BoardDAOImpl;
 import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.comment.CommentVO;
@@ -14,7 +15,7 @@ import what.the.bus.comment.CommentVO;
 @Service
 public class GetBoardListServiceImpl implements GetBoardListService {
 	@Autowired
-	private BoardDAOImpl boardDAO;
+	private BoardDAO boardDAO;
 
 	public void setBoardDAO(BoardDAOImpl boardDAO) {
 		this.boardDAO = boardDAO;

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.member.MemberVO;
-import what.the.bus.member.dao.impl.MemberDAOImpl;
+import what.the.bus.member.dao.MemberDAO;
 import what.the.bus.member.service.DeleteMemberService;
 import what.the.bus.util.BCrypt;
 import what.the.bus.util.SHA256;
@@ -13,7 +13,7 @@ import what.the.bus.util.SHA256;
 public class DeleteMemberServiceImpl implements DeleteMemberService {
 
 	@Autowired
-	private MemberDAOImpl memberDAO;
+	private MemberDAO memberDAO;
 	private SHA256 sha = SHA256.getInsatnce();
 
 	@Override

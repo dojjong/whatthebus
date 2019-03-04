@@ -17,10 +17,17 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-
 	<context:component-scan
-		base-package="what.the.bus"></context:component-scan>
+		base-package="what.the.bus">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!-- <bean id="log" class="what.the.bus.util.LogAdvice"></bean> -->
 	<aop:aspectj-autoproxy />
+	<!-- <aop:config> <aop:pointcut id="allPointcut" expression="execution(* 
+		what.the.bus..*Impl.*(..))" /> <aop:aspect ref="log"> <aop:after method="afterCompletion" 
+		pointcut-ref="allPointcut" /> </aop:aspect> </aop:config> -->
+
 
 	<!-- 프로퍼티 파일을 활용한 DataSource 설정 -->
 	<context:property-placeholder

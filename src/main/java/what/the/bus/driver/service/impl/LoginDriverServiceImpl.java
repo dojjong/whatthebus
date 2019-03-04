@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.driver.DriverVO;
-import what.the.bus.driver.dao.impl.DriverDAOImpl;
+import what.the.bus.driver.dao.DriverDAO;
 import what.the.bus.driver.service.LoginDriverService;
 import what.the.bus.util.BCrypt;
 import what.the.bus.util.SHA256;
@@ -13,7 +13,7 @@ import what.the.bus.util.SHA256;
 public class LoginDriverServiceImpl implements LoginDriverService {
 
 	@Autowired
-	private DriverDAOImpl driverDAO;
+	private DriverDAO driverDAO;
 	private SHA256 sha = SHA256.getInsatnce();
 
 	@Override

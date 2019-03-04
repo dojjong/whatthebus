@@ -11,6 +11,11 @@
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
+		<!-- 톰캣 메모리 풀링방지 -->
+		<init-param>
+			<param-name>enablePooling</param-name>
+			<param-value>false</param-value>
+		</init-param>
 	</filter>
 
 	<filter-mapping>

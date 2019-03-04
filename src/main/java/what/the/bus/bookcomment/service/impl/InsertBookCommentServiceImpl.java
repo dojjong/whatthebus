@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.bookcomment.BookCommentVO;
-import what.the.bus.bookcomment.dao.impl.BookCommentDAOImpl;
+import what.the.bus.bookcomment.dao.BookCommentDAO;
 import what.the.bus.bookcomment.service.InsertBookCommentService;
 @Service
 public class InsertBookCommentServiceImpl implements InsertBookCommentService {
 
 	@Autowired
-	private BookCommentDAOImpl commentDAO;
+	private BookCommentDAO commentDAO;
 
 	@Override
 	public void insertBookComment(BookCommentVO vo) {

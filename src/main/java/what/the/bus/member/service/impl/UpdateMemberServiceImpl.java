@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import what.the.bus.booking.BookingPayVO;
 import what.the.bus.member.MemberVO;
-import what.the.bus.member.dao.impl.MemberDAOImpl;
+import what.the.bus.member.dao.MemberDAO;
 import what.the.bus.member.service.UpdateMemberService;
 import what.the.bus.util.BCrypt;
 import what.the.bus.util.SHA256;
@@ -15,7 +15,7 @@ import what.the.bus.util.SHA256;
 @Service
 public class UpdateMemberServiceImpl implements UpdateMemberService {
 	@Autowired
-	private MemberDAOImpl memberDAO;
+	private MemberDAO memberDAO;
 	private SHA256 sha = SHA256.getInsatnce();
 
 	@Override

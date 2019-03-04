@@ -1,17 +1,17 @@
-package what.the.bus.afterBoard.service.impl;
+package what.the.bus.afterBoard.service.imsi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.afterBoard.AfterBoardVO;
-import what.the.bus.afterBoard.dao.impl.AfterBoardDAOImpl;
+import what.the.bus.afterBoard.dao.imsi.AfterBoardDAOImsi;
 import what.the.bus.afterBoard.service.InsertAfterBoardService;
 
 @Service
-public class InsertAfterBoardServiceImpl implements InsertAfterBoardService {
+public class InsertAfterBoardServiceImsi implements InsertAfterBoardService {
 	
 	@Autowired
-	AfterBoardDAOImpl afterBoardDAO;
+	AfterBoardDAOImsi afterBoardDAO;
 
 	@Override
 	public void insertAfterBoard(AfterBoardVO vo) throws Exception {

@@ -1,4 +1,4 @@
-package what.the.bus.afterBoard.dao.impl;
+package what.the.bus.afterBoard.dao.imsi;
 
 
 
@@ -14,7 +14,7 @@ import what.the.bus.afterBoard.AfterBoardVO;
 import what.the.bus.afterBoard.dao.AfterBoardDAO;
 
 @Repository
-public class AfterBoardDAOImpl implements AfterBoardDAO{
+public class AfterBoardDAOImsi implements AfterBoardDAO{
 
 	@Autowired
 	private SqlSession mybatis;

@@ -1,4 +1,4 @@
-package what.the.bus.afterBoard.service.impl;
+package what.the.bus.afterBoard.service.imsi;
 
 import java.util.List;
 
@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.afterBoard.AfterBoardVO;
-import what.the.bus.afterBoard.dao.impl.AfterBoardDAOImpl;
+import what.the.bus.afterBoard.dao.AfterBoardDAO;
 import what.the.bus.afterBoard.service.GetAfterBoardListService;
 
 @Service
-public class GetAfterBoardListServiceImpl implements GetAfterBoardListService{
-	
+public class GetAfterBoardListServiceImsi implements GetAfterBoardListService {
+
 	@Autowired
-	AfterBoardDAOImpl afterBoardDAO;
+	AfterBoardDAO afterBoardDAO;
 
 	@Override
 	public List<AfterBoardVO> getAfterBoardList(int start, int end) throws Exception {
@@ -24,7 +24,7 @@ public class GetAfterBoardListServiceImpl implements GetAfterBoardListService{
 	public List<AfterBoardVO> getAfterBoardList_title(int start, int end, String keyword) throws Exception {
 		return afterBoardDAO.getAfterBoardList_title(start, end, keyword);
 	}
-	
+
 	@Override
 	public List<AfterBoardVO> getAfterBoardList_writer(int start, int end, String keyword) throws Exception {
 		return afterBoardDAO.getAfterBoardList_writer(start, end, keyword);
@@ -57,7 +57,7 @@ public class GetAfterBoardListServiceImpl implements GetAfterBoardListService{
 
 	@Override
 	public List<AfterBoardVO> getAfterBoardListAll() throws Exception {
-		
+
 		return afterBoardDAO.getAfterBoardListAll();
 	}
 }

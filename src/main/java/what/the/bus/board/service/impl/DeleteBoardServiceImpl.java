@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import what.the.bus.board.BoardVO;
-import what.the.bus.board.dao.impl.BoardDAOImpl;
+import what.the.bus.board.dao.BoardDAO;
 import what.the.bus.board.service.DeleteBoardService;
 
 @Service
 public class DeleteBoardServiceImpl implements DeleteBoardService {
 	@Autowired
-	private BoardDAOImpl boardDAO;
+	private BoardDAO boardDAO;
 
 	@Override
 	public void deleteBoard(BoardVO vo) {

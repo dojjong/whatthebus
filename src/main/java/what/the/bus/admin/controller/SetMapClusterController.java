@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import what.the.bus.bookBoard.service.GetBookBoardListService;
 
 @Controller
-public class setMapClusterController {
-	@Autowired
-	private GetBookBoardListService getBookBoardListService;
-	
+public class SetMapClusterController {
+
 	@RequestMapping("/view/**/getStartMapCluster.do")
 	public String getAdminChart(Model model) {
 

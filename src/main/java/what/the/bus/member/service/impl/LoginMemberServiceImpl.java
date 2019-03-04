@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import what.the.bus.board.BoardVO;
 import what.the.bus.board.ChartVO1;
 import what.the.bus.member.MemberVO;
-import what.the.bus.member.dao.impl.MemberDAOImpl;
+import what.the.bus.member.dao.MemberDAO;
 import what.the.bus.member.service.LoginMemberService;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 import what.the.bus.util.BCrypt;
@@ -18,7 +18,7 @@ import what.the.bus.util.SHA256;
 public class LoginMemberServiceImpl implements LoginMemberService {
 
 	@Autowired
-	private MemberDAOImpl memberDAO;
+	private MemberDAO memberDAO;
 	private SHA256 sha = SHA256.getInsatnce();
 
 	@Override

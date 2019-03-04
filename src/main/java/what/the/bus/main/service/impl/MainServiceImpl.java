@@ -3,7 +3,7 @@ package what.the.bus.main.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import what.the.bus.main.dao.impl.MainDAOImpl;
+import what.the.bus.main.dao.MainDAO;
 import what.the.bus.main.service.MainService;
 import what.the.bus.member.MemberVO;
 import what.the.bus.util.BCrypt;
@@ -12,7 +12,7 @@ import what.the.bus.util.SHA256;
 @Service
 public class MainServiceImpl implements MainService {
 	@Autowired
-	private MainDAOImpl mainDAO;
+	private MainDAO mainDAO;
 	private SHA256 sha = SHA256.getInsatnce();
 
 	@Override
