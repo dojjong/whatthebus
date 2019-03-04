@@ -202,8 +202,7 @@
 											<tr>
 												<td width="90px" align="center"><a
 													href="driverMypage.do">마이페이지</a></td>
-												<td width="150px" align="center">${member.name }기사님<br>환영합니다.<br>보유
-													포인트 : ${member.point }P
+												<td width="150px" align="center">${member.name }기사님<br>환영합니다.
 												</td>
 												<td><form method="post" action="logoutDriver.do">
 														<input type="submit" value="로그아웃" class="btn btn-link">

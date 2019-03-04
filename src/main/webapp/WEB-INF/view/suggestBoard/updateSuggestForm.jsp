@@ -42,11 +42,11 @@
 		newItem.innerHTML = html;
 		var itemListNode = document.getElementById('itemList');
 		itemListNode.appendChild(newItem);
-		
+
 	}
 
 	function removeItem(idCount) {
-		
+
 		var item = document.getElementById("item_" + idCount);
 		var timeItem = document.getElementById("midTimeItem_" + idCount);
 
@@ -117,9 +117,7 @@
 
 												i = i + 1;
 											}
-											
 
-											
 											document.updateSuggestForm.action = "insertSuggestBoard.do";
 											document.updateSuggestForm.submit();
 											return;
@@ -140,9 +138,7 @@
 			type="hidden" id="imsi_kyungdo" name="imsi_kyungdo" value="" /> <input
 			type="hidden" id="imsiJuso" name="imsiJuso" value="" /> <input
 			type="hidden" id="start_wido" name="start_wido"
-			value="${vo.start_wido }" /> 
-			
-			<input type="hidden" id="start_kyungdo"
+			value="${vo.start_wido }" /> <input type="hidden" id="start_kyungdo"
 			name="start_kyungdo" value="${vo.start_kyungdo }" /> <input
 			type="hidden" id="mid_wido" name="mid_wido" value="" /> <input
 			type="hidden" id="mid_kyungdo" name="mid_kyungdo" value="" /> <input
@@ -152,9 +148,9 @@
 			name="startJuso" value="" /> <input type="hidden" id="endJuso"
 			name="endJuso" value="" /> <input type="hidden" id="miduso"
 			name="midJuso" value="" /> <input type="hidden" id="spanImsiKyungdo" />
-		<input type="hidden" id="spanImsiWido" />
-		<input type="hidden" name="middate" value=""/>
-		<input type="hidden" name="seq" value="${vo.seq }"/>
+		<input type="hidden" id="spanImsiWido" /> <input type="hidden"
+			name="middate" value="" /> <input type="hidden" name="seq"
+			value="${vo.seq }" />
 		<table border="1" align="center">
 
 			<tr>
@@ -211,14 +207,15 @@
 						</tr>
 						<tr>
 							<td>
-								<h4>차종 선택</h4> <input type="radio" name="bus" value="45">45인승
+								<h4>차종 선택</h4> <input type="radio" name="bus" value="45" checked>45인승
 								대형 <input type="radio" name="bus" value="28">28인승 리무진 대형
 								<input type="radio" name="bus" value="25">25인승 중형
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<h4>출발일시 선택</h4> <input type="datetime-local" name="startdate">
+								<h4>출발일시 선택</h4> <input type="datetime-local" id="startdate"
+								name="startdate" required>
 							</td>
 						</tr>
 						<tr>
@@ -228,13 +225,14 @@
 						</tr>
 						<tr>
 							<td>
-								<h4>총 예상 소요시간</h4> <input type="text" name="finishtime"
+								<h4>총 예상 소요시간</h4> <input type="number" name="finishtime"
 								width="50">분
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<h4>승차금액</h4> <input type="text" name="pay" width="50">원
+								<h4>승차금액</h4> <input type="number" id="pay" name="pay" 
+								width="50">원
 							</td>
 						</tr>
 
@@ -272,25 +270,53 @@
 				fCreator : "createSEditor2"
 
 			});
-			//전송버튼 클릭이벤트
-			$("#insertBoardbt").click(function() {
-				//id가 ir1인 textarea에 에디터에서 대입
-				oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
 
-				// 이부분에 에디터 validation 검증
-				if ($("#title").val() == "") {
-					alert("제목을 입력해주세요.");
-					return;
-				}
-				if ($("#ir1").val() == "<p>&nbsp;</p>") {
-					alert("내용을 입력해주세요.");
-					return;
-				}
-				//폼 submit
+		});
+		//전송버튼 클릭이벤트
+		$("#insertBoardbt").click(function() {
+			//id가 ir1인 textarea에 에디터에서 대입
+			oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
 
-				document.updateSuggestForm.submit();
+			if ($("#startdate").val() == "") {
+				alert("날짜와 시간을 입력해주세요.");
 				return;
-			});
+			}
+			if ($("#pay").val() == "") {
+				alert("승차요금을 입력해주세요.");
+				return;
+			}
+			// 이부분에 에디터 validation 검증
+			if ($("#title").val() == "") {
+				alert("제목을 입력해주세요.");
+				return;
+			}
+			if ($("#ir1").val() == "<p>&nbsp;</p>") {
+				alert("내용을 입력해주세요.");
+				return;
+			}
+			//폼 submit
+
+			document.updateSuggestForm.submit();
+			return;
+		});
+
+		window.addEventListener("load", function() {
+			var now = new Date();
+			var utcString = now.toISOString().substring(0, 19);
+			var year = now.getFullYear();
+			var month = now.getMonth() + 1;
+			var day = now.getDate();
+			var hour = now.getHours();
+			var minute = now.getMinutes();
+			var second = now.getSeconds();
+			var localDatetime = year + "-"
+					+ (month < 10 ? "0" + month.toString() : month) + "-"
+					+ (day < 10 ? "0" + day.toString() : day) + "T"
+					+ (hour < 10 ? "0" + hour.toString() : hour) + ":"
+					+ (minute < 10 ? "0" + minute.toString() : minute)
+					+ utcString.substring(16, 19);
+			var datetimeField = document.getElementById("startdate");
+			datetimeField.value = localDatetime;
 		});
 	</script>
 	<script type="text/javascript"

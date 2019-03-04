@@ -8,11 +8,11 @@
 <title>Insert title here</title>
 
 <link type="text/css" rel="stylesheet"
-	href="../resources/css/boardStyle.css" /> 
+	href="../resources/css/boardStyle.css" />
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 <script type="text/javascript"
-		src="../resources/js/userUpdateMapScript2.js"></script>
+	src="../resources/js/userUpdateMapScript2.js"></script>
 <script>
 	var count = 0;
 	function appendItem() {
@@ -99,9 +99,11 @@
 											while (i < getValueWido.length) {
 
 												temp1 = getValueWido[i].innerHTML;
-																	
+
 												temp2 = getValueKyungdo[i].innerHTML;
-												alert('i='+i+'temp1='+temp1+'temp2='+temp2);
+												alert('i=' + i + 'temp1='
+														+ temp1 + 'temp2='
+														+ temp2);
 
 												document.updateSuggestForm.mid_wido.value = document.updateSuggestForm.mid_wido.value
 														+ "/" + temp1;
@@ -109,7 +111,8 @@
 														+ "/" + temp2;
 
 												i = i + 1;
-												alert("document.updateSuggestForm.mid_wido.value="+document.updateSuggestForm.mid_wido.value);
+												alert("document.updateSuggestForm.mid_wido.value="
+														+ document.updateSuggestForm.mid_wido.value);
 											}
 
 											document.updateSuggestForm.action = "insertBookBoard.do";
@@ -142,8 +145,7 @@
 			type="hidden" id="endJuso" name="endJuso" value="" /> <input
 			type="hidden" id="miduso" name="midJuso" value="" /> <input
 			type="hidden" id="spanImsiKyungdo" /> <input type="hidden"
-			id="spanImsiWido" />
-			<input type="hidden" name="middate" value=""/>
+			id="spanImsiWido" /> <input type="hidden" name="middate" value="" />
 
 		<table border="1" align="center">
 
@@ -212,7 +214,8 @@
 						</tr>
 						<tr>
 							<td>
-								<h4>출발일시 선택</h4> <input type="datetime-local" name="startdate">
+								<h4>출발일시 선택</h4> <input type="datetime-local" id="startdate"
+								name="startdate" required>
 							</td>
 						</tr>
 						<tr>
@@ -287,6 +290,24 @@
 				document.updateSuggestForm.submit();
 				return;
 			});
+		});
+		window.addEventListener("load", function() {
+			var now = new Date();
+			var utcString = now.toISOString().substring(0, 19);
+			var year = now.getFullYear();
+			var month = now.getMonth() + 1;
+			var day = now.getDate();
+			var hour = now.getHours();
+			var minute = now.getMinutes();
+			var second = now.getSeconds();
+			var localDatetime = year + "-"
+					+ (month < 10 ? "0" + month.toString() : month) + "-"
+					+ (day < 10 ? "0" + day.toString() : day) + "T"
+					+ (hour < 10 ? "0" + hour.toString() : hour) + ":"
+					+ (minute < 10 ? "0" + minute.toString() : minute)
+					+ utcString.substring(16, 19);
+			var datetimeField = document.getElementById("startdate");
+			datetimeField.value = localDatetime;
 		});
 	</script>
 	<script type="text/javascript"

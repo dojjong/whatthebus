@@ -65,7 +65,7 @@
 	<insert id="insertSuggestBoard">
 	<![CDATA[
 		INSERT INTO SUGGESTBOARD(SEQ,ID,NAME,TITLE,CONTENT,REGDATE,STARTDATE,MIDDATE,BUS,PAY,FINISHTIME,START_WIDO,START_KYUNGDO,END_WIDO,END_KYUNGDO,MID_WIDO,MID_KYUNGDO) 
-		VALUES(suggestboard_seq.nextval,#{id},#{name},#{title},#{content},sysdate,to_timestamp(#{startdate},'yyyy-MM-dd"T"hh24:mi'),#{middate},
+		VALUES(suggestboard_seq.nextval,#{id},#{name},#{title},#{content},sysdate,to_timestamp(#{startdate},'yyyy-MM-dd"T"hh24:mi:ss'),#{middate},
 		#{bus},#{pay},#{finishtime},#{start_wido},#{start_kyungdo},#{end_wido},#{end_kyungdo},#{mid_wido},#{mid_kyungdo})
 		]]>
 	</insert>
@@ -124,7 +124,7 @@
 	<![CDATA[
 	SELECT COUNT(*) FROM BOARD WHERE BEST >= #{bestcount} AND
 	]]>
-	<include refid="searchCount"></include>
+		<include refid="searchCount"></include>
 	</select>
 
 	<select id="getCommentCount" resultType="Integer">
@@ -132,7 +132,7 @@
 	SELECT COUNT(*)"count" FROM COMMENTS WHERE SEQ=#{seq}
 	]]>
 	</select>
-	
+
 	<update id="totalBestCount">
 	<![CDATA[
 	UPDATE BOARD SET TOTALBEST = TOTALBEST-#{bus} WHERE SEQ=#{seq}
