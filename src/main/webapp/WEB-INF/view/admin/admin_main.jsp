@@ -27,6 +27,30 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style>
+/* 빨간선-확인용 삭제 할겁니다!*/
+div {
+   border: 1px solid red;
+}
+
+table {
+   border: 1px solid red;
+}
+
+tr {
+   border: 1px solid red;
+}
+
+td {
+   border: 1px solid red;
+}
+/* 구간 확인용 삭제 할겁니다!*/
+
+
+</style>
+
+
 </head>
 <body>
 
@@ -58,7 +82,7 @@
 
 	<div class="main">
 
-		<table width="900" id="header">
+		<table width="1000" id="header">
 			<tr>
 				<td width="200" align="center"><a href="main.do"><img
 						src="../resources/images/admin_logo.png" id="gogo"></a></td>
@@ -68,7 +92,7 @@
 
 			</tr>
 			<tr>
-				<td align="right"><b>${member.name }님 환영합니다.&nbsp;</b></td>
+				<td align="right" colspan="2"><b>${member.name }님 환영합니다.&nbsp;</b></td>
 			</tr>
 
 		</table>

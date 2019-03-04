@@ -8,7 +8,12 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<style>
+#tb01{
+font-size: 12px;
+}
 
+</style>
 
 <title>회원목록</title>
 </head>
@@ -31,26 +36,28 @@
 	<input type="text" id="point" name="point">P
 	<input type="button" value="지급" onclick="insertPoint();">&nbsp;
 	<input type="button" value="회수" onclick="recoveryPoint();">
-	<table border="1" width="700px">
+	<table border="1" id="tb01" width="1000">
 		<tr>
-			<th>전체선택<input type="checkbox" name="checkAll" id="th_checkAll"
-				onclick="checkAll();" /></th>
-			<th>아이디</th>
-			<th>이름</th>
-			<th>성별</th>
-			<th>전화번호</th>
-			<th>이메일</th>
-			<th>가입일자</th>
-			<th>License</th>
-			<th>회원상태</th>
-			<th>보유포인트</th>
-			<th>제명처리</th>
-			<th>메일발송</th>
+		<td align="center"><input type="checkbox" name="checkAll" id="th_checkAll"
+				onclick="checkAll();" /></td>
+			<td align="center">전체<br/>선택<br/>
+			
+			<td align="center">아이디</td>
+			<td align="center">이름</td>
+			<td align="center">성별</td>
+			<td align="center">전화번호</td>
+			<td align="center">이메일</td>
+			<td align="center">가입일자</td>
+			<td align="center">License</td>
+			<td align="center">회원<br/>상태</td>
+			<td align="center">보유<br/>포인트</td>
+			<td align="center">제명처리</td>
+			<td align="center">메일발송</td>
 		</tr>
 
 		<c:forEach var="row" items="${list }">
 			<tr>
-				<td><input type="checkbox" name="check" value="${row.id }" /></td>
+				<td width="60" align="center" colspan="2"><input type="checkbox" name="check" value="${row.id }" /></td>
 				<td>${row.id }</td>
 				<td>${row.name }</td>
 				<td>${row.gender }</td>
