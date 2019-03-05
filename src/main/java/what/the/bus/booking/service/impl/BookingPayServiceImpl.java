@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import what.the.bus.admin.ChartVO1;
 import what.the.bus.booking.BookingPayVO;
-import what.the.bus.booking.dao.impl.BookingPayDAOImpl;
+import what.the.bus.booking.dao.BookingPayDAO;
 import what.the.bus.booking.service.BookingPayService;
 
 @Service
 public class BookingPayServiceImpl implements BookingPayService {
 	@Autowired
-	private BookingPayDAOImpl bookingPayDAO;
+	private BookingPayDAO bookingPayDAO;
 
 	@Override
 	public void insertBookingPay(BookingPayVO vo) {
