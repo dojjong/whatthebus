@@ -11,11 +11,28 @@
 	href="../resources/css/bookingStyle.css" />
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 .tb_td {
 	height: 50px;
 	vertical-align: top;
+}
+#div01{
+border: 2px solid rgb(230, 241, 251);
+border-radius: 25px;
+background-color: rgb(230, 241, 251);
+}
+#td01{
+border-right: 2px dotted lightgrey;
+}
+
+.td_font{
+font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
+		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
+		sans-serif;
+ font-size: 30px;
+ color: rgb(49, 100, 176);
 }
 </style>
 
@@ -41,16 +58,18 @@
 			<table align="center" width="1024px">
 				<!-- 전체 화면 끝나는 제일 큰 테이블 -->
 				<tr>
-					<td class="tb_td">
+					<td class="tb_td" id="td01">
 
 
 						<table align="center">
 							<!-- 좌석정보 테이블 -->
 							<tr>
-								<td><h4>좌석정보</h4></td>
+								<td align="center" class="td_font"><i class="material-icons" style="font-size:48px;color:rgb(49, 100, 176)">airline_seat_recline_normal</i>&nbsp;<b>좌석정보</b></td>
 							</tr>
 							<tr>
-								<td><c:forEach var="num" begin="1" end="${vo.bus }"
+								<td width="250" >
+								<div id="div01">
+								<c:forEach var="num" begin="1" end="${vo.bus }"
 										step="1" varStatus="status">
 										<!-- 여기에 결제테이블에 정보가 있으면 이미 결제좌석인것 표시 -->
 										<!-- 25인승 와꾸 -->
@@ -66,15 +85,20 @@
 													value="${status.count }" onclick="full()" />
 												<c:set var="doneLoop" value="true" />
 											</c:if>
+									
 										</c:forEach>
 										<c:if test="${not doneLoop}">
 											<input type="button" class="sitNum" value="${status.count }"
 												onclick="sit(this.value)" />
 										</c:if>
-									</c:forEach></td>
+									</c:forEach>
+									<br /><br />
+									</div>
+									</td>
 							</tr>
 						</table> <!-- 좌석정보 테이블 -->
-					<td class="tb_td">
+					<td>&nbsp;</td>	
+					<td class="tb_td" id="td01">
 						<table>
 							<!-- 버스에 대한 정보 테이블 -->
 
@@ -129,7 +153,7 @@
 							<tr>
 								<td colspan="3"><input type="checkbox"
 									name="conditionsCheck" id="conditionsCheck" value="true">
-									이용권 구매 및 결제대행서비스에 이용약관 등에 모두 동의합니다.</td>
+									이용권 구매 및 결제대행서비스 이용약관 등에 모두 동의합니다.</td>
 							</tr>
 							<tr>
 								<td colspan="2">
@@ -141,7 +165,7 @@
 								</td>
 						</table> <!-- 버스에 대한 정보 테이블 -->
 					</td>
-
+					<td>&nbsp;</td>
 					<td class="tb_td">
 						<table>
 

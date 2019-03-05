@@ -1,21 +1,5 @@
 @charset "UTF-8";
-/* 빨간선-확인용 삭제 할겁니다!*/
-div {
-	border: 1px solid red;
-}
 
-table {
-	border: 1px solid red;
-}
-
-tr {
-	border: 1px solid red;
-}
-
-td {
-	border: 1px solid red;
-}
-/* 구간 확인용 삭제 할겁니다!*/
 
 
 
@@ -41,7 +25,7 @@ td {
 	cursor: pointer;
 	margin-top:5px;
 	margin-left:-5px;
-	background-color:white;
+	background-color: rgb(230, 241, 251);
 }
 .onsitNum{
 	width:50px;
@@ -52,5 +36,5 @@ td {
 	cursor: pointer;
 	margin-top:5px;
 	margin-left:-5px;
-	background-color:white;
+	background-color: rgb(230, 241, 251);
 }

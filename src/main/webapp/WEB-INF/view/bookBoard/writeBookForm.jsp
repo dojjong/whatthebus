@@ -8,6 +8,15 @@
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet"
 	href="../resources/css/boardStyle.css" />
+<style>
+#outline{
+	border: 1px solid lightgrey;
+	background-color: rgb(249, 249, 249);
+}
+
+
+</style>	
+	
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c7768efbf95af2e0039c27fd0b2cb6d&libraries=services,clusterer,drawing"></script>
 
@@ -142,7 +151,7 @@
 			id="spanImsiWido" />
 			<input type="hidden" name="middate" value=""/>
 
-		<table border="1" align="center">
+		<table border="1" align="center" id="outline" width="1000">
 
 			<tr>
 				<td class="contenttd" width="100" align="center">작성자</td>
@@ -151,7 +160,7 @@
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" size="50" maxlength="50"
+				<td width="700"><input type="text" size="110" maxlength="50"
 					name="title" /></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
@@ -162,7 +171,7 @@
 			<tr>
 				<td width="100" align="center">내용</td>
 				<td><textarea name="content" id="ir1" rows="15" cols="600"
-						style="width: 680px; height: 200px;"></textarea></td>
+						style="width: 850px; height: 200px;"></textarea></td>
 			</tr>
 			<tr>
 				<td colSpan="2">
@@ -171,18 +180,18 @@
 							<td>
 								<h4>경로 선택</h4>&nbsp;&nbsp;&nbsp;&nbsp; 경유지가 있는 경우 필요하신 만큼 버튼을
 								클릭해주세요&nbsp; <input type="button" value="경유지 추가+"
-								onclick="appendItem()" />
+								onclick="appendItem()" class="contentbt02"/>
 							</td>
 						</tr>
 						<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;1) 원하는 위치를 입력해주세요 → <input
 								type="text" id="usertRegistMap_input" />&nbsp;<input
-								type="button" value="검색" onClick="search()" /> &nbsp;&nbsp;ex)
+								type="button" value="검색" onClick="search()" class="contentbt"/> &nbsp;&nbsp;ex)
 								OO동
 							</td>
 						</tr>
 						<tr>
-							<td><div id="map" style="width: 800px; height: 300px;"></div></td>
+							<td><div id="map" style="width: 990px; height: 400px;"></div></td>
 						</tr>
 						<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;2) 검색 후, 정확한 위치를 마우스로 클릭해주세요<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주소
@@ -194,10 +203,10 @@
 						<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;3) 확정하기<br>
 								&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="startSetBt"
-								value="출발지 확정" onClick="startSet()" />&nbsp;확정 출발지 : <span
+								value="출발지 확정" onClick="startSet()" class="contentbt02"/>&nbsp;확정 출발지 : <span
 								id="spanStartJuso"></span><br>
 								<div id="itemList"></div>&nbsp;&nbsp;&nbsp;&nbsp;<input
-								type="button" id="endSetBt" onClick="endSet()" value="도착지 확정" />&nbsp;확정
+								type="button" id="endSetBt" onClick="endSet()" value="도착지 확정" class="contentbt02"/>&nbsp;확정
 								도착지 : <span id="spanEndJuso"></span></td>
 						</tr>
 						<tr>
@@ -244,6 +253,7 @@
 		</table>
 
 	</form>
+	<br/>
 	<script type="text/javascript">
 		$(function() {
 			var oEditors = [];
