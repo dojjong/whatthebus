@@ -108,12 +108,7 @@
 	SELECT COUNT(*) FROM BOARD WHERE ID=#{id}
 	]]>
 	</select>
-	<!-- 가입일 별 멤버의 수 가져오기 -->
-	<select id="getMemberCountPerRegdateJson" resultType="chart1">
-	<![CDATA[ 
-	SELECT CONDITION, COUNT(*)"count" FROM (SELECT TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM MEMBER) GROUP BY CONDITION ORDER BY CONDITION ASC	
-	]]>
-	</select>
+	
 	<select id="getMemberPointList" resultType="bookingPay">
 		<include refid="header"></include>
 	<![CDATA[
@@ -124,6 +119,13 @@
 	<select id="getMemberPointListCount" resultType="Integer">
 	<![CDATA[
 	SELECT COUNT(*) FROM BOOKINGPAY WHERE ID=#{id} AND POINT>0
+	]]>
+	</select>
+	
+	<!-- 가입일 별 멤버의 수 가져오기 -->
+	<select id="getMemberCountPerRegdateJson" resultType="chart1" parameterType="member">
+	<![CDATA[ 
+	SELECT CONDITION"date", COUNT(*)"value" FROM (SELECT REGDATE, TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM MEMBER WHERE REGDATE BETWEEN to_date(#{c_startdate},'yyyy-mm-dd') and to_date(#{c_enddate},'yyyy-mm-dd')) GROUP BY CONDITION ORDER BY CONDITION ASC	
 	]]>
 	</select>
 

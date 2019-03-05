@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.admin.ChartVO1;
 import what.the.bus.board.BoardVO;
-import what.the.bus.board.ChartVO1;
 import what.the.bus.booking.BookingPayVO;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.MemberDAO;
@@ -113,5 +113,10 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public int getMemberPointListCount(String id) {
 		return mybatis.selectOne("MemberDAO.getMemberPointListCount", id);
+	}
+	
+	@Override
+	public List<ChartVO1> getMemberCountPerRegdateJson(MemberVO vo) {
+		return mybatis.selectList("MemberDAO.getMemberCountPerRegdateJson", vo);
 	}
 }

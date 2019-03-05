@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.admin.ChartVO3;
 import what.the.bus.review.ReviewVO;
 import what.the.bus.review.dao.ReviewDAO;
 import what.the.bus.util.SqlSessionFactoryBean;
@@ -42,6 +43,11 @@ public class ReviewDAOImpl implements ReviewDAO {
 	@Override
 	public int getReviewCount(ReviewVO vo) {
 		return mybatis.selectOne("ReviewDAO.getReviewCount", vo);
+	}
+	
+	@Override
+	public List<ChartVO3> getAvgStarPerDriver() {
+		return mybatis.selectList("ReviewDAO.getAvgStarPerDriver");
 	}
 
 }

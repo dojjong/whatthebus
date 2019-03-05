@@ -31,9 +31,9 @@
 			alias="bookingPay"></typeAlias>
 		<typeAlias type="what.the.bus.noticeComment.NoticeCommentVO"
 			alias="noticeComment"></typeAlias>
-		<typeAlias type="what.the.bus.member.ChartVO2"
-			alias="chart2"></typeAlias>
-		<typeAlias type="what.the.bus.board.ChartVO1" alias="chart1"></typeAlias>
+		<typeAlias type="what.the.bus.admin.ChartVO2" alias="chart2"></typeAlias>
+		<typeAlias type="what.the.bus.admin.ChartVO3" alias="chart3"></typeAlias>
+		<typeAlias type="what.the.bus.admin.ChartVO1" alias="chart1"></typeAlias>
 		<typeAlias type="what.the.bus.bookcomment.BookCommentVO"
 			alias="bookComment"></typeAlias>
 		<typeAlias type="what.the.bus.admin.AdminVO" alias="admin"></typeAlias>

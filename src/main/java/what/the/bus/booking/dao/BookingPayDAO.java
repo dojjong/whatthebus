@@ -1,9 +1,11 @@
 package what.the.bus.booking.dao;
 
+
+
 import java.util.List;
 
+import what.the.bus.admin.ChartVO1;
 import what.the.bus.booking.BookingPayVO;
-import what.the.bus.member.MemberVO;
 
 public interface BookingPayDAO {
 	void insertBookingPay(BookingPayVO vo);
@@ -15,10 +17,13 @@ public interface BookingPayDAO {
 	int getBookingPayListCount(BookingPayVO vo);
 
 	void useMemberPoint(BookingPayVO vo);
+	
 
 	void useDriverPoint(BookingPayVO vo);
 
 	int getMemberPoint(String id);
 
 	int getDriverPoint(String id);
+	
+	List<ChartVO1> getPayPerRegdate(BookingPayVO vo);
 }

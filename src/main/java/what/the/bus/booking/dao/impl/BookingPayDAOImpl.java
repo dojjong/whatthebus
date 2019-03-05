@@ -1,5 +1,6 @@
 package what.the.bus.booking.dao.impl;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,9 +9,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.admin.ChartVO1;
 import what.the.bus.booking.BookingPayVO;
 import what.the.bus.booking.dao.BookingPayDAO;
-import what.the.bus.member.MemberVO;
 import what.the.bus.util.SqlSessionFactoryBean;
 
 @Repository
@@ -65,5 +66,13 @@ public class BookingPayDAOImpl implements BookingPayDAO {
 	public int getDriverPoint(String id) {
 		return mybatis.selectOne("BookingPayDAO.getDriverPoint", id);
 	}
+	
+
+	@Override
+	public List<ChartVO1> getPayPerRegdate(BookingPayVO vo) {
+		return mybatis.selectList("BookingPayDAO.getPayPerRegdate", vo);
+	}
+	
+	
 
 }

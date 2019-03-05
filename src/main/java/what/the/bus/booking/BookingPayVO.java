@@ -13,17 +13,28 @@ public class BookingPayVO {
 	private int pay;
 	private Date regdate;
 	private String realregdate;
+
 	private int cntPerPage;
 	private int startIndex;
 	private int count;
-	private int point;
+	
+	private String c_startdate;//차트 조회 날짜
+	private String c_enddate;//차트 조회 날짜
 
-	public int getPoint() {
-		return point;
+	public String getC_startdate() {
+		return c_startdate;
 	}
 
-	public void setPoint(int point) {
-		this.point = point;
+	public void setC_startdate(String c_startdate) {
+		this.c_startdate = c_startdate;
+	}
+
+	public String getC_enddate() {
+		return c_enddate;
+	}
+
+	public void setC_enddate(String c_enddate) {
+		this.c_enddate = c_enddate;
 	}
 
 	public int getSeq() {
@@ -135,9 +146,7 @@ public class BookingPayVO {
 		return "BookingPayVO [seq=" + seq + ", busseq=" + busseq + ", id=" + id + ", name=" + name + ", tel=" + tel
 				+ ", selectpay=" + selectpay + ", sitnum=" + sitnum + ", pay=" + pay + ", regdate=" + regdate
 				+ ", realregdate=" + realregdate + ", cntPerPage=" + cntPerPage + ", startIndex=" + startIndex
-				+ ", count=" + count + ", point=" + point + "]";
+				+ ", count=" + count + "]";
 	}
-
-	
 
 }

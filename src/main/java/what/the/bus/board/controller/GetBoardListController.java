@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import what.the.bus.admin.ChartVO1;
 import what.the.bus.admin.service.GetBestCountService;
 import what.the.bus.board.BoardVO;
-import what.the.bus.board.ChartVO1;
 import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.comment.CommentVO;
 import what.the.bus.pagination.Pagination;
@@ -68,19 +68,6 @@ public class GetBoardListController {
 		return "board/list";
 	}
 	
-	//차트1 view
-	@RequestMapping("/view/**/getBoardCountPerRegdate.do")
-	public String getBoardCountPerRegdateJson() throws Exception{
-		System.out.println("getBoardCountPerRegdate");
-		return "chart/dateBasedData";
-	}
 
-	//차트1 json
-	@RequestMapping("/view/**/getBoardCountPerRegdateJson.do")
-	@ResponseBody
-	public List<ChartVO1> getBoardCountPerRegdateJson(Model model) {
-		List<ChartVO1> list = boardService.getBoardCountPerRegdate();
-		return list;
-	}
 
 }

@@ -25,15 +25,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 
 import what.the.bus.admin.AdminVO;
+import what.the.bus.admin.ChartVO1;
+import what.the.bus.admin.ChartVO2;
 import what.the.bus.admin.service.GetBannerListService;
 import what.the.bus.board.BoardVO;
-import what.the.bus.board.ChartVO1;
 import what.the.bus.board.service.GetBoardListService;
 import what.the.bus.booking.service.BookingPayService;
 import what.the.bus.driver.DriverVO;
 import what.the.bus.driver.service.LoginDriverService;
 import what.the.bus.main.service.MainListService;
-import what.the.bus.member.ChartVO2;
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.service.InsertMemberService;
 import what.the.bus.member.service.LoginMemberService;
@@ -202,27 +202,7 @@ public class LoginMemberController {
 		return "redirect:view/main.do";
 	}
 
-	@RequestMapping(value = "/view/**/getMemberCountPerRegdateJson.do", produces = "application/json")
-	@ResponseBody
-	public List<ChartVO2> getMemberCountPerRegdateJson() throws Exception {
-
-		List<ChartVO1> imsiList = memberService.getMemberCountPerRegdateJson();
-
-		List<ChartVO2> list = new ArrayList<ChartVO2>();
-
-		ChartVO2 vo = null;
-		for (int i = 0; i < imsiList.size(); i++) {
-
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-			Date date1 = (Date) simpleDateFormat.parse(imsiList.get(i).getCondition());
-
-			vo = new ChartVO2(new Date(date1.getTime()), imsiList.get(i).getCount());
-
-			list.add(vo);
-		}
-		return list;
-	}
+	
 
 	@RequestMapping("/view/**/getMyWriteList.do")
 	public String getMyWriteList(BoardVO boardVO, Model model, HttpSession session,

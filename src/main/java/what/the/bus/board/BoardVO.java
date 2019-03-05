@@ -1,7 +1,6 @@
 package what.the.bus.board;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class BoardVO {
 	private int seq;
@@ -31,7 +30,27 @@ public class BoardVO {
 	private String finishtime;
 	private int bestcount;
 	private int totalbest;
+	private String c_startdate;//차트 조회 날짜
+	private String c_enddate;//차트 조회 날짜
 	
+	
+
+	public String getC_startdate() {
+		return c_startdate;
+	}
+
+	public void setC_startdate(String c_startdate) {
+		this.c_startdate = c_startdate;
+	}
+
+	public String getC_enddate() {
+		return c_enddate;
+	}
+
+	public void setC_enddate(String c_enddate) {
+		this.c_enddate = c_enddate;
+	}
+
 	public int getTotalbest() {
 		return totalbest;
 	}
@@ -256,7 +275,11 @@ public class BoardVO {
 				+ count + ", realregdate=" + realregdate + ", start_wido=" + start_wido + ", start_kyungdo="
 				+ start_kyungdo + ", end_wido=" + end_wido + ", end_kyungdo=" + end_kyungdo + ", mid_wido=" + mid_wido
 				+ ", mid_kyungdo=" + mid_kyungdo + ", startdate=" + startdate + ", middate=" + middate + ", bus=" + bus
-				+ ", pay=" + pay + ", finishtime=" + finishtime + "]";
+				+ ", pay=" + pay + ", finishtime=" + finishtime + ", bestcount=" + bestcount + ", totalbest="
+				+ totalbest + ", c_startdate=" + c_startdate + ", c_enddate=" + c_enddate + "]";
 	}
 
+	
+
+	
 }

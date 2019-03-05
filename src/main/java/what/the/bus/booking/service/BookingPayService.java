@@ -2,8 +2,8 @@ package what.the.bus.booking.service;
 
 import java.util.List;
 
+import what.the.bus.admin.ChartVO1;
 import what.the.bus.booking.BookingPayVO;
-import what.the.bus.member.MemberVO;
 
 public interface BookingPayService {
 	void insertBookingPay(BookingPayVO vo);
@@ -22,4 +22,5 @@ public interface BookingPayService {
 
 	int getDriverPoint(String id);
 
+	List<ChartVO1> getPayPerRegdate(BookingPayVO vo);
 }

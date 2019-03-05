@@ -142,12 +142,13 @@
 	]]>
 	</delete>
 
-	<!-- 등록일 별 글의 갯수 가져오기 -->
-	<select id="getBoardCountPerRegdate" resultType="chart1">
+		<!-- 등록일 별 글의 갯수 가져오기 -->
+	<select id="getBoardCountPerRegdate" resultType="chart1" parameterType="board">
 	<![CDATA[ 
-	SELECT CONDITION, COUNT(*)"count" FROM (SELECT REGDATE, TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM BOARD) GROUP BY CONDITION ORDER BY CONDITION ASC	
+	SELECT CONDITION"date", COUNT(*)"value" FROM (SELECT REGDATE, TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM BOARD WHERE REGDATE BETWEEN to_date(#{c_startdate},'yyyy-mm-dd') and to_date(#{c_enddate},'yyyy-mm-dd')) GROUP BY CONDITION ORDER BY CONDITION ASC	
 	]]>
 	</select>
+
 
 
 

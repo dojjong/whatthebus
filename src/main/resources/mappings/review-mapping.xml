@@ -41,4 +41,12 @@
 	SELECT COUNT(*) FROM REVIEW WHERE ID=#{id} AND BUSSEQ=#{busseq}
 	]]>
 	</select>
+	
+	<!-- 기사님 별 별점의 평균 가져오기 -->
+	<select id="getAvgStarPerDriver" resultType="chart3">
+	<![CDATA[ 
+	SELECT drivername||'('||count(*)||'건)' "name", TO_CHAR(round(AVG(STAR), 2),'999,999.99')"points" FROM REVIEW GROUP BY DRIVERNAME ORDER BY DRIVERNAME ASC
+		
+	]]>
+	</select>
 </mapper>

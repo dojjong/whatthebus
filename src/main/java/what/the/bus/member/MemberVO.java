@@ -15,14 +15,24 @@ public class MemberVO {
 	private Date regdate;
 	private String license;
 	private int statecount;
-	private int point;
-
-	public int getPoint() {
-		return point;
+	private String c_startdate;//차트 조회 날짜
+	private String c_enddate;//차트 조회 날짜
+	
+	
+	public String getC_startdate() {
+		return c_startdate;
 	}
 
-	public void setPoint(int point) {
-		this.point = point;
+	public void setC_startdate(String c_startdate) {
+		this.c_startdate = c_startdate;
+	}
+
+	public String getC_enddate() {
+		return c_enddate;
+	}
+
+	public void setC_enddate(String c_enddate) {
+		this.c_enddate = c_enddate;
 	}
 
 	public int getStatecount() {
@@ -40,7 +50,7 @@ public class MemberVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-
+	
 	public String getTel1() {
 		return tel1;
 	}
@@ -125,7 +135,11 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", gender=" + gender + ", tel="
 				+ tel + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", email=" + email + ", regdate="
-				+ regdate + ", license=" + license + ", statecount=" + statecount + ", point=" + point + "]";
+				+ regdate + ", license=" + license + ", statecount=" + statecount + ", c_startdate=" + c_startdate
+				+ ", c_enddate=" + c_enddate + "]";
 	}
+
+	
+
 
 }

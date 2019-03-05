@@ -61,4 +61,13 @@
 	SELECT POINT FROM DRIVER WHERE ID=#{id}
 	]]>
 	</select>
+	
+	<!-- 등록일 별 매출액 가져오기 -->
+	<select id="getPayPerRegdate" resultType="chart1" parameterType="bookingPay">
+	<![CDATA[ 
+	SELECT CONDITION"date", SUM(PAY)"value" FROM (SELECT PAY, REGDATE, TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM BOOKINGPAY WHERE REGDATE BETWEEN to_date(#{c_startdate},'yyyy-mm-dd') and to_date(#{c_enddate},'yyyy-mm-dd')) GROUP BY CONDITION ORDER BY CONDITION ASC	
+	]]>
+	</select>
+<!--SELECT CONDITION, TO_CHAR(SUM(PAY), '999,999,999,999')||'원' "count" FROM (SELECT PAY, REGDATE, TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM BOOKINGPAY WHERE REGDATE BETWEEN to_date(#{c_startdate},'yyyy-mm-dd') and to_date(#{c_enddate},'yyyy-mm-dd')) GROUP BY CONDITION ORDER BY CONDITION ASC-->
+	
 </mapper>

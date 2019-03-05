@@ -1,10 +1,8 @@
 package what.the.bus.admin.controller;
 
-
-
-
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,53 +18,61 @@ import what.the.bus.afterBoard.AfterBoardVO;
 import what.the.bus.afterBoard.service.GetAfterBoardListService;
 
 @Controller
+
 public class SetReportController {
 
 	@Autowired
 	GetAfterBoardListService getAfterBoardListService;
-	
+
 	@RequestMapping("/view/**/getAdminReportMenu.do")
 	public String getAdminChart(Model model) {
-		
+
 		return "admin/admin_reportMenu";
 	}
-	
-	@RequestMapping(value="/view/**/afterBoardListReport_jsp.do", method=RequestMethod.GET)
-    public String afterBoardListReport_jsp(Model model) throws Exception {
-    	
-        List<AfterBoardVO> list = getAfterBoardListService.getAfterBoardListAll();
-		
-    	model.addAttribute("list", list);
-        return "admin/admin_reportMenu";
 
-    }
-	
-	@RequestMapping(value="/view/**/afterBoardListReport_xls.do", method=RequestMethod.GET)
-    public View afterBoardListReport_xls(Model model) throws Exception {
-    	
-        List<AfterBoardVO> list = getAfterBoardListService.getAfterBoardListAll();
-		
-    	model.addAttribute("list", list);
-        return new XlsView(model);
+	@RequestMapping(value = "/view/**/afterBoardListReport_jsp.do", method = RequestMethod.GET)
+	public String afterBoardListReport_jsp(Model model) throws Exception {
 
-    }
-	
-	@RequestMapping(value="/view/**/afterBoardListReport_xlsx.do", method=RequestMethod.GET)
-    public View afterBoardListReport_xlsx(Model model) throws Exception {
-    	
-		 List<AfterBoardVO> list = getAfterBoardListService.getAfterBoardListAll();
-		
-    	model.addAttribute("list", list);
-        return new XlsxView(model);
-    	
-    }
-	
+		List<AfterBoardVO> list = getAfterBoardListService.getAfterBoardListAll();
+
+		model.addAttribute("list", list);
+		return "admin/admin_reportMenu";
+
+	}
+
+	@RequestMapping(value = "/view/**/afterBoardListReport_xls.do", method = RequestMethod.GET)
+	public View afterBoardListReport_xls(Model model) throws Exception {
+
+		List<AfterBoardVO> list = getAfterBoardListService.getAfterBoardListAll();
+
+		model.addAttribute("list", list);
+		return new XlsView(model);
+
+	}
+
+	@RequestMapping(value = "/view/**/afterBoardListReport_xlsx.do", method = RequestMethod.GET)
+	public View afterBoardListReport_xlsx(Model model) throws Exception {
+
+		List<AfterBoardVO> list = getAfterBoardListService.getAfterBoardListAll();
+
+		model.addAttribute("list", list);
+		return new XlsxView(model);
+
+	}
+
 	@RequestMapping(value="/view/**/afterBoardListReport_pdf.do", method=RequestMethod.GET)
     public View afterBoardListReport_pdf(Model model) throws Exception {
     	
 		 List<AfterBoardVO> list = getAfterBoardListService.getAfterBoardListAll();
-		
-    	model.addAttribute("list", list);
+		/*
+		 String filename = "AfterBoardList";
+		 Map<String, Object> map = new HashMap<String, Object>();
+		 map.put("list", list);
+		 map.put("filename",filename);
+		 
+		 model.addAttribute("map",map);
+    	*/
+		 model.addAttribute("list",list);
         //return new PDFView(model);
     	return new ItextPdfView(model);
     }

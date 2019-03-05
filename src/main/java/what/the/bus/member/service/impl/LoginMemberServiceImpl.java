@@ -1,12 +1,15 @@
 package what.the.bus.member.service.impl;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import what.the.bus.admin.ChartVO1;
 import what.the.bus.board.BoardVO;
-import what.the.bus.board.ChartVO1;
+
 import what.the.bus.member.MemberVO;
 import what.the.bus.member.dao.MemberDAO;
 import what.the.bus.member.service.LoginMemberService;
@@ -42,10 +45,7 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 		return memberDAO.loginMember(vo);
 	}
 
-	@Override
-	public List<ChartVO1> getMemberCountPerRegdateJson() {
-		return memberDAO.getMemberCountPerRegdateJson();
-	}
+
 
 	@Override
 	public List<BoardVO> getMyWriteList(int start, int end, String id) {
@@ -65,5 +65,15 @@ public class LoginMemberServiceImpl implements LoginMemberService {
 	public int getMyDriveListCount(String id) {
 		return memberDAO.getMyWriteListCount(id);
 	}
+
+	@Override
+	public List<ChartVO1> getMemberCountPerRegdateJson(MemberVO vo) {
+		return memberDAO.getMemberCountPerRegdateJson(vo);
+	}
+
+	
+
+	
+	
 
 }

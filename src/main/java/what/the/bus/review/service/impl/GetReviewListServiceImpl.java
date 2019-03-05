@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import what.the.bus.admin.ChartVO3;
 import what.the.bus.review.ReviewVO;
 import what.the.bus.review.dao.ReviewDAO;
 import what.the.bus.review.service.GetReviewListService;
@@ -27,6 +28,11 @@ public class GetReviewListServiceImpl implements GetReviewListService {
 	@Override
 	public int getReviewCount(ReviewVO vo) {
 		return reviewDAO.getReviewCount(vo);
+	}
+
+	@Override
+	public List<ChartVO3> getAvgStarPerDriver() {
+		return reviewDAO.getAvgStarPerDriver();
 	}
 
 }

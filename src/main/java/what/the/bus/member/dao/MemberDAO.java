@@ -2,8 +2,8 @@ package what.the.bus.member.dao;
 
 import java.util.List;
 
+import what.the.bus.admin.ChartVO1;
 import what.the.bus.board.BoardVO;
-import what.the.bus.board.ChartVO1;
 import what.the.bus.booking.BookingPayVO;
 import what.the.bus.member.MemberVO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
@@ -42,4 +42,6 @@ public interface MemberDAO {
 	List<BookingPayVO> getMemberPointList(int start, int end, String id);
 
 	int getMemberPointListCount(String id);
+	
+	List<ChartVO1> getMemberCountPerRegdateJson(MemberVO vo);
 }
