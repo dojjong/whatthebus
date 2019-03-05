@@ -15,6 +15,7 @@ public class ReviewVO {
 	private String drivername;
 	private String c_startdate;//차트 조회 날짜
 	private String c_enddate;//차트 조회 날짜
+	
 
 	public String getC_startdate() {
 		return c_startdate;

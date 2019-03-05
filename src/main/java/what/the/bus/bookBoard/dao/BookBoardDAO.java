@@ -27,4 +27,6 @@ public interface BookBoardDAO {
 	int getListCount(SuggestBoardVO vo);
 	
 	List<SuggestBoardVO> cluster();
+	
+	List<SuggestBoardVO> getBookBoardListReport(SuggestBoardVO vo);
 }

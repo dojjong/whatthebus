@@ -19,4 +19,5 @@ public interface GetBookBoardListService {
 	Integer getCommentCount(int seq);
 	
 	List<SuggestBoardVO> cluster();
+	List<SuggestBoardVO> getBookBoardListReport(SuggestBoardVO vo);
 }

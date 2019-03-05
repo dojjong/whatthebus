@@ -80,4 +80,9 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 		return mybatis.selectList("BookBoardDAO.cluster");
 	}
 
+	@Override
+	public List<SuggestBoardVO> getBookBoardListReport(SuggestBoardVO vo) {
+		return mybatis.selectList("BookBoardDAO.getBookBoardListReport");
+	}
+
 }

@@ -39,7 +39,7 @@
 			통계 <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-container">
-			<a href="#" id="p3">차트</a> <a href="#" id="p5">보고서</a> <a href="#"
+			<a id="p3">차트</a> <a id="p5">보고서</a> <a href="#"
 				id="p7">지도</a>
 		</div>
 		<button class="dropdown-btn">
@@ -151,10 +151,9 @@
 
 		$(document).ready(function() {
 			$("#p5").click(function() {
-				$("#result").load("afterBoardListReport_jsp.do");
+				$("#result").load("getAdminReportMenu.do?");
 
 			});
-
 		});
 
 		$(document).ready(function() {

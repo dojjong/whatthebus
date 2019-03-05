@@ -161,14 +161,9 @@
 			<version>2.1.0</version>
 		</dependency>
 
-
-		<!-- https://mvnrepository.com/artifact/com.itextpdf/html2pdf -->
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>html2pdf</artifactId>
-			<version>2.1.1</version>
-		</dependency>
-
+		<!--https://mvnrepository.com/artifact/com.itextpdf/html2pdf -->
+		<!-- <dependency> <groupId>com.itextpdf</groupId> <artifactId>html2pdf</artifactId> 
+			<version>2.1.1</version> </dependency> -->
 		<!-- https://mvnrepository.com/artifact/com.itextpdf.tool/xmlworker -->
 		<dependency>
 			<groupId>com.itextpdf.tool</groupId>

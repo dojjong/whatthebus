@@ -54,4 +54,9 @@ public class GetBookBoardListServiceImpl implements GetBookBoardListService {
 	public List<SuggestBoardVO> cluster() {
 		return bookBoardDAO.cluster();
 	}
+
+	@Override
+	public List<SuggestBoardVO> getBookBoardListReport(SuggestBoardVO vo) {
+		return bookBoardDAO.getBookBoardListReport(vo);
+	}
 }

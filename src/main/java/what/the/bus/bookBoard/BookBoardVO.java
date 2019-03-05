@@ -11,6 +11,24 @@ public class BookBoardVO {
 	private int best;
 	private Date regDate;
 	private int cnt;
+	private String c_startdate;//차트 조회 날짜
+	private String c_enddate;//차트 조회 날짜
+
+	public String getC_startdate() {
+		return c_startdate;
+	}
+
+	public void setC_startdate(String c_startdate) {
+		this.c_startdate = c_startdate;
+	}
+
+	public String getC_enddate() {
+		return c_enddate;
+	}
+
+	public void setC_enddate(String c_enddate) {
+		this.c_enddate = c_enddate;
+	}
 
 	public int getSeq() {
 		return seq;

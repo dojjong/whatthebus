@@ -1,7 +1,5 @@
 package what.the.bus.booking.dao;
 
-
-
 import java.util.List;
 
 import what.the.bus.admin.ChartVO1;
