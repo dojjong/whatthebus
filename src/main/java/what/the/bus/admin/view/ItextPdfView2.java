@@ -20,6 +20,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import what.the.bus.admin.AbstractPdfView;
 import what.the.bus.admin.ReportVO1;
+import what.the.bus.suggestBoard.SuggestBoardVO;
 
 public class ItextPdfView2 extends AbstractPdfView {
 
@@ -47,25 +48,30 @@ public class ItextPdfView2 extends AbstractPdfView {
 		document.add(p);
 		document.add(new Paragraph("\n\n",font));
 		@SuppressWarnings("unchecked")
-		List<ReportVO1> reviewList = (List<ReportVO1>) model.get("list");
+		List<SuggestBoardVO> bookboardList = (List<SuggestBoardVO>) model.get("list");
 		
-		PdfPTable table = new PdfPTable(5);
-		table.setWidths(new int[] { 20, 50, 50, 50, 50 });
+		PdfPTable table = new PdfPTable(7);
+		table.setWidths(new int[] { 20, 50, 50, 50, 50, 50, 50});
 
-		table.addCell(new Paragraph("순위", font));
-		table.addCell(new Paragraph("기사명", font));
-		table.addCell(new Paragraph("평균평점", font));
-		table.addCell(new Paragraph("건수", font));
-		table.addCell(new Paragraph("등급", font));
+		table.addCell(new Paragraph("번호", font));
+		table.addCell(new Paragraph("상품명", font));
+		table.addCell(new Paragraph("상품발의자", font));
+		table.addCell(new Paragraph("상품등록일", font));
+		table.addCell(new Paragraph("차량", font));
+		table.addCell(new Paragraph("가격", font));
+		table.addCell(new Paragraph("상품시작일", font));
+	
 		
 		
-		for (ReportVO1 vo : reviewList) {
+		/*
+		for (SuggestBoardVO vo : bookboardList) {
 			table.addCell(new Paragraph(String.valueOf(vo.getRank()), font));
 			table.addCell(new Paragraph(vo.getDrivername(), font));
 			table.addCell(new Paragraph(vo.getAvg(), font));
 			table.addCell(new Paragraph(String.valueOf(vo.getCount()), font));
 			table.addCell(new Paragraph(vo.getGrade(), font));
 		}
+		*/
 
 		document.add(table);
 	}

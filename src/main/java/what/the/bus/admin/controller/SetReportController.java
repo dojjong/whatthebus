@@ -67,15 +67,14 @@ public class SetReportController {
 	}
 
 	// 1번 레포트 - 기사님별 평균별점 후기리스트
-	@RequestMapping(value = "/view/**/getReviewListPerDriver_jsp.do", method = RequestMethod.GET)
-	public String getReviewListPerDriver_jsp(Model model) throws Exception {
-		List<ReportVO1> list = GetReviewListService.getReviewListPerDriver();
-		model.addAttribute("list", list);
-		return "admin/admin_reportMenu";
-	}
-
-	@RequestMapping(value = "/view/**/getReviewListPerDriver_xls.do", method = RequestMethod.GET)
-	public View getReviewListPerDriver_xls(Model model) throws Exception {
+	@RequestMapping(value = "/view/**/getReviewListPerDriver.do", method = RequestMethod.GET)
+	public Object getReviewListPerDriver_xls(Model model, String view) throws Exception {
+		String view2 = "jsp";
+		if (view != null) {
+			view2 = view;
+		}
+		System.out.println("컨트롤러 view=" + view);
+		
 		List<ReportVO1> list = GetReviewListService.getReviewListPerDriver();
 
 		for (int i = 0; i < list.size(); i++) {
@@ -118,29 +117,6 @@ public class SetReportController {
 		map.put("reportname", "1");
 		model.addAttribute("map", map);
 		
-		return new XlsView1(model);
-
-	}
-
-	// 2번 레포트 - 기간별 상품 리스트
-	@RequestMapping(value = "/view/**/getBookBoardListReport.do", method = RequestMethod.GET)
-	public Object getReviewListPerDriver(Model model, String view, String startdate, String enddate) throws Exception {
-		System.out.println("param="+startdate+"/"+enddate);
-		String view2 = "jsp";
-		if (view != null) {
-			view2 = view;
-		}
-		System.out.println("컨트롤러 view=" + view);
-		SuggestBoardVO imsiVo = new SuggestBoardVO();
-		imsiVo.setC_startdate(startdate);
-		imsiVo.setC_enddate(enddate);
-		List<SuggestBoardVO> list = bookBoardListService.getBookBoardListReport(imsiVo);
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list);
-		map.put("reportname", "2");
-		model.addAttribute("map", map);
-
 		switch (view2) {
 		case "excel":
 			System.out.println("excel");
@@ -152,6 +128,38 @@ public class SetReportController {
 			System.out.println("jsp");
 			return "admin/admin_reportMenu";
 		}
-	}
 
+	}
+	
+	// 2번 레포트 - 기간별 상품 리스트
+		@RequestMapping(value = "/view/**/getBookBoardListReport.do", method = RequestMethod.GET)
+		public Object getBookBoardListReport(Model model, String view, String startdate, String enddate) throws Exception {
+			System.out.println("param="+startdate+"/"+enddate);
+			String view2 = "jsp";
+			if (view != null) {
+				view2 = view;
+			}
+			System.out.println("컨트롤러 view=" + view);
+			SuggestBoardVO imsiVo = new SuggestBoardVO();
+			imsiVo.setC_startdate(startdate);
+			imsiVo.setC_enddate(enddate);
+			List<SuggestBoardVO> list = bookBoardListService.getBookBoardListReport(imsiVo);
+
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("list", list);
+			map.put("reportname", "2");
+			model.addAttribute("map", map);
+
+			switch (view2) {
+			case "excel":
+				System.out.println("excel");
+				return new XlsView2(model);
+			case "pdf":
+				System.out.println("pdf");
+				return new ItextPdfView2(model);
+			default:
+				System.out.println("jsp");
+				return "admin/admin_reportMenu";
+			}
+		}
 }

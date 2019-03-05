@@ -22,6 +22,7 @@ getReviewListPerDriver
 			<tr>
 				<td align="center">기사님 별 별점 순위 리스트&nbsp;</td>
 				<td>
+					<input type="button" id="report1viewbt" value="미리보기" />&nbsp;
 					<input type="button" id="report1excelbt" value="엑셀로" />&nbsp;
 					<input type="button" id="report1pdfbt" value="pdf로" />&nbsp;
 				</td>
@@ -29,6 +30,7 @@ getReviewListPerDriver
 			<tr>
 				<td align="center">상품 리스트&nbsp;</td>
 				<td>
+					<input type="button" id="report2viewbt" value="미리보기" />&nbsp;
 					<input type="button" id="report2excelbt" value="엑셀로" />&nbsp;
 					<input type="button" id="report2pdfbt" value="pdf로" />&nbsp;
 				</td>
@@ -96,6 +98,7 @@ getReviewListPerDriver
 
 	
 	<script>
+	// 레포트1
 	$(document).ready(function(){
 		$("#report1viewbt").click(function() {
 			location.href="getReviewListPerDriver.do?";
@@ -112,8 +115,13 @@ getReviewListPerDriver
 		});
 	});
 	
+	//레포트2
 	$(document).ready(function(){
 		$("#report2viewbt").click(function() {
+			if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+				alert('검색 날짜를 입력해주세요');
+				return;
+			}
 			var url = "getBookBoardListReport.do?startdate="+document.getElementById("startdate").value+"&enddate="+document.getElementById("enddate");
 			alert(url);
 			location.href=url;
@@ -121,6 +129,10 @@ getReviewListPerDriver
 	});
 	$(document).ready(function(){
 		$("#report2excelbt").click(function() {
+			if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+				alert('검색 날짜를 입력해주세요');
+				return;
+			}
 			var url ="getBookBoardListReport.do?startdate="+document.getElementById("startdate").value+"&enddate="+document.getElementById("enddate")+"&view=excel";
 			alert(url);
 			location.href=url;
@@ -128,6 +140,10 @@ getReviewListPerDriver
 	});
 	$(document).ready(function(){
 		$("#report2pdfbt").click(function() {
+			if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+				alert('검색 날짜를 입력해주세요');
+				return;
+			}
 			var url ="getBookBoardListReport.do?startdate="+document.getElementById("startdate").value+"&enddate="+document.getElementById("enddate")+"&view=pdf"; 
 			alert(url);
 			location.href=url;
