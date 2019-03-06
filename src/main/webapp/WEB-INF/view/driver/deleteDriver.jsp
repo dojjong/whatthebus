@@ -19,13 +19,13 @@
 					<td id="welcome" colspan="2" align="center">회원탈퇴</td>
 				</tr>
 				<tr>
-					<td align="right"width="200">아이디 :</td>
+					<td align="right">아이디 :</td>
 					<td align="left">${member.id}</td>
 				</tr>
 
 				<tr>
 					<td align="right">비밀번호 확인 :&nbsp;</td>
-					<td align="left" width="500"><input type="password"
+					<td align="left""><input type="password"
 						id="insertPasswordCheck" name="password" value="" />&nbsp; <font
 						color="red"><span id="passwordCheckMessage"> </span></font></td>
 				</tr>

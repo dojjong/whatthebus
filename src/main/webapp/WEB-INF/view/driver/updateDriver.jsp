@@ -10,6 +10,7 @@
 <link type="text/css" rel="stylesheet" href="../resources/css/mainStyle.css">
 </head>
 <body>
+<br/>
 	<!-- 화면 센터 -->
 	<div align="center">
 		<form method="post" action="updateDriver.do">
@@ -77,7 +78,7 @@
 			</table>
 		</form>
 	</div>
-
+	<br/>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 
 
