@@ -9,52 +9,73 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+
 <style>
 #tb01{
 font-size: 12px;
 }
-
+#table001{
+font-size: 15px;
+}
+#table002{
+font-size: 15px;
+}
 </style>
 
 <title>회원목록</title>
 </head>
 <body>
-	<h2>전체회원목록</h2>
+	<h4><i class='fas fa-angle-right'></i>&nbsp;전체회원목록</h4>
+	
 	<form id="searchMemberForm" name="searchMemberForm">
+	<table id="table001">
+	<tr><td>
 		<select id="searchOption" name="searchOption">
 			<option value="all">전체검색</option>
 			<option value="id">ID로 검색</option>
 			<option value="name">이름으로 검색</option>
 			<option value="tel">전화번호로 검색</option>
 			<option value="email">이메일로 검색</option>
-		</select> <input name="keyword" id="keyword" value=""> <input
+		</select></td> 
+		
+		<td><input name="keyword" id="keyword" value="" autocomplete="off"> <input
 			type="button" id="searchButton" name="searchButton"
-			class="btn btn-default" value="검색" />
-	</form>
-
-	<input type="button" value="선택회원 메일발송" onclick="checkSendMail();">
-	포인트 입력 :
+			class="btn btn-default" value="검색" /></td>
+			<td width="70"></td>
+<td>포인트 입력</td>
+	<td>
 	<input type="text" id="point" name="point">P
 	<input type="button" value="지급" onclick="insertPoint();">&nbsp;
-	<input type="button" value="회수" onclick="recoveryPoint();">
+	<input type="button" value="회수" onclick="recoveryPoint();"></td></tr>	
+	</table>
+	</form>
 	<br/>
-	<br/>
+	<table id="table002">
+	
+	
+	<tr><td>메일발송</td><td>
+	<input type="button" value="선택회원 메일발송" onclick="checkSendMail();"></td></tr>
+	
+	</table>
+
 	<table border="1" id="tb01" width="1000" border="1">
 		<tr>
 		<td align="center"><input type="checkbox" name="checkAll" id="th_checkAll"
 				onclick="checkAll();" />전체선택</td>
 			
-			<td align="center">아이디</td>
+			<td align="center" width="40">아이디</td>
 			<td align="center">이름</td>
 			<td align="center">성별</td>
-			<td align="center">전화번호</td>
-			<td align="center">이메일</td>
+			<td align="center" width="70">전화번호</td>
+			<td align="center" width="90">이메일</td>
 			<td align="center">가입일자</td>
-			<td align="center">License</td>
+			<td align="center" width="120">License</td>
 			<td align="center" width="40" align="center">회원<br/>상태</td>
 			<td align="center" width="40">보유<br/>포인트</td>
-			<td align="center">제명처리</td>
-			<td align="center">메일발송</td>
+			<td align="center" width="20">제명<br/>처리</td>
+			<td align="center" width="70">메일발송</td>
 		</tr>
 
 		<c:forEach var="row" items="${list }">
@@ -67,7 +88,7 @@ font-size: 12px;
 				<td>${row.email }</td>
 				<td width="70" align="center">${row.regdate }</td>
 				<td>${row.license }</td>
-				<td><c:if test="${row.statecount==1}">
+				<td align="center"><c:if test="${row.statecount==1}">
 				정상
 				</c:if> <c:if test="${row.statecount==2 }">
 				제명,탈퇴
@@ -76,20 +97,21 @@ font-size: 12px;
 				</c:if> <c:if test="${row.statecount==4 }">
 				관리자
 				</c:if></td>
-				<td>${row.point }</td>
-				<td><c:if test="${row.statecount!=2 }">
+				<td align="center">${row.point }</td>
+				<td align="center"><c:if test="${row.statecount!=2 }">
 						<input type="button" id="expulsionbt" value="제명"
 							onclick="expulsionMember('${row.id}')">
 					</c:if> <c:if test="${row.statecount==2 }">
 						<input type="button" id="expulsionbt" value="ID복구"
 							onclick="returnMember('${row.id}')">
 					</c:if></td>
-				<td><input type="button" id="sendMailMember" value="메일전송"
+				<td align="center"><input type="button" id="sendMailMember" value="메일전송"
 					onclick="sendMailMember('${row.id}')"></td>
 			</tr>
 		</c:forEach>
 
 	</table>
+	<br/>
 	<script>
 		function expulsionMember(mid) {
 			var id = String(mid);

@@ -25,6 +25,14 @@
 .bottom {
 	border-bottom: 1px solid rgb(225, 226, 230);
 }
+#table01{
+	border-collapse: collapse;
+}
+
+#table01 td {
+  border: 1px solid black;
+}
+
 </style>
 <link rel='stylesheet'
 	href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
@@ -158,7 +166,7 @@
 
 			objWin.document.write("<br/>");
 			objWin.document.write("<br/>");
-			objWin.document.write("<table align='center' width='500'>");
+			objWin.document.write("<table width='500'>");
 			objWin.document.write("<tr>");
 			objWin.document.write("<td colspan='2' align='left'>");
 			objWin.document.write("결제완료내역");
@@ -166,8 +174,7 @@
 			objWin.document.write("</tr>");
 			objWin.document.write("</table>");
 
-			objWin.document
-					.write("<table width='500' align='center' border='1px'>");
+			objWin.document.write("<table width='500' border-collapse='collapse' border='1px solid'>");
 			objWin.document.write("<tr class='bottom'>");
 			objWin.document.write("<td class='color'>");
 			objWin.document.write("이름");
