@@ -34,6 +34,39 @@ font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
  font-size: 30px;
  color: rgb(49, 100, 176);
 }
+
+.td_bb{
+border-top: 2px dotted lightgrey;
+border-bottom: 2px dotted lightgrey;
+}
+
+.font01{
+font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
+		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
+		sans-serif;
+font-size: 14px;
+}
+
+/* 빨간선-확인용 삭제 할겁니다!
+div {
+   border: 1px solid red;
+}
+
+table {
+   border: 1px solid red;
+}
+
+tr {
+   border: 1px solid red;
+}
+
+td {
+   border: 1px solid red;
+}
+ 구간 확인용 삭제 할겁니다!*/
+
+
+
 </style>
 
 </head>
@@ -103,44 +136,44 @@ font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
 							<!-- 버스에 대한 정보 테이블 -->
 
 							<tr>
-								<td colspan="2"><h4>버스 경로정보</h4></td>
+								<td colspan="2" class="td_bb"><b>&nbsp;<i class='fas fa-angle-right'></i>&nbsp;버스 경로정보</b></td>
 							<tr>
-								<td align="left">노선명</td>
-								<td>${vo.title }</td>
+								<td align="left" class="font01">노선명</td>
+								<td class="font01">${vo.title }</td>
 							</tr>
 							<tr>
-								<td>지도정보</td>
-								<td>
+								<td class="font01">지도정보</td>
+								<td class="font01">
 									<!-- 기사님이 올린 해당버스 지도(경로) 디비에서 불러오기 -->해당 버스 지도
 								</td>
 							</tr>
 
 							<tr>
-								<td colspan="2"><h4>신청 정보</h4></td>
+								<td colspan="2" class="td_bb"><b>&nbsp;<i class='fas fa-angle-right'></i>&nbsp;신청 정보</b></td>
 							</tr>
 							<tr>
-								<td>신청인 &nbsp;</td>
-								<td>${member.name }</td>
+								<td class="font01">신청인 &nbsp;</td>
+								<td class="font01">${member.name }</td>
 							</tr>
 							<tr>
-								<td>연락처 &nbsp;</td>
-								<td>${member.tel }</td>
+								<td class="font01">연락처 &nbsp;</td>
+								<td class="font01">${member.tel }</td>
 							</tr>
 
 
 							<tr>
-								<td colspan="2"><h4>결제정보</h4></td>
+								<td colspan="2" class="td_bb"><b>&nbsp;<i class='fas fa-angle-right'></i>&nbsp;결제정보</b></td>
 							</tr>
 							<tr>
-								<td>결제수단</td>
+								<td class="font01">결제수단</td>
 
 								<td>
 									<table>
 										<tr>
-											<td><input type="radio" name="selectpay" value="cardPay">신용카드</td>
-											<td><input type="radio" name="selectpay"
+											<td class="font01"><input type="radio" name="selectpay" value="cardPay">신용카드</td>
+											<td class="font01"><input type="radio" name="selectpay"
 												value="kakaoPay">카카오페이</td>
-											<td><input type="radio" name="selectpay"
+											<td class="font01"><input type="radio" name="selectpay"
 												value="phonePay">휴대폰결제</td>
 										</tr>
 										<!-- 추가 결제수단 -->
@@ -148,10 +181,10 @@ font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2"><h4>신청동의</h4></td>
+								<td colspan="2" class="td_bb"><b>&nbsp;<i class='fas fa-angle-right'></i>&nbsp;신청동의</b></td>
 							</tr>
 							<tr>
-								<td colspan="3"><input type="checkbox"
+								<td colspan="3" class="font01"><input type="checkbox"
 									name="conditionsCheck" id="conditionsCheck" value="true">
 									이용권 구매 및 결제대행서비스 이용약관 등에 모두 동의합니다.</td>
 							</tr>
@@ -170,19 +203,19 @@ font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
 						<table>
 
 							<tr>
-								<td colspan="2"><h4>결제 금액</h4></td>
+								<td colspan="2" class="td_bb"><b>&nbsp;<i class='fas fa-angle-right'></i>&nbsp;결제 금액</b></td>
 							</tr>
 							<tr>
-								<td>이용금액&nbsp;</td>
-								<td align="left"><strong> ${vo.pay } </strong>원</td>
+								<td class="font01">이용금액&nbsp;</td>
+								<td align="left" class="font01"><strong> ${vo.pay } </strong>원</td>
 							</tr>
 							<tr>
-								<td>현재 포인트</td>
-								<td><strong>${point }</strong>P</td>
+								<td class="font01">현재 포인트</td>
+								<td class="font01">&nbsp;<strong>${point }</strong>P</td>
 							</tr>
 							<tr>
-								<td>사용 포인트</td>
-								<td><input type="number" id="point" name="point" value=0
+								<td class="font01">사용 포인트</td>
+								<td class="font01">&nbsp;<input type="number" id="point" name="point" value=0
 									onKeyUp="setPay();" onfocus="zeroPoint();"
 									onblur="zeroCheck();">P</td>
 							</tr>
@@ -193,14 +226,14 @@ font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
 								</font></td>
 							</tr>
 							<tr>
-								<td colspan="2"><h4>최종 결제금액</h4></td>
+								<td colspan="2" class="td_bb"><b>&nbsp;<i class='fas fa-angle-right'></i>&nbsp;최종 결제금액</b></td>
 							</tr>
 							<tr>
-								<td align="right" colspan="2"><strong><label
+								<td align="right" colspan="2" class="font01"><strong><label
 										id="setPayValue">${vo.pay }원</label></strong></td>
 							</tr>
 							<tr>
-								<td colspan="2"><input type="button" id="paybt"
+								<td colspan="2" align="center"><input type="button" id="paybt"
 									value="결제하기"></td>
 							</tr>
 						</table> <!-- 결제정보에 대한 테이블 -->
