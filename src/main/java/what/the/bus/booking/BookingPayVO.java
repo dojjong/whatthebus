@@ -17,9 +17,17 @@ public class BookingPayVO {
 	private int cntPerPage;
 	private int startIndex;
 	private int count;
-	
-	private String c_startdate;//차트 조회 날짜
-	private String c_enddate;//차트 조회 날짜
+	private int point;
+	private String c_startdate;// 차트 조회 날짜
+	private String c_enddate;// 차트 조회 날짜
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
 
 	public String getC_startdate() {
 		return c_startdate;
@@ -146,7 +154,8 @@ public class BookingPayVO {
 		return "BookingPayVO [seq=" + seq + ", busseq=" + busseq + ", id=" + id + ", name=" + name + ", tel=" + tel
 				+ ", selectpay=" + selectpay + ", sitnum=" + sitnum + ", pay=" + pay + ", regdate=" + regdate
 				+ ", realregdate=" + realregdate + ", cntPerPage=" + cntPerPage + ", startIndex=" + startIndex
-				+ ", count=" + count + "]";
+				+ ", count=" + count + ", point=" + point + ", c_startdate=" + c_startdate + ", c_enddate=" + c_enddate
+				+ "]";
 	}
 
 }

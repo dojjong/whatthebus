@@ -15,10 +15,18 @@ public class MemberVO {
 	private Date regdate;
 	private String license;
 	private int statecount;
-	private String c_startdate;//차트 조회 날짜
-	private String c_enddate;//차트 조회 날짜
-	
-	
+	private String c_startdate;// 차트 조회 날짜
+	private String c_enddate;// 차트 조회 날짜
+	private int point;
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
 	public String getC_startdate() {
 		return c_startdate;
 	}
@@ -50,7 +58,7 @@ public class MemberVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
+
 	public String getTel1() {
 		return tel1;
 	}
@@ -138,8 +146,5 @@ public class MemberVO {
 				+ regdate + ", license=" + license + ", statecount=" + statecount + ", c_startdate=" + c_startdate
 				+ ", c_enddate=" + c_enddate + "]";
 	}
-
-	
-
 
 }
