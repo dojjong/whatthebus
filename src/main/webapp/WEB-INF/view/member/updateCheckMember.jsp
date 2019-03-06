@@ -11,6 +11,10 @@
 	<div align="center">
 		<form method="post" action="updateCheckMember.do">
 			<table>
+			<tr>
+					<td id="welcome" colspan="2" align="center">회원정보수정</td>
+				</tr>
+			
 				<tr>
 					<td align="center">비밀번호 확인</td>
 				</tr>

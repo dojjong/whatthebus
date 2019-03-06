@@ -14,24 +14,39 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link rel="stylesheet" href="../resources/css/fontawesome-stars.css">
+<style>
+.td001{
+	background-color: rgb(49, 100, 176);
+	color: white;
+}
 
+#listtab td{
+border-right: 2px solid white;
+}
+</style>
 </head>
 <body>
-
 	<div align="center" width="500">
+		<table width="1000px">
+      <tr><td colspan="5"><h3><b>후기게시판</b></h3></td>
+      <td><b>후기는 [마이페이지]-[결제내역]에서 작성하실수 있습니다.</b></td>
+      
+      </tr>
+		
+      </table>
 		<table id="listtab">
 			<tr height="30">
-				<td width="70">기사님 성함</td>
-				<td width="5">별점</td>
-				<td width="30">작성자</td>
-				<td width="150">내용</td>
-				<td width="50">작성일</td>
+				<td width="50" class="td001" align="center"><b>기사님 성함</b></td>
+				<td width="50" class="td001" align="center"><b>별점</b></td>
+				<td width="30" class="td001" align="center"><b>작성자</b></td>
+				<td width="200" class="td001" align="center"><b>내용</b></td>
+				<td width="50" class="td001" align="center"><b>작성일</b></td>
 			</tr>
 			<c:forEach var="vo" items="${map.reviewList }" varStatus="status">
 				<tr height="30">
 
-					<td width="30">${vo.drivername }</td>
-					<td width="100"><input type="hidden" id="seq" name="seq"
+					<td width="30" align="center">${vo.drivername }</td>
+					<td width="100" align="center"><input type="hidden" id="seq" name="seq"
 						value="${vo.seq }" /> <select class="star"
 						data-current-rating="${vo.star }">
 							<option value="1">1</option>
@@ -40,9 +55,9 @@
 							<option value="4">4</option>
 							<option value="5">5</option>
 					</select></td>
-					<td width="30">${vo.name }</td>
-					<td width="150">${vo.content }</td>
-					<td width="50">${vo.regdate }</td>
+					<td width="30" align="center">${vo.name }</td>
+					<td width="150" >&nbsp;&nbsp;${vo.content }</td>
+					<td width="50" align="center">${vo.regdate }</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -71,9 +86,8 @@
 		</div>
 
 
-		<div align="center">후기는 [마이페이지]-[결제내역]에서 작성하실수 있습니다.</div>
 	</div>
-
+	<br/>
 	<%-- <input type="button" class="contentbt" value="후기작성">--%>
 	<jsp:include page="../main/mainFooter.jsp"></jsp:include>
 	<script type="text/javascript">

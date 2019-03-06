@@ -12,8 +12,49 @@
 <script type="text/javascript"
 	src="../resources/js/jquery.barrating.min.js"></script>
 
+<style>
+/* 빨간선-확인용 삭제 할겁니다!
+div {
+   border: 1px solid red;
+}
+
+table {
+   border: 1px solid red;
+}
+
+tr {
+   border: 1px solid red;
+}
+
+td {
+   border: 1px solid red;
+}
+ 구간 확인용 삭제 할겁니다!*/
+
+#writebt {
+ height: 30px;
+ background-color: white;
+ border: 1px solid lightgrey;
+ color: grey;
+}
+
+#outline{
+width: 550px;
+heigh: 350px;
+border-radius: 25px;
+border: 2px solid rgb(49, 100, 176);
+padding: 25px;
+}
+
+#td001{
+border-bottom: 2px dotted lightgrey;
+}
+
+</style>
+
 </head>
 <body>
+<br/>
 	<form id="reviewForm" name="reviewForm" method="post">
 		<input type="hidden" name="id" value="${member.id}"> <input
 			type="hidden" name="name" value="${member.name }"> <input
@@ -22,7 +63,35 @@
 			type="hidden" name="drivername" value="${vo.name }"> <input
 			type="hidden" id="star" name="star" value="">
 
-		<table>
+		<table align="center">
+		<tr><td><div id="outline">
+		<table align="center" >
+		<tr><td id="td001">코스명 : ${vo.title }</td>
+		
+		<td>&nbsp;&nbsp;</td>
+		<td id="td001">기사님 이름 : ${vo.name }</td></tr>
+		
+		<tr>
+		<td><select id="example">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+				</select></td>
+				<td>&nbsp;&nbsp;</td>
+			<td>작성자 : ${member.name }</td>
+		</tr>
+		<tr><td colspan="3"><textarea id="content" name="content" rows="5"
+						cols="60" placeholder="내용을 입력해주세요."></textarea></td> </tr>
+		<tr><td colspan="3" align="right"><input type="button" value="작성" id="writebt" onclick="insertReview();"></td>
+		</tr>
+		</table>	
+		</div>
+		</td></tr>
+		</table>
+		<!-- 
+		<table align="center">
 			<tr>
 				<td><select id="example">
 						<option value="1">1</option>
@@ -41,7 +110,10 @@
 					type="button" value="작성" onclick="insertReview();"></td>
 			</tr>
 		</table>
+	 -->	
+		
 	</form>
+	<br/>
 	<script type="text/javascript">
 		var star;
 		$(function() {

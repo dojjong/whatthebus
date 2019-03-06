@@ -20,8 +20,8 @@
 	<!-- 화면 센터 -->
 	<div align="center">
 	<table width="1000px">
-      <tr><td colspan="5"><h3><b>배차대기 게시판</b></h3></td></tr>
-      <tr><td colspan="3"></td><td colspan="2" align="right"><b>Total : ${map.count } </b></td></tr>
+      <tr><td colspan="5"><h3><b>배차대기 게시판</b></h3></td>
+      <td colspan="3"></td><td colspan="2" align="right"><b>Total : ${map.count } </b></td></tr>
       
       </table>
 	
