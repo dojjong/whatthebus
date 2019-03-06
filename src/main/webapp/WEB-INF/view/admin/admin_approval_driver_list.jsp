@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	
 <title>승인대기 기사목록</title>
 <style>
 #tb01{
@@ -17,7 +19,8 @@ font-size: 12px;
 </head>
 <body>
 <div>
-	<h2>가입 승인대기 기사목록</h2>
+<h4><i class='fas fa-angle-right'></i>&nbsp;가입 승인대기 기사목록</h4>
+	
 <form method="post" id="updateDriverForm" name="updateDriverForm"> 
 	<table border="1" id="tb01" width="1000">
 		<tr>

@@ -5,10 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	
 <title>관리자 선택</title>
+<style>
+#tb01{
+font-size: 12px;
+}
+</style>
 </head>
 <body>
+<br/>
+<h4><i class='fas fa-angle-right'></i>&nbsp;관리자 설정</h4>
 	<form id="searchMemberForm" name="searchMemberForm">
+	<table id="tb01"><tr><td>
 		<select id="searchOption" name="searchOption">
 			<option value="all">전체검색</option>
 			<option value="id">ID로 검색</option>
@@ -18,8 +28,10 @@
 		</select> <input name="keyword" id="keyword" value=""> <input
 			type="button" id="searchButton" name="searchButton"
 			class="btn btn-default" value="검색" />
+		</td></tr></table>
 	</form>
-	<table border="1" width="700px">
+	<br/>
+	<table border="1" width="700px" id="tb01">
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>

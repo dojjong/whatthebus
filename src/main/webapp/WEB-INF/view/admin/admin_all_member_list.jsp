@@ -55,7 +55,7 @@ font-size: 15px;
 	<table id="table002">
 	
 	
-	<tr><td>메일발송</td><td>
+	<tr><td>메일발송&nbsp;&nbsp;</td><td>
 	<input type="button" value="선택회원 메일발송" onclick="checkSendMail();"></td></tr>
 	
 	</table>

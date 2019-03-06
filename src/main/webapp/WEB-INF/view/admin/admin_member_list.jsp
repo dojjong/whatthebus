@@ -7,48 +7,80 @@
 <meta charset="UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	
 <title>회원목록</title>
 <style>
+
 #tb01{
 font-size: 12px;
+}
+#table001{
+font-size: 15px;
+}
+#table002{
+font-size: 15px;
 }
 
 </style>
 </head>
 <body>
-	<h2>회원목록</h2>
-	<input type="button" value="선택회원 메일발송" onclick="checkSendMail();">
+	<h4><i class='fas fa-angle-right'></i>&nbsp;회원목록</h4>
+
+	<table id="table001">
+	<tr>
+	<td>포인트 입력</td>
+	<td>
+	<input type="text" id="point" name="point">P
+	<input type="button" value="지급" onclick="insertPoint();">&nbsp;
+	<input type="button" value="회수" onclick="recoveryPoint();"></td></tr>	
+	</table>
+
+	
+	<!--
 	포인트 입력 :
 	<input type="text" id="point" name="point">P
 	<input type="button" value="지급" onclick="insertPoint();">&nbsp;
 	<input type="button" value="회수" onclick="recoveryPoint();">
+	 <input type="button" value="선택회원 메일발송" onclick="checkSendMail();"> 
+	  -->
+	  
+	
+	 
+	<br/>
+	<table id="table002">
+	
+	
+	<tr><td>메일발송&nbsp;&nbsp;</td><td>
+	<input type="button" value="선택회원 메일발송" onclick="checkSendMail();"></td></tr>
+	
+	</table> 
+	 
 	<table border="1" id="tb01" width="1000">
 		<tr>
-			<th>전체선택<input type="checkbox" name="checkAll" id="th_checkAll"
-				onclick="checkAll();" /></th>
-			<th>아이디</th>
-			<th>이름</th>
-			<th>성별</th>
-			<th>전화번호</th>
-			<th>이메일</th>
-			<th>가입일자</th>
-			<th>License</th>
-			<th>회원상태</th>
-			<th>보유포인트</th>
-			<th>제명처리</th>
+			<td align="center">전체선택&nbsp;<input type="checkbox" name="checkAll" id="th_checkAll"
+				onclick="checkAll();" /></td>
+			<td align="center">아이디</td>
+			<td align="center">이름</td>
+			<td align="center">성별</td>
+			<td align="center">전화번호</td>
+			<td align="center">이메일</td>
+			<td align="center">가입일자</td>
+			<td align="center">회원상태</td>
+			<td align="center">보유포인트</td>
+			<td align="center">제명처리</td>
 		</tr>
 
 		<c:forEach var="row" items="${list }">
 			<tr>
-				<td><input type="checkbox" name="check" value="${row.id }" /></td>
-				<td>${row.id }</td>
-				<td>${row.name }</td>
-				<td>${row.gender }</td>
-				<td>${row.tel }</td>
-				<td>${row.email }</td>
-				<td>${row.regdate }</td>
-				<td>${row.license }</td>
-				<td><c:if test="${row.statecount==1}">
+				<td align="center"><input type="checkbox" name="check" value="${row.id }" /></td>
+				<td align="left">&nbsp;${row.id }</td>
+				<td align="center">${row.name }</td>
+				<td align="center">${row.gender }</td>
+				<td align="center">${row.tel }</td>
+				<td align="left">&nbsp;${row.email }</td>
+				<td align="center">${row.regdate }</td>
+				<td align="center"><c:if test="${row.statecount==1}">
 				정상
 				</c:if> <c:if test="${row.statecount==2 }">
 				제명,탈퇴
@@ -57,8 +89,8 @@ font-size: 12px;
 				</c:if> <c:if test="${row.statecount==4 }">
 				관리자
 				</c:if></td>
-				<td>${row.point }</td>
-				<td><c:if test="${row.statecount!=2 }">
+				<td align="center">${row.point }</td>
+				<td align="center"><c:if test="${row.statecount!=2 }">
 						<input type="button" id="expulsionbt" value="제명"
 							onclick="expulsionMember('${row.id}')">
 					</c:if> <c:if test="${row.statecount==2 }">

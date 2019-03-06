@@ -8,6 +8,23 @@
 <title>Insert title here</title>
 
 <style>
+/* 빨간선-확인용 삭제 할겁니다!
+div {
+   border: 1px solid red;
+}
+
+table {
+   border: 1px solid red;
+}
+
+tr {
+   border: 1px solid red;
+}
+
+td {
+   border: 1px solid red;
+}
+구간 확인용 삭제 할겁니다!*/
 
 
 
@@ -46,7 +63,8 @@ color: rgb(49, 100, 176);
 
 <table class="maintable">
 <tr class="tr01">
-				<td class="mainSubTitle"><b>공지사항</b></td><td align="right" class="more"><a href="getNoticeBoardList.do">more</a></td>
+<td class="mainSubTitle"><b>공지사항</b></td>
+<td align="right" class="more"><a href="getNoticeBoardList.do">more</a></td>
 </tr>
 <tr>
 				<td colspan="2"><c:forEach var="vo"
@@ -72,10 +90,7 @@ color: rgb(49, 100, 176);
 
 
 
-</tr>
-
-				
-					
+</tr>					
 </table>
 </td>
 
