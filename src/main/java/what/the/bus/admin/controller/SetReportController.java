@@ -64,7 +64,7 @@ public class SetReportController {
 		if (view != null) {
 			view2 = view;
 		}
-		System.out.println("view2="+view2);
+		//System.out.println("view2="+view2);
 		List<ReportVO1> list = GetReviewListService.getReviewListPerDriver();
 
 		for (int i = 0; i < list.size(); i++) {
@@ -106,13 +106,13 @@ public class SetReportController {
 		
 		switch (view2) {
 		case "excel":
-			System.out.println("excel");
+			//System.out.println("excel");
 			return new XlsView1(model);
 		case "pdf":
-			System.out.println("pdf");
+			//System.out.println("pdf");
 			return new ItextPdfView1(model);
 		default:
-			System.out.println("jsp");
+			//System.out.println("jsp");
 			return list;
 		}
 	
@@ -165,16 +165,16 @@ public class SetReportController {
 	@RequestMapping(value = "/view/**/getBookBoardListReport.do", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getBookBoardListReport(Model model, String view, String startdate, String enddate) throws Exception {
-		System.out.println("param="+startdate+"/"+enddate);
+		//System.out.println("param="+startdate+"/"+enddate);
 		String view2 = "jsp";
 		if (view != null) {
 			view2 = view;
 		}
-		System.out.println("컨트롤러 view=" + view2);
+		//System.out.println("컨트롤러 view=" + view2);
 		SuggestBoardVO imsiVo = new SuggestBoardVO();
 		imsiVo.setC_startdate(startdate);
 		imsiVo.setC_enddate(enddate);
-		System.out.println(imsiVo.getC_startdate()+"/"+imsiVo.getC_enddate());
+		//System.out.println(imsiVo.getC_startdate()+"/"+imsiVo.getC_enddate());
 		List<ReportVO2> list = bookBoardListService.getBookBoardListReport(imsiVo);
 
 		
@@ -182,26 +182,26 @@ public class SetReportController {
 
 		switch (view2) {
 			case "excel":
-				System.out.println("excel");
+				//System.out.println("excel");
 				return new XlsView2(model);
 			case "pdf":
-				System.out.println("pdf");
+				//System.out.println("pdf");
 				return new ItextPdfView2(model);
 			default:
-				System.out.println("jsp");
+				//System.out.println("jsp");
 				return list;
 		}
 	}
 	
 	@RequestMapping(value = "/view/**/getBookBoardListReport1.do", method = RequestMethod.GET)
 	public String getBookBoardListReport1(Model model, String startdate, String enddate) throws Exception {
-		System.out.println("param="+startdate+"/"+enddate);
+		//System.out.println("param="+startdate+"/"+enddate);
 		
 		
 		SuggestBoardVO imsiVo = new SuggestBoardVO();
 		imsiVo.setC_startdate(startdate);
 		imsiVo.setC_enddate(enddate);
-		System.out.println(imsiVo.getC_startdate()+"/"+imsiVo.getC_enddate());
+		//System.out.println(imsiVo.getC_startdate()+"/"+imsiVo.getC_enddate());
 		List<ReportVO2> list = bookBoardListService.getBookBoardListReport(imsiVo);
 
 		
@@ -219,12 +219,12 @@ public class SetReportController {
 		if (view != null) {
 			view2 = view;
 		}
-		System.out.println("컨트롤러 view=" + view2);
+		//System.out.println("컨트롤러 view=" + view2);
 		BoardVO imsiVo = new BoardVO();
 		int bestgoal = getBestCountService.getBestCount();
 		imsiVo.setBestgoal(bestgoal);
 		
-		System.out.println("목표="+imsiVo.getBestgoal());
+		//System.out.println("목표="+imsiVo.getBestgoal());
 		List<BoardVO> list = getBoardListService.getHotBoardMove(imsiVo);
 
 		
@@ -232,15 +232,31 @@ public class SetReportController {
 
 		switch (view2) {
 			case "excel":
-				System.out.println("excel");
+				//System.out.println("excel");
 				return new XlsView3(model);
 			case "pdf":
-				System.out.println("pdf");
+				//System.out.println("pdf");
 				return new ItextPdfView3(model);
 			default:
-				System.out.println("jsp");
+				//System.out.println("jsp");
 				return list;
 		}
+	}
+	
+	@RequestMapping(value = "/view/**/getHotBoardMove1.do", method = RequestMethod.GET)
+	public Object getHotBoardMove(Model model) throws Exception {
+	
+		BoardVO imsiVo = new BoardVO();
+		int bestgoal = getBestCountService.getBestCount();
+		imsiVo.setBestgoal(bestgoal);
+		
+		//System.out.println("목표="+imsiVo.getBestgoal());
+		List<BoardVO> list = getBoardListService.getHotBoardMove(imsiVo);
+
+		
+		model.addAttribute("list3", list);
+
+		return "admin/admin_reportMenu";
 	}
 
 }

@@ -22,38 +22,39 @@
 	<!-- 차트선택하기  -->
 	<form id="chartform">
 		<table>
-			<tr>
-				<td align="center">검색조건</td>
-				<td><input type="date" id="startdate">&nbsp;&nbsp;~&nbsp;&nbsp;<input
-					type="date" id="enddate"></td>
-			</tr>
+			
 			<tr>
 				<td align="center">일별 게시판 글 등록수&nbsp;</td>
-				<td><input type="button" id="chart1bt" value="차트보기" /> 사용한
-					데이터를 보시려면 <em> <a target="_blank" id="chart1Databt">여기를
-							클릭하세요!</a>
+				<td><input type="button" id="chart1bt" value="차트보기" /><em> <a target="_blank" id="chart1Databt">데이터보기</a>
 				</em></td>
+				
+				<td align="center">   &nbsp;&nbsp; * 검색조건</td>
+				<td><input type="date" id="startdate1">&nbsp;&nbsp;~&nbsp;&nbsp;<input
+					type="date" id="enddate1"></td>
 			</tr>
 			<tr>
 				<td align="center">일별 User가입자수&nbsp;</td>
-				<td><input type="button" id="chart2bt" value="차트보기" /> 사용한
-					데이터를 보시려면 <em> <a target="_blank" id="chart2Databt">여기를
-							클릭하세요!</a>
+				<td><input type="button" id="chart2bt" value="차트보기" /> <em> <a target="_blank" id="chart2Databt">데이터보기</a>
 				</em></td>
+				
+				<td align="center">   &nbsp;&nbsp; * 검색조건</td>
+				<td><input type="date" id="startdate2">&nbsp;&nbsp;~&nbsp;&nbsp;<input
+					type="date" id="enddate2"></td>
 			</tr>
 			<tr>
 				<td align="center">일별 매출액&nbsp;</td>
-				<td><input type="button" id="chart3bt" value="차트보기" /> 사용한
-					데이터를 보시려면 <em> <a target="_blank" id="chart3Databt">여기를
-							클릭하세요!</a>
+				<td><input type="button" id="chart3bt" value="차트보기" /> <em> <a target="_blank" id="chart3Databt">데이터보기</a>
 				</em></td>
+				
+				<td align="center">   &nbsp;&nbsp; * 검색조건</td>
+				<td><input type="date" id="startdate3">&nbsp;&nbsp;~&nbsp;&nbsp;<input
+					type="date" id="enddate3"></td>
 			</tr>
 			<tr>
 				<td align="center">기사님 별 평균별점&nbsp;</td>
-				<td><input type="button" id="chart4bt" value="차트보기" /> 사용한
-					데이터를 보시려면 <em> <a target="_blank" id="chart4Databt">여기를
-							클릭하세요!</a>
+				<td><input type="button" id="chart4bt" value="차트보기" />  <em> <a target="_blank" id="chart4Databt">데이터보기</a>
 				</em></td>
+				
 			</tr>
 		</table>
 	</form>
@@ -80,16 +81,16 @@
 									.click(
 											function() {
 												
-												if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+												if(document.getElementById("startdate1").value==""||document.getElementById("enddate1").value==""){
 													alert('검색 날짜를 입력해주세요');
 													return;
 												}
 												var param = "startdate="
 														+ document
-																.getElementById("startdate").value
+																.getElementById("startdate1").value
 														+ "&enddate="
 														+ document
-																.getElementById("enddate").value;
+																.getElementById("enddate1").value;
 												//alert(param);
 												$
 														.ajax({
@@ -119,16 +120,16 @@
 							$("#chart1Databt")
 									.click(
 											function() {
-												if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+												if(document.getElementById("startdate1").value==""||document.getElementById("enddate1").value==""){
 													alert('검색 날짜를 입력해주세요');
 													return;
 												}
 												var param = "startdate="
 														+ document
-																.getElementById("startdate").value
+																.getElementById("startdate1").value
 														+ "&enddate="
 														+ document
-																.getElementById("enddate").value;
+																.getElementById("enddate1").value;
 												$
 														.ajax({
 															type : "post",
@@ -177,16 +178,16 @@
 							$("#chart2bt")
 									.click(
 											function() {
-												if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+												if(document.getElementById("startdate2").value==""||document.getElementById("enddate2").value==""){
 													alert('검색 날짜를 입력해주세요');
 													return;
 												}
 												var param = "startdate="
 														+ document
-																.getElementById("startdate").value
+																.getElementById("startdate2").value
 														+ "&enddate="
 														+ document
-																.getElementById("enddate").value;
+																.getElementById("enddate2").value;
 												//alert(param);
 												$
 														.ajax({
@@ -215,16 +216,16 @@
 							$("#chart2Databt")
 									.click(
 											function() {
-												if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+												if(document.getElementById("startdate2").value==""||document.getElementById("enddate2").value==""){
 													alert('검색 날짜를 입력해주세요');
 													return;
 												}
 												var param = "startdate="
 														+ document
-																.getElementById("startdate").value
+																.getElementById("startdate2").value
 														+ "&enddate="
 														+ document
-																.getElementById("enddate").value;
+																.getElementById("enddate2").value;
 												$
 														.ajax({
 															type : "post",
@@ -275,15 +276,15 @@
 
 		$("#chart3bt").click(
 				function() {
-					if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+					if(document.getElementById("startdate3").value==""||document.getElementById("enddate3").value==""){
 						alert('검색 날짜를 입력해주세요');
 						return;
 					}
 					
 					var param = "startdate="
-							+ document.getElementById("startdate").value
+							+ document.getElementById("startdate3").value
 							+ "&enddate="
-							+ document.getElementById("enddate").value;
+							+ document.getElementById("enddate3").value;
 					//alert(param);
 					$
 							.ajax({
@@ -307,14 +308,14 @@
 		$("#chart3Databt")
 				.click(
 						function() {
-							if(document.getElementById("startdate").value==""||document.getElementById("enddate").value==""){
+							if(document.getElementById("startdate3").value==""||document.getElementById("enddate3").value==""){
 								alert('검색 날짜를 입력해주세요');
 								return;
 							}
 							var param = "startdate="
-									+ document.getElementById("startdate").value
+									+ document.getElementById("startdate3").value
 									+ "&enddate="
-									+ document.getElementById("enddate").value;
+									+ document.getElementById("enddate3").value;
 							$
 									.ajax({
 										type : "post",
@@ -413,7 +414,7 @@
 
 		function chart1(result) {
 
-			document.getElementById("chartTitle").innerHTML = "<h4>일별 게시판 글 등록수</h4>";
+			document.getElementById("chartTitle").innerHTML = "<h4><일별 게시판 글 등록수></h4>";
 			// Themes begin
 			am4core.useTheme(am4themes_animated);
 			// Themes end
@@ -483,7 +484,7 @@
 
 		function chart2(result) {
 
-			document.getElementById("chartTitle").innerHTML = "<h4>일별 User 가입자수</h4>";
+			document.getElementById("chartTitle").innerHTML = "<h4><일별 User 가입자수></h4>";
 			// Themes begin
 			am4core.useTheme(am4themes_animated);
 			// Themes end
@@ -519,7 +520,7 @@
 		}
 
 		function chart3(result) {
-			document.getElementById("chartTitle").innerHTML = "<h4>일별 매출액</h4>";
+			document.getElementById("chartTitle").innerHTML = "<h4><일별 매출액></h4>";
 			
 			// Themes begin
 			am4core.useTheme(am4themes_animated);
@@ -616,7 +617,7 @@
 		}
 		
 		function chart4(result) {
-			
+			document.getElementById("chartTitle").innerHTML = "<h4><기사님별 평균별점></h4>";
 			// Themes begin
 			am4core.useTheme(am4themes_animated);
 			// Themes end
