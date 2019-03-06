@@ -2,15 +2,21 @@ package what.the.bus.util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import what.the.bus.driver.DriverVO;
+import what.the.bus.member.MemberVO;
 
 @Aspect
 @Service
@@ -31,31 +37,32 @@ public class LogAdvice extends HandlerInterceptorAdapter {
 		return true;
 	}
 
-	@Before("allPointcut()")
-	public void afterCompletion(JoinPoint jp) throws Exception {
-		long currentTime = System.currentTimeMillis();
-		HttpServletRequest request = null;
-		HttpServletResponse response = null;
-		Object handler = null;
-		Exception ex = null;
-		for (Object o : jp.getArgs()) {
-			if (o instanceof HttpServletRequest) {
-				request = (HttpServletRequest) o;
+	@Around("allPointcut()")
+	public Object afterCompletion(ProceedingJoinPoint jp) throws Throwable {
+		String id = null;
+		HttpSession session = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest()
+				.getSession();
+		// HttpServletResponse response = null;
+		/*
+		 * for (Object o : jp.getArgs()) { if (o instanceof HttpServletRequest) { req =
+		 * (HttpServletRequest) o; System.out.println("리퀘스트 받음 : " + req); }
+		 */
+		try {
+			if (session.getAttribute("member").getClass() == MemberVO.class) {
+				MemberVO vo = (MemberVO) session.getAttribute("member");
+				id = vo.getId();
 			}
-			if (o instanceof HttpServletResponse) {
-				response = (HttpServletResponse) o;
+			if (session.getAttribute("member").getClass() == DriverVO.class) {
+				DriverVO vo = (DriverVO) session.getAttribute("member");
+				id = vo.getId();
 			}
-			if (o instanceof Object) {
-				handler = (Object) o;
-			}
-			if (o instanceof Exception) {
-				ex = (Exception) o;
-			}
+		} catch (Exception e) {
+
 		}
-		String method = jp.getSignature().getName();
-
+		Object obj = jp.proceed();
+		logger.info("id : " + id);
 		logger.info(jp.getSignature().toString());
-		// super.afterCompletion(request, response, handler, ex);
-
+		return obj;
 	}
+
 }

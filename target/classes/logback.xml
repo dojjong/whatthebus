@@ -22,15 +22,15 @@
 				%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
 			</Pattern>
 		</encoder>
-		<!-- 로그를 남기는 파일의 용량이 50KB가 넘으면 이를 압축 파일로 만들고 새로 로그 파일로 만들라는 정책 -->
+		<!-- 로그를 남기는 파일의 용량이 512KB가 넘으면 이를 압축 파일로 만들고 새로 로그 파일로 만들라는 정책 -->
 		<triggeringPolicy
 			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-			<MaxFileSize>50KB</MaxFileSize>
+			<MaxFileSize>512KB</MaxFileSize>
 		</triggeringPolicy>
 		<!-- 파일을 덮어쓰는 정책 -->
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-			<FileNamePattern>C:/WhatTheBusLog/date-%d{yyyy-MM-dd}.%i.log.zip
+			<FileNamePattern>C:/WhatTheBusLog/logexample2.%i.log.zip
 			</FileNamePattern>
 			<!-- MinIndex가 1이고, MaxIndex가 10이므로, 위의 파일 이름 패턴에 따라 아래의 로그 파일이 생길 것이다. 
 				logexample2.1.log.zip logexample2.2.log.zip .... logexample2.10.log.zip 이 
@@ -40,7 +40,7 @@
 		</rollingPolicy>
 		<!-- <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy"> 
 			daily rollover <fileNamePattern>C:/WhatTheBusLog/date-%d{yyyy-MM-dd}.%i.log 
-			</fileNamePattern> keep 30 days' worth of history <maxHistory>30</maxHistory> 
+			</fileNamePattern> keep 90 days' worth of history <maxHistory>30</maxHistory> 
 			</rollingPolicy> -->
 	</appender>
 	<!-- com.victolee.logExample 아래 패키지 로그들만 consoleAppender, fileAppender 방법으로 
