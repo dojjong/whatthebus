@@ -6,11 +6,54 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+/*
+table {
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid black;
+}
+
+#tb01{
+
+	font-size: 9pt;
+	font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
+		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
+		sans-serif;}
+*/
+
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid rgb(49, 100, 176);
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(49, 100, 176);
+  color: white;
+}
+
+</style>
 </head>
 <body>
-
-	결제내역
-	<table>
+	<br/>
+	<p align="center"><b>결제내역</b></p>
+	<table align="center" id="customers">
 		<tr>
 			<th>버스번호</th>
 			<th>결제수단</th>
@@ -24,14 +67,14 @@
 
 		<c:forEach var="vo" items="${map.list }" varStatus="status">
 			<tr>
-				<td>${vo.busseq }</td>
-				<td>${vo.selectpay }</td>
-				<td>${vo.sitnum }</td>
-				<td>${vo.pay }</td>
-				<td>${vo.realregdate }</td>
-				<td><input type="button" value="후기작성"
+				<td align="center">${vo.busseq }</td>
+				<td align="center">${vo.selectpay }</td>
+				<td align="center">${vo.sitnum }번</td>
+				<td align="center">${vo.pay }원</td>
+				<td align="center">${vo.realregdate }</td>
+				<td align="center"><input type="button" value="후기작성"
 					onclick="moveReviewForm('${vo.busseq}','${map.reviewCount[status.index] }');"></td>
-				<td><c:if test="${map.reviewCount[status.index]!=0}">
+				<td align="center"><c:if test="${map.reviewCount[status.index]!=0}">
 						<font color="#0000FF">등록</font>
 					</c:if> <c:if test="${map.reviewCount[status.index]==0}">
 						<font color="#FF0000">미등록</font>
@@ -40,7 +83,7 @@
 		</c:forEach>
 
 	</table>
-
+	<br/>
 
 
 	<div align="center">

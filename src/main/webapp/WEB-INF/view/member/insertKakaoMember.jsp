@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 <style>
@@ -20,12 +21,15 @@ border-radius: 25px;
 
 }
 #welcome {
-background-color: rgb(49, 100, 176);
+background-color: rgb(250, 225, 0);
+border: 2px solid rgb(250, 225, 0);
+padding: 10px;
+border-radius: 25px;
 
 }
 
 .td_font01{
-color: white;
+color: rgb(59, 30, 30);
 	font-size: 60pt;
 	font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
 		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
@@ -50,26 +54,23 @@ color: white;
  color: grey;
 }
 
-/* 빨간선-확인용 삭제 할겁니다!*/
-div {
-   border: 1px solid red;
+
+#td01{
+	align: center;
+	font-size: 20pt;
+	font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
+		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
+		sans-serif;
 }
 
-table {
-   border: 1px solid red;
+#td02{
+align: center;
+	font-size: 15pt;
+	font-family: "Lucida Sans Unicode", "Bitstream Vera Sans",
+		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
+		sans-serif;
+
 }
-
-tr {
-   border: 1px solid red;
-}
-
-td {
-   border: 1px solid red;
-}
-/* 구간 확인용 삭제 할겁니다!*/
-
-
-
 
 
 </style>
@@ -80,27 +81,30 @@ td {
 	<div align="center">
 		<form name="form" method="post" action="insertKakaoMember.do">
 		<input type="hidden" name="id" value="${member.id }">
-		<div id="div01">
+		<div>
 			<br/>
 			<table>
 				
 				<tr>
 				<td id="welcome" colspan="3" align="center" class="td_font01"><br/>
-				<i class='fas fa-bus' style='font-size:300px;color:white;'></i><br/>
+				<i class='fas fa-bus' style='font-size:300px;color:rgb(59, 30, 30);'></i><br/>
 				&nbsp;WHAT THE BUS&nbsp;
 				</td>
 				</tr>
-				
+			</table>
+			
+			<table>	
 				
 				<tr>
-					<td colspan="3" id="welcome">
-						What the bus에 오신 것을 환영합니다.<br/>
-						원활한 서비스 이용을 위해 추가정보를 입력해주세요.
+					<td colspan="3" align="center" id="td01"><b>What the bus에 오신 것을 환영합니다.</b></td></tr>
+				<tr><td colspan="3" align="center" id="td02">원활한 서비스 이용을 위해 추가정보를 입력해주세요.
 					</td>
 				</tr>
-
+			</table>
+			
+			<table id="tb03">
 				<tr>
-					<td align="right">이름 :&nbsp;</td>
+					<td align="left">&nbsp;<i class='fas fa-angle-right'></i>&nbsp;이름</td>
 					<td align="left"><input type="text" id="insertName"
 						name="name" value="${member.name }" /> &nbsp; <font color="red">
 							<span id="nameMessage"> </span>
@@ -108,7 +112,7 @@ td {
 				</tr>
 				
 				<tr>
-					<td align="right">성별 : &nbsp;</td>
+					<td align="left">&nbsp;<i class='fas fa-angle-right'></i>&nbsp;성별 </td>
 					<td align="left"><input type="radio" id="insertGender1"
 						name="gender" value="M">남성 <input type="radio"
 						id="insertGender2" name="gender" value="F">여성&nbsp;&nbsp;
@@ -116,7 +120,7 @@ td {
 				</tr>
 
 				<tr>
-					<td align="right">전화번호 :&nbsp;</td>
+					<td align="left">&nbsp;<i class='fas fa-angle-right'></i>&nbsp;전화번호</td>
 					<td align="left"><select id="insertTel1" name="tel1">
 							<option value="010" selected>010</option>
 							<option value="011">011</option>
@@ -130,7 +134,7 @@ td {
 				</tr>
 				
 				<tr>
-					<td colspan="2" align="right"><input type="reset"
+					<td colspan="2" align="center"><input type="reset"
 						class="contentbt" value="다시입력" />&nbsp;&nbsp; <input type="submit"
 						id="insertCheckbt" class="contentbt" value="수정완료" />&nbsp;&nbsp;</td>
 				</tr>
@@ -139,6 +143,6 @@ td {
 			</div>
 		</form>
 	</div>
-
+	<br/>
 </body>
 </html>
