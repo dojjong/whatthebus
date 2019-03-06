@@ -148,6 +148,13 @@
 	SELECT CONDITION"date", COUNT(*)"value" FROM (SELECT REGDATE, TO_CHAR(REGDATE, 'yyyy-mm-dd') AS CONDITION FROM BOARD WHERE REGDATE BETWEEN to_date(#{c_startdate},'yyyy-mm-dd') and to_date(#{c_enddate},'yyyy-mm-dd')) GROUP BY CONDITION ORDER BY CONDITION ASC	
 	]]>
 	</select>
+	
+	<!-- 추천 마감 임박(report3) -->
+	<select id="getHotBoardMove" resultType="board" parameterType="board">
+	<![CDATA[ 
+	select * from board where best > ${bestgoal-10} and best < ${bestgoal} order by best asc
+	]]>
+	</select>
 
 
 

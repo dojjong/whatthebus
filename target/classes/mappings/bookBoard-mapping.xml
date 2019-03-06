@@ -130,9 +130,10 @@
 	</select>
 	
 	<!-- 검색기간별 상품 리스트(report) -->
-	<select id="getBookBoardListReport" resultType="suggestBoard" parameterType="suggestBoard">	
+	<select id="getBookBoardListReport" resultType="report2" parameterType="suggestBoard">	
 	<![CDATA[
-	SELECT ROWNUM "NUM", TITLE, NAME, regdate,bus, pay, to_char(STARTDATE,'yyyy-MM-dd HH24:mi:ss')"REALSTARTDATE" FROM (SELECT * FROM SUGGESTBOARD WHERE regdate BETWEEN to_date(#{c_startdate},'yyyy-mm-dd') and to_date(#{c_enddate},'yyyy-mm-dd') ORDER BY regdate asc) 
+	
+	SELECT ROWNUM "NUM", TITLE, NAME,bus, pay, to_char(STARTDATE,'yyyy-MM-dd HH24:mi:ss')"REALSTARTDATE" FROM (SELECT * FROM SUGGESTBOARD WHERE regdate BETWEEN to_date(#{c_startdate},'yyyy-mm-dd') and to_date(#{c_enddate},'yyyy-mm-dd') ORDER BY regdate asc) 
 	]]>	
 	</select>
 	

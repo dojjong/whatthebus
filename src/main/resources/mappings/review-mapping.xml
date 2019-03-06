@@ -52,7 +52,7 @@
 	<!-- 기사님 별 평점 리스트 전체(report) -->
 	<select id="getReviewListPerDriver" resultType="report1">
 	<![CDATA[ 
-	SELECT ROWNUM "rank", A.* FROM (SELECT drivername, count(*)"count", TO_CHAR(round(AVG(STAR), 2),'999,999.99')"avg" FROM REVIEW GROUP BY DRIVERNAME ORDER BY DRIVERNAME ASC) A
+	SELECT ROWNUM "rank", A.* FROM (SELECT drivername, count(*)"count", TO_CHAR(round(AVG(STAR), 2),'9.99')"avg" FROM REVIEW GROUP BY DRIVERNAME ORDER BY DRIVERNAME ASC) A
 	]]>
 	</select>
 	

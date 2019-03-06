@@ -53,5 +53,10 @@ public class GetBoardListServiceImpl implements GetBoardListService {
 		return boardDAO.getBoardCountPerRegdate(vo);
 	}
 
+	@Override
+	public List<BoardVO> getHotBoardMove(BoardVO vo) {
+		return boardDAO.getHotBoardMove(vo);
+	}
+
 
 }

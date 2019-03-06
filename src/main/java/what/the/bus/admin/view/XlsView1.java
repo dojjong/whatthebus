@@ -29,10 +29,10 @@ public class XlsView1 extends AbstractXlsView{
 		
 
 		// change the file name
-		response.setHeader("Content-Disposition", "attachment; filename=\"기사님별평점순위.xls\"");
+		response.setHeader("Content-Disposition", "attachment; filename=\"reviewList.xls\"");
 		
 		@SuppressWarnings("unchecked")
-		List<ReportVO1> reviewList = (List<ReportVO1>) model.get("list");
+		List<ReportVO1> reviewList = (List<ReportVO1>) model.get("list1");
 		//System.out.println("size="+afterBoardList.size());
 		// create excel xls sheet
 		Sheet sheet = workbook.createSheet("reviewList");

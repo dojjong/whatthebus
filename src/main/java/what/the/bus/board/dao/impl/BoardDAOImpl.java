@@ -99,4 +99,9 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<ChartVO1> getBoardCountPerRegdate(BoardVO vo) {
 		return mybatis.selectList("BoardDAO.getBoardCountPerRegdate", vo);
 	}
+
+	@Override
+	public List<BoardVO> getHotBoardMove(BoardVO vo) {
+		return mybatis.selectList("BoardDAO.getHotBoardMove", vo);
+	}
 }

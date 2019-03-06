@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import what.the.bus.admin.ReportVO2;
 import what.the.bus.bookBoard.dao.BookBoardDAO;
 import what.the.bus.bookBoard.dao.impl.BookBoardDAOImpl;
 import what.the.bus.bookBoard.service.GetBookBoardListService;
@@ -56,7 +57,7 @@ public class GetBookBoardListServiceImpl implements GetBookBoardListService {
 	}
 
 	@Override
-	public List<SuggestBoardVO> getBookBoardListReport(SuggestBoardVO vo) {
+	public List<ReportVO2> getBookBoardListReport(SuggestBoardVO vo) {
 		return bookBoardDAO.getBookBoardListReport(vo);
 	}
 }

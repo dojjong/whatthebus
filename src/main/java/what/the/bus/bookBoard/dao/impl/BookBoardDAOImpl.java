@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import what.the.bus.admin.ReportVO2;
 import what.the.bus.bookBoard.dao.BookBoardDAO;
 import what.the.bus.bookcomment.BookCommentVO;
 import what.the.bus.suggestBoard.SuggestBoardVO;
@@ -81,8 +82,8 @@ public class BookBoardDAOImpl implements BookBoardDAO {
 	}
 
 	@Override
-	public List<SuggestBoardVO> getBookBoardListReport(SuggestBoardVO vo) {
-		return mybatis.selectList("BookBoardDAO.getBookBoardListReport");
+	public List<ReportVO2> getBookBoardListReport(SuggestBoardVO vo) {
+		return mybatis.selectList("BookBoardDAO.getBookBoardListReport", vo);
 	}
 
 }

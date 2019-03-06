@@ -7,6 +7,8 @@
 	<typeAliases>
 	<typeAlias type="what.the.bus.admin.ReportVO1"
 			alias="report1"></typeAlias>
+			<typeAlias type="what.the.bus.admin.ReportVO2"
+			alias="report2"></typeAlias>
 		<typeAlias type="what.the.bus.member.MemberVO"
 			alias="member"></typeAlias>
 		<typeAlias type="what.the.bus.driver.DriverVO"

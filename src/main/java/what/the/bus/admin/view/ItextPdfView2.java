@@ -19,7 +19,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import what.the.bus.admin.AbstractPdfView;
-import what.the.bus.admin.ReportVO1;
+import what.the.bus.admin.ReportVO2;
 import what.the.bus.suggestBoard.SuggestBoardVO;
 
 public class ItextPdfView2 extends AbstractPdfView {
@@ -44,34 +44,34 @@ public class ItextPdfView2 extends AbstractPdfView {
 		}
 		Font font = new Font(bf, 12);
 		Font title_font = new Font(bf, 25);
-		Paragraph p = new Paragraph("기사님 별 별점 순위 리스트", title_font);	
+		Paragraph p = new Paragraph("상품 목록 리스트", title_font);	
 		document.add(p);
 		document.add(new Paragraph("\n\n",font));
 		@SuppressWarnings("unchecked")
-		List<SuggestBoardVO> bookboardList = (List<SuggestBoardVO>) model.get("list");
+		List<ReportVO2> bookboardList = (List<ReportVO2>) model.get("list2");
 		
-		PdfPTable table = new PdfPTable(7);
-		table.setWidths(new int[] { 20, 50, 50, 50, 50, 50, 50});
+		PdfPTable table = new PdfPTable(6);
+		table.setWidths(new int[] { 20, 80, 50, 50, 50, 50});
 
 		table.addCell(new Paragraph("번호", font));
-		table.addCell(new Paragraph("상품명", font));
-		table.addCell(new Paragraph("상품발의자", font));
-		table.addCell(new Paragraph("상품등록일", font));
+		table.addCell(new Paragraph("상품제목", font));
+		table.addCell(new Paragraph("이름", font));
 		table.addCell(new Paragraph("차량", font));
 		table.addCell(new Paragraph("가격", font));
 		table.addCell(new Paragraph("상품시작일", font));
 	
 		
 		
-		/*
-		for (SuggestBoardVO vo : bookboardList) {
-			table.addCell(new Paragraph(String.valueOf(vo.getRank()), font));
-			table.addCell(new Paragraph(vo.getDrivername(), font));
-			table.addCell(new Paragraph(vo.getAvg(), font));
-			table.addCell(new Paragraph(String.valueOf(vo.getCount()), font));
-			table.addCell(new Paragraph(vo.getGrade(), font));
+	
+		for (ReportVO2 vo : bookboardList) {
+			table.addCell(new Paragraph(String.valueOf(vo.getNum()), font));
+			table.addCell(new Paragraph(vo.getTitle(), font));
+			table.addCell(new Paragraph(vo.getName(), font));
+			table.addCell(new Paragraph(String.valueOf(vo.getBus()), font));
+			table.addCell(new Paragraph(String.valueOf(vo.getPay()), font));
+			table.addCell(new Paragraph(vo.getRealstartdate(), font));
 		}
-		*/
+		
 
 		document.add(table);
 	}
