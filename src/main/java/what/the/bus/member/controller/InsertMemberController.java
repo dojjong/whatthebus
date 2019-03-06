@@ -34,7 +34,7 @@ public class InsertMemberController {
 	@RequestMapping("/view/**/insertMember.do")
 	public String insertMember(MemberVO vo) {
 		memberService.insertMember(vo);
-		return "main/main";
+		return "redirect:main.do";
 	}
 
 	@RequestMapping("/view/**/insertMemberChoice.do")

@@ -22,9 +22,19 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	<aop:aspectj-autoproxy />
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">
+					error/error.jsp
+				</prop>
+			</props>
+		</property>
+		<property name="defaultErrorView" value="error/error.jsp" />
+	</bean>
 
-
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<!-- <mvc:annotation-driven></mvc:annotation-driven> -->
 	<!-- <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"> 
 		<property name="defaultContentType" value="TEXT_HTML"/> <property name="parameterName" 
 		value="type"/> <property name="favorParameter" value="true"/> <property name="ignoreUnknownPathExtensions" 

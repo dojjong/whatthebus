@@ -20,15 +20,15 @@ public class DeleteMemberController {
 	// 회원탈퇴
 	@RequestMapping("/view/**/deleteMember.do")
 	public String deleteMember(@ModelAttribute("member") MemberVO vo, HttpSession session) {
-		if(memberService.pwCheckMember(vo) == true) {
-			session.invalidate();	
+		if (memberService.pwCheckMember(vo) == true) {
+			session.invalidate();
 			memberService.deleteMember(vo);
-			return "main/main";
-	} else {
+			return "redirect:main.do";
+		} else {
 			return "member/errorPW";
+		}
 	}
-}
-	
+
 	@RequestMapping("/view/**/moveDeleteMember.do")
 	public String moveDeleteMember() {
 		return "member/deleteMember";
