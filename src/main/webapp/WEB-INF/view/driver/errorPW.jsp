@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align="center">
-		<form method="post" action="movePwCheckDriver.do">
+		<form method="post" action="moveDeleteDriver.do">
 			<table>
 				<tr>
 					<td align="center">비밀번호가 틀렸습니다.</td>

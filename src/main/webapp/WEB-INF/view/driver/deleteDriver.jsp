@@ -25,7 +25,7 @@
 
 				<tr>
 					<td align="right">비밀번호 확인 :&nbsp;</td>
-					<td align="left""><input type="password"
+					<td align="left"><input type="password"
 						id="insertPasswordCheck" name="password" value="" />&nbsp; <font
 						color="red"><span id="passwordCheckMessage"> </span></font></td>
 				</tr>
