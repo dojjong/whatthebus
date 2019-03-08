@@ -124,6 +124,15 @@
 										});
 					});
 </script>
+
+<style>
+#outline{
+	border: 1px solid lightgrey;
+	background-color: rgb(249, 249, 249);
+}
+
+
+</style>
 </head>
 <body>
 	<div align="center">
@@ -151,7 +160,8 @@
 		<input type="hidden" id="spanImsiWido" /> <input type="hidden"
 			name="middate" value="" /> <input type="hidden" name="seq"
 			value="${vo.seq }" />
-		<table border="1" align="center">
+		
+		<table border="1" align="center" width="1000" id="outline">
 
 			<tr>
 				<td class="contenttd" width="100" align="center">작성자</td>
@@ -160,8 +170,8 @@
 
 			<tr>
 				<td width="100" align="center">제목</td>
-				<td width="700"><input type="text" size="50" maxlength="50"
-					name="title" value="${vo.title}" /></td>
+				<td width="700"><input type="text" size="110" maxlength="50"
+					name="title" value="${vo.title}" autocomplete="off"/></td>
 
 				<!-- <input type="text" size="50" maxlength="50" name="subject"
 					value="[답변]" />
@@ -170,7 +180,7 @@
 			<tr>
 				<td width="100" align="center">내용</td>
 				<td><textarea name="content" id="ir1" rows="15" cols="600"
-						style="width: 680px; height: 200px;">${vo.content }</textarea></td>
+						style="width: 850px; height: 200px;">${vo.content }</textarea></td>
 			</tr>
 			<tr>
 				<td colSpan="2">
@@ -190,7 +200,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td><div id="map" style="width: 800px; height: 300px;"></div></td>
+							<td><div id="map" style="width: 990px; height: 400px;"></div></td>
 						</tr>
 						<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;2) 검색 후, 정확한 위치를 마우스로 클릭해주세요<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주소
@@ -249,6 +259,7 @@
 		</table>
 
 	</form>
+	<br/>
 	<script type="text/javascript">
 		$(function() {
 			var oEditors = [];
