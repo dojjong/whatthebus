@@ -210,10 +210,10 @@ public class SetChartController {
 		public List<ChartVO3> getAvgStarPerDriver(Model model) throws Exception {
 
 			List<ChartVO3> list = GetReviewListService.getAvgStarPerDriver();
-			System.out.println(list.size());
-			System.out.println(list.get(0).getName());
+			//System.out.println(list.size());
+			//System.out.println(list.get(0).getName());
 			for(int i=0; i<list.size();i++) {
-				System.out.println(list.get(i).getName()+"/"+list.get(i).getPoints());
+				//System.out.println(list.get(i).getName()+"/"+list.get(i).getPoints());
 			}
 			return list;
 		}

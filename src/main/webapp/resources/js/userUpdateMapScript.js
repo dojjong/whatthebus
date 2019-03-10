@@ -134,7 +134,7 @@ function search() {
 		/* 주소 얻어오기 */
 		var coord = new daum.maps.LatLng(imsi_wido, imsi_kyungdo);
 		var callback1 = function(result, status) {
-			alert(result.length);
+			//alert(result.length);
 			imsiJuso = result[0].road_address.address_name;
 			console.log(result[0].road_address.address_name);
 			var resultSpanImsiJuso = document.getElementById('spanImsiJuso');

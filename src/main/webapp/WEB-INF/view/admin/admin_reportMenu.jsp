@@ -111,7 +111,7 @@
 				<td align="center" width="250">제목</td>
 				<td align="center" width="100">이름</td>
 				<td align="center" width="150">현재추천수</td>
-				<td align="center" width="150">현재추천수</td>
+				<td align="center" width="150">목표추천수</td>
 				<td align="center" width="150">부족추천수</td>
 			</tr>
 			<c:forEach var="vo" items="${list3 }">
@@ -223,7 +223,7 @@
 				return;
 			}
 			var url ="getBookBoardListReport.do?startdate="+document.getElementById("startdate").value+"&enddate="+document.getElementById("enddate").value+"&view=pdf"; 
-			alert(url);
+			//alert(url);
 			location.href=url;
 		});
 	});

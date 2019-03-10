@@ -252,7 +252,9 @@ public class SetReportController {
 		
 		//System.out.println("목표="+imsiVo.getBestgoal());
 		List<BoardVO> list = getBoardListService.getHotBoardMove(imsiVo);
-
+		for(int i=0; i<list.size();i++) {
+			list.get(i).setBestgoal(bestgoal);
+		}
 		
 		model.addAttribute("list3", list);
 
